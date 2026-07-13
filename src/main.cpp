@@ -25,9 +25,10 @@ uint32_t r_type(uint32_t opcode, uint32_t rd, uint32_t f3, uint32_t rs1, uint32_
 uint32_t i_type(uint32_t opcode, uint32_t rd, uint32_t f3, uint32_t rs1, int32_t imm) {
     return ((static_cast<uint32_t>(imm) & 0xFFF) << 20) | (rs1 << 15) | (f3 << 12) | (rd << 7) | opcode;
 }
-uint32_t s_type(uint32_t f3, uint32_t rs1, uint32_t rs2, int32_t imm) {
+// Generico en el opcode (STORE y STORE_FP comparten formato S-type).
+uint32_t s_type(uint32_t opcode, uint32_t f3, uint32_t rs1, uint32_t rs2, int32_t imm) {
     uint32_t u = static_cast<uint32_t>(imm) & 0xFFF;
-    return ((u >> 5) << 25) | (rs2 << 20) | (rs1 << 15) | (f3 << 12) | ((u & 0x1F) << 7) | Opcode::STORE;
+    return ((u >> 5) << 25) | (rs2 << 20) | (rs1 << 15) | (f3 << 12) | ((u & 0x1F) << 7) | opcode;
 }
 uint32_t b_type(uint32_t f3, uint32_t rs1, uint32_t rs2, int32_t imm) {
     uint32_t u = static_cast<uint32_t>(imm) & 0x1FFF;
@@ -41,6 +42,12 @@ uint32_t j_type(uint32_t rd, int32_t imm) {
     uint32_t u = static_cast<uint32_t>(imm) & 0x1FFFFF;
     return (((u >> 20) & 0x1) << 31) | (((u >> 1) & 0x3FF) << 21) | (((u >> 11) & 0x1) << 20) |
            (((u >> 12) & 0xFF) << 12) | (rd << 7) | Opcode::JAL;
+}
+// R4-type (FMADD/FMSUB/FNMSUB/FNMADD): agrega rs3 y fmt (precision;
+// 00=simple, la unica que soporta este modelo) en vez de funct7.
+uint32_t r4_type(uint32_t opcode, uint32_t rd, uint32_t f3, uint32_t rs1, uint32_t rs2, uint32_t rs3) {
+    constexpr uint32_t FMT_SINGLE = 0b00;
+    return (rs3 << 27) | (FMT_SINGLE << 25) | (rs2 << 20) | (rs1 << 15) | (f3 << 12) | (rd << 7) | opcode;
 }
 
 // Pseudo-instrucciones de conveniencia.
@@ -71,15 +78,54 @@ uint32_t AUIPC(uint32_t rd, uint32_t imm_upper20)      { return u_type(Opcode::A
 uint32_t LW(uint32_t rd, uint32_t rs1, int32_t imm)    { return i_type(Opcode::LOAD, rd, Funct3_LOAD::LW, rs1, imm); }
 uint32_t LBU(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD, rd, Funct3_LOAD::LBU, rs1, imm); }
 uint32_t LHU(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD, rd, Funct3_LOAD::LHU, rs1, imm); }
-uint32_t SW(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3_STORE::SW, rs1, rs2, imm); }
-uint32_t SB(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3_STORE::SB, rs1, rs2, imm); }
-uint32_t SH(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3_STORE::SH, rs1, rs2, imm); }
+uint32_t SW(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Opcode::STORE, Funct3_STORE::SW, rs1, rs2, imm); }
+uint32_t SB(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Opcode::STORE, Funct3_STORE::SB, rs1, rs2, imm); }
+uint32_t SH(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Opcode::STORE, Funct3_STORE::SH, rs1, rs2, imm); }
 uint32_t BEQ(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BEQ, rs1, rs2, imm); }
 uint32_t BNE(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BNE, rs1, rs2, imm); }
 uint32_t BLT(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BLT, rs1, rs2, imm); }
 uint32_t BGE(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BGE, rs1, rs2, imm); }
 uint32_t JAL(uint32_t rd, int32_t imm)                 { return j_type(rd, imm); }
 uint32_t JALR(uint32_t rd, uint32_t rs1, int32_t imm)  { return i_type(Opcode::JALR, rd, Funct3_ALU::ADD_SUB, rs1, imm); }
+
+// Extension F (simple precision). rm (funct3 de las 5 operaciones
+// aritmeticas base) siempre 0b000 = RNE: este modelo no implementa
+// frm/fflags, ver fp_ops.h.
+constexpr uint32_t RM_RNE = 0b000;
+
+uint32_t FLW(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD_FP, rd, Funct3_FP_MEM::W, rs1, imm); }
+uint32_t FSW(uint32_t rs1, uint32_t rs2, int32_t imm)  { return s_type(Opcode::STORE_FP, Funct3_FP_MEM::W, rs1, rs2, imm); }
+
+uint32_t FADD_S(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, rs2, Funct7_FP::FADD_S); }
+uint32_t FSUB_S(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, rs2, Funct7_FP::FSUB_S); }
+uint32_t FMUL_S(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, rs2, Funct7_FP::FMUL_S); }
+uint32_t FDIV_S(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, rs2, Funct7_FP::FDIV_S); }
+uint32_t FSQRT_S(uint32_t rd, uint32_t rs1)               { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, 0, Funct7_FP::FSQRT_S); }
+
+uint32_t FSGNJ_S(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP_FP, rd, Funct3_FSGNJ::FSGNJ, rs1, rs2, Funct7_FP::FSGNJ_S); }
+uint32_t FSGNJN_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FSGNJ::FSGNJN, rs1, rs2, Funct7_FP::FSGNJ_S); }
+uint32_t FSGNJX_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FSGNJ::FSGNJX, rs1, rs2, Funct7_FP::FSGNJ_S); }
+
+uint32_t FMIN_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FMINMAX::FMIN, rs1, rs2, Funct7_FP::FMINMAX_S); }
+uint32_t FMAX_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FMINMAX::FMAX, rs1, rs2, Funct7_FP::FMINMAX_S); }
+
+uint32_t FEQ_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FCMP::FEQ, rs1, rs2, Funct7_FP::FCMP_S); }
+uint32_t FLT_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FCMP::FLT, rs1, rs2, Funct7_FP::FCMP_S); }
+uint32_t FLE_S(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP_FP, rd, Funct3_FCMP::FLE, rs1, rs2, Funct7_FP::FCMP_S); }
+
+uint32_t FCVT_W_S(uint32_t rd, uint32_t rs1)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, Rs2_FCVT::W, Funct7_FP::FCVT_W_S); }
+uint32_t FCVT_WU_S(uint32_t rd, uint32_t rs1) { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, Rs2_FCVT::WU, Funct7_FP::FCVT_W_S); }
+uint32_t FCVT_S_W(uint32_t rd, uint32_t rs1)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, Rs2_FCVT::W, Funct7_FP::FCVT_S_W); }
+uint32_t FCVT_S_WU(uint32_t rd, uint32_t rs1) { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, Rs2_FCVT::WU, Funct7_FP::FCVT_S_W); }
+
+uint32_t FMV_X_W(uint32_t rd, uint32_t rs1)  { return r_type(Opcode::OP_FP, rd, Funct3_FMV_FCLASS::FMV_X_W, rs1, 0, Funct7_FP::FMV_X_W_FCLASS_S); }
+uint32_t FCLASS_S(uint32_t rd, uint32_t rs1) { return r_type(Opcode::OP_FP, rd, Funct3_FMV_FCLASS::FCLASS_S, rs1, 0, Funct7_FP::FMV_X_W_FCLASS_S); }
+uint32_t FMV_W_X(uint32_t rd, uint32_t rs1)  { return r_type(Opcode::OP_FP, rd, RM_RNE, rs1, 0, Funct7_FP::FMV_W_X); }
+
+uint32_t FMADD_S(uint32_t rd, uint32_t rs1, uint32_t rs2, uint32_t rs3)  { return r4_type(Opcode::FMADD, rd, RM_RNE, rs1, rs2, rs3); }
+uint32_t FMSUB_S(uint32_t rd, uint32_t rs1, uint32_t rs2, uint32_t rs3)  { return r4_type(Opcode::FMSUB, rd, RM_RNE, rs1, rs2, rs3); }
+uint32_t FNMSUB_S(uint32_t rd, uint32_t rs1, uint32_t rs2, uint32_t rs3) { return r4_type(Opcode::FNMSUB, rd, RM_RNE, rs1, rs2, rs3); }
+uint32_t FNMADD_S(uint32_t rd, uint32_t rs1, uint32_t rs2, uint32_t rs3) { return r4_type(Opcode::FNMADD, rd, RM_RNE, rs1, rs2, rs3); }
 
 } // namespace asmenc
 
@@ -184,6 +230,51 @@ std::vector<uint32_t> build_test_program() {
     push(DIV(17, 15, 16));     // x17 = DIV(INT32_MIN,-1) = INT32_MIN (overflow, no trap)
     push(REM(18, 15, 16));     // x18 = REM(INT32_MIN,-1) = 0          (overflow, no trap)
 
+    // --- Bloque 8: extension F (simple precision). Tambien al final,
+    // reutiliza libremente x2..x13 y f1..f19. ---
+    push(ADDI(2, 0, 10));       // x2 = 10
+    push(FCVT_S_W(1, 2));       // f1 = 10.0
+    push(ADDI(3, 0, 3));        // x3 = 3
+    push(FCVT_S_W(2, 3));       // f2 = 3.0
+
+    push(FADD_S(3, 1, 2));      // f3 = 13.0
+    push(FSUB_S(4, 1, 2));      // f4 = 7.0
+    push(FMUL_S(5, 1, 2));      // f5 = 30.0
+    push(FDIV_S(6, 1, 2));      // f6 = 3.33333325 (10/3 en simple precision)
+    push(FSQRT_S(7, 5));        // f7 = sqrt(30) = 5.4772258
+
+    push(FMIN_S(8, 1, 2));      // f8 = 3.0
+    push(FMAX_S(9, 1, 2));      // f9 = 10.0
+
+    push(ADDI(4, 0, -1));       // x4 = -1
+    push(FCVT_S_W(11, 4));      // f11 = -1.0
+    push(FSGNJ_S(10, 1, 2));    // f10 = |f1| con signo de f2(+)  = +10.0
+    push(FSGNJN_S(12, 1, 11));  // f12 = |f1| con signo de -f11(-,invertido=+) = +10.0
+    push(FSGNJX_S(13, 1, 11));  // f13 = |f1| con signo(f1)^signo(f11) = +^- = -10.0
+
+    push(FEQ_S(5, 1, 1));       // x5 = 1 (f1==f1)
+    push(FLT_S(6, 2, 1));       // x6 = 1 (3.0 < 10.0)
+    push(FLE_S(7, 1, 1));       // x7 = 1 (f1<=f1)
+
+    push(FCVT_W_S(8, 6));       // x8 = round(3.33333325) = 3   (redondeo del FDIV_S de arriba, f6)
+    push(FCVT_WU_S(9, 1));      // x9 = 10
+
+    push(FMV_X_W(10, 1));       // x10 = bits crudos de 10.0f = 0x41200000
+    push(FMV_W_X(14, 10));      // f14 = bits_to_float(x10) = 10.0 (ida y vuelta)
+
+    push(FCLASS_S(11, 1));      // x11 = 0x40 (bit6: +normal)
+
+    push(FMADD_S(15, 1, 2, 4));  // f15 = f1*f2+f4 = 30+7  = 37.0
+    push(FMSUB_S(16, 1, 2, 4));  // f16 = f1*f2-f4 = 30-7  = 23.0
+    push(FNMSUB_S(17, 1, 2, 4)); // f17 = -(f1*f2)+f4 = -30+7 = -23.0
+    push(FNMADD_S(18, 1, 2, 4)); // f18 = -(f1*f2)-f4 = -30-7 = -37.0
+
+    push(LUI(12, 1));            // x12 = 0x1000
+    push(ADDI(12, 12, 0x10));    // x12 = 0x1010 (base test FLW/FSW)
+    push(FSW(12, 1, 0));         // mem[0x1010..13] = bits de f1 (10.0)
+    push(FLW(19, 12, 0));        // f19 = 10.0 (leido de vuelta desde RAM)
+    push(FEQ_S(13, 1, 19));      // x13 = 1 (round-trip por memoria preserva el bit pattern)
+
     // --- Fin de programa: palabra nula detiene la CPU (ver processor.h) ---
     push(0x00000000);
 
@@ -210,6 +301,9 @@ SC_MODULE(Testbench) {
 
         std::cout << "\n=== Volcado de registros RV32I ===" << std::endl;
         cpu.dump_regs();
+
+        std::cout << "\n=== Volcado de registros F (simple precision) ===" << std::endl;
+        cpu.dump_fregs();
 
         // Dato escrito por la CPU, leido directamente de la memoria (backdoor,
         // solo para el print de verificacion del testbench).

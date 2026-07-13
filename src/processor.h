@@ -10,6 +10,7 @@
 
 #include "rv32i_defs.h"
 #include "immediates.h"
+#include "fp_ops.h"
 
 // CPU RV32I monociclo. INITIATOR puro hacia el Bus: toda direccion que
 // maneja (fetch, load, store) es GLOBAL dentro del mapa de memoria.
@@ -17,6 +18,7 @@ SC_MODULE(Processor) {
     tlm_utils::simple_initiator_socket<Processor, 32> init_socket;
 
     std::array<uint32_t, 32> regs{};
+    std::array<float, 32> fregs{}; // banco de registros f0-f31 (extension F, simple precision)
     uint32_t pc = 0;
     bool halted = false;
     sc_event finished; // se notifica cuando el programa llega a instr==0
@@ -287,6 +289,132 @@ SC_MODULE(Processor) {
                     write_reg(rd, pc + static_cast<uint32_t>(rv32i::get_imm_U(instr)));
                     break;
 
+                case rv32i::Opcode::LOAD_FP: {
+                    // Unico ancho soportado: FLW (f3 == Funct3_FP_MEM::W).
+                    int32_t imm = rv32i::get_imm_I(instr);
+                    uint32_t addr = regs[rs1i] + imm;
+                    fregs[rd] = rv32i::bits_to_float(load(addr, 4));
+                    break;
+                }
+
+                case rv32i::Opcode::STORE_FP: {
+                    // Unico ancho soportado: FSW (f3 == Funct3_FP_MEM::W).
+                    int32_t imm = rv32i::get_imm_S(instr);
+                    uint32_t addr = regs[rs1i] + imm;
+                    store(addr, rv32i::float_to_bits(fregs[rs2i]), 4);
+                    break;
+                }
+
+                // FMADD/FMSUB/FNMSUB/FNMADD: R4-type, un tercer operando
+                // fuente (rs3) ademas de rs1/rs2. std::fma calcula
+                // (a*b)+c con un unico redondeo final (fused), igual que
+                // exige el ISA (a diferencia de hacer a*b y despues +c
+                // por separado, que redondearia dos veces).
+                case rv32i::Opcode::FMADD: {
+                    uint32_t r3 = rv32i::rs3(instr);
+                    fregs[rd] = std::fma(fregs[rs1i], fregs[rs2i], fregs[r3]);
+                    break;
+                }
+                case rv32i::Opcode::FMSUB: {
+                    uint32_t r3 = rv32i::rs3(instr);
+                    fregs[rd] = std::fma(fregs[rs1i], fregs[rs2i], -fregs[r3]);
+                    break;
+                }
+                case rv32i::Opcode::FNMSUB: {
+                    uint32_t r3 = rv32i::rs3(instr);
+                    fregs[rd] = std::fma(-fregs[rs1i], fregs[rs2i], fregs[r3]);
+                    break;
+                }
+                case rv32i::Opcode::FNMADD: {
+                    uint32_t r3 = rv32i::rs3(instr);
+                    fregs[rd] = std::fma(-fregs[rs1i], fregs[rs2i], -fregs[r3]);
+                    break;
+                }
+
+                case rv32i::Opcode::OP_FP: {
+                    switch (f7) {
+                        case rv32i::Funct7_FP::FADD_S:
+                            fregs[rd] = fregs[rs1i] + fregs[rs2i];
+                            break;
+                        case rv32i::Funct7_FP::FSUB_S:
+                            fregs[rd] = fregs[rs1i] - fregs[rs2i];
+                            break;
+                        case rv32i::Funct7_FP::FMUL_S:
+                            fregs[rd] = fregs[rs1i] * fregs[rs2i];
+                            break;
+                        case rv32i::Funct7_FP::FDIV_S:
+                            fregs[rd] = fregs[rs1i] / fregs[rs2i];
+                            break;
+                        case rv32i::Funct7_FP::FSQRT_S:
+                            fregs[rd] = std::sqrt(fregs[rs1i]);
+                            break;
+
+                        case rv32i::Funct7_FP::FSGNJ_S: {
+                            uint32_t a = rv32i::float_to_bits(fregs[rs1i]);
+                            uint32_t b = rv32i::float_to_bits(fregs[rs2i]);
+                            uint32_t sign = 0;
+                            switch (f3) {
+                                case rv32i::Funct3_FSGNJ::FSGNJ:  sign = b & 0x80000000; break;
+                                case rv32i::Funct3_FSGNJ::FSGNJN: sign = (~b) & 0x80000000; break;
+                                case rv32i::Funct3_FSGNJ::FSGNJX: sign = (a ^ b) & 0x80000000; break;
+                            }
+                            fregs[rd] = rv32i::bits_to_float((a & 0x7FFFFFFF) | sign);
+                            break;
+                        }
+
+                        case rv32i::Funct7_FP::FMINMAX_S:
+                            if (f3 == rv32i::Funct3_FMINMAX::FMIN)
+                                fregs[rd] = std::fmin(fregs[rs1i], fregs[rs2i]);
+                            else
+                                fregs[rd] = std::fmax(fregs[rs1i], fregs[rs2i]);
+                            break;
+
+                        case rv32i::Funct7_FP::FCMP_S: {
+                            // Los comparadores de C++ con NaN siempre dan
+                            // false (IEEE-754), que es exactamente el
+                            // resultado que exige el ISA para FEQ/FLT/FLE
+                            // con NaN, sin necesitar codigo especial.
+                            uint32_t result = 0;
+                            switch (f3) {
+                                case rv32i::Funct3_FCMP::FLE: result = (fregs[rs1i] <= fregs[rs2i]) ? 1 : 0; break;
+                                case rv32i::Funct3_FCMP::FLT: result = (fregs[rs1i] <  fregs[rs2i]) ? 1 : 0; break;
+                                case rv32i::Funct3_FCMP::FEQ: result = (fregs[rs1i] == fregs[rs2i]) ? 1 : 0; break;
+                            }
+                            write_reg(rd, result);
+                            break;
+                        }
+
+                        case rv32i::Funct7_FP::FCVT_W_S: {
+                            uint32_t r2 = rv32i::rs2(instr); // reusado como selector W/WU
+                            uint32_t result = (r2 == rv32i::Rs2_FCVT::WU)
+                                                  ? rv32i::fcvt_wu_s(fregs[rs1i])
+                                                  : static_cast<uint32_t>(rv32i::fcvt_w_s(fregs[rs1i]));
+                            write_reg(rd, result);
+                            break;
+                        }
+
+                        case rv32i::Funct7_FP::FCVT_S_W: {
+                            uint32_t r2 = rv32i::rs2(instr); // reusado como selector W/WU
+                            fregs[rd] = (r2 == rv32i::Rs2_FCVT::WU)
+                                            ? static_cast<float>(regs[rs1i])
+                                            : static_cast<float>(static_cast<int32_t>(regs[rs1i]));
+                            break;
+                        }
+
+                        case rv32i::Funct7_FP::FMV_X_W_FCLASS_S:
+                            if (f3 == rv32i::Funct3_FMV_FCLASS::FCLASS_S)
+                                write_reg(rd, rv32i::fclass_s(fregs[rs1i]));
+                            else
+                                write_reg(rd, rv32i::float_to_bits(fregs[rs1i]));
+                            break;
+
+                        case rv32i::Funct7_FP::FMV_W_X:
+                            fregs[rd] = rv32i::bits_to_float(regs[rs1i]);
+                            break;
+                    }
+                    break;
+                }
+
                 default:
                     std::cerr << "[Processor] Opcode desconocido 0x" << std::hex << opcode
                               << " en PC=0x" << pc << std::dec << std::endl;
@@ -302,6 +430,14 @@ SC_MODULE(Processor) {
     void dump_regs() const {
         for (int i = 0; i < 32; ++i) {
             std::cout << "x" << i << "=0x" << std::hex << regs[i] << std::dec;
+            std::cout << ((i == 31) ? "\n" : " ");
+        }
+    }
+
+    void dump_fregs() const {
+        for (int i = 0; i < 32; ++i) {
+            std::cout << "f" << i << "=" << fregs[i]
+                       << "(0x" << std::hex << rv32i::float_to_bits(fregs[i]) << std::dec << ")";
             std::cout << ((i == 31) ? "\n" : " ");
         }
     }
