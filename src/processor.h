@@ -93,66 +93,119 @@ SC_MODULE(Processor) {
             switch (opcode) {
                 case rv32i::Opcode::OP: {
                     uint32_t result = 0;
-                    switch (f3) {
-                        case rv32i::Funct3::ADD_SUB:
-                            result = (f7 == rv32i::Funct7::ALT) ? (r1 - r2) : (r1 + r2);
-                            break;
-                        case rv32i::Funct3::SLL:
-                            result = static_cast<uint32_t>(r1) << (r2 & 0x1F);
-                            break;
-                        case rv32i::Funct3::SLT:
-                            result = (r1 < r2) ? 1 : 0;
-                            break;
-                        case rv32i::Funct3::SLTU:
-                            result = (regs[rs1i] < regs[rs2i]) ? 1 : 0;
-                            break;
-                        case rv32i::Funct3::XOR:
-                            result = regs[rs1i] ^ regs[rs2i];
-                            break;
-                        case rv32i::Funct3::SRL_SRA:
-                            result = (f7 == rv32i::Funct7::ALT)
-                                         ? static_cast<uint32_t>(r1 >> (r2 & 0x1F))
-                                         : (regs[rs1i] >> (regs[rs2i] & 0x1F));
-                            break;
-                        case rv32i::Funct3::OR:
-                            result = regs[rs1i] | regs[rs2i];
-                            break;
-                        case rv32i::Funct3::AND:
-                            result = regs[rs1i] & regs[rs2i];
-                            break;
+
+                    if (f7 == rv32i::Funct7::MULDIV) {
+                        // Extension M: mismo opcode OP, distinguida solo por
+                        // funct7. Los productos de 64 bits se calculan en
+                        // int64_t/uint64_t y se toma la mitad alta o baja
+                        // segun corresponda.
+                        int64_t  r1_64  = static_cast<int64_t>(r1);
+                        int64_t  r2_64  = static_cast<int64_t>(r2);
+                        uint64_t u1_64  = static_cast<uint64_t>(regs[rs1i]);
+                        uint64_t u2_64  = static_cast<uint64_t>(regs[rs2i]);
+
+                        switch (f3) {
+                            case rv32i::Funct3_MULDIV::MUL:
+                                result = static_cast<uint32_t>(regs[rs1i] * regs[rs2i]);
+                                break;
+                            case rv32i::Funct3_MULDIV::MULH:
+                                result = static_cast<uint32_t>(static_cast<uint64_t>(r1_64 * r2_64) >> 32);
+                                break;
+                            case rv32i::Funct3_MULDIV::MULHSU:
+                                result = static_cast<uint32_t>(static_cast<uint64_t>(r1_64 * static_cast<int64_t>(u2_64)) >> 32);
+                                break;
+                            case rv32i::Funct3_MULDIV::MULHU:
+                                result = static_cast<uint32_t>((u1_64 * u2_64) >> 32);
+                                break;
+                            case rv32i::Funct3_MULDIV::DIV:
+                                if (r2 == 0) {
+                                    result = 0xFFFFFFFF; // division por cero: -1
+                                } else if (regs[rs1i] == 0x80000000 && r2 == -1) {
+                                    result = 0x80000000; // overflow: INT32_MIN / -1
+                                } else {
+                                    result = static_cast<uint32_t>(r1 / r2);
+                                }
+                                break;
+                            case rv32i::Funct3_MULDIV::DIVU:
+                                result = (regs[rs2i] == 0) ? 0xFFFFFFFF : (regs[rs1i] / regs[rs2i]);
+                                break;
+                            case rv32i::Funct3_MULDIV::REM:
+                                if (r2 == 0) {
+                                    result = regs[rs1i]; // division por cero: resto = dividendo
+                                } else if (regs[rs1i] == 0x80000000 && r2 == -1) {
+                                    result = 0; // overflow: resto = 0
+                                } else {
+                                    result = static_cast<uint32_t>(r1 % r2);
+                                }
+                                break;
+                            case rv32i::Funct3_MULDIV::REMU:
+                                result = (regs[rs2i] == 0) ? regs[rs1i] : (regs[rs1i] % regs[rs2i]);
+                                break;
+                        }
+                    } else {
+                        switch (f3) {
+                            case rv32i::Funct3_ALU::ADD_SUB:
+                                result = (f7 == rv32i::Funct7::ALT) ? (r1 - r2) : (r1 + r2);
+                                break;
+                            case rv32i::Funct3_ALU::SLL:
+                                result = static_cast<uint32_t>(r1) << (r2 & 0x1F);
+                                break;
+                            case rv32i::Funct3_ALU::SLT:
+                                result = (r1 < r2) ? 1 : 0;
+                                break;
+                            case rv32i::Funct3_ALU::SLTU:
+                                result = (regs[rs1i] < regs[rs2i]) ? 1 : 0;
+                                break;
+                            case rv32i::Funct3_ALU::XOR:
+                                result = regs[rs1i] ^ regs[rs2i];
+                                break;
+                            case rv32i::Funct3_ALU::SRL_SRA:
+                                result = (f7 == rv32i::Funct7::ALT)
+                                             ? static_cast<uint32_t>(r1 >> (r2 & 0x1F))
+                                             : (regs[rs1i] >> (regs[rs2i] & 0x1F));
+                                break;
+                            case rv32i::Funct3_ALU::OR:
+                                result = regs[rs1i] | regs[rs2i];
+                                break;
+                            case rv32i::Funct3_ALU::AND:
+                                result = regs[rs1i] & regs[rs2i];
+                                break;
+                        }
                     }
+
                     write_reg(rd, result);
                     break;
                 }
 
                 case rv32i::Opcode::OP_IMM: {
-                    int32_t imm = rv32i::imm_i(instr);
+                    int32_t imm = rv32i::get_imm_I(instr);
+                    uint32_t shamt = rv32i::get_shamt(instr);
                     uint32_t result = 0;
                     switch (f3) {
-                        case rv32i::Funct3::ADD_SUB:
+                        case rv32i::Funct3_ALU::ADD_SUB:
                             result = r1 + imm;
                             break;
-                        case rv32i::Funct3::SLL:
-                            result = static_cast<uint32_t>(r1) << (imm & 0x1F);
+                        case rv32i::Funct3_ALU::SLL:
+                            result = static_cast<uint32_t>(r1) << shamt;
                             break;
-                        case rv32i::Funct3::SLT:
+                        case rv32i::Funct3_ALU::SLT:
                             result = (r1 < imm) ? 1 : 0;
                             break;
-                        case rv32i::Funct3::SLTU:
+                        case rv32i::Funct3_ALU::SLTU:
                             result = (regs[rs1i] < static_cast<uint32_t>(imm)) ? 1 : 0;
                             break;
-                        case rv32i::Funct3::XOR:
+                        case rv32i::Funct3_ALU::XOR:
                             result = regs[rs1i] ^ static_cast<uint32_t>(imm);
                             break;
-                        case rv32i::Funct3::SRL_SRA:
+                        case rv32i::Funct3_ALU::SRL_SRA:
                             result = (rv32i::funct7(instr) == rv32i::Funct7::ALT)
-                                         ? static_cast<uint32_t>(r1 >> (imm & 0x1F))
-                                         : (regs[rs1i] >> (imm & 0x1F));
+                                         ? static_cast<uint32_t>(r1 >> shamt)
+                                         : (regs[rs1i] >> shamt);
                             break;
-                        case rv32i::Funct3::OR:
+                        case rv32i::Funct3_ALU::OR:
                             result = regs[rs1i] | static_cast<uint32_t>(imm);
                             break;
-                        case rv32i::Funct3::AND:
+                        case rv32i::Funct3_ALU::AND:
                             result = regs[rs1i] & static_cast<uint32_t>(imm);
                             break;
                     }
@@ -161,23 +214,23 @@ SC_MODULE(Processor) {
                 }
 
                 case rv32i::Opcode::LOAD: {
-                    int32_t imm = rv32i::imm_i(instr);
+                    int32_t imm = rv32i::get_imm_I(instr);
                     uint32_t addr = regs[rs1i] + imm;
                     uint32_t result = 0;
                     switch (f3) {
-                        case rv32i::Funct3::LB:
+                        case rv32i::Funct3_LOAD::LB:
                             result = static_cast<uint32_t>(static_cast<int32_t>(static_cast<int8_t>(load(addr, 1))));
                             break;
-                        case rv32i::Funct3::LH:
+                        case rv32i::Funct3_LOAD::LH:
                             result = static_cast<uint32_t>(static_cast<int32_t>(static_cast<int16_t>(load(addr, 2))));
                             break;
-                        case rv32i::Funct3::LW:
+                        case rv32i::Funct3_LOAD::LW:
                             result = load(addr, 4);
                             break;
-                        case rv32i::Funct3::LBU:
+                        case rv32i::Funct3_LOAD::LBU:
                             result = load(addr, 1) & 0xFF;
                             break;
-                        case rv32i::Funct3::LHU:
+                        case rv32i::Funct3_LOAD::LHU:
                             result = load(addr, 2) & 0xFFFF;
                             break;
                     }
@@ -186,40 +239,40 @@ SC_MODULE(Processor) {
                 }
 
                 case rv32i::Opcode::STORE: {
-                    int32_t imm = rv32i::imm_s(instr);
+                    int32_t imm = rv32i::get_imm_S(instr);
                     uint32_t addr = regs[rs1i] + imm;
                     switch (f3) {
-                        case rv32i::Funct3::SB: store(addr, regs[rs2i], 1); break;
-                        case rv32i::Funct3::SH: store(addr, regs[rs2i], 2); break;
-                        case rv32i::Funct3::SW: store(addr, regs[rs2i], 4); break;
+                        case rv32i::Funct3_STORE::SB: store(addr, regs[rs2i], 1); break;
+                        case rv32i::Funct3_STORE::SH: store(addr, regs[rs2i], 2); break;
+                        case rv32i::Funct3_STORE::SW: store(addr, regs[rs2i], 4); break;
                     }
                     break;
                 }
 
                 case rv32i::Opcode::BRANCH: {
-                    int32_t imm = rv32i::imm_b(instr);
+                    int32_t imm = rv32i::get_imm_B(instr);
                     bool taken = false;
                     switch (f3) {
-                        case rv32i::Funct3::BEQ:  taken = (r1 == r2); break;
-                        case rv32i::Funct3::BNE:  taken = (r1 != r2); break;
-                        case rv32i::Funct3::BLT:  taken = (r1 < r2); break;
-                        case rv32i::Funct3::BGE:  taken = (r1 >= r2); break;
-                        case rv32i::Funct3::BLTU: taken = (regs[rs1i] < regs[rs2i]); break;
-                        case rv32i::Funct3::BGEU: taken = (regs[rs1i] >= regs[rs2i]); break;
+                        case rv32i::Funct3_BRANCH::BEQ:  taken = (r1 == r2); break;
+                        case rv32i::Funct3_BRANCH::BNE:  taken = (r1 != r2); break;
+                        case rv32i::Funct3_BRANCH::BLT:  taken = (r1 < r2); break;
+                        case rv32i::Funct3_BRANCH::BGE:  taken = (r1 >= r2); break;
+                        case rv32i::Funct3_BRANCH::BLTU: taken = (regs[rs1i] < regs[rs2i]); break;
+                        case rv32i::Funct3_BRANCH::BGEU: taken = (regs[rs1i] >= regs[rs2i]); break;
                     }
                     if (taken) next_pc = pc + imm;
                     break;
                 }
 
                 case rv32i::Opcode::JAL: {
-                    int32_t imm = rv32i::imm_j(instr);
+                    int32_t imm = rv32i::get_imm_J(instr);
                     write_reg(rd, pc + 4);
                     next_pc = pc + imm;
                     break;
                 }
 
                 case rv32i::Opcode::JALR: {
-                    int32_t imm = rv32i::imm_i(instr);
+                    int32_t imm = rv32i::get_imm_I(instr);
                     uint32_t link = pc + 4;
                     next_pc = (regs[rs1i] + imm) & ~static_cast<uint32_t>(1);
                     write_reg(rd, link);
@@ -227,11 +280,11 @@ SC_MODULE(Processor) {
                 }
 
                 case rv32i::Opcode::LUI:
-                    write_reg(rd, static_cast<uint32_t>(rv32i::imm_u(instr)));
+                    write_reg(rd, static_cast<uint32_t>(rv32i::get_imm_U(instr)));
                     break;
 
                 case rv32i::Opcode::AUIPC:
-                    write_reg(rd, pc + static_cast<uint32_t>(rv32i::imm_u(instr)));
+                    write_reg(rd, pc + static_cast<uint32_t>(rv32i::get_imm_U(instr)));
                     break;
 
                 default:

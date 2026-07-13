@@ -44,31 +44,42 @@ uint32_t j_type(uint32_t rd, int32_t imm) {
 }
 
 // Pseudo-instrucciones de conveniencia.
-uint32_t ADDI(uint32_t rd, uint32_t rs1, int32_t imm) { return i_type(Opcode::OP_IMM, rd, Funct3::ADD_SUB, rs1, imm); }
-uint32_t ADD(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::ADD_SUB, rs1, rs2, Funct7::NORMAL); }
-uint32_t SUB(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::ADD_SUB, rs1, rs2, Funct7::ALT); }
-uint32_t AND(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::AND, rs1, rs2, Funct7::NORMAL); }
-uint32_t OR(uint32_t rd, uint32_t rs1, uint32_t rs2)   { return r_type(Opcode::OP, rd, Funct3::OR, rs1, rs2, Funct7::NORMAL); }
-uint32_t XOR(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::XOR, rs1, rs2, Funct7::NORMAL); }
-uint32_t SLT(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::SLT, rs1, rs2, Funct7::NORMAL); }
-uint32_t SLTU(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP, rd, Funct3::SLTU, rs1, rs2, Funct7::NORMAL); }
-uint32_t SLL(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::SLL, rs1, rs2, Funct7::NORMAL); }
-uint32_t SRL(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::SRL_SRA, rs1, rs2, Funct7::NORMAL); }
-uint32_t SRA(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3::SRL_SRA, rs1, rs2, Funct7::ALT); }
+uint32_t ADDI(uint32_t rd, uint32_t rs1, int32_t imm) { return i_type(Opcode::OP_IMM, rd, Funct3_ALU::ADD_SUB, rs1, imm); }
+uint32_t ADD(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::ADD_SUB, rs1, rs2, Funct7::NORMAL); }
+uint32_t SUB(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::ADD_SUB, rs1, rs2, Funct7::ALT); }
+uint32_t AND(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::AND, rs1, rs2, Funct7::NORMAL); }
+uint32_t OR(uint32_t rd, uint32_t rs1, uint32_t rs2)   { return r_type(Opcode::OP, rd, Funct3_ALU::OR, rs1, rs2, Funct7::NORMAL); }
+uint32_t XOR(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::XOR, rs1, rs2, Funct7::NORMAL); }
+uint32_t SLT(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::SLT, rs1, rs2, Funct7::NORMAL); }
+uint32_t SLTU(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP, rd, Funct3_ALU::SLTU, rs1, rs2, Funct7::NORMAL); }
+uint32_t SLL(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::SLL, rs1, rs2, Funct7::NORMAL); }
+uint32_t SRL(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::SRL_SRA, rs1, rs2, Funct7::NORMAL); }
+uint32_t SRA(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_ALU::SRL_SRA, rs1, rs2, Funct7::ALT); }
+
+// Extension M (mismo opcode OP, funct7=MULDIV).
+uint32_t MUL(uint32_t rd, uint32_t rs1, uint32_t rs2)    { return r_type(Opcode::OP, rd, Funct3_MULDIV::MUL, rs1, rs2, Funct7::MULDIV); }
+uint32_t MULH(uint32_t rd, uint32_t rs1, uint32_t rs2)   { return r_type(Opcode::OP, rd, Funct3_MULDIV::MULH, rs1, rs2, Funct7::MULDIV); }
+uint32_t MULHSU(uint32_t rd, uint32_t rs1, uint32_t rs2) { return r_type(Opcode::OP, rd, Funct3_MULDIV::MULHSU, rs1, rs2, Funct7::MULDIV); }
+uint32_t MULHU(uint32_t rd, uint32_t rs1, uint32_t rs2)  { return r_type(Opcode::OP, rd, Funct3_MULDIV::MULHU, rs1, rs2, Funct7::MULDIV); }
+uint32_t DIV(uint32_t rd, uint32_t rs1, uint32_t rs2)    { return r_type(Opcode::OP, rd, Funct3_MULDIV::DIV, rs1, rs2, Funct7::MULDIV); }
+uint32_t DIVU(uint32_t rd, uint32_t rs1, uint32_t rs2)   { return r_type(Opcode::OP, rd, Funct3_MULDIV::DIVU, rs1, rs2, Funct7::MULDIV); }
+uint32_t REM(uint32_t rd, uint32_t rs1, uint32_t rs2)    { return r_type(Opcode::OP, rd, Funct3_MULDIV::REM, rs1, rs2, Funct7::MULDIV); }
+uint32_t REMU(uint32_t rd, uint32_t rs1, uint32_t rs2)   { return r_type(Opcode::OP, rd, Funct3_MULDIV::REMU, rs1, rs2, Funct7::MULDIV); }
+
 uint32_t LUI(uint32_t rd, uint32_t imm_upper20)        { return u_type(Opcode::LUI, rd, imm_upper20); }
 uint32_t AUIPC(uint32_t rd, uint32_t imm_upper20)      { return u_type(Opcode::AUIPC, rd, imm_upper20); }
-uint32_t LW(uint32_t rd, uint32_t rs1, int32_t imm)    { return i_type(Opcode::LOAD, rd, Funct3::LW, rs1, imm); }
-uint32_t LBU(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD, rd, Funct3::LBU, rs1, imm); }
-uint32_t LHU(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD, rd, Funct3::LHU, rs1, imm); }
-uint32_t SW(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3::SW, rs1, rs2, imm); }
-uint32_t SB(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3::SB, rs1, rs2, imm); }
-uint32_t SH(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3::SH, rs1, rs2, imm); }
-uint32_t BEQ(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3::BEQ, rs1, rs2, imm); }
-uint32_t BNE(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3::BNE, rs1, rs2, imm); }
-uint32_t BLT(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3::BLT, rs1, rs2, imm); }
-uint32_t BGE(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3::BGE, rs1, rs2, imm); }
+uint32_t LW(uint32_t rd, uint32_t rs1, int32_t imm)    { return i_type(Opcode::LOAD, rd, Funct3_LOAD::LW, rs1, imm); }
+uint32_t LBU(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD, rd, Funct3_LOAD::LBU, rs1, imm); }
+uint32_t LHU(uint32_t rd, uint32_t rs1, int32_t imm)   { return i_type(Opcode::LOAD, rd, Funct3_LOAD::LHU, rs1, imm); }
+uint32_t SW(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3_STORE::SW, rs1, rs2, imm); }
+uint32_t SB(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3_STORE::SB, rs1, rs2, imm); }
+uint32_t SH(uint32_t rs1, uint32_t rs2, int32_t imm)   { return s_type(Funct3_STORE::SH, rs1, rs2, imm); }
+uint32_t BEQ(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BEQ, rs1, rs2, imm); }
+uint32_t BNE(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BNE, rs1, rs2, imm); }
+uint32_t BLT(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BLT, rs1, rs2, imm); }
+uint32_t BGE(uint32_t rs1, uint32_t rs2, int32_t imm)  { return b_type(Funct3_BRANCH::BGE, rs1, rs2, imm); }
 uint32_t JAL(uint32_t rd, int32_t imm)                 { return j_type(rd, imm); }
-uint32_t JALR(uint32_t rd, uint32_t rs1, int32_t imm)  { return i_type(Opcode::JALR, rd, Funct3::ADD_SUB, rs1, imm); }
+uint32_t JALR(uint32_t rd, uint32_t rs1, int32_t imm)  { return i_type(Opcode::JALR, rd, Funct3_ALU::ADD_SUB, rs1, imm); }
 
 } // namespace asmenc
 
@@ -148,6 +159,30 @@ std::vector<uint32_t> build_test_program() {
     push(ADDI(12, 11, 2)); push(SW(9, 12, 4));  // mem[0x2004] = 0xAAAA0002
     push(ADDI(12, 11, 3)); push(SW(9, 12, 8));  // mem[0x2008] = 0xAAAA0003
     push(ADDI(12, 11, 4)); push(SW(9, 12, 12)); // mem[0x200C] = 0xAAAA0004
+
+    // --- Bloque 7: extension M (MUL/DIV). Va al final del programa a
+    // proposito, para poder reutilizar libremente registros de bloques
+    // anteriores (x2..x18) sin perder resultados que ya se verificaron
+    // mientras se ejecutaban esos bloques. ---
+    push(ADDI(2, 0, -100));    // x2 = -100 (operando A)
+    push(ADDI(3, 0, 7));       // x3 = 7    (operando B)
+    push(MUL(4, 2, 3));        // x4  = MUL(-100,7)    = -700
+    push(MULH(5, 2, 3));       // x5  = MULH(-100,7)   = -1 (signo del producto)
+    push(MULHSU(6, 2, 3));     // x6  = MULHSU(-100,7) = -1 (B se trata como no-signado, pero A negativo domina el signo)
+    push(MULHU(7, 2, 3));      // x7  = MULHU(-100,7)  = mitad alta de 0xFFFFFF9C * 7 (sin signo)
+    push(DIV(8, 2, 3));        // x8  = DIV(-100,7)    = -14 (trunca hacia cero)
+    push(DIVU(9, 2, 3));       // x9  = DIVU(-100,7)   = 0xFFFFFF9C / 7 (sin signo)
+    push(REM(10, 2, 3));       // x10 = REM(-100,7)    = -2
+    push(REMU(11, 2, 3));      // x11 = REMU(-100,7)   = 0xFFFFFF9C % 7 (sin signo)
+
+    push(ADDI(12, 0, 0));      // x12 = 0 (divisor nulo, para casos borde)
+    push(DIV(13, 2, 12));      // x13 = DIV(-100,0)    = -1  (division por cero, ISA RISC-V)
+    push(REM(14, 2, 12));      // x14 = REM(-100,0)    = -100 (resto = dividendo)
+
+    push(LUI(15, 0x80000));    // x15 = 0x80000000 (INT32_MIN)
+    push(ADDI(16, 0, -1));     // x16 = -1
+    push(DIV(17, 15, 16));     // x17 = DIV(INT32_MIN,-1) = INT32_MIN (overflow, no trap)
+    push(REM(18, 15, 16));     // x18 = REM(INT32_MIN,-1) = 0          (overflow, no trap)
 
     // --- Fin de programa: palabra nula detiene la CPU (ver processor.h) ---
     push(0x00000000);
