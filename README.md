@@ -9,12 +9,12 @@ relativas cruzadas):
   en SystemC/TLM-2.0 — el que se explica en detalle más abajo y en
   `explain.md`.
 - **[`RV32IMFC_hls/`](RV32IMFC_hls/)**: prototipo sintetizable (Vitis
-  HLS) de RV32IM con maestro AXI4 Full, para obtener métricas reales de
+  HLS) de RV32IMFC con maestro AXI4 Full, para obtener métricas reales de
   hardware (Kria KV260).
 
-> Cycle-accurate-ish RV32IMF RISC-V core in SystemC/TLM-2.0 (Loosely-Timed),
-> with a shared Bus, integer/M/F extensions verified end-to-end, and an
-> early RVV (Vector) skeleton — plus a separate, synthesizable RV32IM
+> Cycle-accurate-ish RV32IMFC RISC-V core in SystemC/TLM-2.0 (Loosely-Timed),
+> with a shared Bus, integer/M/F/C extensions verified end-to-end, and an
+> early RVV (Vector) skeleton — plus a separate, synthesizable RV32IMFC
 > HLS prototype targeting a Kria KV260.
 
 ## Estado actual
@@ -28,13 +28,20 @@ relativas cruzadas):
   FDIV.S/FSQRT.S, FSGNJ.S/FSGNJN.S/FSGNJX.S, FMIN.S/FMAX.S, FEQ.S/FLT.S/
   FLE.S, FCVT.W.S/FCVT.WU.S/FCVT.S.W/FCVT.S.WU, FMV.X.W/FMV.W.X,
   FCLASS.S, y la familia FMADD.S/FMSUB.S/FNMSUB.S/FNMADD.S.
+- ✅ **Extensión C** (comprimidas): decoder completo (expansión a
+  instrucciones de 32 bits equivalentes) — C.ADDI4SPN, C.LW/C.SW/C.FLW/
+  C.FSW, C.ADDI, C.JAL, C.LI, C.ADDI16SP, C.LUI, C.SRLI/C.SRAI/C.ANDI,
+  C.SUB/C.XOR/C.OR/C.AND, C.J, C.BEQZ/C.BNEZ, C.SLLI, C.LWSP/C.SWSP,
+  C.JR/C.MV/C.JALR/C.ADD. El fetch ahora es de 16 bits (no 32), con
+  `pc` avanzando en 2 o 4 según corresponda. **RV32IMFC completo** en la
+  versión TLM.
 - 🚧 **RVV**: `VectorUnit` conectada al Bus como initiator independiente,
   con un banco de 32 registros vectoriales (VLEN=128 bits) y un test
   end-to-end (CPU → Bus → Memory → VectorUnit). Todavía sin decoder de
   instrucciones vectoriales reales.
-- ⬜ Extensión C (comprimidas), CSRs, ECALL/EBREAK, loader de ELF,
-  periféricos — no empezado (ver `explain.md` para el detalle de qué
-  falta para correr binarios bare-metal reales).
+- ⬜ CSRs, ECALL/EBREAK, loader de ELF, periféricos — no empezado (ver
+  `explain.md` para el detalle de qué falta para correr binarios
+  bare-metal reales).
 
 Todo lo anterior está compilado, ejecutado y verificado (a mano, contra
 Python) — no es solo código teórico.
@@ -65,14 +72,18 @@ Sin `sc_signal` en ningún módulo (pureza TLM-2.0).
 sintetizable tal cual (usa sockets, `tlm_generic_payload`, I/O de C++,
 etc.). Para obtener métricas reales de hardware (utilización de
 recursos, frecuencia máxima) está `RV32IMFC_hls/`: el decode+execute de
-RV32IM reescrito para Vitis HLS, con maestro AXI4 Full, apuntando al
+RV32IMFC reescrito para Vitis HLS, con maestro AXI4 Full, apuntando al
 Kria KV260. Ver [`RV32IMFC_hls/README.md`](RV32IMFC_hls/README.md) para
-cómo correrlo y qué números extraer del reporte de síntesis.
+cómo correrlo y qué números extraer del reporte de síntesis (incluye la
+limitación de alineación propia de esa pista para instrucciones
+comprimidas — distinta de la limitación de acceso a memoria que ya
+tenía).
 
 **Nota de independencia**: las dos carpetas son autocontenidas — no hay
-`#include`s cruzados entre ellas. `RV32IMFC_hls/rv32i_defs.h` es una
-*copia* de `RV32IMFC_tlm/src/rv32i_defs.h` (mismo contenido, mantenerlas
-sincronizadas a mano si una cambia).
+`#include`s cruzados entre ellas. `RV32IMFC_hls/rv32i_defs.h`,
+`RV32IMFC_hls/fp_ops.h` y `RV32IMFC_hls/rv32c_defs.h` son *copias* de
+sus equivalentes en `RV32IMFC_tlm/src/` (mismo contenido, mantenerlas
+sincronizadas a mano si alguna cambia).
 
 ## Compilar y correr (RV32IMFC_tlm)
 
@@ -98,16 +109,19 @@ RV32IMFC_tlm/src/
 ├── rv32i_defs.h    # Opcodes, funct3/funct7 (base + M + F)
 ├── immediates.h    # Extraccion de inmediatos por formato (I/S/B/U/J)
 ├── fp_ops.h        # Semantica de F: bits<->float, FCVT saturado, FCLASS
+├── rv32c_defs.h    # Extension C: expande comprimidas de 16 bits a 32 bits
 ├── memory_map.h    # Mapa de direcciones (RAM, rango reservado RVV)
 ├── memory.h        # Memoria TLM-2.0 (target)
 ├── bus.h           # Bus TLM-2.0 (target + initiator, decodifica direcciones)
-├── processor.h      # CPU: decoder + banco de registros enteros y flotantes
+├── processor.h      # CPU: fetch de 16 bits + decoder + registros enteros/flotantes
 ├── vector_unit.h   # Esqueleto RVV (initiator independiente)
 └── main.cpp        # Ensamblador de prueba + integracion + testbench
 
 RV32IMFC_hls/
 ├── rv32i_defs.h         # Copia de RV32IMFC_tlm/src/rv32i_defs.h (autocontenido)
-├── rv32_core.h/.cpp     # Decode+execute RV32IM sintetizable (Vitis HLS, AXI4 Full)
+├── fp_ops.h             # Copia de RV32IMFC_tlm/src/fp_ops.h (ya portable, sin cambios)
+├── rv32c_defs.h         # Copia de RV32IMFC_tlm/src/rv32c_defs.h (ya portable, sin cambios)
+├── rv32_core.h/.cpp     # Decode+execute RV32IMFC sintetizable (Vitis HLS, AXI4 Full)
 ├── immediates_hls.h     # Espejo de immediates.h usando ap_uint en vez de sc_uint
 ├── rv32_core_tb.cpp     # Testbench de C-simulation
 ├── run_hls.tcl          # Script de Vitis HLS (csim + csynth)

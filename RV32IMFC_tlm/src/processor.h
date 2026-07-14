@@ -11,6 +11,7 @@
 #include "rv32i_defs.h"
 #include "immediates.h"
 #include "fp_ops.h"
+#include "rv32c_defs.h"
 
 // CPU RV32I monociclo. INITIATOR puro hacia el Bus: toda direccion que
 // maneja (fetch, load, store) es GLOBAL dentro del mapa de memoria.
@@ -50,10 +51,14 @@ SC_MODULE(Processor) {
         }
     }
 
-    uint32_t fetch(uint32_t addr) {
-        uint32_t instr = 0;
-        bus_access(tlm::TLM_READ_COMMAND, addr, reinterpret_cast<uint8_t*>(&instr), 4);
-        return instr;
+    // Extension C: toda instruccion se fetchea primero como halfword (16
+    // bits), sin asumir alineacion a 4 bytes -- una instruccion normal de
+    // 32 bits puede empezar en cualquier direccion PAR si la precede una
+    // comprimida de 16 bits.
+    uint16_t fetch16(uint32_t addr) {
+        uint16_t half = 0;
+        bus_access(tlm::TLM_READ_COMMAND, addr, reinterpret_cast<uint8_t*>(&half), 2);
+        return half;
     }
 
     uint32_t load(uint32_t addr, unsigned int len) {
@@ -72,12 +77,33 @@ SC_MODULE(Processor) {
 
     void run() {
         while (!halted) {
-            uint32_t instr = fetch(pc);
+            uint16_t half = fetch16(pc);
 
-            // Instruccion nula (memoria sin programa): fin de ejecucion.
-            if (instr == 0) {
+            // Halfword nulo (memoria sin programa): fin de ejecucion. Se
+            // chequea sobre el halfword crudo, no sobre la instruccion ya
+            // expandida -- rv32c::expand() nunca devuelve 0 para una
+            // comprimida invalida (devuelve rv32c::ILLEGAL), asi que este
+            // chequeo sigue significando exclusivamente "no hay mas
+            // programa", nunca "instruccion comprimida no reconocida".
+            if (half == 0) {
                 halted = true;
                 break;
+            }
+
+            uint32_t instr;
+            uint32_t instr_size;
+            if ((half & 0x3) != 0x3) {
+                // Extension C: instruccion comprimida de 16 bits. Se
+                // expande a la instruccion de 32 bits equivalente y de
+                // ahi en adelante corre exactamente el mismo decoder de
+                // siempre -- el resto de esta funcion no sabe ni le
+                // importa si la instruccion original era comprimida.
+                instr = rv32c::expand(half);
+                instr_size = 2;
+            } else {
+                uint16_t half_hi = fetch16(pc + 2);
+                instr = (static_cast<uint32_t>(half_hi) << 16) | half;
+                instr_size = 4;
             }
 
             uint32_t opcode = rv32i::opcode(instr);
@@ -87,7 +113,7 @@ SC_MODULE(Processor) {
             uint32_t rs2i   = rv32i::rs2(instr);
             uint32_t f7     = rv32i::funct7(instr);
 
-            uint32_t next_pc = pc + 4;
+            uint32_t next_pc = pc + instr_size;
 
             int32_t r1 = static_cast<int32_t>(regs[rs1i]);
             int32_t r2 = static_cast<int32_t>(regs[rs2i]);
@@ -268,14 +294,14 @@ SC_MODULE(Processor) {
 
                 case rv32i::Opcode::JAL: {
                     int32_t imm = rv32i::get_imm_J(instr);
-                    write_reg(rd, pc + 4);
+                    write_reg(rd, pc + instr_size);
                     next_pc = pc + imm;
                     break;
                 }
 
                 case rv32i::Opcode::JALR: {
                     int32_t imm = rv32i::get_imm_I(instr);
-                    uint32_t link = pc + 4;
+                    uint32_t link = pc + instr_size;
                     next_pc = (regs[rs1i] + imm) & ~static_cast<uint32_t>(1);
                     write_reg(rd, link);
                     break;

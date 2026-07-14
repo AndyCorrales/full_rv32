@@ -1,6 +1,9 @@
 #include "rv32_core.h"
 #include "immediates_hls.h"
 #include "rv32i_defs.h"
+#include "fp_ops.h"
+#include "rv32c_defs.h"
+#include <cmath>
 
 // Funcion libre en vez de lambda con captura: mas conservador para
 // sintesis HLS (evita depender del soporte de closures del front-end).
@@ -85,16 +88,22 @@ void rv32_core_step(
     ap_uint<32> pc,
     ap_uint<32> regs_in[32],
     ap_uint<32> regs_out[32],
+    float fregs_in[32],
+    float fregs_out[32],
     ap_uint<32>* mem,
     ap_uint<32>& next_pc,
+    ap_uint<3>&  instr_size,
     ap_uint<1>&  halted
 ) {
 #pragma HLS INTERFACE ap_none port=instr
 #pragma HLS INTERFACE ap_none port=pc
 #pragma HLS INTERFACE bram port=regs_in
 #pragma HLS INTERFACE bram port=regs_out
+#pragma HLS INTERFACE bram port=fregs_in
+#pragma HLS INTERFACE bram port=fregs_out
 #pragma HLS INTERFACE m_axi port=mem offset=slave bundle=gmem depth=MEM_WORDS
 #pragma HLS INTERFACE ap_none port=next_pc
+#pragma HLS INTERFACE ap_none port=instr_size
 #pragma HLS INTERFACE ap_none port=halted
 #pragma HLS INTERFACE s_axilite port=return bundle=control
 
@@ -103,14 +112,34 @@ void rv32_core_step(
 #pragma HLS UNROLL
         regs_out[i] = regs_in[i];
     }
+    copy_fregs:
+    for (int i = 0; i < 32; ++i) {
+#pragma HLS UNROLL
+        fregs_out[i] = fregs_in[i];
+    }
 
     halted = 0;
 
-    if (instr == 0) {
+    // Extension C, con la simplificacion de alineacion documentada en
+    // rv32_core.h: `instr` siempre llega como palabra de 32 bits
+    // alineada; si la mitad baja indica comprimida (bits[1:0]!=3), se
+    // expande esa mitad baja y se ignoran los 16 bits altos.
+    if (instr.range(15, 0) == 0) {
         halted = 1;
         next_pc = pc;
+        instr_size = 4;
         return;
     }
+
+    ap_uint<32> work_instr;
+    if (instr.range(1, 0) != 3) {
+        work_instr = rv32c::expand(instr.range(15, 0).to_uint());
+        instr_size = 2;
+    } else {
+        work_instr = instr;
+        instr_size = 4;
+    }
+    instr = work_instr;
 
     uint32_t opcode = rv32i::opcode(instr.to_uint());
     uint32_t rd     = rv32i::rd(instr.to_uint());
@@ -119,7 +148,7 @@ void rv32_core_step(
     uint32_t rs2i   = rv32i::rs2(instr.to_uint());
     uint32_t f7     = rv32i::funct7(instr.to_uint());
 
-    ap_uint<32> next_pc_local = pc + 4;
+    ap_uint<32> next_pc_local = pc + instr_size;
 
     int32_t r1 = static_cast<int32_t>(regs_in[rs1i].to_uint());
     int32_t r2 = static_cast<int32_t>(regs_in[rs2i].to_uint());
@@ -262,14 +291,14 @@ void rv32_core_step(
 
         case rv32i::Opcode::JAL: {
             int32_t imm = rv32_hls::get_imm_J(instr);
-            write_reg(regs_out, rd, static_cast<uint32_t>(pc + 4));
+            write_reg(regs_out, rd, static_cast<uint32_t>(pc + instr_size));
             next_pc_local = pc + imm;
             break;
         }
 
         case rv32i::Opcode::JALR: {
             int32_t imm = rv32_hls::get_imm_I(instr);
-            ap_uint<32> link = pc + 4;
+            ap_uint<32> link = pc + instr_size;
             next_pc_local = (regs_in[rs1i].to_uint() + imm) & ~0x1u;
             write_reg(regs_out, rd, link);
             break;
@@ -282,6 +311,119 @@ void rv32_core_step(
         case rv32i::Opcode::AUIPC:
             write_reg(regs_out, rd, static_cast<uint32_t>(pc.to_uint() + static_cast<uint32_t>(rv32_hls::get_imm_U(instr))));
             break;
+
+        // --- Extension F ---------------------------------------------
+        // FLW/FSW reusan mem_load/mem_store con el f3 de LW/SW (mismo
+        // patron de bits, misma anchura de palabra) y convierten los
+        // bits crudos a/desde float con fp_ops.h (ver explain.md seccion
+        // 3 para por que hace falta esa reinterpretacion en vez de un
+        // cast numerico).
+        case rv32i::Opcode::LOAD_FP: {
+            int32_t imm = rv32_hls::get_imm_I(instr);
+            ap_uint<32> addr = regs_in[rs1i].to_uint() + imm;
+            ap_uint<32> bits = mem_load(mem, addr, rv32i::Funct3_LOAD::LW);
+            fregs_out[rd] = rv32i::bits_to_float(bits.to_uint());
+            break;
+        }
+
+        case rv32i::Opcode::STORE_FP: {
+            int32_t imm = rv32_hls::get_imm_S(instr);
+            ap_uint<32> addr = regs_in[rs1i].to_uint() + imm;
+            mem_store(mem, addr, rv32i::float_to_bits(fregs_in[rs2i]), rv32i::Funct3_STORE::SW);
+            break;
+        }
+
+        // FMADD/FMSUB/FNMSUB/FNMADD: R4-type, tercer operando fuente rs3.
+        case rv32i::Opcode::FMADD: {
+            uint32_t r3 = rv32i::rs3(instr.to_uint());
+            fregs_out[rd] = std::fma(fregs_in[rs1i], fregs_in[rs2i], fregs_in[r3]);
+            break;
+        }
+        case rv32i::Opcode::FMSUB: {
+            uint32_t r3 = rv32i::rs3(instr.to_uint());
+            fregs_out[rd] = std::fma(fregs_in[rs1i], fregs_in[rs2i], -fregs_in[r3]);
+            break;
+        }
+        case rv32i::Opcode::FNMSUB: {
+            uint32_t r3 = rv32i::rs3(instr.to_uint());
+            fregs_out[rd] = std::fma(-fregs_in[rs1i], fregs_in[rs2i], fregs_in[r3]);
+            break;
+        }
+        case rv32i::Opcode::FNMADD: {
+            uint32_t r3 = rv32i::rs3(instr.to_uint());
+            fregs_out[rd] = std::fma(-fregs_in[rs1i], fregs_in[rs2i], -fregs_in[r3]);
+            break;
+        }
+
+        case rv32i::Opcode::OP_FP: {
+            switch (f7) {
+                case rv32i::Funct7_FP::FADD_S: fregs_out[rd] = fregs_in[rs1i] + fregs_in[rs2i]; break;
+                case rv32i::Funct7_FP::FSUB_S: fregs_out[rd] = fregs_in[rs1i] - fregs_in[rs2i]; break;
+                case rv32i::Funct7_FP::FMUL_S: fregs_out[rd] = fregs_in[rs1i] * fregs_in[rs2i]; break;
+                case rv32i::Funct7_FP::FDIV_S: fregs_out[rd] = fregs_in[rs1i] / fregs_in[rs2i]; break;
+                case rv32i::Funct7_FP::FSQRT_S: fregs_out[rd] = std::sqrt(fregs_in[rs1i]); break;
+
+                case rv32i::Funct7_FP::FSGNJ_S: {
+                    uint32_t a = rv32i::float_to_bits(fregs_in[rs1i]);
+                    uint32_t b = rv32i::float_to_bits(fregs_in[rs2i]);
+                    uint32_t sign = 0;
+                    switch (f3) {
+                        case rv32i::Funct3_FSGNJ::FSGNJ:  sign = b & 0x80000000u; break;
+                        case rv32i::Funct3_FSGNJ::FSGNJN: sign = (~b) & 0x80000000u; break;
+                        case rv32i::Funct3_FSGNJ::FSGNJX: sign = (a ^ b) & 0x80000000u; break;
+                    }
+                    fregs_out[rd] = rv32i::bits_to_float((a & 0x7FFFFFFFu) | sign);
+                    break;
+                }
+
+                case rv32i::Funct7_FP::FMINMAX_S:
+                    if (f3 == rv32i::Funct3_FMINMAX::FMIN)
+                        fregs_out[rd] = std::fmin(fregs_in[rs1i], fregs_in[rs2i]);
+                    else
+                        fregs_out[rd] = std::fmax(fregs_in[rs1i], fregs_in[rs2i]);
+                    break;
+
+                case rv32i::Funct7_FP::FCMP_S: {
+                    uint32_t result = 0;
+                    switch (f3) {
+                        case rv32i::Funct3_FCMP::FLE: result = (fregs_in[rs1i] <= fregs_in[rs2i]) ? 1 : 0; break;
+                        case rv32i::Funct3_FCMP::FLT: result = (fregs_in[rs1i] <  fregs_in[rs2i]) ? 1 : 0; break;
+                        case rv32i::Funct3_FCMP::FEQ: result = (fregs_in[rs1i] == fregs_in[rs2i]) ? 1 : 0; break;
+                    }
+                    write_reg(regs_out, rd, result);
+                    break;
+                }
+
+                case rv32i::Funct7_FP::FCVT_W_S: {
+                    uint32_t r2 = rv32i::rs2(instr.to_uint());
+                    uint32_t result = (r2 == rv32i::Rs2_FCVT::WU)
+                                          ? rv32i::fcvt_wu_s(fregs_in[rs1i])
+                                          : static_cast<uint32_t>(rv32i::fcvt_w_s(fregs_in[rs1i]));
+                    write_reg(regs_out, rd, result);
+                    break;
+                }
+
+                case rv32i::Funct7_FP::FCVT_S_W: {
+                    uint32_t r2 = rv32i::rs2(instr.to_uint());
+                    fregs_out[rd] = (r2 == rv32i::Rs2_FCVT::WU)
+                                        ? static_cast<float>(regs_in[rs1i].to_uint())
+                                        : static_cast<float>(static_cast<int32_t>(regs_in[rs1i].to_uint()));
+                    break;
+                }
+
+                case rv32i::Funct7_FP::FMV_X_W_FCLASS_S:
+                    if (f3 == rv32i::Funct3_FMV_FCLASS::FCLASS_S)
+                        write_reg(regs_out, rd, rv32i::fclass_s(fregs_in[rs1i]));
+                    else
+                        write_reg(regs_out, rd, rv32i::float_to_bits(fregs_in[rs1i]));
+                    break;
+
+                case rv32i::Funct7_FP::FMV_W_X:
+                    fregs_out[rd] = rv32i::bits_to_float(regs_in[rs1i].to_uint());
+                    break;
+            }
+            break;
+        }
 
         default:
             halted = 1;

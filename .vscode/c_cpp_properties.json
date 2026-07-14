@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "RV32IMFC_tlm (SystemC)",
+            "includePath": [
+                "${workspaceFolder}/RV32IMFC_tlm/src",
+                "/usr/include",
+                "/usr/local/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        },
+        {
+            "name": "RV32IMFC_hls (Vitis HLS)",
+            "includePath": [
+                "${workspaceFolder}/RV32IMFC_hls",
+                "/tools/Xilinx/Vitis_HLS/2023.2/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

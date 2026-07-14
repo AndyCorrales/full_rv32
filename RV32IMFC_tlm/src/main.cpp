@@ -129,6 +129,106 @@ uint32_t FNMADD_S(uint32_t rd, uint32_t rs1, uint32_t rs2, uint32_t rs3) { retur
 
 } // namespace asmenc
 
+// ---------------------------------------------------------------------
+// Codificadores de la extension C (comprimidas, 16 bits). Cada uno
+// construye el patron de bits exactamente inverso al que decodifica
+// rv32c::expand() en rv32c_defs.h -- mismos desplazamientos, en la
+// direccion opuesta. "_" en el nombre del parametro indica registro
+// comprimido de 3 bits (x8-x15); creg_of() hace la conversion desde el
+// numero de registro completo.
+namespace cenc {
+inline uint32_t creg_of(uint32_t full_reg) { return full_reg - 8; }
+
+uint16_t C_ADDI4SPN(uint32_t rd_, uint32_t nzuimm) {
+    uint16_t c10_7  = (nzuimm >> 6) & 0xF; // nzuimm[9:6]
+    uint16_t c12_11 = (nzuimm >> 4) & 0x3; // nzuimm[5:4]
+    uint16_t c5     = (nzuimm >> 3) & 0x1; // nzuimm[3]
+    uint16_t c6     = (nzuimm >> 2) & 0x1; // nzuimm[2]
+    return (0b000 << 13) | (c12_11 << 11) | (c10_7 << 7) | (c6 << 6) | (c5 << 5) | (rd_ << 2) | 0b00;
+}
+uint16_t C_LW(uint32_t rd_, uint32_t rs1_, uint32_t uimm) {
+    uint16_t c12_10 = (uimm >> 3) & 0x7; // uimm[5:3]
+    uint16_t c6     = (uimm >> 2) & 0x1; // uimm[2]
+    uint16_t c5     = (uimm >> 6) & 0x1; // uimm[6]
+    return (0b010 << 13) | (c12_10 << 10) | (rs1_ << 7) | (c6 << 6) | (c5 << 5) | (rd_ << 2) | 0b00;
+}
+uint16_t C_SW(uint32_t rs1_, uint32_t rs2_, uint32_t uimm) {
+    uint16_t c12_10 = (uimm >> 3) & 0x7;
+    uint16_t c6     = (uimm >> 2) & 0x1;
+    uint16_t c5     = (uimm >> 6) & 0x1;
+    return (0b110 << 13) | (c12_10 << 10) | (rs1_ << 7) | (c6 << 6) | (c5 << 5) | (rs2_ << 2) | 0b00;
+}
+
+uint16_t C_ADDI(uint32_t rd, int32_t imm) {
+    uint32_t u = static_cast<uint32_t>(imm) & 0x3F;
+    return (0b000 << 13) | (((u >> 5) & 0x1) << 12) | (rd << 7) | ((u & 0x1F) << 2) | 0b01;
+}
+uint16_t C_LI(uint32_t rd, int32_t imm) {
+    uint32_t u = static_cast<uint32_t>(imm) & 0x3F;
+    return (0b010 << 13) | (((u >> 5) & 0x1) << 12) | (rd << 7) | ((u & 0x1F) << 2) | 0b01;
+}
+uint16_t C_ADDI16SP(int32_t imm) {
+    uint32_t u = static_cast<uint32_t>(imm);
+    uint16_t c12 = (u >> 9) & 0x1, c6 = (u >> 4) & 0x1, c5 = (u >> 6) & 0x1;
+    uint16_t c4  = (u >> 8) & 0x1, c3 = (u >> 7) & 0x1, c2 = (u >> 5) & 0x1;
+    return (0b011 << 13) | (c12 << 12) | (2 << 7) | (c6 << 6) | (c5 << 5) | (c4 << 4) | (c3 << 3) | (c2 << 2) | 0b01;
+}
+uint16_t C_LUI(uint32_t rd, int32_t nzimm6) {
+    uint32_t u = static_cast<uint32_t>(nzimm6) & 0x3F;
+    return (0b011 << 13) | (((u >> 5) & 0x1) << 12) | (rd << 7) | ((u & 0x1F) << 2) | 0b01;
+}
+uint16_t C_SRLI(uint32_t rd_, uint32_t shamt) {
+    return (0b100 << 13) | (((shamt >> 5) & 0x1) << 12) | (0b00 << 10) | (rd_ << 7) | ((shamt & 0x1F) << 2) | 0b01;
+}
+uint16_t C_SRAI(uint32_t rd_, uint32_t shamt) {
+    return (0b100 << 13) | (((shamt >> 5) & 0x1) << 12) | (0b01 << 10) | (rd_ << 7) | ((shamt & 0x1F) << 2) | 0b01;
+}
+uint16_t C_ANDI(uint32_t rd_, int32_t imm) {
+    uint32_t u = static_cast<uint32_t>(imm) & 0x3F;
+    return (0b100 << 13) | (((u >> 5) & 0x1) << 12) | (0b10 << 10) | (rd_ << 7) | ((u & 0x1F) << 2) | 0b01;
+}
+uint16_t C_SUB(uint32_t rd_, uint32_t rs2_) { return (0b100011 << 10) | (rd_ << 7) | (0b00 << 5) | (rs2_ << 2) | 0b01; }
+uint16_t C_XOR(uint32_t rd_, uint32_t rs2_) { return (0b100011 << 10) | (rd_ << 7) | (0b01 << 5) | (rs2_ << 2) | 0b01; }
+uint16_t C_OR(uint32_t rd_, uint32_t rs2_)  { return (0b100011 << 10) | (rd_ << 7) | (0b10 << 5) | (rs2_ << 2) | 0b01; }
+uint16_t C_AND(uint32_t rd_, uint32_t rs2_) { return (0b100011 << 10) | (rd_ << 7) | (0b11 << 5) | (rs2_ << 2) | 0b01; }
+
+uint16_t c_jump_field(int32_t imm) {
+    uint32_t u = static_cast<uint32_t>(imm);
+    uint16_t c12=(u>>11)&1, c11=(u>>4)&1, c10=(u>>9)&1, c9=(u>>8)&1, c8=(u>>10)&1;
+    uint16_t c7=(u>>6)&1, c6=(u>>7)&1, c5=(u>>3)&1, c4=(u>>2)&1, c3=(u>>1)&1, c2=(u>>5)&1;
+    return (c12<<12)|(c11<<11)|(c10<<10)|(c9<<9)|(c8<<8)|(c7<<7)|(c6<<6)|(c5<<5)|(c4<<4)|(c3<<3)|(c2<<2);
+}
+uint16_t C_J(int32_t imm)   { return (0b101 << 13) | c_jump_field(imm) | 0b01; }
+uint16_t C_JAL(int32_t imm) { return (0b001 << 13) | c_jump_field(imm) | 0b01; }
+
+uint16_t c_branch_field(int32_t imm) {
+    uint32_t u = static_cast<uint32_t>(imm);
+    uint16_t c12=(u>>8)&1, c11=(u>>4)&1, c10=(u>>3)&1;
+    uint16_t c6=(u>>7)&1, c5=(u>>6)&1, c4=(u>>2)&1, c3=(u>>1)&1, c2=(u>>5)&1;
+    return (c12<<12)|(c11<<11)|(c10<<10)|(c6<<6)|(c5<<5)|(c4<<4)|(c3<<3)|(c2<<2);
+}
+uint16_t C_BEQZ(uint32_t rs1_, int32_t imm) { return (0b110 << 13) | c_branch_field(imm) | (rs1_ << 7) | 0b01; }
+uint16_t C_BNEZ(uint32_t rs1_, int32_t imm) { return (0b111 << 13) | c_branch_field(imm) | (rs1_ << 7) | 0b01; }
+
+uint16_t C_SLLI(uint32_t rd, uint32_t shamt) {
+    return (0b000 << 13) | (((shamt >> 5) & 0x1) << 12) | (rd << 7) | ((shamt & 0x1F) << 2) | 0b10;
+}
+uint16_t C_LWSP(uint32_t rd, uint32_t uimm) {
+    uint16_t c12=(uimm>>5)&1, c6=(uimm>>4)&1, c5=(uimm>>3)&1, c4=(uimm>>2)&1, c3=(uimm>>7)&1, c2=(uimm>>6)&1;
+    return (0b010 << 13) | (c12<<12) | (rd << 7) | (c6<<6) | (c5<<5) | (c4<<4) | (c3<<3) | (c2<<2) | 0b10;
+}
+uint16_t C_SWSP(uint32_t rs2, uint32_t uimm) {
+    uint16_t c12_9 = (uimm >> 2) & 0xF; // uimm[5:2]
+    uint16_t c8_7  = (uimm >> 6) & 0x3; // uimm[7:6]
+    return (0b110 << 13) | (c12_9 << 9) | (c8_7 << 7) | (rs2 << 2) | 0b10;
+}
+uint16_t C_JR(uint32_t rs1)              { return (0b1000 << 12) | (rs1 << 7) | (0 << 2) | 0b10; }
+uint16_t C_MV(uint32_t rd, uint32_t rs2) { return (0b1000 << 12) | (rd << 7) | (rs2 << 2) | 0b10; }
+uint16_t C_JALR(uint32_t rs1)            { return (0b1001 << 12) | (rs1 << 7) | (0 << 2) | 0b10; }
+uint16_t C_ADD(uint32_t rd, uint32_t rs2){ return (0b1001 << 12) | (rd << 7) | (rs2 << 2) | 0b10; }
+
+} // namespace cenc
+
 // Direccion GLOBAL donde la CPU escribe el bloque de 16 bytes (128 bits)
 // que luego lee la VectorUnit para el test end-to-end.
 constexpr uint32_t VECTOR_TEST_ADDR = 0x2000;
@@ -136,7 +236,7 @@ constexpr uint32_t VECTOR_TEST_ADDR = 0x2000;
 // Ensambla el programa de prueba RV32I: ejercita R-type, I-type, LOAD,
 // STORE, BRANCH, JAL, JALR, LUI y AUIPC, y ademas deja escrito en RAM el
 // bloque de datos que usara la VectorUnit.
-std::vector<uint32_t> build_test_program() {
+std::vector<uint8_t> build_test_program() {
     using namespace asmenc;
     std::vector<uint32_t> p;
     auto push = [&](uint32_t w) { p.push_back(w); };
@@ -275,10 +375,116 @@ std::vector<uint32_t> build_test_program() {
     push(FLW(19, 12, 0));        // f19 = 10.0 (leido de vuelta desde RAM)
     push(FEQ_S(13, 1, 19));      // x13 = 1 (round-trip por memoria preserva el bit pattern)
 
-    // --- Fin de programa: palabra nula detiene la CPU (ver processor.h) ---
-    push(0x00000000);
+    push(ADDI(2, 0, 0x400));     // x2 = 0x400 (SP valido para el bloque C de abajo)
 
-    return p;
+    // --- Conversion a bytes: a partir de aca el programa mezcla
+    // instrucciones de 32 bits (arriba, todo lo que ya se verifico) con
+    // instrucciones comprimidas de 16 bits (extension C, abajo) -- por
+    // eso el resto del ensamblado trabaja directo sobre un stream de
+    // bytes en vez de un arreglo de palabras. ---
+    std::vector<uint8_t> bytes;
+    bytes.reserve(p.size() * 4 + 128);
+    for (uint32_t w : p) {
+        bytes.push_back(static_cast<uint8_t>(w));
+        bytes.push_back(static_cast<uint8_t>(w >> 8));
+        bytes.push_back(static_cast<uint8_t>(w >> 16));
+        bytes.push_back(static_cast<uint8_t>(w >> 24));
+    }
+    auto push16 = [&](uint16_t h) {
+        bytes.push_back(static_cast<uint8_t>(h));
+        bytes.push_back(static_cast<uint8_t>(h >> 8));
+    };
+
+    // --- Bloque 9: extension C (comprimidas). Registros x8-x15 se usan
+    // a proposito porque son los unicos direccionables por los formatos
+    // comprimidos de 3 bits (rd'/rs1'/rs2'); C.LI/C.ADDI/C.MV/C.ADD/
+    // C.SLLI/C.LUI usan el campo de registro completo (5 bits), pueden
+    // apuntar a cualquier registro. ---
+    using namespace cenc;
+
+    push16(C_LI(8, 5));         // x8 = 5
+    push16(C_LI(9, 3));         // x9 = 3
+    push16(C_LI(10, 8));        // x10 = 8
+    push16(C_ADD(8, 9));        // x8 = x8+x9 = 8
+    push16(C_MV(11, 8));        // x11 = x8 = 8
+    push16(C_SUB(creg_of(8), creg_of(9)));  // x8 = x8-x9 = 5
+    push16(C_XOR(creg_of(10), creg_of(9))); // x10 = x10^x9 = 8^3 = 11
+    push16(C_OR(creg_of(11), creg_of(8)));  // x11 = x11|x8 = 8|5 = 13
+    push16(C_LI(12, 12));       // x12 = 12
+    push16(C_AND(creg_of(12), creg_of(11))); // x12 = x12&x11 = 12&13 = 12
+    push16(C_ANDI(creg_of(9), 1));  // x9 = x9&1 = 3&1 = 1
+    push16(C_SRLI(creg_of(8), 1));  // x8 = x8>>1 (logico) = 5>>1 = 2
+    push16(C_SRAI(creg_of(10), 1)); // x10 = x10>>1 (aritmetico) = 11>>1 = 5
+    push16(C_SLLI(8, 2));       // x8 = x8<<2 = 2<<2 = 8
+    push16(C_ADDI(8, 5));       // x8 = x8+5 = 13
+    push16(C_LUI(16, 3));       // x16 = 3<<12 = 0x3000
+    push16(C_ADDI16SP(16));     // x2 = x2+16 = 0x400+16 = 0x410
+    push16(C_ADDI4SPN(creg_of(13), 4)); // x13 = x2+4 = 0x414
+    push16(C_LUI(14, 1));       // x14 = 0x1000 (base para C.LW/C.SW)
+    push16(C_SW(creg_of(14), creg_of(8), 0));  // mem[0x1000] = x8 (13)
+    push16(C_LW(creg_of(15), creg_of(14), 0)); // x15 = mem[0x1000] = 13
+    push16(C_SWSP(8, 0));       // mem[x2(0x410)] = x8 (13)
+    push16(C_LWSP(17, 0));      // x17 = mem[0x410] = 13
+
+    // C.BEQZ tomado. Nota: C.LI solo tiene un inmediato con signo de 6
+    // bits (-32..31) -- los marcadores de "salteada"/"aterrizaje" tienen
+    // que caber en ese rango (a diferencia de los ADDI de 32 bits usados
+    // en los bloques anteriores, que sí admiten valores como 999).
+    push16(C_LI(11, 0));                          // x11 = 0
+    { size_t origin = bytes.size(); push16(0);
+      push16(C_LI(19, 31));                       // (saltada)
+      size_t target = bytes.size();
+      bytes[origin] = static_cast<uint8_t>(C_BEQZ(creg_of(11), static_cast<int32_t>(target - origin)));
+      bytes[origin + 1] = static_cast<uint8_t>(C_BEQZ(creg_of(11), static_cast<int32_t>(target - origin)) >> 8);
+    }
+    push16(C_LI(19, 17));                         // x19 = 17 (aterrizaje)
+
+    // C.BNEZ tomado
+    push16(C_LI(12, 1));                          // x12 = 1
+    { size_t origin = bytes.size(); push16(0);
+      push16(C_LI(21, 30));                       // (saltada)
+      size_t target = bytes.size();
+      uint16_t enc = C_BNEZ(creg_of(12), static_cast<int32_t>(target - origin));
+      bytes[origin] = static_cast<uint8_t>(enc);
+      bytes[origin + 1] = static_cast<uint8_t>(enc >> 8);
+    }
+    push16(C_LI(21, 21));                         // x21 = 21 (aterrizaje)
+
+    // C.J incondicional
+    { size_t origin = bytes.size(); push16(0);
+      push16(C_LI(22, 29));                       // (saltada)
+      size_t target = bytes.size();
+      uint16_t enc = C_J(static_cast<int32_t>(target - origin));
+      bytes[origin] = static_cast<uint8_t>(enc);
+      bytes[origin + 1] = static_cast<uint8_t>(enc >> 8);
+    }
+    push16(C_LI(22, 19));                          // x22 = 19 (aterrizaje)
+
+    // C.JAL / C.JR: llamada y retorno a "funcion", igual patron que el
+    // bloque JAL/JALR de 32 bits mas arriba, pero con instrucciones
+    // comprimidas.
+    {
+        size_t idx_jal      = bytes.size(); push16(0); // placeholder: C.JAL
+        size_t idx_postcall = bytes.size(); push16(C_LI(23, 25)); // corre al volver
+        size_t idx_skip      = bytes.size(); push16(0); // placeholder: C.J
+        size_t idx_func       = bytes.size(); push16(C_LI(24, 26)); // cuerpo "funcion"
+        push16(C_JR(1));                                              // retorna a x1
+        size_t idx_end = bytes.size();
+
+        uint16_t jal_enc = C_JAL(static_cast<int32_t>(idx_func - idx_jal));
+        bytes[idx_jal] = static_cast<uint8_t>(jal_enc);
+        bytes[idx_jal + 1] = static_cast<uint8_t>(jal_enc >> 8);
+
+        uint16_t j_enc = C_J(static_cast<int32_t>(idx_end - idx_skip));
+        bytes[idx_skip] = static_cast<uint8_t>(j_enc);
+        bytes[idx_skip + 1] = static_cast<uint8_t>(j_enc >> 8);
+        (void)idx_postcall;
+    }
+
+    // --- Fin de programa: palabra nula detiene la CPU (ver processor.h) ---
+    bytes.push_back(0); bytes.push_back(0); bytes.push_back(0); bytes.push_back(0);
+
+    return bytes;
 }
 
 // Testbench auxiliar: coordina el test de la VectorUnit una vez que la CPU
@@ -342,8 +548,8 @@ int sc_main(int, char*[]) {
     // Carga del programa de prueba en RAM (acceso "backdoor" previo a
     // sc_start(), habitual para inicializar memoria de programa en un
     // testbench TLM-2.0; en ejecucion, todo acceso de la CPU pasa por Bus).
-    std::vector<uint32_t> program = build_test_program();
-    std::memcpy(memory.data.data(), program.data(), program.size() * sizeof(uint32_t));
+    std::vector<uint8_t> program = build_test_program();
+    std::memcpy(memory.data.data(), program.data(), program.size());
 
     sc_start();
 

@@ -1,4 +1,4 @@
-# Nucleo RV32IM sintetizable (Vitis HLS)
+# Nucleo RV32IMFC sintetizable (Vitis HLS)
 
 Prototipo sintetizable del decode+execute de la CPU, para obtener
 métricas reales de hardware (utilización de recursos, frecuencia máxima)
@@ -11,9 +11,29 @@ verificada (RV32IMF completo); esto es una pista aparte, en paralelo.
 - ✅ RV32I completo + extensión M (ADD/SUB/SLL/SLT/SLTU/XOR/SRL/SRA/OR/AND,
   Load/Store, Branch, JAL/JALR, LUI/AUIPC, MUL/MULH/MULHSU/MULHU/DIV/DIVU/
   REM/REMU).
-- ⬜ F (punto flotante) y RVV **no** están en este prototipo todavía —
-  quedan como siguiente paso de esta misma pista de síntesis (el modelo
-  TLM sí los tiene, ver `explain.md`).
+- ✅ Extensión F (simple precisión): banco `fregs[32]` (tipo `float`
+  nativo, sintetizable directo por Vitis HLS vía su librería de punto
+  flotante), FLW/FSW, FADD.S/FSUB.S/FMUL.S/FDIV.S/FSQRT.S, FSGNJ.S/
+  FSGNJN.S/FSGNJX.S, FMIN.S/FMAX.S, FEQ.S/FLT.S/FLE.S, FCVT.W.S/FCVT.WU.S/
+  FCVT.S.W/FCVT.S.WU, FMV.X.W/FMV.W.X, FCLASS.S, y la familia FMADD.S/
+  FMSUB.S/FNMSUB.S/FNMADD.S (vía `std::fma`, un solo redondeo). Mismo
+  alcance que el modelo TLM, portado casi mecánicamente.
+- ✅ Extensión C (comprimidas): `rv32c_defs.h` (copia literal del TLM,
+  ya portable) expande cada instrucción de 16 bits a su equivalente de
+  32 bits antes de que corra el mismo switch de decode de siempre.
+  `rv32_core_step` gana un puerto de salida `instr_size` (2 o 4) para
+  que quien la invoque sepa cuánto avanzar `pc`.
+  **Limitación de alineación** (distinta a la del TLM): `instr` siempre
+  entra como palabra de 32 bits ya alineada a 4 bytes; si es comprimida,
+  se usa solo su mitad baja de 16 bits. Esto significa que **una
+  comprimida siempre tiene que caer en la mitad baja** de un fetch
+  alineado — el caso real de C (comprimida arrancando en la mitad alta,
+  o intercalada en cualquier dirección par) no está cubierto acá. El
+  modelo TLM sí soporta cualquier alineación de 2 bytes porque su fetch
+  es un acceso de bus real de 16 bits, no un parámetro de entrada fijo.
+- ⬜ RVV **no** está en este prototipo todavía — el modelo TLM solo tiene
+  el esqueleto (`vector_load_test`), tampoco decodifica instrucciones
+  vectoriales reales.
 - **Memoria de datos: maestro AXI4 Full** (`#pragma HLS INTERFACE m_axi`
   sobre el parámetro `mem`) — mismo protocolo que la RAM de Evaluación
   Corta 4, así ambas piezas del curso hablan el mismo lenguaje de
