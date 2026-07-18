@@ -188,3 +188,71 @@ integrar esta lógica de RS/ROB/CDB con el decoder RV32IMFC real de
 `rv32_core.cpp` (hoy son dos prototipos separados), agregar más
 reservation stations por unidad, especulación de branches, y memoria
 fuera de orden con desambiguación.
+
+## Core RV32IMFC fuera de orden (`rv32_ooo.cpp`)
+
+Evolución del mecanismo anterior a un **procesador RV32IMFC real**: el
+motor RS/ROB/CDB del demo, generalizado e integrado con fetch de 16
+bits, decode I+M+F+C, branches y memoria. Sigue siendo un módulo
+separado de `rv32_core.cpp` — el core escalar verificado no se tocó.
+
+**Microarquitectura**:
+- **Fetch de 16 bits (extensión C)**: lee el halfword en `pc` (cualquier
+  dirección PAR), expande comprimidas con `rv32c::expand()` y avanza
+  `pc` en 2 o 4. Soporta una instrucción de 32 bits arrancando en la
+  mitad alta de una palabra (straddle) — **mejor** que la limitación de
+  alineación del core escalar de esta misma carpeta.
+- **Dos bancos arquitectónicos**: 32 registros enteros + RAT, y 32
+  flotantes + FRAT (extensión F). Ambos RAT apuntan al **mismo ROB
+  unificado** de 8 entradas: una dependencia float→int (FEQ que escribe
+  x-reg) o int→float (FCVT.S.W que lee x-reg) usa el mismo mecanismo de
+  tags que una entera — es la ventaja estructural de unificar el ROB.
+- Unidades funcionales con reservation station propia: 2× ALU (lat. 1),
+  1× MUL/DIV (lat. 3/8, M completa con casos borde), 1× **FPU** (F
+  completa: aritmética, FSGNJ, FMIN/FMAX, FCMP, FCVT saturado, FMV,
+  FCLASS, y la familia **FMADD con tercer operando rs3**; lat. 3/8/4/2
+  según op), 1× LSU (incluye FLW/FSW), 1× branch. LUI/AUIPC/JAL
+  resuelven en el dispatch (un C.JAL expandido enlaza a `pc+2`).
+- CDB: cada unidad difunde `(tag, valor)` al completar; los valores F
+  viajan como bits IEEE-754 crudos, igual que en un bus real.
+
+**Decisiones de alcance** (documentadas también en `rv32_ooo.h`): sin
+especulación de saltos (fetch se detiene hasta resolver BRANCH/JALR —
+nunca hay instrucciones por el camino equivocado, no hace falta
+squash/recovery); memoria en orden y conservadora (un load solo ejecuta
+al llegar a la cabeza del ROB; un store escribe memoria recién al
+commit); sin CSRs de F (`frm`/`fflags` — rm=RNE fijo, igual que todo el
+proyecto); RVV fuera de alcance.
+
+**Verificación**: el testbench (`rv32_ooo_tb.cpp`) ensambla un programa
+de 30 instrucciones en halfwords (I+M+F+C: dependencias RAW vía CDB,
+branch tomado, JAL con link, SW/LW y FSW/FLW round-trip, FMADD con rs3,
+FEQ cruzando bancos, comprimidas con straddle) y reconstruye **ambos
+bancos solo desde el stream de commit** (`commit_is_fp` distingue el
+banco), sin backdoor al DUT. Evidencia de reordenamiento por partida
+triple: `addi` completa antes que el `mul` (ciclo 6 < 7), `sub` antes
+que el `div` (17 < 23), y un `addi` entero antes que el `fdiv` flotante
+(42 < 48) — reordenamiento **cruzando bancos de registros**. Los 28
+retiros salen en orden de programa.
+
+**Cómo correrlo**:
+```bash
+cd RV32IMFC_hls
+vitis_hls -f run_hls_ooo_core.tcl
+```
+
+**Resultados de síntesis** (Vitis HLS 2024.2, `xck26-sfvc784-2LV-c`):
+
+| Métrica | RV32IM OOO (previo) | RV32IMFC OOO |
+|---|---|---|
+| Fmax estimado | 240.49 MHz | 135.86 MHz |
+| LUT | 9224 (7.8 %) | 15174 (12.9 %) |
+| FF | 3321 (1.4 %) | 4659 (2.0 %) |
+| DSP | 15 | 20 |
+| BRAM | 2 | 4 |
+
+La caída de Fmax al agregar F (240→136 MHz) viene del camino crítico de
+los operadores de punto flotante — es el mismo 135.86 MHz que estima el
+core escalar RV32IMFC, que paga el mismo camino. Dato útil para la
+sección de análisis del artículo: la extensión F domina el timing en
+ambas microarquitecturas, el costo del mecanismo OOO en sí es marginal.
