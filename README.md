@@ -125,6 +125,8 @@ RV32IMFC_hls/
 ├── immediates_hls.h     # Espejo de immediates.h usando ap_uint en vez de sc_uint
 ├── rv32_core_tb.cpp     # Testbench de C-simulation
 ├── run_hls.tcl          # Script de Vitis HLS (csim + csynth)
+├── vivado/
+│   └── run_vivado.tcl   # Sintesis + implementacion en Vivado (numeros post-P&R)
 └── README.md            # Como correrlo y que reportar
 ```
 

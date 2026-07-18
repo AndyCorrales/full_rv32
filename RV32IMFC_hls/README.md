@@ -86,9 +86,105 @@ Del archivo `rv32_core_proj/solution1/syn/report/rv32_core_step_csynth.rpt`:
   de `rv32_core_step` (debería ser 1, al ser combinacional puro; si HLS
   decide pipelinear/registrar internamente puede variar).
 
-Si además corrés la implementación completa en Vivado (`export_design`
-con `-flow impl`, o exportando el IP y armando un proyecto de Vivado a
-mano), vas a tener números post-P&R más precisos que los estimados de
-HLS — mencionarlo como "estimado por HLS" vs "post-implementación" en el
-artículo es honesto y además responde directamente al criterio de la
-rúbrica de la defensa sobre justificar decisiones y limitaciones.
+## Números post-implementación (Vivado)
+
+Los de arriba son *estimados* de HLS. Para números reales post-síntesis
+y post-P&R (más precisos, y lo que de verdad conviene citar en
+"Resultados preliminares"), hay un segundo script en
+[`vivado/run_vivado.tcl`](vivado/run_vivado.tcl) que toma el RTL que ya
+generó `csynth_design` y lo sintetiza/implementa en Vivado, out-of-context
+(sin integrarlo todavía a un sistema completo con Zynq PS — eso es el
+paso siguiente, para cuando haya que correr en la placa física de
+verdad).
+
+Requiere haber corrido `vitis_hls -f run_hls.tcl` primero (deja el RTL
+en `rv32_core_proj/solution1/syn/verilog/`). Después, desde
+`RV32IMFC_hls/`:
+
+```bash
+vivado -mode batch -source vivado/run_vivado.tcl
+```
+
+Genera:
+```
+reports/utilization_synth.rpt   # post-sintesis
+reports/timing_synth.rpt
+reports/utilization_impl.rpt    # post place & route (los mas precisos)
+reports/timing_impl.rpt
+```
+
+**Si `create_clock` falla** buscando el puerto `ap_clk`: abrí uno de los
+`.v` generados en `rv32_core_proj/solution1/syn/verilog/` y confirmá el
+nombre real del puerto de reloj del top (`rv32_core_step`) — Vitis HLS
+lo llama `ap_clk` por convención en interfaces `ap_ctrl_hs`, pero puede
+variar levemente según versión; ajustá esa línea del script si hace
+falta.
+
+Mencionar en el artículo "estimado por HLS" vs "post-implementación
+(Vivado)" para cada métrica es honesto y responde directo al criterio
+de la rúbrica de la defensa sobre justificar decisiones y limitaciones.
+
+## Demostrador de ejecución fuera de orden (`ooo_demo.cpp`)
+
+Prototipo **aislado y minimo** que demuestra ejecución fuera de orden real
+(Tomasulo-lite), separado del core escalar de arriba a propósito — para no
+arriesgar el RV32IMFC ya verificado mientras se cumple el requisito de
+arquitectura OOO del tema del curso, dado el tiempo disponible.
+
+**Alcance deliberadamente recortado**: 4 registros arquitectónicos, 1
+reservation station por unidad funcional (1 ALU, latencia 1 ciclo; 1 MUL,
+latencia 4 ciclos), ROB de 4 entradas con retiro en orden, CDB de
+broadcast simple. Sin especulación de branches, sin memoria, programa fijo
+de 3 instrucciones (no hay decoder — es un microarquitectura pura). Ver
+comentarios de cabecera en [`ooo_demo.h`](ooo_demo.h) para el detalle
+completo del diseño.
+
+**Programa fijo** (R0=5 al reset):
+```
+I0 (tag 0): R1 = R0 + 10   -- ALU
+I1 (tag 1): R2 = R1 * R1   -- MUL, depende de R1 (resultado de I0)
+I2 (tag 2): R3 = R0 - 1    -- ALU, independiente de I0/I1
+```
+
+**Evidencia de ejecución fuera de orden** (traza real de `csim_design`,
+ver `ooo_demo_proj/solution1/csim/report/ooo_demo_tick_csim.log`):
+```
+ciclo | evento
+    3 | ALU completa ejecucion (tag 0)
+    4 | COMMIT R1 = 0x0000000f
+    5 | ALU completa ejecucion (tag 2)     <- I2 completa ejecucion...
+    6 | MUL completa ejecucion (tag 1)     <- ...ANTES que I1, aunque I1 va antes en el programa
+    7 | COMMIT R2 = 0x000000e1
+    8 | COMMIT R3 = 0x00000004             <- pero el COMMIT si respeta el orden del programa (R1,R2,R3)
+```
+I2 (tag 2) termina de ejecutar en el ciclo 5, **antes** que I1 (tag 1) en
+el ciclo 6 — pese a que I1 aparece antes en el programa. Esa es la
+ejecución fuera de orden. El *commit* (retiro al banco de registros
+arquitectónico vía el ROB) sí respeta el orden del programa (R1 → R2 →
+R3), que es lo que da estado arquitectónico preciso pese al reordenamiento
+interno.
+
+**Cómo correrlo**:
+```bash
+cd RV32IMFC_hls
+vitis_hls -f run_hls_ooo.tcl
+```
+Corre csim (debe imprimir la traza de arriba y "Todos los checks
+pasaron.") y csynth, dejando el reporte en
+`ooo_demo_proj/solution1/syn/report/ooo_demo_tick_csynth.rpt`.
+
+**Resultados de síntesis** (Vitis HLS 2024.2, `xck26-sfvc784-2LV-c`):
+
+| Métrica | Valor |
+|---|---|
+| Fmax estimado | 175.38 MHz |
+| LUT | 2811 (2.4 %) |
+| FF | 706 (0.3 %) |
+| DSP | 3 (0.2 %) |
+| BRAM | 0 |
+
+**Trabajo futuro** (fuera de alcance de este demo, ver `explain.md`):
+integrar esta lógica de RS/ROB/CDB con el decoder RV32IMFC real de
+`rv32_core.cpp` (hoy son dos prototipos separados), agregar más
+reservation stations por unidad, especulación de branches, y memoria
+fuera de orden con desambiguación.
