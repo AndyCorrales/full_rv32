@@ -75,18 +75,65 @@ Documentadas también como comentario de cabecera en `rv32_ooo.h`.
   unidades completan el mismo ciclo (acá no puede pasar porque cada una
   tiene su propia línea de broadcast).
 - **Tamaños fijos y pequeños**: ROB de 8 entradas, 2 reservation
-  stations de ALU, 1 de MUL/DIV, 1 de FPU, 1 de LSU, 1 de branch — no
-  configurable en tiempo de síntesis, elegido para acotar el trabajo de
-  verificación dentro del tiempo disponible.
+  stations de ALU, 1 de MUL/DIV, 1 de FPU, 1 de LSU, 1 de branch, 1 de
+  VEC — no configurable en tiempo de síntesis, elegido para acotar el
+  trabajo de verificación dentro del tiempo disponible.
 - **Solo RV32IMFC entero/flotante de simple precisión**: sin `frm`/
   `fflags` (CSR de modo de redondeo/excepciones — `rm=RNE` fijo, igual
-  que el resto del proyecto), sin doble precisión (D), sin RVV.
+  que el resto del proyecto), sin doble precisión (D).
 - **Opcodes no soportados** (`SYSTEM`/`FENCE`/CSRs) se retiran como
   *no-op* silencioso en vez de disparar una excepción real — no hay
   infraestructura de traps.
 - Mismo requisito de wrapper externo que el core escalar para correr en
   hardware real (acá además el "tick" representa un ciclo de la
   microarquitectura, no un paso completo de instrucción).
+
+**RVV integrado (unidad `VecRs`)** — a diferencia de `rv32_vector.cpp`
+(ver abajo), esto SÍ corre junto al resto del pipeline OOO:
+
+- **Banco vectorial sin renombrar** (sin VRAT): una sola reservation
+  station VEC serializa las instrucciones vectoriales *entre sí* en
+  orden de programa (misma lógica que "memoria en orden" de la LSU),
+  aunque se solapan libremente con instrucciones escalares
+  independientes — esa es la evidencia de coprocesamiento real
+  verificada en el testbench (un `addi` completa mientras `vadd.vv`
+  sigue ejecutando).
+- **`vle32.v`/`vse32.v` se resuelven solo en la cabeza del ROB** — más
+  conservador que un store escalar (que calcula dirección/dato antes
+  pero escribe en el commit): se aplicó la misma regla a ambos para no
+  tener que ampliar el ROB a 128 bits (4 lanes) solo para los stores
+  vectoriales.
+- **Mismas 5 instrucciones y mismas simplificaciones** que
+  `rv32_vector.cpp` (`SEW=32`/`LMUL=1`/`VLEN=128` fijos, sin
+  `vtype`/`vsetvli`, sin máscara) — ver el detalle completo abajo.
+- **La distinción con `FLW`/`FSW` escalar es el campo `width`**
+  (`010`=escalar, `110`=vectorial) — ambos opcodes (`LOAD-FP`/
+  `STORE-FP`) se comparten con la extensión F, el decoder los separa
+  antes de rutear a la LSU o a la unidad VEC.
+
+### Decoder RVV mínimo standalone (`rv32_vector.cpp`)
+
+- **No integrado a ningún core** (a diferencia de la unidad `VecRs` de
+  `rv32_ooo.cpp` de arriba): es un módulo separado que decodifica
+  instrucciones vectoriales reales por su cuenta, pero el operando
+  escalar `rs1` (dirección base) entra ya resuelto como parámetro — no
+  hay ningún banco de registros enteros en este archivo.
+- **`SEW=32`/`LMUL=1`/`VLEN=128` fijos** (4 elementos por registro): sin
+  `vtype`/`vsetvli` dinámico — no se puede cambiar el ancho de elemento
+  ni agrupar registros en tiempo de ejecución.
+- **Sin máscara** (`vm=1` siempre) — `v0` no se usa como registro de
+  máscara, ninguna instrucción predicada.
+- **Solo 5 instrucciones**: `vle32.v`/`vse32.v` (memoria unit-stride,
+  sin segmentos ni acceso strided/indexed) y `vadd.vv`/`vsub.vv`/
+  `vmul.vv` (aritmética vector-vector). Sin reducción, sin permutación,
+  sin punto flotante vectorial, sin el resto de la extensión M
+  vectorial (división, widening, multiply-add).
+  - *Justificación*: cobertura mínima pero verificada de las dos
+    categorías estructurales del ISA (memoria + aritmética), priorizada
+    sobre cobertura amplia dado el tiempo disponible.
+  - *Codificación de bits verificada contra la especificación oficial*
+    (RVV v1.0, secciones 7 y 19) — no es una codificación inventada ni
+    aproximada.
 
 ### Comunes a toda la pista HLS
 
@@ -132,12 +179,19 @@ que ambas pistas sean comparables:
 - Memoria en orden: un acceso en vuelo, *load* solo en la cabeza del
   ROB, *store* escribe por el Bus recién al commit. Sin desambiguación
   de memoria.
-- ROB de 8 entradas, 2×ALU, 1×MUL/DIV, 1×FPU, 1×LSU, 1×branch — mismos
-  tamaños fijos que la pista HLS (a propósito, para que el mismo
+- ROB de 8 entradas, 2×ALU, 1×MUL/DIV, 1×FPU, 1×LSU, 1×branch, 1×VEC —
+  mismos tamaños fijos que la pista HLS (a propósito, para que el mismo
   programa de prueba dé el mismo resultado ciclo a ciclo en ambas
-  pistas, como efectivamente se verificó).
-- Sin `frm`/`fflags`, sin D, sin RVV integrado al pipeline OOO (aparte
-  existe el esqueleto independiente `VectorUnit`, ver abajo).
+  pistas, como efectivamente se verificó — incluida la sección RVV).
+- Sin `frm`/`fflags`, sin D.
+- **RVV integrado** (unidad `VecRs`): mismas simplificaciones que la
+  pista HLS (banco vectorial sin renombrar, una sola RS que serializa
+  las instrucciones vectoriales entre sí, `vle32.v`/`vse32.v` resueltas
+  en la cabeza del ROB, `SEW=32`/`LMUL=1`/`VLEN=128` fijos, sin
+  `vtype`/`vsetvli` ni máscara, solo 5 instrucciones). A diferencia de
+  HLS, la memoria vectorial pasa por el Bus real (b_transport),
+  respetando la convención TLM. El esqueleto independiente `VectorUnit`
+  (ver abajo) sigue existiendo pero no se usa en este pipeline.
 - Opcodes no soportados se retiran como *no-op*, sin traps reales.
 
 **Ventaja sobre la pista HLS** (vale la pena tenerlo presente, no es
@@ -169,10 +223,15 @@ desarrollo, documentado en el comentario de esa sección del archivo).
 
 ## Comunes a todo el proyecto (ambas pistas, ambos cores)
 
-- **RVV real**: en ninguna de las cuatro combinaciones (HLS/TLM ×
-  in-order/OOO) hay un decoder de instrucciones vectoriales funcionando
-  — es el trabajo más grande que queda pendiente hacia el objetivo final
-  del equipo (RV32IMFC + RVV out-of-order).
+- **RVV real**: **ambos cores OOO** (HLS `rv32_ooo.cpp` y TLM
+  `processor_ooo.h`) tienen RVV **integrado** como coprocesamiento real
+  verificado (unidad `VecRs`) — con los mismos números de ciclo en las
+  dos pistas. Sigue faltando en los cores in-order (HLS `rv32_core.cpp`
+  y TLM `Processor`), donde no aporta al objetivo (el tema pide OOO).
+  `vtype`/`vsetvli` real, máscara, y el resto de las categorías del ISA
+  (reducción, permutación, punto flotante vectorial) siguen siendo el
+  trabajo más grande pendiente hacia el objetivo final del equipo
+  (RV32IMFC + RVV out-of-order).
 - **Bare-metal real**: falta en las cuatro combinaciones: loader de ELF,
   `ECALL`/`EBREAK` (`SYSTEM`), `FENCE`, banco de CSRs
   (`mstatus`/`mtvec`/`mepc`/`mcause`), y al menos un periférico UART

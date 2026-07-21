@@ -30,6 +30,22 @@ namespace F3A = rv32i::Funct3_ALU;
 namespace F3M = rv32i::Funct3_MULDIV;
 namespace F7F = rv32i::Funct7_FP;
 
+// Codificacion RVV -- mismos campos de bits que la pista HLS
+// (rv32_vector.cpp / rv32_ooo.cpp), verificados contra RVV v1.0.
+static uint32_t enc_vec_mem(uint32_t opcode, uint32_t vd_or_vs3, uint32_t rs1) {
+    // nf=000, mew=0, mop=00, vm=1, lumop/sumop=00000, width=110 (32b)
+    return (1u << 25) | (rs1 << 15) | (0b110u << 12) | (vd_or_vs3 << 7) | opcode;
+}
+static uint32_t enc_op_v(uint32_t funct6, uint32_t vs2, uint32_t vs1, uint32_t funct3, uint32_t vd) {
+    return (funct6 << 26) | (1u << 25) | (vs2 << 20) | (vs1 << 15) | (funct3 << 12) | (vd << 7) | 0b1010111u;
+}
+
+// direcciones de datos vectoriales (BYTE) -- lejos del codigo y del
+// scratch escalar (256/260), sin colision
+static const uint32_t VEC_SRC1 = 512;  // v1: {10,20,30,40}
+static const uint32_t VEC_SRC2 = 528;  // v2: {1,2,3,4}
+static const uint32_t VEC_DST  = 544;  // destino del vse32.v
+
 static std::vector<uint16_t> build_test_program() {
     const uint32_t OP     = rv32i::Opcode::OP;
     const uint32_t OP_IMM = rv32i::Opcode::OP_IMM;
@@ -82,7 +98,21 @@ static std::vector<uint16_t> build_test_program() {
     push16(0x47A5);                                           // 108: c.li x15,9        d25 (16 bits)
     push32(i_type(OP_IMM, 16, F3A::ADD_SUB, 0, 21));          // 110: addi x16,x0,21    d26 (straddle)
     push16(0x078D);                                           // 114: c.addi x15,3      d27 -> x15=12
-    push16(0x0000);                                           // 116: fin de programa
+
+    // ---- parte RVV: coprocesamiento (pcs 116..152) ----
+    // registros escalares 13/14/17/18 (libres) para bases/independientes
+    push32(i_type(OP_IMM, 13, F3A::ADD_SUB, 0, VEC_SRC1));                 // 116: addi x13,x0,512  d28
+    push32(enc_vec_mem(rv32i::Opcode::LOAD_FP, /*vd=*/1, /*rs1=*/13));     // 120: vle32.v v1,(x13) d29 -> {10,20,30,40}
+    push32(i_type(OP_IMM, 14, F3A::ADD_SUB, 0, VEC_SRC2));                 // 124: addi x14,x0,528  d30
+    push32(enc_vec_mem(rv32i::Opcode::LOAD_FP, /*vd=*/2, /*rs1=*/14));     // 128: vle32.v v2,(x14) d31 -> {1,2,3,4}
+    push32(enc_op_v(0b000000, 2, 1, 0b000, /*vd=*/3));                    // 132: vadd.vv v3,v2,v1 d32 (lat 3) -> {11,22,33,44}
+    push32(i_type(OP_IMM, 25, F3A::ADD_SUB, 0, 99));                      // 136: addi x25,x0,99   d33 (OOO vs d32)
+    push32(enc_op_v(0b100101, 1, 1, 0b010, /*vd=*/4));                   // 140: vmul.vv v4,v1,v1 d34 (lat 3) -> {100,400,900,1600}
+    push32(i_type(OP_IMM, 26, F3A::ADD_SUB, 0, 77));                      // 144: addi x26,x0,77   d35 (OOO vs d34)
+    push32(i_type(OP_IMM, 17, F3A::ADD_SUB, 0, VEC_DST));                 // 148: addi x17,x0,544  d36
+    push32(enc_vec_mem(rv32i::Opcode::STORE_FP, /*vs3=*/3, /*rs1=*/17));   // 152: vse32.v v3,(x17) d37 -> mem[544..559]
+
+    push16(0x0000);                                           // 156: fin de programa
 
     return prog;
 }
@@ -129,6 +159,11 @@ SC_MODULE(TestbenchOOO) {
             {22, 1,          "feq.s f5==f6 (FP escribe banco entero)"},
             {23, 0x41400000, "fmv.x.w bits de 12.0f"},
             {24, 2,          "addi independiente del fdiv"},
+            {13, 512,        "addi (base del primer vle32.v)"},
+            {14, 528,        "addi (base del segundo vle32.v)"},
+            {25, 99,         "addi independiente de vadd.vv"},
+            {26, 77,         "addi independiente de vmul.vv"},
+            {17, 544,        "addi (direccion del vse32.v)"},
         };
         for (const XC& c : xchecks) {
             if (cpu.regs[c.reg] != c.expect) {
@@ -164,6 +199,8 @@ SC_MODULE(TestbenchOOO) {
             {3, 2,   "d3 (addi) antes que d2 (mul)"},
             {12, 11, "d12 (sub) antes que d11 (div)"},
             {24, 23, "d24 (addi) antes que d23 (fdiv) -- OOO cruzando bancos"},
+            {33, 32, "d33 (addi) antes que d32 (vadd.vv) -- coprocesamiento: escalar avanza mientras VEC ejecuta"},
+            {35, 34, "d35 (addi) antes que d34 (vmul.vv) -- coprocesamiento"},
         };
         for (const OC& c : ooo) {
             int cl = cpu.complete_cycle[c.later], ce = cpu.complete_cycle[c.earlier];
@@ -175,7 +212,26 @@ SC_MODULE(TestbenchOOO) {
             }
         }
 
-        const int N_EXPECTED = 28;
+        // banco vectorial (acceso directo al miembro publico cpu.vregs --
+        // igual que cpu.regs/cpu.fregs, no es backdoor de memoria)
+        struct VC { int vreg, lane; uint32_t expect; };
+        const VC vchecks[] = {
+            {1,0,10},{1,1,20},{1,2,30},{1,3,40},      // v1 (vle32.v)
+            {2,0,1}, {2,1,2}, {2,2,3}, {2,3,4},       // v2 (vle32.v)
+            {3,0,11},{3,1,22},{3,2,33},{3,3,44},      // v3 (vadd.vv)
+            {4,0,100},{4,1,400},{4,2,900},{4,3,1600}, // v4 (vmul.vv)
+        };
+        for (const VC& c : vchecks) {
+            uint32_t got = cpu.vregs[c.vreg * ProcessorOOO::VEC_LANES + c.lane];
+            if (got != c.expect) {
+                std::printf("FAIL  v%d[%d] = 0x%08x, esperado 0x%08x\n", c.vreg, c.lane, got, c.expect);
+                ok = false;
+            } else {
+                std::printf("OK    v%d[%d] = 0x%08x\n", c.vreg, c.lane, got);
+            }
+        }
+
+        const int N_EXPECTED = 38;
         if (cpu.n_disp != N_EXPECTED) {
             std::printf("FAIL  dispatches: %d, esperados %d\n", cpu.n_disp, N_EXPECTED);
             ok = false;
@@ -202,6 +258,17 @@ SC_MODULE(TestbenchOOO) {
             std::printf("OK    mem[260] = 0x41C00000 (fsw escribio 24.0f al commit)\n");
         }
 
+        // round-trip del vse32.v: los 4 lanes de v3 escritos en VEC_DST=544
+        uint32_t vs[4];
+        for (int i = 0; i < 4; i++) std::memcpy(&vs[i], &mem.data[544 + i * 4], 4);
+        if (vs[0] == 11 && vs[1] == 22 && vs[2] == 33 && vs[3] == 44) {
+            std::printf("OK    mem[544..559] = {11,22,33,44} (vse32.v round-trip, resuelto en cabeza del ROB)\n");
+        } else {
+            std::printf("FAIL  mem[544..559] = {%u,%u,%u,%u}, esperado {11,22,33,44}\n",
+                        vs[0], vs[1], vs[2], vs[3]);
+            ok = false;
+        }
+
         std::cout << (ok ? "\nTodos los checks pasaron." : "\nAl menos un check fallo.") << std::endl;
         all_ok = ok;
         sc_stop();
@@ -224,6 +291,13 @@ int sc_main(int, char*[]) {
     // carga backdoor del programa (halfwords -> bytes LE), igual que main.cpp
     std::vector<uint16_t> program = build_test_program();
     std::memcpy(memory.data.data(), program.data(), program.size() * sizeof(uint16_t));
+
+    // precarga backdoor de los datos vectoriales (fuente de los vle32.v):
+    // v1={10,20,30,40} en 512, v2={1,2,3,4} en 528 -- lejos del codigo
+    const uint32_t v1[4] = {10, 20, 30, 40};
+    const uint32_t v2[4] = {1, 2, 3, 4};
+    std::memcpy(&memory.data[VEC_SRC1], v1, sizeof(v1));
+    std::memcpy(&memory.data[VEC_SRC2], v2, sizeof(v2));
 
     sc_start();
 

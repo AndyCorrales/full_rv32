@@ -24,17 +24,33 @@
 //     entradas con retiro en orden.
 //   - Unidades funcionales con reservation station propia: 2x ALU (lat 1),
 //     1x MUL/DIV (lat 3/8), 1x FPU (F completa, familia FMADD con rs3;
-//     lat 3/8/4/2 segun op), 1x LSU, 1x branch. LUI/AUIPC/JAL resuelven
-//     en el dispatch.
+//     lat 3/8/4/2 segun op), 1x LSU, 1x branch, 1x VEC (coprocesamiento
+//     vectorial RVV, ver abajo). LUI/AUIPC/JAL resuelven en el dispatch.
 //   - CDB: cada unidad difunde (tag, valor) al completar y despierta a
 //     las RS en espera. Los valores F viajan como bits IEEE-754 crudos.
+//
+// Coprocesamiento vectorial (RVV, unidad VecRs): mismas 5 instrucciones
+// y misma codificacion de bits verificada contra la especificacion
+// oficial RVV v1.0 que la pista HLS (rv32_ooo.cpp) -- vle32.v/vse32.v
+// (memoria unit-stride) + vadd.vv/vsub.vv/vmul.vv (aritmetica
+// vector-vector), SEW=32/LMUL=1/VLEN=128 (4 lanes), sin vtype/vsetvli ni
+// mascara. Se despachan desde el MISMO decoder OOO que el resto del
+// programa: un vadd.vv puede estar ejecutando mientras instrucciones
+// escalares independientes completan fuera de orden alrededor suyo --
+// eso es coprocesamiento con un core OOO, no dos decoders separados. El
+// banco vectorial (vregs) no se renombra via el ROB: una sola RS VEC
+// serializa las instrucciones vectoriales entre si (como la LSU). La
+// distincion con FLW/FSW escalar es el campo width (010=escalar,
+// 110=vectorial de 32b). vle32.v/vse32.v se resuelven en la cabeza del
+// ROB, con acceso al Bus real (respetando la convencion TLM).
 //
 // Decisiones de alcance (mismas que la pista HLS, rv32_ooo.h):
 //   - SIN especulacion de saltos: fetch detenido hasta resolver
 //     BRANCH/JALR (JAL redirige en el dispatch). Sin squash/recovery.
 //   - Memoria EN ORDEN: un acceso en vuelo; un load ejecuta solo en la
 //     cabeza del ROB; un store escribe por el Bus recien al commit.
-//   - Sin CSRs de F (rm=RNE fijo). RVV fuera de alcance.
+//   - Sin CSRs de F (rm=RNE fijo). RVV minimo (ver arriba), sin el resto
+//     del ISA vectorial.
 //
 // Convenciones TLM del proyecto respetadas: sin sc_signal, todo acceso a
 // memoria via b_transport bloqueante por el Bus (fetch de 16 bits, loads
@@ -56,10 +72,29 @@ SC_MODULE(ProcessorOOO) {
     static const int N_ALU  = 2;
     static const int ALU_LAT = 1, MUL_LAT = 3, DIV_LAT = 8, BR_LAT = 1;
     static const int FPU_LAT_ADDMUL = 3, FPU_LAT_DIV = 8, FPU_LAT_FMA = 4, FPU_LAT_MISC = 2;
+    static const int VEC_LAT = 3; // vadd.vv/vsub.vv/vmul.vv
+
+    // ---- coprocesamiento vectorial (RVV): VLEN=128/SEW=32/LMUL=1 -> 4 lanes,
+    // mismos valores y misma codificacion de bits que la pista HLS
+    // (rv32_ooo.cpp / rv32_vector.cpp), verificados contra la
+    // especificacion oficial RVV v1.0 ----
+    static const int VEC_NUM_VREGS = 32;
+    static const int VEC_LANES     = 4;
+    static const int VEC_REGFILE_LEN = VEC_NUM_VREGS * VEC_LANES;
+    // opcodes/campos RVV (no viven en rv32i_defs.h: ese header es
+    // compartido con Processor in-order, no hace falta tocarlo)
+    static const uint32_t RVV_OPCODE_OP_V = 0b1010111;
+    static const uint32_t RVV_WIDTH_32    = 0b110; // distingue vle32.v/vse32.v de FLW/FSW (width=010)
+    static const uint32_t RVV_FUNCT3_OPIVV = 0b000;
+    static const uint32_t RVV_FUNCT3_OPMVV = 0b010;
+    static const uint32_t RVV_FUNCT6_VADD  = 0b000000;
+    static const uint32_t RVV_FUNCT6_VSUB  = 0b000010;
+    static const uint32_t RVV_FUNCT6_VMUL  = 0b100101;
 
     // ---- estado arquitectonico ----
     std::array<uint32_t, 32> regs{};
     std::array<float, 32> fregs{};
+    std::array<uint32_t, VEC_REGFILE_LEN> vregs{}; // banco vectorial (sin renombrar)
     bool halted = false;
     sc_event finished;
 
@@ -109,6 +144,19 @@ SC_MODULE(ProcessorOOO) {
         int32_t imm;
         Operand s1, s2;
     };
+    // Unidad vectorial (RVV): una sola reservation station, como la LSU --
+    // serializa las instrucciones vectoriales ENTRE SI (no hay VRAT que
+    // las renombre), pero se solapan libremente con instrucciones
+    // escalares independientes que completen fuera de orden alrededor
+    // suyo. Eso es coprocesamiento con un core OOO, no "otro decoder".
+    struct VecRs {
+        bool busy, executing; uint8_t remaining;
+        bool is_load, is_store, is_arith;
+        uint8_t vd_or_vs3, vs1, vs2; // mismos bits que rd/rs1/rs2
+        uint8_t arith_op;            // 0=vadd.vv, 1=vsub.vv, 2=vmul.vv
+        uint8_t rob_tag;
+        Operand s1;                  // direccion base (rs1, banco entero) -- solo memoria
+    };
 
     // ---- estado de la microarquitectura ----
     std::array<RatEntry, 32> rat{};
@@ -120,6 +168,7 @@ SC_MODULE(ProcessorOOO) {
     FpuRs fpu_rs{};
     LsuRs lsu_rs{};
     BrRs  br_rs{};
+    VecRs vec_rs{};
     uint32_t fetch_pc = 0;
     bool fetch_stalled = false, fetch_done = false;
 
@@ -187,6 +236,21 @@ SC_MODULE(ProcessorOOO) {
         if (lsu_rs.busy && !lsu_rs.s2.ready && lsu_rs.s2.tag == tag) { lsu_rs.s2.ready = true; lsu_rs.s2.val = value; }
         if (br_rs.busy && !br_rs.s1.ready && br_rs.s1.tag == tag) { br_rs.s1.ready = true; br_rs.s1.val = value; }
         if (br_rs.busy && !br_rs.s2.ready && br_rs.s2.tag == tag) { br_rs.s2.ready = true; br_rs.s2.val = value; }
+        if (vec_rs.busy && !vec_rs.s1.ready && vec_rs.s1.tag == tag) { vec_rs.s1.ready = true; vec_rs.s1.val = value; }
+    }
+
+    // Aritmetica RVV vector-vector -- misma semantica que rv32_vector.cpp
+    // (elemento a elemento sobre los VEC_LANES lanes).
+    void vec_arith_compute(const VecRs& u) {
+        for (int lane = 0; lane < VEC_LANES; lane++) {
+            uint32_t a = vregs[u.vs2 * VEC_LANES + lane];
+            uint32_t b = vregs[u.vs1 * VEC_LANES + lane];
+            uint32_t r;
+            if (u.arith_op == 0)      r = a + b; // vadd.vv
+            else if (u.arith_op == 1) r = a - b; // vsub.vv
+            else                      r = a * b; // vmul.vv
+            vregs[u.vd_or_vs3 * VEC_LANES + lane] = r;
+        }
     }
 
     Operand read_operand(uint8_t reg) {
@@ -434,6 +498,32 @@ SC_MODULE(ProcessorOOO) {
                 lsu_rs.busy = false;
             }
         }
+        // VEC: aritmetica con latencia fija; memoria vectorial resuelta
+        // SOLO en la cabeza del ROB, para load Y store (mas conservador
+        // que el store escalar, para no ampliar el ROB a 128 bits).
+        if (vec_rs.busy && vec_rs.is_arith && vec_rs.executing) {
+            if (vec_rs.remaining > 0) vec_rs.remaining--;
+            if (vec_rs.remaining == 0) {
+                vec_arith_compute(vec_rs);
+                rob[vec_rs.rob_tag].ready = true;
+                record_complete(vec_rs.rob_tag, "VEC");
+                vec_rs.busy = false; vec_rs.executing = false;
+            }
+        }
+        if (vec_rs.busy && (vec_rs.is_load || vec_rs.is_store) &&
+            vec_rs.s1.ready && vec_rs.rob_tag == rob_head && rob[rob_head].valid) {
+            uint32_t base = vec_rs.s1.val;
+            if (vec_rs.is_load) {
+                for (int lane = 0; lane < VEC_LANES; lane++)
+                    vregs[vec_rs.vd_or_vs3 * VEC_LANES + lane] = load(base + lane * 4, 4);
+            } else {
+                for (int lane = 0; lane < VEC_LANES; lane++)
+                    store(base + lane * 4, vregs[vec_rs.vd_or_vs3 * VEC_LANES + lane], 4);
+            }
+            rob[vec_rs.rob_tag].ready = true;
+            record_complete(vec_rs.rob_tag, "VEC");
+            vec_rs.busy = false;
+        }
 
         // Etapa 3: issue (RS con operandos listos arranca ejecucion)
         for (int i = 0; i < N_ALU; i++) {
@@ -460,6 +550,12 @@ SC_MODULE(ProcessorOOO) {
         if (br_rs.busy && !br_rs.executing && br_rs.s1.ready && br_rs.s2.ready) {
             br_rs.executing = true;
             br_rs.remaining = BR_LAT;
+        }
+        if (vec_rs.busy && vec_rs.is_arith && !vec_rs.executing) {
+            // sin operandos que esperar (lee vregs directo, sin RAT):
+            // arranca en el primer ciclo de issue, igual que las demas
+            vec_rs.executing = true;
+            vec_rs.remaining = VEC_LAT;
         }
 
         // Etapa 4: fetch + dispatch (1 instruccion por ciclo, en orden)
@@ -564,6 +660,24 @@ SC_MODULE(ProcessorOOO) {
                 RobEntry& e = rob[new_tag];
                 e.valid = true; e.is_store = false; e.dest = rd; e.ready = false;
             }
+        } else if ((opc == rv32i::Opcode::LOAD_FP || opc == rv32i::Opcode::STORE_FP) &&
+                   f3 == RVV_WIDTH_32) {
+            // vle32.v / vse32.v: MISMO opcode LOAD-FP/STORE-FP que FLW/FSW
+            // escalar, pero width=110 (vectorial 32b) en vez de 010 --
+            // asi se distinguen (codificacion verificada contra RVV v1.0).
+            if (!vec_rs.busy) {
+                can_dispatch = true;
+                vec_rs.busy = true;
+                vec_rs.is_load = (opc == rv32i::Opcode::LOAD_FP);
+                vec_rs.is_store = !vec_rs.is_load;
+                vec_rs.is_arith = false;
+                vec_rs.vd_or_vs3 = rd; // mismo campo de bits que vd (load) o vs3 (store)
+                vec_rs.rob_tag = new_tag;
+                vec_rs.s1 = read_operand(rs1i); // direccion base, banco entero
+                RobEntry& e = rob[new_tag];
+                e.valid = true; e.is_store = false; e.dest_is_fp = false;
+                e.dest = 0; e.ready = false;
+            }
         } else if (opc == rv32i::Opcode::LOAD || opc == rv32i::Opcode::STORE ||
                    opc == rv32i::Opcode::LOAD_FP || opc == rv32i::Opcode::STORE_FP) {
             if (!lsu_rs.busy) {
@@ -654,6 +768,33 @@ SC_MODULE(ProcessorOOO) {
                 e.dest = br_rs.is_jalr ? rd : 0;
                 // sin especulacion: fetch detenido hasta resolver el destino
                 fetch_stalled = true;
+            }
+        } else if (opc == RVV_OPCODE_OP_V) {
+            // vadd.vv/vsub.vv/vmul.vv -- funct6/funct3 verificados contra
+            // la seccion 19 de la especificacion oficial RVV v1.0.
+            uint32_t f6 = (instr >> 26) & 0x3F;
+            bool is_add = (f3 == RVV_FUNCT3_OPIVV && f6 == RVV_FUNCT6_VADD);
+            bool is_sub = (f3 == RVV_FUNCT3_OPIVV && f6 == RVV_FUNCT6_VSUB);
+            bool is_mul = (f3 == RVV_FUNCT3_OPMVV && f6 == RVV_FUNCT6_VMUL);
+            if (is_add || is_sub || is_mul) {
+                if (!vec_rs.busy) {
+                    can_dispatch = true;
+                    vec_rs.busy = true;
+                    vec_rs.is_load = false; vec_rs.is_store = false; vec_rs.is_arith = true;
+                    vec_rs.vd_or_vs3 = rd; vec_rs.vs1 = rs1i; vec_rs.vs2 = rs2i;
+                    vec_rs.arith_op = is_add ? 0 : is_sub ? 1 : 2;
+                    vec_rs.rob_tag = new_tag;
+                    vec_rs.executing = false; // arranca en la etapa 3, como el resto
+                    RobEntry& e = rob[new_tag];
+                    e.valid = true; e.is_store = false; e.dest_is_fp = false;
+                    e.dest = 0; e.ready = false;
+                }
+                // si vec_rs.busy: can_dispatch queda false -> stall (unidad ocupada)
+            } else {
+                // variante RVV no soportada en este alcance minimo: no-op
+                can_dispatch = true;
+                RobEntry& e = rob[new_tag];
+                e.valid = true; e.is_store = false; e.dest = 0; e.value = 0; e.ready = true;
             }
         } else {
             // opcode no soportado (SYSTEM/FENCE/...): retira como no-op

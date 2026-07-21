@@ -27,9 +27,33 @@
 //                  (FMADD/FMSUB/FNMSUB/FNMADD) con TERCER operando rs3
 //       1x LSU     (LW/LH/LB/SW/SH/SB + FLW/FSW, memoria en orden)
 //       1x BR      (BRANCH/JALR; JAL/LUI/AUIPC resuelven en dispatch)
+//       1x VEC     (RVV minimo: vle32.v/vse32.v + vadd.vv/vsub.vv/vmul.vv,
+//                  ver detalle abajo) -- coprocesamiento vectorial real,
+//                  integrado al mismo mecanismo OOO
 //   - CDB: al completar, cada unidad difunde (tag, valor) y despierta a
 //     cualquier RS que esperara ese tag (los valores F viajan como bits
 //     IEEE-754 crudos, igual que en el bus real).
+//
+// Coprocesamiento vectorial (RVV, integrado con rv32_vector.cpp):
+//   Mismas 5 instrucciones y misma codificacion de bits verificada
+//   contra la especificacion oficial que en rv32_vector.cpp (memoria
+//   unit-stride + aritmetica vector-vector), pero ahora despachadas
+//   desde el MISMO decoder OOO que el resto del programa -- un
+//   `vadd.vv` puede estar ejecutando en la unidad VEC mientras
+//   instrucciones escalares independientes (ALU/MUL/FPU) completan
+//   fuera de orden alrededor suyo, que es la definicion real de
+//   coprocesamiento con un core OOO. Simplificaciones adicionales
+//   (documentadas en LIMITACIONES.md): el banco vectorial NO se
+//   renombra via el ROB (no hay VRAT) -- una sola reservation station
+//   VEC (como la LSU) serializa las instrucciones vectoriales ENTRE SI
+//   en orden de programa (misma logica que "memoria en orden"), aunque
+//   pueden solaparse libremente con instrucciones escalares
+//   independientes. `vle32.v`/`vse32.v` se resuelven recien en la
+//   cabeza del ROB (igual que un load escalar, pero tambien para el
+//   store -- mas conservador que el store escalar, para no tener que
+//   ampliar el ROB a 128 bits). La distincion con FLW/FSW escalar (que
+//   comparte el mismo opcode LOAD-FP/STORE-FP) es el campo `width`:
+//   0b010 = escalar F, 0b110 = vectorial unit-stride de 32 bits.
 //
 // Decisiones de alcance (deliberadas, para acotar verificacion):
 //   - SIN especulacion de saltos (fetch se detiene hasta resolver
@@ -37,7 +61,9 @@
 //   - Memoria EN ORDEN: un acceso en vuelo; un load ejecuta solo en la
 //     cabeza del ROB; un store escribe memoria recien al commit.
 //   - Sin CSRs de F (frm/fflags): rm=RNE fijo, igual que el resto del
-//     proyecto. RVV fuera de alcance.
+//     proyecto.
+//   - RVV: SEW=32/LMUL=1/VLEN=128 fijos (4 lanes), sin vtype/vsetvli,
+//     sin mascara, solo las 5 instrucciones de rv32_vector.cpp.
 //   - Convencion de fin de programa: halfword 0x0000 detiene el fetch;
 //     `halted` cuando ademas el ROB esta vacio.
 //
@@ -46,10 +72,15 @@
 // reconstruya el estado arquitectonico SOLO desde el retiro (sin
 // backdoor) y verifique el reordenamiento desde afuera del DUT.
 // `commit_is_fp` distingue si el retiro escribe el banco entero o el
-// flotante (el valor flotante se reporta como bits IEEE-754).
+// flotante (el valor flotante se reporta como bits IEEE-754). El banco
+// vectorial se expone como puerto de salida `vregs_out` (no pasa por el
+// stream de commit, ver nota de alcance arriba).
 
 #define OOO_IMEM_WORDS 64
 #define OOO_DMEM_WORDS 64
+#define OOO_VEC_NUM_VREGS 32
+#define OOO_VEC_LANES 4
+#define OOO_VEC_REGFILE_LEN (OOO_VEC_NUM_VREGS * OOO_VEC_LANES)
 
 void rv32_ooo_tick(
     ap_uint<1>  reset,
@@ -66,11 +97,14 @@ void rv32_ooo_tick(
     ap_uint<1>& fpu_done,  ap_uint<3>& fpu_tag,
     ap_uint<1>& lsu_done,  ap_uint<3>& lsu_tag,
     ap_uint<1>& br_done,   ap_uint<3>& br_tag,
+    ap_uint<1>& vec_done,  ap_uint<3>& vec_tag,
     // stream de commit (retiro en orden)
     ap_uint<1>&  commit_valid,
     ap_uint<1>&  commit_is_fp, // 1: escribe f[rd]; 0: escribe x[rd] (rd=0 => nada)
     ap_uint<5>&  commit_rd,
     ap_uint<32>& commit_value,
+    // banco vectorial (estado completo, actualizado cada ciclo)
+    ap_uint<32>  vregs_out[OOO_VEC_REGFILE_LEN],
     ap_uint<1>&  halted
 );
 

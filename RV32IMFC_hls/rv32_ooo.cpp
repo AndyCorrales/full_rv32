@@ -19,6 +19,21 @@ static const int FPU_LAT_MISC   = 2; // sgnj/minmax/cmp/cvt/mv/class
 
 static const int ROB_SZ  = 8;
 static const int N_ALU   = 2;
+static const int VEC_LAT = 3; // vadd.vv/vsub.vv/vmul.vv
+
+// ---- RVV: opcodes/campos verificados contra la especificacion oficial
+// (RISC-V "V" Vector Extension v1.0), mismos valores que rv32_vector.cpp.
+// No se agregan a rv32i_defs.h a proposito (ese header es compartido con
+// rv32_core.cpp/rv32_vector.cpp, no hace falta tocarlo). ----
+namespace rvv {
+    constexpr uint32_t OPCODE_OP_V = 0b1010111;
+    constexpr uint32_t WIDTH_32    = 0b110; // distingue vle32.v/vse32.v de FLW/FSW (width=010)
+    constexpr uint32_t FUNCT3_OPIVV = 0b000;
+    constexpr uint32_t FUNCT3_OPMVV = 0b010;
+    constexpr uint32_t FUNCT6_VADD  = 0b000000;
+    constexpr uint32_t FUNCT6_VSUB  = 0b000010;
+    constexpr uint32_t FUNCT6_VMUL  = 0b100101;
+}
 
 // ================= estado persistente (registros en RTL) =================
 
@@ -95,6 +110,23 @@ struct FpuRs {
     Operand     s1, s2, s3; // s3: tercer operando de la familia R4
 };
 
+// Unidad vectorial (RVV): una sola reservation station, como la LSU --
+// serializa las instrucciones vectoriales ENTRE SI (no hay VRAT que las
+// renombre), pero pueden solaparse libremente con instrucciones
+// escalares independientes que completen fuera de orden alrededor
+// suyo -- eso es lo que hace esto "coprocesamiento con un core OOO" y
+// no solo "otro decoder mas". Ver rv32_ooo.h para el detalle completo.
+struct VecRs {
+    bool        busy, executing;
+    ap_uint<2>  remaining;
+    bool        is_load, is_store, is_arith;
+    ap_uint<5>  vd_or_vs3;
+    ap_uint<5>  vs1, vs2;   // solo aritmetica (vs1/vs2 en los mismos bits que rs1/rs2)
+    ap_uint<2>  arith_op;   // 0=vadd.vv, 1=vsub.vv, 2=vmul.vv
+    ap_uint<3>  rob_tag;
+    Operand     s1;         // direccion base (rs1, banco entero) -- solo memoria
+};
+
 static ap_uint<32> regfile[32];
 static ap_uint<32> fregs[32];   // banco F como bits IEEE-754 crudos
 static RatEntry    rat[32];
@@ -107,6 +139,8 @@ static MdRs        md_rs;
 static FpuRs       fpu_rs;
 static LsuRs       lsu_rs;
 static BrRs        br_rs;
+static VecRs       vec_rs;
+static ap_uint<32> vregs[OOO_VEC_REGFILE_LEN]; // banco vectorial, sin renombrar
 static ap_uint<32> fetch_pc;
 static bool        fetch_stalled; // esperando resolucion de BRANCH/JALR
 static bool        fetch_done;    // se encontro la palabra 0 (fin de programa)
@@ -153,6 +187,9 @@ static void cdb_broadcast(ap_uint<3> tag, ap_uint<32> value) {
     }
     if (fpu_rs.busy && !fpu_rs.s3.ready && fpu_rs.s3.tag == tag) {
         fpu_rs.s3.ready = true; fpu_rs.s3.val = value;
+    }
+    if (vec_rs.busy && !vec_rs.s1.ready && vec_rs.s1.tag == tag) {
+        vec_rs.s1.ready = true; vec_rs.s1.val = value;
     }
 }
 
@@ -311,6 +348,22 @@ static ap_uint<32> fpu_compute(const FpuRs& u) {
     }
 }
 
+// Aritmetica RVV vector-vector -- misma semantica que rv32_vector.cpp
+// (elemento a elemento sobre los OOO_VEC_LANES lanes), factorizada aca
+// para que la unidad VEC la invoque desde etapa2 igual que las demas.
+static void vec_arith_compute(const VecRs& u, ap_uint<32> vregs[OOO_VEC_REGFILE_LEN]) {
+    for (int lane = 0; lane < OOO_VEC_LANES; lane++) {
+#pragma HLS UNROLL
+        ap_uint<32> a = vregs[u.vs2.to_uint() * OOO_VEC_LANES + lane];
+        ap_uint<32> b = vregs[u.vs1.to_uint() * OOO_VEC_LANES + lane];
+        ap_uint<32> r;
+        if (u.arith_op == 0)      r = a + b; // vadd.vv
+        else if (u.arith_op == 1) r = a - b; // vsub.vv
+        else                      r = a * b; // vmul.vv
+        vregs[u.vd_or_vs3.to_uint() * OOO_VEC_LANES + lane] = r;
+    }
+}
+
 static bool branch_taken(ap_uint<3> f3, ap_uint<32> a_u, ap_uint<32> b_u) {
     int32_t a = static_cast<int32_t>(a_u.to_uint());
     int32_t b = static_cast<int32_t>(b_u.to_uint());
@@ -381,14 +434,17 @@ void rv32_ooo_tick(
     ap_uint<1>& fpu_done,  ap_uint<3>& fpu_tag,
     ap_uint<1>& lsu_done,  ap_uint<3>& lsu_tag,
     ap_uint<1>& br_done,   ap_uint<3>& br_tag,
+    ap_uint<1>& vec_done,  ap_uint<3>& vec_tag,
     ap_uint<1>&  commit_valid,
     ap_uint<1>&  commit_is_fp,
     ap_uint<5>&  commit_rd,
     ap_uint<32>& commit_value,
+    ap_uint<32>  vregs_out[OOO_VEC_REGFILE_LEN],
     ap_uint<1>&  halted)
 {
 #pragma HLS INTERFACE bram port=imem
 #pragma HLS INTERFACE bram port=dmem
+#pragma HLS INTERFACE bram port=vregs_out
 #pragma HLS INTERFACE ap_none port=reset
 #pragma HLS INTERFACE ap_none port=disp_valid
 #pragma HLS INTERFACE ap_none port=disp_tag
@@ -405,6 +461,8 @@ void rv32_ooo_tick(
 #pragma HLS INTERFACE ap_none port=lsu_tag
 #pragma HLS INTERFACE ap_none port=br_done
 #pragma HLS INTERFACE ap_none port=br_tag
+#pragma HLS INTERFACE ap_none port=vec_done
+#pragma HLS INTERFACE ap_none port=vec_tag
 #pragma HLS INTERFACE ap_none port=commit_valid
 #pragma HLS INTERFACE ap_none port=commit_is_fp
 #pragma HLS INTERFACE ap_none port=commit_rd
@@ -419,6 +477,7 @@ void rv32_ooo_tick(
     fpu_done = 0;    fpu_tag = 0;
     lsu_done = 0;    lsu_tag = 0;
     br_done = 0;     br_tag = 0;
+    vec_done = 0;    vec_tag = 0;
     commit_valid = 0; commit_is_fp = 0; commit_rd = 0; commit_value = 0;
     halted = 0;
 
@@ -448,7 +507,14 @@ void rv32_ooo_tick(
         fpu_rs.busy = false; fpu_rs.executing = false;
         lsu_rs.busy = false;
         br_rs.busy = false;  br_rs.executing = false;
+        vec_rs.busy = false; vec_rs.executing = false;
+        for (int i = 0; i < OOO_VEC_REGFILE_LEN; i++) {
+            vregs[i] = 0;
+        }
         fetch_pc = 0; fetch_stalled = false; fetch_done = false;
+        for (int i = 0; i < OOO_VEC_REGFILE_LEN; i++) {
+            vregs_out[i] = vregs[i];
+        }
         return;
     }
 
@@ -565,6 +631,40 @@ void rv32_ooo_tick(
             lsu_rs.busy = false;
         }
     }
+    // VEC: aritmetica con latencia fija (como la ALU); memoria vectorial
+    // resuelta SOLO en la cabeza del ROB -- para load Y store (mas
+    // conservador que el store escalar, para no tener que ampliar el ROB
+    // a 128 bits para cargar los 4 lanes de un store vectorial).
+    if (vec_rs.busy && vec_rs.is_arith && vec_rs.executing) {
+        if (vec_rs.remaining > 0) vec_rs.remaining = vec_rs.remaining - 1;
+        if (vec_rs.remaining == 0) {
+            vec_arith_compute(vec_rs, vregs);
+            rob[vec_rs.rob_tag].ready = true;
+            vec_done = 1; vec_tag = vec_rs.rob_tag;
+            vec_rs.busy = false;
+            vec_rs.executing = false;
+        }
+    }
+    if (vec_rs.busy && (vec_rs.is_load || vec_rs.is_store) &&
+        vec_rs.s1.ready && vec_rs.rob_tag == rob_head && rob[rob_head].valid) {
+        ap_uint<32> word_addr = vec_rs.s1.val >> 2;
+        if (vec_rs.is_load) {
+            for (int lane = 0; lane < OOO_VEC_LANES; lane++) {
+#pragma HLS UNROLL
+                vregs[vec_rs.vd_or_vs3.to_uint() * OOO_VEC_LANES + lane] =
+                    dmem[(word_addr + lane) & (OOO_DMEM_WORDS - 1)];
+            }
+        } else {
+            for (int lane = 0; lane < OOO_VEC_LANES; lane++) {
+#pragma HLS UNROLL
+                dmem[(word_addr + lane) & (OOO_DMEM_WORDS - 1)] =
+                    vregs[vec_rs.vd_or_vs3.to_uint() * OOO_VEC_LANES + lane];
+            }
+        }
+        rob[vec_rs.rob_tag].ready = true;
+        vec_done = 1; vec_tag = vec_rs.rob_tag;
+        vec_rs.busy = false;
+    }
 
     // ---- Etapa 3: issue (RS con operandos listos arranca ejecucion) ----
     for (int i = 0; i < N_ALU; i++) {
@@ -598,6 +698,12 @@ void rv32_ooo_tick(
     if (br_rs.busy && !br_rs.executing && br_rs.s1.ready && br_rs.s2.ready) {
         br_rs.executing = true;
         br_rs.remaining = BR_LAT;
+    }
+    if (vec_rs.busy && vec_rs.is_arith && !vec_rs.executing) {
+        // sin operandos que esperar (lee vregs directo, sin RAT): arranca
+        // en el primer ciclo de issue disponible, igual que las demas
+        vec_rs.executing = true;
+        vec_rs.remaining = VEC_LAT;
     }
 
     // ---- Etapa 4: fetch + dispatch (1 instruccion por ciclo, en orden) ----
@@ -693,6 +799,26 @@ void rv32_ooo_tick(
                     }
                     RobEntry& e = rob[new_tag];
                     e.valid = true; e.is_store = false; e.dest = rd; e.ready = false;
+                }
+            } else if ((opc == rv32i::Opcode::LOAD_FP || opc == rv32i::Opcode::STORE_FP) &&
+                       f3 == rvv::WIDTH_32) {
+                // vle32.v / vse32.v: MISMO opcode LOAD-FP/STORE-FP que
+                // FLW/FSW escalar, pero width=110 (32b vectorial) en vez
+                // de width=010 (FLW/FSW) -- asi se distinguen (ver
+                // rv32_ooo.h y rv32_vector.cpp para el detalle de bits,
+                // verificado contra la especificacion oficial RVV v1.0).
+                if (!vec_rs.busy) {
+                    can_dispatch = true;
+                    vec_rs.busy = true;
+                    vec_rs.is_load = (opc == rv32i::Opcode::LOAD_FP);
+                    vec_rs.is_store = !vec_rs.is_load;
+                    vec_rs.is_arith = false;
+                    vec_rs.vd_or_vs3 = rd; // mismo campo de bits que vd (load) o vs3 (store)
+                    vec_rs.rob_tag = new_tag;
+                    vec_rs.s1 = read_operand(rs1); // direccion base, banco entero
+                    RobEntry& e = rob[new_tag];
+                    e.valid = true; e.is_store = false; e.dest_is_fp = false;
+                    e.dest = 0; e.ready = false;
                 }
             } else if (opc == rv32i::Opcode::LOAD || opc == rv32i::Opcode::STORE ||
                        opc == rv32i::Opcode::LOAD_FP || opc == rv32i::Opcode::STORE_FP) {
@@ -794,8 +920,37 @@ void rv32_ooo_tick(
                     // la unidad de branch resuelva el destino real
                     fetch_stalled = true;
                 }
+            } else if (opc == rvv::OPCODE_OP_V) {
+                // vadd.vv/vsub.vv/vmul.vv -- funct6/funct3 verificados
+                // contra la seccion 19 de la especificacion oficial RVV
+                // v1.0 (misma tabla que rv32_vector.cpp).
+                uint32_t f6 = (iw >> 26) & 0x3F;
+                bool is_add = (f3 == rvv::FUNCT3_OPIVV && f6 == rvv::FUNCT6_VADD);
+                bool is_sub = (f3 == rvv::FUNCT3_OPIVV && f6 == rvv::FUNCT6_VSUB);
+                bool is_mul = (f3 == rvv::FUNCT3_OPMVV && f6 == rvv::FUNCT6_VMUL);
+                if (is_add || is_sub || is_mul) {
+                    if (!vec_rs.busy) {
+                        can_dispatch = true;
+                        vec_rs.busy = true;
+                        vec_rs.is_load = false; vec_rs.is_store = false; vec_rs.is_arith = true;
+                        vec_rs.vd_or_vs3 = rd;
+                        vec_rs.vs1 = rs1; vec_rs.vs2 = rs2; // mismos bits que rs1/rs2
+                        vec_rs.arith_op = is_add ? ap_uint<2>(0) : is_sub ? ap_uint<2>(1) : ap_uint<2>(2);
+                        vec_rs.rob_tag = new_tag;
+                        vec_rs.executing = false; // arranca en la etapa 3, como el resto de las unidades
+                        RobEntry& e = rob[new_tag];
+                        e.valid = true; e.is_store = false; e.dest_is_fp = false;
+                        e.dest = 0; e.ready = false;
+                    }
+                    // si vec_rs.busy, can_dispatch queda false: stall correcto (unidad ocupada)
+                } else {
+                    // variante RVV no soportada en este alcance minimo: no-op
+                    can_dispatch = true;
+                    RobEntry& e = rob[new_tag];
+                    e.valid = true; e.is_store = false; e.dest = 0; e.value = 0; e.ready = true;
+                }
             } else {
-                // opcode no soportado en esta pista (F/C/SYSTEM/...):
+                // opcode no soportado en esta pista (SYSTEM/FENCE/...):
                 // retira como no-op para no trabar el pipeline
                 can_dispatch = true;
                 RobEntry& e = rob[new_tag];
@@ -825,4 +980,8 @@ void rv32_ooo_tick(
     }
 
     halted = (fetch_done && rob_count == 0) ? ap_uint<1>(1) : ap_uint<1>(0);
+
+    for (int i = 0; i < OOO_VEC_REGFILE_LEN; i++) {
+        vregs_out[i] = vregs[i];
+    }
 }
