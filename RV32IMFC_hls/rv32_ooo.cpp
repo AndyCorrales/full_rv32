@@ -47,6 +47,7 @@ struct RobEntry {
     bool        ready;      // listo para retirarse
     bool        is_store;   // el commit debe escribir memoria
     bool        dest_is_fp; // el commit escribe f[dest] (f0 SI es escribible)
+    bool        is_ecall;   // ECALL/EBREAK: al retirarse detiene el programa
     ap_uint<5>  dest;       // registro destino (entero: 0 = no escribe)
     ap_uint<32> value;      // para F: bits IEEE-754 crudos
     ap_uint<32> addr;      // solo stores
@@ -110,6 +111,20 @@ struct FpuRs {
     Operand     s1, s2, s3; // s3: tercer operando de la familia R4
 };
 
+// Unidad de sistema (bare-metal, items 2-5): una sola reservation
+// station para las instrucciones CSR, que ejecuta SOLO en la cabeza del
+// ROB (como un load) -- asi el acceso a CSR es en orden de programa y ve
+// el estado arquitectonico correcto, sin necesitar el mecanismo de traps
+// precisas (item 6, fuera de alcance). ECALL/EBREAK no pasan por aca:
+// se marcan en el ROB (is_ecall) y detienen el programa al retirarse.
+struct SysRs {
+    bool        busy;
+    ap_uint<3>  f3;        // CSRRW/S/C y variantes con inmediato
+    ap_uint<12> csr_addr;  // instr[31:20]
+    ap_uint<3>  rob_tag;
+    Operand     s1;        // valor de rs1 (CSRRW/S/C) o zimm (variantes I, ready=true)
+};
+
 // Unidad vectorial (RVV): una sola reservation station, como la LSU --
 // serializa las instrucciones vectoriales ENTRE SI (no hay VRAT que las
 // renombre), pero pueden solaparse libremente con instrucciones
@@ -140,7 +155,15 @@ static FpuRs       fpu_rs;
 static LsuRs       lsu_rs;
 static BrRs        br_rs;
 static VecRs       vec_rs;
+static SysRs       sys_rs;
 static ap_uint<32> vregs[OOO_VEC_REGFILE_LEN]; // banco vectorial, sin renombrar
+// Banco de CSRs de modo maquina (subset minimo para bare-metal): cada
+// uno es solo almacenamiento leible/escribible, sin logica WARL. Alcanza
+// para que el crt0 de un binario compilado configure mtvec/stack y llegue
+// a main. mhartid es read-only (0 = unico hart), misa reporta RV32IMFC.
+static ap_uint<32> csr_mstatus, csr_mie, csr_mtvec, csr_mscratch;
+static ap_uint<32> csr_mepc, csr_mcause, csr_mtval, csr_mip;
+static bool        ecall_halt; // se activa al retirar un ECALL/EBREAK
 static ap_uint<32> fetch_pc;
 static bool        fetch_stalled; // esperando resolucion de BRANCH/JALR
 static bool        fetch_done;    // se encontro la palabra 0 (fin de programa)
@@ -190,6 +213,43 @@ static void cdb_broadcast(ap_uint<3> tag, ap_uint<32> value) {
     }
     if (vec_rs.busy && !vec_rs.s1.ready && vec_rs.s1.tag == tag) {
         vec_rs.s1.ready = true; vec_rs.s1.val = value;
+    }
+    if (sys_rs.busy && !sys_rs.s1.ready && sys_rs.s1.tag == tag) {
+        sys_rs.s1.ready = true; sys_rs.s1.val = value;
+    }
+}
+
+// Lectura/escritura del banco de CSRs (subset minimo de modo maquina).
+// misa/mhartid son de solo lectura (valores fijos); el resto es
+// almacenamiento simple. Una direccion no soportada lee 0 / ignora la
+// escritura (comportamiento aceptable para un core bare-metal minimo).
+static ap_uint<32> read_csr(ap_uint<12> addr) {
+    switch (addr.to_uint()) {
+        case rv32i::CSR::MSTATUS:  return csr_mstatus;
+        case rv32i::CSR::MISA:     return 0x40001104; // RV32 IMFC
+        case rv32i::CSR::MIE:      return csr_mie;
+        case rv32i::CSR::MTVEC:    return csr_mtvec;
+        case rv32i::CSR::MSCRATCH: return csr_mscratch;
+        case rv32i::CSR::MEPC:     return csr_mepc;
+        case rv32i::CSR::MCAUSE:   return csr_mcause;
+        case rv32i::CSR::MTVAL:    return csr_mtval;
+        case rv32i::CSR::MIP:      return csr_mip;
+        case rv32i::CSR::MHARTID:  return 0;
+        default:                   return 0;
+    }
+}
+
+static void write_csr(ap_uint<12> addr, ap_uint<32> v) {
+    switch (addr.to_uint()) {
+        case rv32i::CSR::MSTATUS:  csr_mstatus = v; break;
+        case rv32i::CSR::MIE:      csr_mie = v; break;
+        case rv32i::CSR::MTVEC:    csr_mtvec = v; break;
+        case rv32i::CSR::MSCRATCH: csr_mscratch = v; break;
+        case rv32i::CSR::MEPC:     csr_mepc = v; break;
+        case rv32i::CSR::MCAUSE:   csr_mcause = v; break;
+        case rv32i::CSR::MTVAL:    csr_mtval = v; break;
+        case rv32i::CSR::MIP:      csr_mip = v; break;
+        default:                   break; // misa/mhartid read-only, resto ignorado
     }
 }
 
@@ -508,6 +568,10 @@ void rv32_ooo_tick(
         lsu_rs.busy = false;
         br_rs.busy = false;  br_rs.executing = false;
         vec_rs.busy = false; vec_rs.executing = false;
+        sys_rs.busy = false;
+        csr_mstatus = 0; csr_mie = 0; csr_mtvec = 0; csr_mscratch = 0;
+        csr_mepc = 0; csr_mcause = 0; csr_mtval = 0; csr_mip = 0;
+        ecall_halt = false;
         for (int i = 0; i < OOO_VEC_REGFILE_LEN; i++) {
             vregs[i] = 0;
         }
@@ -521,7 +585,13 @@ void rv32_ooo_tick(
     // ---- Etapa 1: commit (retiro en orden desde la cabeza del ROB) ----
     if (rob_count > 0 && rob[rob_head].valid && rob[rob_head].ready) {
         RobEntry& h = rob[rob_head];
-        if (h.is_store) {
+        if (h.is_ecall) {
+            // ECALL/EBREAK: al llegar a la cabeza del ROB, todo lo anterior
+            // ya committeo (retiro en orden) -- detener el programa es una
+            // "excepcion precisa" gratis, sin squash: lo posterior en el
+            // ROB simplemente se descarta al no seguir committeando.
+            ecall_halt = true;
+        } else if (h.is_store) {
             // el store escribe memoria recien al retirarse: garantiza el
             // orden de programa en memoria sin necesitar disambiguation
             dmem_store(dmem, h.addr, h.sdata, h.mem_f3);
@@ -665,6 +735,31 @@ void rv32_ooo_tick(
         vec_done = 1; vec_tag = vec_rs.rob_tag;
         vec_rs.busy = false;
     }
+    // SYS (instrucciones CSR): ejecuta SOLO en la cabeza del ROB, para
+    // que el acceso al banco de CSRs sea en orden de programa. Lee el
+    // CSR viejo (va a rd via el CDB), calcula el nuevo (write/set/clear) y
+    // lo escribe. El destino rd=0 en las variantes "csrw" no importa (el
+    // ROB no escribe x0 en el commit).
+    if (sys_rs.busy && sys_rs.s1.ready &&
+        sys_rs.rob_tag == rob_head && rob[rob_head].valid) {
+        ap_uint<32> old = read_csr(sys_rs.csr_addr);
+        ap_uint<32> src = sys_rs.s1.val;
+        ap_uint<32> newv;
+        switch (sys_rs.f3.to_uint()) {
+            case rv32i::Funct3_SYSTEM::CSRRW:
+            case rv32i::Funct3_SYSTEM::CSRRWI: newv = src;        break;
+            case rv32i::Funct3_SYSTEM::CSRRS:
+            case rv32i::Funct3_SYSTEM::CSRRSI: newv = old | src;  break;
+            case rv32i::Funct3_SYSTEM::CSRRC:
+            case rv32i::Funct3_SYSTEM::CSRRCI: newv = old & ~src; break;
+            default:                           newv = old;        break;
+        }
+        write_csr(sys_rs.csr_addr, newv);
+        rob[sys_rs.rob_tag].value = old;
+        rob[sys_rs.rob_tag].ready = true;
+        cdb_broadcast(sys_rs.rob_tag, old);
+        sys_rs.busy = false;
+    }
 
     // ---- Etapa 3: issue (RS con operandos listos arranca ejecucion) ----
     for (int i = 0; i < N_ALU; i++) {
@@ -743,6 +838,7 @@ void rv32_ooo_tick(
             bool can_dispatch = false;
             ap_uint<3> new_tag = rob_tail;
             rob[new_tag].dest_is_fp = false; // default entero; los casos F lo activan
+            rob[new_tag].is_ecall = false;   // solo ECALL/EBREAK lo activan
             ap_uint<32> this_pc = fetch_pc;           // pc de ESTA instruccion
             ap_uint<32> next_fetch = this_pc + isize; // se pisa si JAL redirige
 
@@ -949,9 +1045,58 @@ void rv32_ooo_tick(
                     RobEntry& e = rob[new_tag];
                     e.valid = true; e.is_store = false; e.dest = 0; e.value = 0; e.ready = true;
                 }
+            } else if (opc == rv32i::Opcode::SYSTEM) {
+                // bare-metal (items 2-5): ECALL/EBREAK (funct3=0) e
+                // instrucciones CSR (funct3=1..7).
+                if (f3 == rv32i::Funct3_SYSTEM::PRIV) {
+                    uint32_t imm12 = (iw >> 20) & 0xFFF;
+                    if (imm12 == 0x000 || imm12 == 0x001) {
+                        // ECALL / EBREAK: se marca en el ROB y detiene el
+                        // programa al retirarse (excepcion precisa gratis,
+                        // ver Etapa 1). MRET (0x302) y otros privilegiados
+                        // caen en el no-op de abajo (traps = item 6, futuro).
+                        can_dispatch = true;
+                        RobEntry& e = rob[new_tag];
+                        e.valid = true; e.is_store = false; e.is_ecall = true;
+                        e.dest = 0; e.value = 0; e.ready = true;
+                    } else {
+                        // MRET/WFI/FENCE-privilegiado: no-op (sin traps)
+                        can_dispatch = true;
+                        RobEntry& e = rob[new_tag];
+                        e.valid = true; e.is_store = false; e.dest = 0; e.value = 0; e.ready = true;
+                    }
+                } else {
+                    // CSRRW/CSRRS/CSRRC (y variantes con inmediato de 5 bits)
+                    if (!sys_rs.busy) {
+                        can_dispatch = true;
+                        bool is_imm = (f3 == rv32i::Funct3_SYSTEM::CSRRWI ||
+                                       f3 == rv32i::Funct3_SYSTEM::CSRRSI ||
+                                       f3 == rv32i::Funct3_SYSTEM::CSRRCI);
+                        sys_rs.busy = true;
+                        sys_rs.f3 = f3;
+                        sys_rs.csr_addr = (iw >> 20) & 0xFFF;
+                        sys_rs.rob_tag = new_tag;
+                        if (is_imm) {
+                            // el "fuente" es el campo rs1 usado como zimm[4:0]
+                            sys_rs.s1.ready = true; sys_rs.s1.val = rs1; sys_rs.s1.tag = 0;
+                        } else {
+                            sys_rs.s1 = read_operand(rs1);
+                        }
+                        RobEntry& e = rob[new_tag];
+                        e.valid = true; e.is_store = false; e.dest_is_fp = false;
+                        e.dest = rd; e.ready = false;
+                    }
+                    // si sys_rs.busy: can_dispatch false -> stall (serializa CSR)
+                }
+            } else if (opc == rv32i::Opcode::MISC_MEM) {
+                // FENCE / FENCE.I: sin caches ni reordenamiento de memoria
+                // real observable, se reconoce como no-op (el crt0 la emite).
+                can_dispatch = true;
+                RobEntry& e = rob[new_tag];
+                e.valid = true; e.is_store = false; e.dest = 0; e.value = 0; e.ready = true;
             } else {
-                // opcode no soportado en esta pista (SYSTEM/FENCE/...):
-                // retira como no-op para no trabar el pipeline
+                // opcode realmente no soportado: retira como no-op para no
+                // trabar el pipeline
                 can_dispatch = true;
                 RobEntry& e = rob[new_tag];
                 e.valid = true; e.is_store = false; e.dest = 0; e.value = 0; e.ready = true;
@@ -979,7 +1124,7 @@ void rv32_ooo_tick(
         }
     }
 
-    halted = (fetch_done && rob_count == 0) ? ap_uint<1>(1) : ap_uint<1>(0);
+    halted = (ecall_halt || (fetch_done && rob_count == 0)) ? ap_uint<1>(1) : ap_uint<1>(0);
 
     for (int i = 0; i < OOO_VEC_REGFILE_LEN; i++) {
         vregs_out[i] = vregs[i];

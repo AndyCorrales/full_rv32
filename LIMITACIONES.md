@@ -232,9 +232,23 @@ desarrollo, documentado en el comentario de esa sección del archivo).
   (reducción, permutación, punto flotante vectorial) siguen siendo el
   trabajo más grande pendiente hacia el objetivo final del equipo
   (RV32IMFC + RVV out-of-order).
-- **Bare-metal real**: falta en las cuatro combinaciones: loader de ELF,
-  `ECALL`/`EBREAK` (`SYSTEM`), `FENCE`, banco de CSRs
-  (`mstatus`/`mtvec`/`mepc`/`mcause`), y al menos un periférico UART
-  mapeado en memoria.
+- **Bare-metal** (correr binarios compilados reales, no solo programas
+  ensamblados a mano):
+  - **Hecho en el HLS OOO** (`rv32_ooo.cpp`, items 1-5): loader de ELF32
+    (`rv32_ooo_baremetal_tb.cpp`), opcode `SYSTEM`, `ECALL`/`EBREAK`
+    (halt preciso en el commit), instrucciones CSR (`CSRRW`/`S`/`C` +
+    inmediato) y banco de CSRs de modo máquina, más `FENCE` como no-op.
+    Verificado ejecutando un binario ELF real de
+    `riscv64-unknown-elf-gcc` (loop + acceso a CSR + `ecall`), y sigue
+    sintetizando (135.86 MHz).
+  - **Falta (item 6): traps precisas** — el `ECALL`-como-halt funciona
+    sin ellas, pero un manejo de excepciones/interrupciones *reanudable*
+    (guardar `mepc`/`mcause`, saltar a `mtvec`, volver con `MRET`)
+    requiere el *squash* del ROB que el diseño evita a propósito. Es el
+    componente estructuralmente más difícil en un core OOO (mismo motivo
+    por el que no hay especulación de branches).
+  - **Falta también**: periférico UART mapeado en memoria (para `printf`
+    real), y el mecanismo está solo en el HLS OOO — no portado a las
+    otras tres combinaciones (in-order de ambas pistas, TLM OOO).
 - **Doble precisión (D)** y **CSRs de F** (`frm`/`fflags`) fuera de
   alcance en las cuatro combinaciones — siempre se asume `rm=RNE`.

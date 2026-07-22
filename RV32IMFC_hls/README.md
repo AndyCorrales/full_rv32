@@ -296,6 +296,54 @@ que nunca se tocan.
 (`vitis_hls -f run_hls_ooo_core.tcl`) — el testbench ahora incluye la
 sección RVV en el mismo programa de prueba.
 
+## Bare-metal: correr un binario compilado real (items 1-5)
+
+El core OOO+RVV ejecuta un **binario ELF32 real compilado con
+`riscv64-unknown-elf-gcc`** (`-march=rv32imfc`), no solo programas
+ensamblados a mano. Cubre 5 de los 6 componentes de bare-metal (el 6º,
+traps precisas, se explica abajo):
+
+| # | Componente | Qué se agregó |
+|---|---|---|
+| 1 | Loader de ELF | Parser ELF32 en `rv32_ooo_baremetal_tb.cpp`: recorre los program headers y carga cada `PT_LOAD` a `imem` (ejecutable) o `dmem` |
+| 2 | Opcode `SYSTEM` | Reconocido en el decoder (antes caía en `default`) |
+| 3 | `ECALL`/`EBREAK` | Detienen el programa al retirarse del ROB — *excepción precisa gratis*: al llegar a la cabeza del ROB todo lo anterior ya committeó (retiro en orden), así que basta con no seguir committeando; no hace falta *squash* |
+| 4 | Instrucciones CSR | `CSRRW`/`CSRRS`/`CSRRC` + variantes con inmediato, en una unidad `SysRs` que ejecuta en la cabeza del ROB (acceso a CSR en orden de programa) |
+| 5 | Banco de CSRs | `mstatus`/`mtvec`/`mepc`/`mcause`/`mscratch`/`mie`/`mip`/`mtval` (almacenamiento) + `misa` (RV32IMFC) y `mhartid` (0) de solo lectura |
+| 6 | Traps precisas | ⬜ **Pendiente** — ver nota abajo |
+
+**El binario de prueba** (`baremetal/bm.c` + `crt0.s`, reproducible con
+`baremetal/build.sh`): hace un loop (suma 1..5 = 15, producto = 120),
+ejercita el banco de CSRs desde C (`csrw mscratch,0xABCD; csrr`), y
+escribe los tres resultados a memoria antes de su `ecall`. El testbench
+lo carga con el loader de ELF, lo corre hasta que el propio binario hace
+`ecall`, y verifica los resultados **sin backdoor** — todo salió de
+ejecutar las instrucciones reales del binario.
+
+**Cómo correrlo**:
+```bash
+cd RV32IMFC_hls
+vitis_hls -f run_hls_ooo_baremetal.tcl   # csim (corre el ELF real) + csynth
+```
+
+**Síntesis con bare-metal** (Vitis HLS 2024.2, `xck26-sfvc784-2LV-c`):
+Fmax **135.86 MHz** (sin cambio — el camino crítico sigue siendo la
+FPU), 17489 LUT (14.9 %), 5473 FF (2.3 %), 20 DSP, 6 BRAM. Agregar el
+banco de CSRs + la unidad de sistema costó ~700 LUT sobre la versión sin
+bare-metal, sin tocar el Fmax.
+
+**Por qué falta el item 6 (traps precisas)** — y por qué es
+específicamente difícil en un core OOO: un `ECALL`/interrupción a mitad
+de programa requiere descartar las instrucciones *posteriores* que ya
+están ejecutando fuera de orden (flush/*squash* del ROB) y saltar a
+`mtvec`. Ese mecanismo de *squash* es justo el que este diseño **evita a
+propósito** (por eso tampoco hay especulación de branches). Nuestro
+`ECALL`-como-halt funciona sin él porque es la última instrucción que
+importa (el `exit` del runtime nunca vuelve); pero un manejo de traps
+*reanudable* (volver al programa tras la excepción, vía `MRET`) sí
+necesitaría construir el *squash*. Es trabajo de otra magnitud, no una
+unidad funcional más — documentado como el siguiente paso.
+
 ## Decoder RVV mínimo (`rv32_vector.cpp`)
 
 Primer decoder **real** de instrucciones del RISC-V "V" Vector Extension
