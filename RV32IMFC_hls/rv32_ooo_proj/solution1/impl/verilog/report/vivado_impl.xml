@@ -1,0 +1,324 @@
+<profile>
+<RunData>
+  <RUN_TYPE>impl</RUN_TYPE>
+  <VIVADO_VERSION>v.2024.2</VIVADO_VERSION>
+  <ROOT_MODULE_CELL>bd_0_i/hls_inst</ROOT_MODULE_CELL>
+</RunData>
+<TimingReport>
+  <TargetClockPeriod>10.000</TargetClockPeriod>
+  <AchievedClockPeriod>7.430</AchievedClockPeriod>
+  <CLOCK_NAME>ap_clk</CLOCK_NAME>
+  <CP_FINAL>7.430</CP_FINAL>
+  <CP_ROUTE>7.430</CP_ROUTE>
+  <CP_SYNTH>6.564</CP_SYNTH>
+  <CP_TARGET>10.000</CP_TARGET>
+  <SLACK_FINAL>2.570</SLACK_FINAL>
+  <SLACK_ROUTE>2.570</SLACK_ROUTE>
+  <SLACK_SYNTH>3.436</SLACK_SYNTH>
+  <TIMING_MET>TRUE</TIMING_MET>
+  <TNS_FINAL>0.000</TNS_FINAL>
+  <TNS_ROUTE>0.000</TNS_ROUTE>
+  <TNS_SYNTH>0.000</TNS_SYNTH>
+  <WNS_FINAL>2.570</WNS_FINAL>
+  <WNS_ROUTE>2.570</WNS_ROUTE>
+  <WNS_SYNTH>3.436</WNS_SYNTH>
+</TimingReport>
+<AreaReport>
+  <Resources>
+    <BRAM>21</BRAM>
+    <CLB>1417</CLB>
+    <DSP>16</DSP>
+    <FF>4829</FF>
+    <LATCH>0</LATCH>
+    <LUT>7603</LUT>
+    <SRL>51</SRL>
+    <URAM>0</URAM>
+  </Resources>
+  <AvailableResources>
+    <BRAM>288</BRAM>
+    <CLB>14640</CLB>
+    <DSP>1248</DSP>
+    <FF>234240</FF>
+    <LUT>117120</LUT>
+    <URAM>64</URAM>
+  </AvailableResources>
+</AreaReport>
+<RtlModules>
+  <RtlModule CELL="inst" DEPTH="0" FILE_NAME="bd_0_hls_inst_0.v" ORIG_REF_NAME="rv32_ooo_tick" TOP_CELL="bd_0_i/hls_inst/inst">
+    <SubModules count="33">control_s_axi_U frat_has_tag_U frat_tag_U fregs_U grp_fpu_compute_fu_5799 grp_read_operand_fp_fu_5845 grp_read_operand_fu_5830 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860 mul_32ns_32ns_64_1_1_U116 mul_32ns_32s_64_1_1_U117 mul_32s_32s_32_1_1_U118 mul_32s_32s_64_1_1_U119 rat_has_tag_U rat_tag_U regfile_U rob_addr_U rob_dest_U rob_dest_is_fp_U rob_is_ecall_U rob_is_store_U rob_mem_f3_U rob_ready_U rob_sdata_U rob_valid_U rob_value_U sdiv_32s_32s_32_36_seq_1_U124 srem_32s_32s_32_36_seq_1_U122 udiv_32s_32s_32_36_seq_1_U123 urem_32s_32s_32_36_seq_1_U125 vregs_U</SubModules>
+    <Resources BRAM="21" DSP="16" FF="4829" LUT="7603" LUTRAM="1" LogicLUT="7551" RAMB18="11" RAMB36="5" SRL="51"/>
+    <LocalResources FF="2325" LUT="718" LogicLUT="713" SRL="5"/>
+  </RtlModule>
+  <RtlModule CELL="inst/control_s_axi_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_control_s_axi">
+    <Resources FF="25" LUT="103" LogicLUT="103"/>
+  </RtlModule>
+  <RtlModule CELL="inst/frat_has_tag_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="17" LogicLUT="17" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/frat_tag_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="44" LogicLUT="44" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/fregs_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_fregs_RAM_AUTO_1R1W">
+    <Resources BRAM="2" LUT="37" LogicLUT="37" RAMB36="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_fpu_compute">
+    <SubModules count="14">bitselect_1ns_32ns_32s_1_1_1_U67 faddfsub_32ns_32ns_32_4_full_dsp_1_U56 fcmp_32ns_32ns_1_2_no_dsp_1_U61 fcmp_32ns_32ns_1_2_no_dsp_1_U62 fcmp_32ns_32ns_1_2_no_dsp_1_U63 fcmp_32ns_32ns_1_2_no_dsp_1_U64 fdiv_32ns_32ns_32_9_no_dsp_1_U58 fmul_32ns_32ns_32_3_max_dsp_1_U57 fsqrt_32ns_32ns_32_8_no_dsp_1_U65 index_table_U mask_table_U one_half_minus_one_table_U sitofp_32ns_32_4_no_dsp_1_U60 uitofp_32ns_32_4_no_dsp_1_U59</SubModules>
+    <Resources DSP="5" FF="1616" LUT="2918" LogicLUT="2876" SRL="42"/>
+    <LocalResources FF="456" LUT="660" LogicLUT="660"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/bitselect_1ns_32ns_32s_1_1_1_U67" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1">
+    <Resources LUT="9" LogicLUT="9"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1">
+    <Resources DSP="2" FF="200" LUT="240" LogicLUT="240"/>
+    <LocalResources FF="65" LUT="66" LogicLUT="66"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U61" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+    <Resources FF="68" LUT="255" LogicLUT="255"/>
+    <LocalResources FF="68" LUT="42" LogicLUT="42"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U62" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+    <Resources LUT="6" LogicLUT="6"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U63" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+    <Resources FF="31" LUT="18" LogicLUT="18"/>
+    <LocalResources FF="31"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U64" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+    <Resources LUT="34" LogicLUT="34"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1">
+    <Resources FF="350" LUT="779" LogicLUT="748" SRL="31"/>
+    <LocalResources FF="32"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fmul_32ns_32ns_32_3_max_dsp_1_U57" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1">
+    <Resources DSP="3" FF="96" LUT="110" LogicLUT="110"/>
+    <LocalResources FF="64" LUT="33" LogicLUT="33"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1">
+    <Resources FF="232" LUT="416" LogicLUT="405" SRL="11"/>
+    <LocalResources FF="27"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/index_table_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R">
+    <Resources FF="5" LUT="4" LogicLUT="4"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/mask_table_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R">
+    <Resources FF="23" LUT="57" LogicLUT="57"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/one_half_minus_one_table_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R">
+    <Resources FF="9" LUT="13" LogicLUT="13"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1">
+    <Resources FF="84" LUT="157" LogicLUT="157"/>
+    <LocalResources FF="5"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59" DEPTH="2" FILE_NAME="rv32_ooo_tick_fpu_compute.v" ORIG_REF_NAME="rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1">
+    <Resources FF="62" LUT="164" LogicLUT="164"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_read_operand_fp_fu_5845" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_read_operand_fp">
+    <Resources FF="43" LUT="205" LogicLUT="205"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_read_operand_fu_5830" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_read_operand">
+    <Resources FF="44" LUT="403" LogicLUT="403"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11">
+    <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+    <Resources FF="19" LUT="38" LogicLUT="38"/>
+    <LocalResources FF="17" LUT="2" LogicLUT="2"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869/flow_control_loop_pipe_sequential_init_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11.v" ORIG_REF_NAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+    <Resources FF="2" LUT="36" LogicLUT="36"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4">
+    <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+    <Resources FF="10" LUT="31" LogicLUT="31"/>
+    <LocalResources FF="8" LUT="1" LogicLUT="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877/flow_control_loop_pipe_sequential_init_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4.v" ORIG_REF_NAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+    <Resources FF="2" LUT="30" LogicLUT="30"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5">
+    <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+    <Resources FF="19" LUT="38" LogicLUT="38"/>
+    <LocalResources FF="17" LUT="7" LogicLUT="7"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883/flow_control_loop_pipe_sequential_init_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5.v" ORIG_REF_NAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+    <Resources FF="2" LUT="31" LogicLUT="31"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10">
+    <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+    <Resources FF="7" LUT="40" LogicLUT="40"/>
+    <LocalResources FF="5" LUT="36" LogicLUT="36"/>
+  </RtlModule>
+  <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860/flow_control_loop_pipe_sequential_init_U" DEPTH="2" FILE_NAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10.v" ORIG_REF_NAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+    <Resources FF="2" LUT="5" LogicLUT="5"/>
+  </RtlModule>
+  <RtlModule CELL="inst/mul_32ns_32ns_64_1_1_U116" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1">
+    <Resources DSP="4" LUT="193" LogicLUT="193"/>
+  </RtlModule>
+  <RtlModule CELL="inst/mul_32ns_32s_64_1_1_U117" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_mul_32ns_32s_64_1_1">
+    <Resources DSP="2" LUT="106" LogicLUT="106"/>
+  </RtlModule>
+  <RtlModule CELL="inst/mul_32s_32s_32_1_1_U118" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1">
+    <Resources DSP="3" LUT="22" LogicLUT="22"/>
+  </RtlModule>
+  <RtlModule CELL="inst/mul_32s_32s_64_1_1_U119" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_mul_32s_32s_64_1_1">
+    <Resources DSP="2" LUT="4" LogicLUT="4"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rat_has_tag_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="17" LogicLUT="17" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rat_tag_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="30" LogicLUT="30" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/regfile_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_fregs_RAM_AUTO_1R1W">
+    <Resources BRAM="2" LUT="12" LogicLUT="12" RAMB36="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_addr_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="30" LogicLUT="30" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_dest_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="85" LogicLUT="85" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_dest_is_fp_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="9" LogicLUT="9" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_is_ecall_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W">
+    <Resources FF="1" LUT="8" LUTRAM="1" LogicLUT="7"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_is_store_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="11" LogicLUT="11" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_mem_f3_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="9" LogicLUT="9" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_ready_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="51" LogicLUT="51" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_sdata_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W">
+    <Resources BRAM="2" LUT="111" LogicLUT="111" RAMB36="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_valid_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+    <Resources BRAM="1" LUT="76" LogicLUT="76" RAMB18="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/rob_value_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W">
+    <Resources BRAM="2" LUT="1029" LogicLUT="1029" RAMB36="1"/>
+  </RtlModule>
+  <RtlModule CELL="inst/sdiv_32s_32s_32_36_seq_1_U124" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1">
+    <Resources FF="164" LUT="154" LogicLUT="153" SRL="1"/>
+    <LocalResources FF="33" LUT="42" LogicLUT="42"/>
+  </RtlModule>
+  <RtlModule CELL="inst/srem_32s_32s_32_36_seq_1_U122" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_srem_32s_32s_32_36_seq_1">
+    <Resources FF="229" LUT="332" LogicLUT="331" SRL="1"/>
+    <LocalResources FF="97" LUT="124" LogicLUT="124"/>
+  </RtlModule>
+  <RtlModule CELL="inst/udiv_32s_32s_32_36_seq_1_U123" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_udiv_32s_32s_32_36_seq_1">
+    <Resources FF="163" LUT="219" LogicLUT="218" SRL="1"/>
+    <LocalResources FF="33" LUT="138" LogicLUT="138"/>
+  </RtlModule>
+  <RtlModule CELL="inst/urem_32s_32s_32_36_seq_1_U125" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_urem_32s_32s_32_36_seq_1">
+    <Resources FF="164" LUT="257" LogicLUT="256" SRL="1"/>
+    <LocalResources FF="33" LUT="175" LogicLUT="175"/>
+  </RtlModule>
+  <RtlModule CELL="inst/vregs_U" DEPTH="1" FILE_NAME="rv32_ooo_tick.v" ORIG_REF_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W">
+    <Resources BRAM="2" LUT="296" LogicLUT="296" RAMB36="1"/>
+  </RtlModule>
+</RtlModules>
+<TimingPaths>
+  <TPATH DATAPATH_DELAY="7.361" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.232" ENDPOINT_PIN="bd_0_i/hls_inst/inst/r_1_2_i173_reg_11132_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.570" STARTPOINT_PIN="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0/CLKARDCLK">
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/r_1_2_i173_reg_11132_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5795"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="7.353" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.224" ENDPOINT_PIN="bd_0_i/hls_inst/inst/r_3_reg_11137_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.578" STARTPOINT_PIN="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0/CLKARDCLK">
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/r_3_reg_11137_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5807"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="7.343" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.214" ENDPOINT_PIN="bd_0_i/hls_inst/inst/r_1_i163165171_reg_11102_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.590" STARTPOINT_PIN="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0/CLKARDCLK">
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/r_1_i163165171_reg_11102_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5801"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="7.342" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.213" ENDPOINT_PIN="bd_0_i/hls_inst/inst/r_1_1_i167169_reg_11117_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.591" STARTPOINT_PIN="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0/CLKARDCLK">
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/r_1_1_i167169_reg_11117_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5789"/>
+  </TPATH>
+  <TPATH DATAPATH_DELAY="7.318" DATAPATH_LOGIC_DELAY="5.153" DATAPATH_NET_DELAY="2.165" ENDPOINT_PIN="bd_0_i/hls_inst/inst/r_1_1_i167169_reg_11117_reg[27]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.617" STARTPOINT_PIN="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0/CLKARDCLK">
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER=""/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/vregs_U/r_3_reg_11137[27]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41"/>
+    <CELL NAME="bd_0_i/hls_inst/inst/r_1_1_i167169_reg_11117_reg[27]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5789"/>
+  </TPATH>
+</TimingPaths>
+<VivadoReportFiles>
+  <ReportFile TYPE="design_analysis" PATH="verilog/report/rv32_ooo_tick_design_analysis_routed.rpt"/>
+  <ReportFile TYPE="failfast" PATH="verilog/report/rv32_ooo_tick_failfast_routed.rpt"/>
+  <ReportFile TYPE="power" PATH="verilog/report/rv32_ooo_tick_power_routed.rpt"/>
+  <ReportFile TYPE="status" PATH="verilog/report/rv32_ooo_tick_status_routed.rpt"/>
+  <ReportFile TYPE="timing" PATH="verilog/report/rv32_ooo_tick_timing_routed.rpt"/>
+  <ReportFile TYPE="timing_paths" PATH="verilog/report/rv32_ooo_tick_timing_paths_routed.rpt"/>
+  <ReportFile TYPE="utilization" PATH="verilog/report/rv32_ooo_tick_utilization_routed.rpt"/>
+  <ReportFile TYPE="utilization_hierarchical" PATH="verilog/report/rv32_ooo_tick_utilization_hierarchical_routed.rpt"/>
+</VivadoReportFiles>
+</profile>

@@ -1,0 +1,17 @@
+{
+  "0": {
+    "basicblocks": 33,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 36,
+    "instructions": 246,
+    "loads": {
+      "T": 17
+    },
+    "name": "rv32_vector_step",
+    "stores": {
+      "T": 15
+    },
+    "total_instructions": 246
+  }
+}

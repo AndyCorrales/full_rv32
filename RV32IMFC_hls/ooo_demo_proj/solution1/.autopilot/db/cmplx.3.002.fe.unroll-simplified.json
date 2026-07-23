@@ -1,0 +1,35 @@
+{
+  "0": {
+    "basicblocks": 57,
+    "calls": "1 1",
+    "file": "ooo_demo.cpp",
+    "fileloc": 82,
+    "instructions": 351,
+    "loads": {
+      "G": 54,
+      "L": 6
+    },
+    "name": "ooo_demo_tick",
+    "stores": {
+      "G": 63,
+      "L": 3,
+      "T": 28
+    },
+    "total_instructions": 411
+  },
+  "1": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "ooo_demo.cpp",
+    "fileloc": 60,
+    "instructions": 30,
+    "loads": {
+      "G": 5
+    },
+    "name": "read_operand",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 30
+  }
+}

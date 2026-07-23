@@ -1,0 +1,98 @@
+{
+  "0": {
+    "basicblocks": 33,
+    "calls": "4 2 5 7 6 2 5 7 6 8 6 1 9 3",
+    "file": "rv32_vector.cpp",
+    "fileloc": 36,
+    "instructions": 232,
+    "loads": {
+      "T": 17
+    },
+    "name": "rv32_vector_step",
+    "stores": {
+      "T": 15
+    },
+    "total_instructions": 274
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 30,
+    "instructions": 3,
+    "name": "vs1",
+    "total_instructions": 3
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 28,
+    "instructions": 3,
+    "name": "width",
+    "total_instructions": 3
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 34,
+    "instructions": 3,
+    "name": "funct6",
+    "total_instructions": 3
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 26,
+    "instructions": 3,
+    "name": "opcode",
+    "total_instructions": 3
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 33,
+    "instructions": 3,
+    "name": "mop",
+    "total_instructions": 3
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 27,
+    "instructions": 3,
+    "name": "vd",
+    "total_instructions": 3
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 32,
+    "instructions": 3,
+    "name": "lumop",
+    "total_instructions": 3
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 29,
+    "instructions": 3,
+    "name": "funct3",
+    "total_instructions": 3
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32_vector.cpp",
+    "fileloc": 31,
+    "instructions": 3,
+    "name": "vs2",
+    "total_instructions": 3
+  }
+}

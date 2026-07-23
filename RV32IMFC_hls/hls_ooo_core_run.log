@@ -1,0 +1,802 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.2 (64-bit)
+  **** SW Build 5238294 on Nov  8 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Tue Jul 21 18:18:14 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/andy/Programas/Vivado/Vitis/2024.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'andy' on host 'andy-ThinkPad-P53' (Linux_x86_64 version 6.17.0-40-generic) on Tue Jul 21 18:18:15 CST 2026
+INFO: [HLS 200-10] On os Ubuntu 24.04.4 LTS
+INFO: [HLS 200-10] In directory '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'run_hls_ooo_core.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset rv32_ooo_proj 
+INFO: [HLS 200-10] Opening and resetting project '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj'.
+INFO: [HLS 200-1510] Running: set_top rv32_ooo_tick 
+INFO: [HLS 200-1510] Running: add_files rv32_ooo.cpp 
+INFO: [HLS 200-10] Adding design file 'rv32_ooo.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb rv32_ooo_tb.cpp 
+INFO: [HLS 200-10] Adding test bench file 'rv32_ooo_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xck26-sfvc784-2LV-c 
+INFO: [HLS 200-1611] Setting target device to 'xck26-sfvc784-2LV-c'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../rv32_ooo_tb.cpp in debug mode
+   Compiling ../../../../rv32_ooo.cpp in debug mode
+   Generating csim.exe
+ciclo | evento
+------+------------------------------------------------
+    1 | DISPATCH d0  (pc=  0, tag 0)
+    2 | DISPATCH d1  (pc=  4, tag 1)
+    3 | DISPATCH d2  (pc=  8, tag 2)
+    3 | ALU0   completa d0  (tag 0)
+    4 | DISPATCH d3  (pc= 12, tag 3)
+    4 | ALU1   completa d1  (tag 1)
+    4 | COMMIT  x1  = 0x00000005
+    5 | DISPATCH d4  (pc= 16, tag 4)
+    5 | COMMIT  x2  = 0x0000000a
+    6 | DISPATCH d5  (pc= 20, tag 5)
+    6 | ALU0   completa d3  (tag 3)
+    7 | MULDIV completa d2  (tag 2)
+    8 | DISPATCH d6  (pc= 24, tag 6)
+    8 | ALU1   completa d4  (tag 4)
+    8 | LSU    completa d5  (tag 5)
+    8 | COMMIT  x3  = 0x00000032
+    9 | DISPATCH d7  (pc= 28, tag 7)
+    9 | COMMIT  x4  = 0x00000007
+   10 | COMMIT  x5  = 0x00000039
+   11 | DISPATCH d8  (pc= 36, tag 0)
+   11 | LSU    completa d6  (tag 6)
+   11 | BR     completa d7  (tag 7)
+   11 | COMMIT  x0  = 0x00000000
+   12 | DISPATCH d9  (pc= 40, tag 1)
+   12 | COMMIT  x6  = 0x00000039
+   13 | DISPATCH d10 (pc= 48, tag 2)
+   13 | ALU0   completa d8  (tag 0)
+   13 | COMMIT  x0  = 0x00000000
+   14 | DISPATCH d11 (pc= 52, tag 3)
+   14 | COMMIT  x7  = 0x00000001
+   15 | DISPATCH d12 (pc= 56, tag 4)
+   15 | COMMIT  x8  = 0x0000002c
+   16 | DISPATCH d13 (pc= 60, tag 5)
+   16 | COMMIT  x10 = 0x12345000
+   17 | DISPATCH d14 (pc= 64, tag 6)
+   17 | ALU0   completa d12 (tag 4)
+   18 | DISPATCH d15 (pc= 68, tag 7)
+   18 | ALU1   completa d13 (tag 5)
+   20 | DISPATCH d16 (pc= 72, tag 0)
+   20 | ALU0   completa d15 (tag 7)
+   20 | FPU    completa d14 (tag 6)
+   23 | DISPATCH d17 (pc= 76, tag 1)
+   23 | MULDIV completa d11 (tag 3)
+   23 | FPU    completa d16 (tag 0)
+   24 | COMMIT  x11 = 0x0000000a
+   25 | COMMIT  x12 = 0x00000005
+   26 | COMMIT  x20 = 0x00000003
+   27 | DISPATCH d18 (pc= 80, tag 2)
+   27 | FPU    completa d17 (tag 1)
+   27 | COMMIT  f1  = 0x40400000
+   28 | DISPATCH d19 (pc= 84, tag 3)
+   28 | COMMIT  x21 = 0x00000004
+   29 | COMMIT  f2  = 0x40800000
+   30 | COMMIT  f3  = 0x41400000
+   32 | DISPATCH d20 (pc= 88, tag 4)
+   32 | FPU    completa d18 (tag 2)
+   32 | LSU    completa d19 (tag 3)
+   33 | DISPATCH d21 (pc= 92, tag 5)
+   33 | COMMIT  f5  = 0x41c00000
+   34 | LSU    completa d20 (tag 4)
+   34 | COMMIT  x0  = 0x0000000a
+   35 | COMMIT  f6  = 0x41c00000
+   36 | DISPATCH d22 (pc= 96, tag 6)
+   36 | FPU    completa d21 (tag 5)
+   37 | COMMIT  x22 = 0x00000001
+   39 | DISPATCH d23 (pc=100, tag 7)
+   39 | FPU    completa d22 (tag 6)
+   40 | DISPATCH d24 (pc=104, tag 0)
+   40 | COMMIT  x23 = 0x41400000
+   41 | DISPATCH d25 (pc=108, tag 1)
+   42 | DISPATCH d26 (pc=110, tag 2)
+   42 | ALU0   completa d24 (tag 0)
+   43 | DISPATCH d27 (pc=114, tag 3)
+   43 | ALU1   completa d25 (tag 1)
+   44 | DISPATCH d28 (pc=116, tag 4)
+   44 | ALU0   completa d26 (tag 2)
+   45 | DISPATCH d29 (pc=120, tag 5)
+   45 | ALU1   completa d27 (tag 3)
+   47 | ALU0   completa d29 (tag 5)
+   48 | FPU    completa d23 (tag 7)
+   49 | COMMIT  f7  = 0x40800000
+   50 | COMMIT  x24 = 0x00000002
+   51 | COMMIT  x15 = 0x00000009
+   52 | COMMIT  x16 = 0x00000015
+   53 | DISPATCH d30 (pc=124, tag 6)
+   53 | VEC    completa d28 (tag 4)
+   53 | COMMIT  x15 = 0x0000000c
+   54 | COMMIT  x0  = 0x41c00000
+   55 | DISPATCH d31 (pc=128, tag 7)
+   55 | VEC    completa d30 (tag 6)
+   55 | COMMIT  x13 = 0x00000010
+   56 | DISPATCH d32 (pc=132, tag 0)
+   56 | COMMIT  x0  = 0x41400000
+   58 | ALU0   completa d32 (tag 0)
+   59 | DISPATCH d33 (pc=136, tag 1)
+   59 | VEC    completa d31 (tag 7)
+   60 | DISPATCH d34 (pc=140, tag 2)
+   60 | COMMIT  x0  = 0x40800000
+   61 | DISPATCH d35 (pc=144, tag 3)
+   61 | COMMIT  x14 = 0x00000063
+   62 | ALU0   completa d34 (tag 2)
+   63 | DISPATCH d36 (pc=148, tag 4)
+   63 | ALU1   completa d35 (tag 3)
+   63 | VEC    completa d33 (tag 1)
+   64 | COMMIT  x0  = 0x00000009
+   65 | COMMIT  x17 = 0x0000004d
+   66 | VEC    completa d36 (tag 4)
+   66 | COMMIT  x18 = 0x00000020
+   67 | COMMIT  x0  = 0x41c00000
+------+------------------------------------------------
+Halted en el ciclo 67 (37 dispatches, 37 commits)
+
+OK    x1  = 0x00000005 (addi)
+OK    x2  = 0x0000000a (addi)
+OK    x3  = 0x00000032 (mul)
+OK    x4  = 0x00000007 (addi independiente del mul)
+OK    x5  = 0x00000039 (add dependiente del mul (RAW via CDB))
+OK    x6  = 0x00000039 (lw round-trip del sw)
+OK    x7  = 0x00000001 (beq tomado (99 nunca ejecuto))
+OK    x8  = 0x0000002c (link del jal)
+OK    x9  = 0x00000000 (instruccion saltada por jal)
+OK    x10 = 0x12345000 (lui)
+OK    x11 = 0x0000000a (div)
+OK    x12 = 0x00000005 (sub independiente del div)
+OK    x15 = 0x0000000c (C.LI + C.ADDI comprimidas)
+OK    x16 = 0x00000015 (addi de 32 bits en pc%4==2 (straddle))
+OK    x20 = 0x00000003 (addi (fuente de fcvt))
+OK    x21 = 0x00000004 (addi (fuente de fcvt))
+OK    x22 = 0x00000001 (feq.s f5==f6 (FP escribe banco entero))
+OK    x23 = 0x41400000 (fmv.x.w bits de 12.0f)
+OK    x24 = 0x00000002 (addi independiente del fdiv)
+OK    x13 = 0x00000010 (addi (base del segundo vle32.v))
+OK    x14 = 0x00000063 (addi independiente de vadd.vv)
+OK    x17 = 0x0000004d (addi independiente de vmul.vv)
+OK    x18 = 0x00000020 (addi (direccion del vse32.v))
+OK    f1  = 0x40400000 (fcvt.s.w 3 -> 3.0)
+OK    f2  = 0x40800000 (fcvt.s.w 4 -> 4.0)
+OK    f3  = 0x41400000 (fmul.s 3*4 = 12.0)
+OK    f5  = 0x41c00000 (fmadd.s 3*4+12 = 24.0 (rs3))
+OK    f6  = 0x41c00000 (flw round-trip del fsw)
+OK    f7  = 0x40800000 (fdiv.s 12/3 = 4.0)
+OK    OOO: d3 (addi) antes que d2 (mul) (ciclos 6 < 7)
+OK    OOO: d12 (sub) antes que d11 (div) (ciclos 17 < 23)
+OK    OOO: d24 (addi) antes que d23 (fdiv) -- OOO cruzando bancos (ciclos 42 < 48)
+OK    OOO: d32 (addi) antes que d31 (vadd.vv) -- coprocesamiento: escalar avanza mientras VEC ejecuta (ciclos 58 < 59)
+OK    OOO: d34 (addi) antes que d33 (vmul.vv) -- coprocesamiento (ciclos 62 < 63)
+OK    dmem[16] = 57 (sw escribio al commit)
+OK    dmem[17] = 0x41C00000 (fsw escribio 24.0f al commit)
+OK    v1[0] = 0x0000000a
+OK    v1[1] = 0x00000014
+OK    v1[2] = 0x0000001e
+OK    v1[3] = 0x00000028
+OK    v2[0] = 0x00000001
+OK    v2[1] = 0x00000002
+OK    v2[2] = 0x00000003
+OK    v2[3] = 0x00000004
+OK    v3[0] = 0x0000000b
+OK    v3[1] = 0x00000016
+OK    v3[2] = 0x00000021
+OK    v3[3] = 0x0000002c
+OK    v4[0] = 0x00000064
+OK    v4[1] = 0x00000190
+OK    v4[2] = 0x00000384
+OK    v4[3] = 0x00000640
+OK    dmem[32..47] = {11,22,33,44} (vse32.v round-trip, resuelto en cabeza del ROB)
+
+Todos los checks pasaron.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:05; Allocated memory: 0.141 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.24 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.27 seconds; current allocated memory: 634.703 MB.
+INFO: [HLS 200-10] Analyzing design file 'rv32_ooo.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.8 seconds. CPU system time: 0.67 seconds. Elapsed time: 5.48 seconds; current allocated memory: 637.383 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 38,806 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 6,637 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 5,583 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 5,322 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,571 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,554 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,554 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,554 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,554 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,557 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,557 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,557 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,637 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,650 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,681 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,528 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_562_3' (rv32_ooo.cpp:562:27) in function 'rv32_ooo_tick' completely with a factor of 2 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_554_2' (rv32_ooo.cpp:554:27) in function 'rv32_ooo_tick' completely with a factor of 8 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_545_1' (rv32_ooo.cpp:545:27) in function 'rv32_ooo_tick' completely with a factor of 32 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_765_9' (rv32_ooo.cpp:765:23) in function 'rv32_ooo_tick' completely with a factor of 2 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_722_7' (rv32_ooo.cpp:722:31) in function 'rv32_ooo_tick' completely with a factor of 4 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_728_8' (rv32_ooo.cpp:728:31) in function 'rv32_ooo_tick' completely with a factor of 4 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_620_6' (rv32_ooo.cpp:620:23) in function 'rv32_ooo_tick' completely with a factor of 2 (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_415_1' (rv32_ooo.cpp:415:23) in function 'vec_arith_compute' completely with a factor of 4 (rv32_ooo.cpp:414:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_178_1' (rv32_ooo.cpp:178:23) in function 'cdb_broadcast' completely with a factor of 2 (rv32_ooo.cpp:177:0)
+INFO: [HLS 214-178] Inlining function 'float generic_fma<float>(float, float, float)' into 'fmaf' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/fmafloat.cpp:6:0)
+INFO: [HLS 214-178] Inlining function 'fmaf' into 'std::fma(float, float, float)' (/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1399:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'int generic_isnan<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:16:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::data() const (.44.50.57.63.71)' into 'fp_struct<float>::to_float() const (.77.84.92.100)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:322:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_float() const (.77.84.92.100)' into 'fp_struct<float>::to_ieee() const' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:346:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::data() const (.44.50.57.63.71)' into 'fp_struct<float>::to_int() const' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:319:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'float generic_fmin<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:20:0)
+INFO: [HLS 214-178] Inlining function 'int generic_isnan<float>(float)' into 'float generic_fmin<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'float generic_fmin<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_int() const' into 'float generic_fmin<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fminf' into 'std::fmin(float, float)' (/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1439:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'int generic_isnan<float>(float)' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_int() const' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fmaxf' into 'std::fmax(float, float)' (/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1419:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'float generic_copysign<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_copysign.h:10:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'float generic_copysign<float>(float, float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_copysign.h:10:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'float generic_rint<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:27:0)
+INFO: [HLS 214-178] Inlining function 'float generic_copysign<float>(float, float)' into 'float generic_rint<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:27:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::data() const (.44.50.57.63.71)' into 'float generic_rint<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:27:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(ap_uint<32>)' into 'float generic_rint<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:27:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'float generic_rint<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:27:0)
+INFO: [HLS 214-178] Inlining function 'nearbyintf' into 'std::nearbyint(float)' (/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1643:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'unsigned int generic_cast_IEEE754<unsigned int, (ap_q_mode)6, float>(float, bool, hls::enable_if<!(std::numeric_limits<unsigned int>::is_signed), bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:65:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::mantissa() const' into 'unsigned int generic_cast_IEEE754<unsigned int, (ap_q_mode)6, float>(float, bool, hls::enable_if<!(std::numeric_limits<unsigned int>::is_signed), bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:65:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::expv() const' into 'unsigned int generic_cast_IEEE754<unsigned int, (ap_q_mode)6, float>(float, bool, hls::enable_if<!(std::numeric_limits<unsigned int>::is_signed), bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:65:0)
+INFO: [HLS 214-178] Inlining function 'unsigned int generic_cast_IEEE754<unsigned int, (ap_q_mode)6, float>(float, bool, hls::enable_if<!(std::numeric_limits<unsigned int>::is_signed), bool>::type)' into 'unsigned int generic_cast_IEEE754<unsigned int, float>(float, bool)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:116:0)
+INFO: [HLS 214-178] Inlining function 'unsigned int generic_cast_IEEE754<unsigned int, float>(float, bool)' into '__hls_fptoui_float_i32' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/lib_floatconversion.cpp:65:0)
+INFO: [HLS 214-178] Inlining function '__hls_fptoui_float_i32' into 'rv32i::fcvt_wu_s(float)' (./fp_ops.h:45:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::mantissa() const' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::expv() const' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::__signbit() const' into 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0)
+INFO: [HLS 214-178] Inlining function 'int generic_cast_IEEE754<int, (ap_q_mode)6, float>(float, bool, hls::enable_if<std::numeric_limits<int>::is_signed, bool>::type)' into 'int generic_cast_IEEE754<int, float>(float, bool)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:116:0)
+INFO: [HLS 214-178] Inlining function 'int generic_cast_IEEE754<int, float>(float, bool)' into '__hls_fptosi_float_i32' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/lib_floatconversion.cpp:51:0)
+INFO: [HLS 214-178] Inlining function '__hls_fptosi_float_i32' into 'rv32i::fcvt_w_s(float)' (./fp_ops.h:37:0)
+INFO: [HLS 214-178] Inlining function 'float generic_copysign<float>(float, float)' into 'float generic_fabs<float>(float)' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fabs.h:12:0)
+INFO: [HLS 214-178] Inlining function 'float generic_fabs<float>(float)' into 'fabsf' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/fabsfloat.cpp:7:0)
+INFO: [HLS 214-178] Inlining function 'fabsf' into 'std::fpclassify(float)' (/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::float_to_bits(float)' into 'rv32i::fclass_s(float)' (./fp_ops.h:55:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::bits_to_float(unsigned int)' into 'fpu_compute(FpuRs const&)' (rv32_ooo.cpp:354:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::float_to_bits(float)' into 'fpu_compute(FpuRs const&)' (rv32_ooo.cpp:354:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::fcvt_wu_s(float)' into 'fpu_compute(FpuRs const&)' (rv32_ooo.cpp:354:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::fcvt_w_s(float)' into 'fpu_compute(FpuRs const&)' (rv32_ooo.cpp:354:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::fclass_s(float)' into 'fpu_compute(FpuRs const&)' (rv32_ooo.cpp:354:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::creg(unsigned int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::s_type(unsigned int, unsigned int, unsigned int, unsigned int, int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::sext(unsigned int, unsigned int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::j_type(unsigned int, int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::u_type(unsigned int, unsigned int, int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::r_type(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32c::b_type(unsigned int, unsigned int, unsigned int, int)' into 'rv32c::expand(unsigned short)' (./rv32c_defs.h:65:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::sign_extend(ap_uint<32>, unsigned int)' into 'rv32_hls::get_imm_J(ap_uint<32>)' (./immediates_hls.h:47:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::sign_extend(ap_uint<32>, unsigned int)' into 'rv32_hls::get_imm_I(ap_uint<32>)' (./immediates_hls.h:20:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::sign_extend(ap_uint<32>, unsigned int)' into 'rv32_hls::get_imm_S(ap_uint<32>)' (./immediates_hls.h:24:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::sign_extend(ap_uint<32>, unsigned int)' into 'rv32_hls::get_imm_B(ap_uint<32>)' (./immediates_hls.h:31:0)
+INFO: [HLS 214-178] Inlining function 'dmem_store(ap_uint<32>*, ap_uint<32>, ap_uint<32>, ap_uint<3>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'alu_compute(ap_uint<3>, bool, ap_uint<32>, ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'md_compute(ap_uint<3>, ap_uint<32>, ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'branch_taken(ap_uint<3>, ap_uint<32>, ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'dmem_load(ap_uint<32>*, ap_uint<32>, ap_uint<3>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'vec_arith_compute(VecRs const&, ap_uint<32>*)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'read_csr(ap_uint<12>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'write_csr(ap_uint<12>, ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::opcode(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::rd(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::funct3(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::rs1(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::rs2(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::funct7(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::get_imm_U(ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::get_imm_J(ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::get_shamt(ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::get_imm_I(ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::get_imm_S(ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32i::rs3(unsigned int)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-178] Inlining function 'rv32_hls::get_imm_B(ap_uint<32>)' into 'rv32_ooo_tick(ap_uint<1>, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&, ap_uint<3>&, ap_uint<32>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<3>&, ap_uint<1>&, ap_uint<1>&, ap_uint<5>&, ap_uint<32>&, ap_uint<32>*, ap_uint<1>&)' (rv32_ooo.cpp:504:0)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_872_10> at rv32_ooo.cpp:872:36 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_1129_11> at rv32_ooo.cpp:1129:25 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_575_4> at rv32_ooo.cpp:575:27 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_579_5> at rv32_ooo.cpp:579:27 
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.busy' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.executing' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.remaining' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.f3' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.alt' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.rob_tag' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.s1.ready' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.s1.val' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.s1.tag' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.s2.ready' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.s2.val' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL6alu_rs.s2.tag' completely based on array size. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.alt)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.busy)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.executing)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.f3)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.remaining)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.rob_tag)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.s1.ready)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.s1.tag)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.s1.val)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.s2.ready)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.s2.tag)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'alu_rs (.s2.val)' due to pipeline pragma (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.s2.val': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.s2.tag': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.s2.ready': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.s1.val': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.s1.tag': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.s1.ready': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.rob_tag': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.remaining': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.f3': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.executing': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.busy': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6alu_rs.alt': Complete partitioning on dimension 1. (rv32_ooo.cpp:152:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 7.22 seconds. CPU system time: 0.7 seconds. Elapsed time: 9.77 seconds; current allocated memory: 650.859 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 650.859 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.22 seconds; current allocated memory: 659.211 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'generic_fmin<float>' into 'fpu_compute' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/fminfloat.cpp:7->/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1439->rv32_ooo.cpp:383) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_fmax<float>' into 'fpu_compute' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/fmaxfloat.cpp:7->/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1419->rv32_ooo.cpp:383) automatically.
+INFO: [XFORM 203-602] Inlining function 'rv32c::i_type' into 'rv32c::expand' (./rv32c_defs.h:79) automatically.
+WARNING: [SYNCHK 200-23] /wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.24 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.26 seconds; current allocated memory: 667.340 MB.
+INFO: [XFORM 203-602] Inlining function 'generic_fmin<float>' into 'fpu_compute' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/fminfloat.cpp:7->/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1439->rv32_ooo.cpp:383) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_fmax<float>' into 'fpu_compute' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/fmaxfloat.cpp:7->/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1419->rv32_ooo.cpp:383) automatically.
+INFO: [XFORM 203-602] Inlining function 'rv32c::i_type' into 'rv32c::expand' (./rv32c_defs.h:79) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./rv32c_defs.h:65:33) to (./rv32c_defs.h:287:1) in function 'rv32c::expand'... converting 47 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:625:47) to (rv32_ooo.cpp:635:9) in function 'rv32_ooo_tick'... converting 10 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:625:47) to (rv32_ooo.cpp:635:9) in function 'rv32_ooo_tick'... converting 10 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:610:22) to (rv32_ooo.cpp:617:5) in function 'rv32_ooo_tick'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:669:43) in function 'rv32_ooo_tick'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:767:16) in function 'rv32_ooo_tick'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'rv32_ooo_tick'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:745:36) to (rv32_ooo.cpp:243:5) in function 'rv32_ooo_tick'... converting 15 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:767:21) in function 'rv32_ooo_tick'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:444:81) to (rv32_ooo.cpp:702:9) in function 'rv32_ooo_tick'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:772:20) in function 'rv32_ooo_tick'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:777:21) in function 'rv32_ooo_tick'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:793:20) in function 'rv32_ooo_tick'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:813:41) to (rv32_ooo.cpp:818:13) in function 'rv32_ooo_tick'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:950:33) to (rv32_ooo.cpp:1110:21) in function 'rv32_ooo_tick'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:970:69) to (rv32_ooo.cpp:985:33) in function 'rv32_ooo_tick'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:282:43) to (rv32_ooo.cpp:295:1) in function 'read_operand_fp'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:260:40) to (rv32_ooo.cpp:277:1) in function 'read_operand'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:26:18) to (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:80:1) in function 'generic_rint<float>'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:371:22) in function 'fpu_compute'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rv32_ooo.cpp:383:23) to (rv32_ooo.cpp:382:13) in function 'fpu_compute'... converting 14 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./fp_ops.h:55:32) to (./fp_ops.h:59:5) in function 'fpu_compute'... converting 5 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'generic_rint<float>' into 'fpu_compute' (/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/src/c/nearbyintfloat.cpp:7->/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:1643->./fp_ops.h:49->rv32_ooo.cpp:393) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'rv32c::expand' (./rv32c_defs.h:65)...75 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'rv32_ooo_tick' (rv32_ooo.cpp:17:29)...28 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.12 seconds; current allocated memory: 697.918 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.99 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.02 seconds; current allocated memory: 795.734 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'rv32_ooo_tick' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'cdb_broadcast' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.44 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.48 seconds; current allocated memory: 798.953 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 799.078 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fpu_compute' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 803.074 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 803.074 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'expand' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 804.473 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 804.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'read_operand' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 805.527 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 805.527 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'read_operand_fp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 805.926 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 805.926 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_872_10'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_872_10'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 806.297 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 806.297 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_1129_11'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_1129_11'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 806.578 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 806.578 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_575_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_575_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 806.840 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 806.840 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_579_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_579_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 807.039 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 807.039 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_ooo_tick' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.5 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.53 seconds; current allocated memory: 838.484 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.36 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.36 seconds; current allocated memory: 846.863 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'cdb_broadcast' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'cdb_broadcast'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 846.863 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fpu_compute' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'bitselect_1ns_32ns_32s_1_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_4_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_9_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_3_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_8_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sitofp_32ns_32_4_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_13_5_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_3_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'uitofp_32ns_32_4_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fpu_compute'.
+INFO: [RTMG 210-279] Implementing memory 'rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 846.863 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'expand' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'expand'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.21 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.22 seconds; current allocated memory: 846.863 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'read_operand' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'read_operand'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 849.031 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'read_operand_fp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'read_operand_fp'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 850.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10' pipeline 'VITIS_LOOP_872_10' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 850.836 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11' pipeline 'VITIS_LOOP_1129_11' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 851.570 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 852.297 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5' pipeline 'VITIS_LOOP_579_5' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 852.859 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_ooo_tick' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/reset' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/imem' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/dmem' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/disp_valid' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'disp_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/disp_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'disp_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/disp_pc' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'disp_pc' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/alu0_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'alu0_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/alu0_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'alu0_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/alu1_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'alu1_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/alu1_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'alu1_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/md_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'md_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/md_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'md_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/fpu_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'fpu_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/fpu_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'fpu_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/lsu_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'lsu_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/lsu_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'lsu_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/br_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'br_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/br_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'br_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/vec_done' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'vec_done' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/vec_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'vec_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/commit_valid' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'commit_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/commit_is_fp' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'commit_is_fp' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/commit_rd' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'commit_rd' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/commit_value' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'commit_value' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/vregs_out' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_ooo_tick/halted' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'halted' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on function 'rv32_ooo_tick' to 's_axilite & ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'rob_head' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rob_tail' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rob_count' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_executing_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_executing_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_executing' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_executing' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_executing' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_executing' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fetch_pc' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fetch_stalled' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fetch_done' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_busy_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_busy_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mstatus' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mie' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mtvec' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mscratch' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mepc' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mcause' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mtval' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'csr_mip' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ecall_halt' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_remaining_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_rob_tag_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_f3_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_alt_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s1_val_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s2_val_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s1_ready_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s1_tag_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s2_ready_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s2_tag_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_s1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_s1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_s1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_s2_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_s2_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_s2_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_s1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_s1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_s1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_s2_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_s2_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_s2_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_s1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_s1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_s1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_s2_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_s2_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_s2_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s2_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s2_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s2_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s3_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s3_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_s3_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_s1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_s1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_s1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_s1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_s1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_s1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s1_ready_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s1_tag_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s1_val_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s2_ready_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s2_tag_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_s2_val_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_rob_tag_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_remaining_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_remaining' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_f3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'md_rs_rob_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_remaining' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_rob_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_r4op' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_f7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_f3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fpu_rs_rs2f' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_is_jalr' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_rob_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_br_pc' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_size' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_imm' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'br_rs_f3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_rob_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_f3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_imm' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lsu_rs_is_load' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_is_arith' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_remaining' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_vd_or_vs3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_rob_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_vs2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_vs1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_arith_op' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_is_load' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'vec_rs_is_store' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_rob_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_csr_addr' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'sys_rs_f3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_f3_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_rs_alt_1' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port control.
+WARNING: [RTGEN 206-101] RTL name 'sparsemux_13_5_32_1_1' is changed to 'sparsemux_13_5_32_1_1_x' due to conflict.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_ooo_tick/imem_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_ooo_tick/imem_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_ooo_tick/imem_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_ooo_tick/imem_Din_B' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32ns_64_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32s_64_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sdiv_32s_32s_32_36_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_13_5_32_1_1_x': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_17_7_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_21_9_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_3_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_4_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'srem_32s_32s_32_36_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'udiv_32s_32s_32_36_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_32s_32s_32_36_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_ooo_tick'.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_vregs_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_fregs_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.13 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.18 seconds; current allocated memory: 872.668 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.97 seconds. CPU system time: 0.08 seconds. Elapsed time: 1.07 seconds; current allocated memory: 913.309 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.81 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.83 seconds; current allocated memory: 922.734 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for rv32_ooo_tick.
+INFO: [VLOG 209-307] Generating Verilog RTL for rv32_ooo_tick.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 135.86 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:25; Allocated memory: 289.094 MB.
+C-simulation y C-synthesis del core OOO terminados.
+Reporte: rv32_ooo_proj/solution1/syn/report/rv32_ooo_tick_csynth.rpt
+INFO: [HLS 200-112] Total CPU user time: 31.05 seconds. Total CPU system time: 2.9 seconds. Total elapsed time: 35.55 seconds; peak allocated memory: 923.395 MB.

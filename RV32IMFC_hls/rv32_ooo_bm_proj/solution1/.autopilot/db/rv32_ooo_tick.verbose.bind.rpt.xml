@@ -1,0 +1,54 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'rv32_ooo_tick'" level="0">
+<item name = "Date">Tue Jul 21 18:19:54 2026
+</item>
+<item name = "Version">2024.2 (Build 5238294 on Nov  8 2024)</item>
+<item name = "Project">rv32_ooo_bm_proj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xck26-sfvc784-2LV-c</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 7.360 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">141, 276, 1.410 us, 2.760 us, 142, 277, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_cdb_broadcast_fu_5684">cdb_broadcast, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_fpu_compute_fu_5799">fpu_compute, 1, 9, 10.000 ns, 90.000 ns, 1, 9, no</column>
+<column name="instr_1_expand_fu_5824">expand, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_read_operand_fu_5830">read_operand, 2, 2, 20.000 ns, 20.000 ns, 2, 2, no</column>
+<column name="grp_read_operand_fp_fu_5845">read_operand_fp, 2, 2, 20.000 ns, 20.000 ns, 2, 2, no</column>
+<column name="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860">rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10, 4, 4, 40.000 ns, 40.000 ns, 3, 3, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869">rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11, 130, 130, 1.300 us, 1.300 us, 129, 129, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877">rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4, 130, 130, 1.300 us, 1.300 us, 129, 129, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883">rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5, 130, 130, 1.300 us, 1.300 us, 129, 129, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

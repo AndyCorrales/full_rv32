@@ -1,0 +1,36 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../rv32_vector_tb.cpp in debug mode
+   Compiling ../../../../rv32_vector.cpp in debug mode
+   Generating csim.exe
+[0] vle32.v v1, (0)      halted=0
+[1] vle32.v v2, (16)     halted=0
+[2] vadd.vv v3,v2,v1     halted=0
+[3] vsub.vv v4,v2,v1     halted=0
+[4] vmul.vv v5,v1,v1     halted=0
+[5] vse32.v v3, (32)     halted=0
+OK    v1[0] = 0x0000000a
+OK    v1[1] = 0x00000014
+OK    v1[2] = 0x0000001e
+OK    v1[3] = 0x00000028
+OK    v2[0] = 0x00000001
+OK    v2[1] = 0x00000002
+OK    v2[2] = 0x00000003
+OK    v2[3] = 0x00000004
+OK    v3[0] = 0x0000000b
+OK    v3[1] = 0x00000016
+OK    v3[2] = 0x00000021
+OK    v3[3] = 0x0000002c
+OK    v4[0] = 0xfffffff7
+OK    v4[1] = 0xffffffee
+OK    v4[2] = 0xffffffe5
+OK    v4[3] = 0xffffffdc
+OK    v5[0] = 0x00000064
+OK    v5[1] = 0x00000190
+OK    v5[2] = 0x00000384
+OK    v5[3] = 0x00000640
+OK    mem[32..47] = {11,22,33,44} (vse32.v round-trip)
+
+Todos los checks pasaron.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

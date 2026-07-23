@@ -1,0 +1,254 @@
+
+
+================================================================
+== Synthesis Summary Report of 'ooo_demo_tick'
+================================================================
++ General Information: 
+    * Date:           Fri Jul 17 22:55:55 2026
+    * Version:        2024.2 (Build 5238294 on Nov  8 2024)
+    * Project:        ooo_demo_proj
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
+    |                   Modules                  | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |         |           |           |     |
+    |                   & Loops                  | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM |   DSP   |     FF    |    LUT    | URAM|
+    +--------------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
+    |+ ooo_demo_tick                             |     -|  1.60|        8|  80.000|         -|        9|     -|        no|     -|  3 (~0%)|  706 (~0%)|  2811 (2%)|    -|
+    | + ooo_demo_tick_Pipeline_VITIS_LOOP_119_1  |     -|  5.77|        6|  60.000|         -|        6|     -|        no|     -|        -|    5 (~0%)|   49 (~0%)|    -|
+    |  o VITIS_LOOP_119_1                        |     -|  7.30|        4|  40.000|         1|        1|     4|       yes|     -|        -|          -|          -|    -|
+    +--------------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+
+| Interface     | Data Width | Address Width |
++---------------+------------+---------------+
+| s_axi_control | 32         | 4             |
++---------------+------------+---------------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* Other Ports
++--------------------+---------+-----------+----------+
+| Port               | Mode    | Direction | Bitwidth |
++--------------------+---------+-----------+----------+
+| alu_complete_tag   | ap_none | out       | 2        |
+| alu_complete_valid | ap_none | out       | 1        |
+| commit_reg         | ap_none | out       | 2        |
+| commit_valid       | ap_none | out       | 1        |
+| halted             | ap_none | out       | 1        |
+| mul_complete_tag   | ap_none | out       | 2        |
+| mul_complete_valid | ap_none | out       | 1        |
+| r0_out             | ap_none | out       | 32       |
+| r1_out             | ap_none | out       | 32       |
+| r2_out             | ap_none | out       | 32       |
+| r3_out             | ap_none | out       | 32       |
+| reset              | ap_none | in        | 1        |
++--------------------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++--------------------+-----------+--------------+
+| Argument           | Direction | Datatype     |
++--------------------+-----------+--------------+
+| reset              | in        | ap_uint<1>   |
+| r0_out             | out       | ap_uint<32>& |
+| r1_out             | out       | ap_uint<32>& |
+| r2_out             | out       | ap_uint<32>& |
+| r3_out             | out       | ap_uint<32>& |
+| commit_reg         | out       | ap_uint<2>&  |
+| commit_valid       | out       | ap_uint<1>&  |
+| alu_complete_tag   | out       | ap_uint<2>&  |
+| alu_complete_valid | out       | ap_uint<1>&  |
+| mul_complete_tag   | out       | ap_uint<2>&  |
+| mul_complete_valid | out       | ap_uint<1>&  |
+| halted             | out       | ap_uint<1>&  |
++--------------------+-----------+--------------+
+
+* SW-to-HW Mapping
++--------------------+--------------------+---------+
+| Argument           | HW Interface       | HW Type |
++--------------------+--------------------+---------+
+| reset              | reset              | port    |
+| r0_out             | r0_out             | port    |
+| r1_out             | r1_out             | port    |
+| r2_out             | r2_out             | port    |
+| r3_out             | r3_out             | port    |
+| commit_reg         | commit_reg         | port    |
+| commit_valid       | commit_valid       | port    |
+| alu_complete_tag   | alu_complete_tag   | port    |
+| alu_complete_valid | alu_complete_valid | port    |
+| mul_complete_tag   | mul_complete_tag   | port    |
+| mul_complete_valid | mul_complete_valid | port    |
+| halted             | halted             | port    |
++--------------------+--------------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------------+-----+--------+-----------------------+-----------+--------------------------+---------+
+| Name                                       | DSP | Pragma | Variable              | Op        | Impl                     | Latency |
++--------------------------------------------+-----+--------+-----------------------+-----------+--------------------------+---------+
+| + ooo_demo_tick                            | 3   |        |                       |           |                          |         |
+|   icmp_ln147_fu_1636_p2                    |     |        | icmp_ln147            | seteq     | auto                     | 0       |
+|   sparsemux_9_2_1_1_1_U27                  |     |        | tmp                   | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U28                  |     |        | tmp_1                 | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_2_1_1_U29                  |     |        | dest                  | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_32_1_1_U30                 |     |        | tmp_3                 | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U31                  |     |        | tmp_4                 | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_2_1_1_U32                  |     |        | tmp_5                 | sparsemux | compactencoding_dontcare | 0       |
+|   icmp_ln152_fu_1860_p2                    |     |        | icmp_ln152            | seteq     | auto                     | 0       |
+|   add_ln158_fu_1907_p2                     |     |        | add_ln158             | add       | fabric                   | 0       |
+|   add_ln159_fu_1918_p2                     |     |        | add_ln159             | add       | fabric                   | 0       |
+|   icmp_ln164_fu_1948_p2                    |     |        | icmp_ln164            | seteq     | auto                     | 0       |
+|   add_ln164_fu_1953_p2                     |     |        | add_ln164             | add       | fabric                   | 0       |
+|   icmp_ln164_1_fu_1958_p2                  |     |        | icmp_ln164_1          | seteq     | auto                     | 0       |
+|   result_fu_1968_p2                        |     |        | result                | add       | fabric                   | 0       |
+|   result_1_fu_1974_p2                      |     |        | result_1              | sub       | fabric                   | 0       |
+|   result_2_fu_1980_p3                      |     |        | result_2              | select    | auto_sel                 | 0       |
+|   xor_ln171_fu_2041_p2                     |     |        | xor_ln171             | xor       | auto                     | 0       |
+|   icmp_ln171_fu_2051_p2                    |     |        | icmp_ln171            | seteq     | auto                     | 0       |
+|   and_ln171_fu_2057_p2                     |     |        | and_ln171             | and       | auto                     | 0       |
+|   select_ln171_fu_2063_p3                  |     |        | select_ln171          | select    | auto_sel                 | 0       |
+|   xor_ln174_fu_2071_p2                     |     |        | xor_ln174             | xor       | auto                     | 0       |
+|   icmp_ln174_fu_2081_p2                    |     |        | icmp_ln174            | seteq     | auto                     | 0       |
+|   and_ln174_fu_2087_p2                     |     |        | and_ln174             | and       | auto                     | 0       |
+|   select_ln174_fu_2093_p3                  |     |        | select_ln174          | select    | auto_sel                 | 0       |
+|   mul_src1_ready_flag_1_fu_2101_p2         |     |        | mul_src1_ready_flag_1 | and       | auto                     | 0       |
+|   mul_src1_ready_loc_1_fu_2106_p2          |     |        | mul_src1_ready_loc_1  | or        | auto                     | 0       |
+|   mul_src1_val_loc_1_fu_2112_p3            |     |        | mul_src1_val_loc_1    | select    | auto_sel                 | 0       |
+|   mul_src2_ready_flag_0_fu_2119_p2         |     |        | mul_src2_ready_flag_0 | and       | auto                     | 0       |
+|   mul_src2_ready_loc_0_fu_2124_p2          |     |        | mul_src2_ready_loc_0  | or        | auto                     | 0       |
+|   mul_src2_val_loc_0_fu_2130_p3            |     |        | mul_src2_val_loc_0    | select    | auto_sel                 | 0       |
+|   icmp_ln184_fu_2151_p2                    |     |        | icmp_ln184            | seteq     | auto                     | 0       |
+|   add_ln184_fu_2156_p2                     |     |        | add_ln184             | add       | fabric                   | 0       |
+|   icmp_ln184_1_fu_2162_p2                  |     |        | icmp_ln184_1          | seteq     | auto                     | 0       |
+|   mul_32s_32s_32_1_1_U26                   | 3   |        | result_3              | mul       | auto                     | 0       |
+|   xor_ln189_fu_2221_p2                     |     |        | xor_ln189             | xor       | auto                     | 0       |
+|   icmp_ln189_fu_2231_p2                    |     |        | icmp_ln189            | seteq     | auto                     | 0       |
+|   and_ln189_fu_2237_p2                     |     |        | and_ln189             | and       | auto                     | 0       |
+|   xor_ln192_fu_2243_p2                     |     |        | xor_ln192             | xor       | auto                     | 0       |
+|   icmp_ln192_fu_2253_p2                    |     |        | icmp_ln192            | seteq     | auto                     | 0       |
+|   and_ln192_fu_2259_p2                     |     |        | and_ln192             | and       | auto                     | 0       |
+|   alu_src1_val_flag_1_fu_2265_p2           |     |        | alu_src1_val_flag_1   | and       | auto                     | 0       |
+|   alu_src2_val_flag_0_fu_2272_p2           |     |        | alu_src2_val_flag_0   | and       | auto                     | 0       |
+|   alu_src1_ready_loc_1_fu_2279_p2          |     |        | alu_src1_ready_loc_1  | or        | auto                     | 0       |
+|   alu_src2_ready_loc_0_fu_2286_p2          |     |        | alu_src2_ready_loc_0  | or        | auto                     | 0       |
+|   select_ln204_fu_2293_p3                  |     |        | select_ln204          | select    | auto_sel                 | 0       |
+|   sel_tmp_fu_2301_p2                       |     |        | sel_tmp               | xor       | auto                     | 0       |
+|   tmp68_fu_2307_p2                         |     |        | tmp68                 | and       | auto                     | 0       |
+|   sel_tmp2_fu_2313_p2                      |     |        | sel_tmp2              | and       | auto                     | 0       |
+|   or_ln204_fu_2319_p2                      |     |        | or_ln204              | and       | auto                     | 0       |
+|   alu_executing_flag_1_fu_2329_p2          |     |        | alu_executing_flag_1  | or        | auto                     | 0       |
+|   alu_remaining_flag_2_fu_2339_p2          |     |        | alu_remaining_flag_2  | or        | auto                     | 0       |
+|   alu_remaining_new_2_fu_2346_p3           |     |        | alu_remaining_new_2   | select    | auto_sel                 | 0       |
+|   select_ln208_fu_2355_p3                  |     |        | select_ln208          | select    | auto_sel                 | 0       |
+|   sel_tmp16_fu_2363_p2                     |     |        | sel_tmp16             | xor       | auto                     | 0       |
+|   tmp69_fu_2369_p2                         |     |        | tmp69                 | and       | auto                     | 0       |
+|   sel_tmp18_fu_2375_p2                     |     |        | sel_tmp18             | and       | auto                     | 0       |
+|   or_ln208_fu_2381_p2                      |     |        | or_ln208              | and       | auto                     | 0       |
+|   mul_executing_flag_1_fu_2391_p2          |     |        | mul_executing_flag_1  | or        | auto                     | 0       |
+|   mul_remaining_flag_2_fu_2401_p2          |     |        | mul_remaining_flag_2  | or        | auto                     | 0       |
+|   mul_remaining_new_2_fu_2408_p3           |     |        | mul_remaining_new_2   | select    | auto_sel                 | 0       |
+|   icmp_ln214_fu_2424_p2                    |     |        | icmp_ln214            | seteq     | auto                     | 0       |
+|   or_ln214_fu_2438_p2                      |     |        | or_ln214              | or        | auto                     | 0       |
+|   sparsemux_7_2_1_1_1_U33                  |     |        | ins_unit              | sparsemux | onehotencoding_realdef   | 0       |
+|   sparsemux_7_2_2_1_1_U34                  |     |        | ins_dest              | sparsemux | onehotencoding_realdef   | 0       |
+|   sparsemux_7_2_1_1_1_U35                  |     |        | ins_src2_is_imm       | sparsemux | onehotencoding_realdef   | 0       |
+|   sparsemux_7_2_4_1_1_U36                  |     |        | ins_imm               | sparsemux | onehotencoding_realdef   | 0       |
+|   sparsemux_7_2_1_1_1_U37                  |     |        | ins_op                | sparsemux | onehotencoding_realdef   | 0       |
+|   and_ln64_fu_2660_p2                      |     |        | and_ln64              | and       | auto                     | 0       |
+|   sparsemux_9_2_1_1_1_U38                  |     |        | tmp_2                 | sparsemux | compactencoding_dontcare | 0       |
+|   s1_val_fu_2694_p3                        |     |        | s1_val                | select    | auto_sel                 | 0       |
+|   sparsemux_9_2_32_1_1_U39                 |     |        | s1_val_3              | sparsemux | compactencoding_dontcare | 0       |
+|   xor_ln64_fu_2726_p2                      |     |        | xor_ln64              | xor       | auto                     | 0       |
+|   and_ln71_fu_2732_p2                      |     |        | and_ln71              | and       | auto                     | 0       |
+|   sparsemux_7_2_32_1_1_U40                 |     |        | s1_val_1              | sparsemux | onehotencoding_realdef   | 0       |
+|   s1_ready_fu_2768_p2                      |     |        | s1_ready              | or        | auto                     | 0       |
+|   s1_tag_fu_2776_p3                        |     |        | s1_tag                | select    | auto_sel                 | 0       |
+|   or_ln64_fu_2784_p2                       |     |        | or_ln64               | or        | auto                     | 0       |
+|   xor_ln64_1_fu_2790_p2                    |     |        | xor_ln64_1            | xor       | auto                     | 0       |
+|   xor_ln215_fu_2796_p2                     |     |        | xor_ln215             | xor       | auto                     | 0       |
+|   and_ln71_1_fu_2802_p2                    |     |        | and_ln71_1            | and       | auto                     | 0       |
+|   and_ln71_2_fu_2808_p2                    |     |        | and_ln71_2            | and       | auto                     | 0       |
+|   sparsemux_9_3_32_1_1_U41                 |     |        | s2_val_2              | sparsemux | onehotencoding_realdef   | 0       |
+|   s2_ready_fu_2850_p2                      |     |        | s2_ready              | or        | auto                     | 0       |
+|   s2_tag_fu_2858_p3                        |     |        | s2_tag                | select    | auto_sel                 | 0       |
+|   add_ln243_fu_2908_p2                     |     |        | add_ln243             | add       | fabric                   | 0       |
+|   add_ln244_fu_2920_p2                     |     |        | add_ln244             | add       | fabric                   | 0       |
+|   add_ln245_fu_2927_p2                     |     |        | add_ln245             | add       | fabric                   | 0       |
+|   icmp_ln249_fu_2940_p2                    |     |        | icmp_ln249            | seteq     | auto                     | 0       |
+|   icmp_ln249_1_fu_2946_p2                  |     |        | icmp_ln249_1          | seteq     | auto                     | 0       |
+|   and_ln249_fu_2952_p2                     |     |        | and_ln249             | and       | auto                     | 0       |
+|  + ooo_demo_tick_Pipeline_VITIS_LOOP_119_1 | 0   |        |                       |           |                          |         |
+|    icmp_ln119_fu_94_p2                     |     |        | icmp_ln119            | seteq     | auto                     | 0       |
+|    add_ln119_fu_100_p2                     |     |        | add_ln119             | add       | fabric                   | 0       |
++--------------------------------------------+-----+--------+-----------------------+-----------+--------------------------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |           |           |      |      |        |          |      |         | Banks            |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + ooo_demo_tick   |           |           | 0    | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+--------------------------------------+-------------------------------------------------------+
+| Type      | Options                              | Location                                              |
++-----------+--------------------------------------+-------------------------------------------------------+
+| interface | ap_none port=reset                   | ooo_demo.cpp:96 in ooo_demo_tick, reset               |
+| interface | ap_none port=r0_out                  | ooo_demo.cpp:97 in ooo_demo_tick, r0_out              |
+| interface | ap_none port=r1_out                  | ooo_demo.cpp:98 in ooo_demo_tick, r1_out              |
+| interface | ap_none port=r2_out                  | ooo_demo.cpp:99 in ooo_demo_tick, r2_out              |
+| interface | ap_none port=r3_out                  | ooo_demo.cpp:100 in ooo_demo_tick, r3_out             |
+| interface | ap_none port=commit_reg              | ooo_demo.cpp:101 in ooo_demo_tick, commit_reg         |
+| interface | ap_none port=commit_valid            | ooo_demo.cpp:102 in ooo_demo_tick, commit_valid       |
+| interface | ap_none port=alu_complete_tag        | ooo_demo.cpp:103 in ooo_demo_tick, alu_complete_tag   |
+| interface | ap_none port=alu_complete_valid      | ooo_demo.cpp:104 in ooo_demo_tick, alu_complete_valid |
+| interface | ap_none port=mul_complete_tag        | ooo_demo.cpp:105 in ooo_demo_tick, mul_complete_tag   |
+| interface | ap_none port=mul_complete_valid      | ooo_demo.cpp:106 in ooo_demo_tick, mul_complete_valid |
+| interface | ap_none port=halted                  | ooo_demo.cpp:107 in ooo_demo_tick, halted             |
+| interface | s_axilite port=return bundle=control | ooo_demo.cpp:108 in ooo_demo_tick, return             |
++-----------+--------------------------------------+-------------------------------------------------------+
+
+

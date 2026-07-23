@@ -1,0 +1,225 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/run_hls_ooo.tcl:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=ooo_demo_tick" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:96:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=reset" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:97:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=r0_out" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:98:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=r1_out" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:99:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=r2_out" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:100:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=r3_out" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:101:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=commit_reg" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:102:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=commit_valid" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:103:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=alu_complete_tag" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:104:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=alu_complete_valid" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:105:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=mul_complete_tag" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:106:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=mul_complete_valid" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:107:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=halted" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ooo_demo.cpp:108:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="ooo_demo_tick" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ooo_demo.cpp:95:0" msg_body="Inlining function 'read_operand(ap_uint&lt;2&gt;, RatEntry*, RobEntry*, ap_uint&lt;32&gt;*, bool&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;)' into 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="read_operand(ap_uint&lt;2&gt;, RatEntry*, RobEntry*, ap_uint&lt;32&gt;*, bool&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;)" Callee-DebugLoc="File ooo_demo.cpp Line 63 Column 0" Caller="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File ooo_demo.cpp Line 95 Column 0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.unit' completely based on array size.">
+        <args Value="_ZL7PROGRAM.unit"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.dest' completely based on array size.">
+        <args Value="_ZL7PROGRAM.dest"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.src1' completely based on array size.">
+        <args Value="_ZL7PROGRAM.src1"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.src2_is_imm' completely based on array size.">
+        <args Value="_ZL7PROGRAM.src2_is_imm"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.src2_reg' completely based on array size.">
+        <args Value="_ZL7PROGRAM.src2_reg"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.imm' completely based on array size.">
+        <args Value="_ZL7PROGRAM.imm"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Automatically partitioning small array '_ZL7PROGRAM.op' completely based on array size.">
+        <args Value="_ZL7PROGRAM.op"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:110:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready' completely based on array size.">
+        <args Value="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.dest 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.dest)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.dest" PragmaType="array_partition" VarName="PROGRAM (.dest)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.dest)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.dest)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.imm 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.imm)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.imm" PragmaType="array_partition" VarName="PROGRAM (.imm)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.imm)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.imm)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.op 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.op)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.op" PragmaType="array_partition" VarName="PROGRAM (.op)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.op)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.op)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.src1 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.src1)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.src1" PragmaType="array_partition" VarName="PROGRAM (.src1)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.src1)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.src1)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.src2_is_imm 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.src2_is_imm)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.src2_is_imm" PragmaType="array_partition" VarName="PROGRAM (.src2_is_imm)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.src2_is_imm)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.src2_is_imm)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.src2_reg 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.src2_reg)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.src2_reg" PragmaType="array_partition" VarName="PROGRAM (.src2_reg)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.src2_reg)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.src2_reg)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="array_partition dim=1 type=complete  variable=_ZL7PROGRAM.unit 1 ooo_demo_tick ooo_demo.cpp:23:0 PROGRAM (.unit)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL7PROGRAM.unit" PragmaType="array_partition" VarName="PROGRAM (.unit)" varLoc="ooo_demo.cpp:23:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.unit)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="PROGRAM (.unit)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag 1 ooo_demo_tick ooo_demo.cpp:111:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.has_tag)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.has_tag)" varLoc="ooo_demo.cpp:111:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.has_tag)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.has_tag)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag 1 ooo_demo_tick ooo_demo.cpp:111:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.tag)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.tag)" varLoc="ooo_demo.cpp:111:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.tag)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rat (.tag)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest 1 ooo_demo_tick ooo_demo.cpp:112:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.dest)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.dest)" varLoc="ooo_demo.cpp:112:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.dest)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.dest)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready 1 ooo_demo_tick ooo_demo.cpp:112:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.ready)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.ready)" varLoc="ooo_demo.cpp:112:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.ready)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.ready)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid 1 ooo_demo_tick ooo_demo.cpp:112:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.valid)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.valid)" varLoc="ooo_demo.cpp:112:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.valid)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.valid)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value 1 ooo_demo_tick ooo_demo.cpp:112:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.value)">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.value)" varLoc="ooo_demo.cpp:112:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.value)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::rob (.value)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="ooo_demo.cpp:110:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile 1 ooo_demo_tick ooo_demo.cpp:110:0 ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::regfile">
+        <args PragmaFunction="ooo_demo_tick" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile" PragmaType="array_partition" VarName="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::regfile" varLoc="ooo_demo.cpp:110:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="ooo_demo.cpp:110:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::regfile' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="ooo_demo_tick(ap_uint&lt;1&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;2&gt;&amp;, ap_uint&lt;1&gt;&amp;, ap_uint&lt;1&gt;&amp;)::regfile" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:110:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:112:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:111:0" msg_body="Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.unit': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.unit"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.src2_reg': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.src2_reg"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.src2_is_imm': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.src2_is_imm"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.src1': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.src1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.op': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.op"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.imm': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.imm"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="ooo_demo.cpp:23:0" msg_body="Applying array_partition to '_ZL7PROGRAM.dest': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL7PROGRAM.dest"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:215:21" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:219:26" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:222:27" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:64:19" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:147:40" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:149:9" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:71:16" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:169:31" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="ooo_demo.cpp:187:31" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+</xilinx:hls_fe_msgs>
+

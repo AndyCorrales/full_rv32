@@ -1,0 +1,72 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/run_hls_vector.tcl:20:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=rv32_vector_step" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:44:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=instr" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:45:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=rs1_val" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:46:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=vregs_in" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:47:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=vregs_out" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=mem offset=slave bundle=gmem depth=64" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:49:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=halted" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:50:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:68:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:78:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="rv32_vector.cpp:91:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rv32_vector_step" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Unrolling loop 'VITIS_LOOP_67_2' (rv32_vector.cpp:67:26) in function 'rv32_vector_step' completely with a factor of 4">
+        <args Factor="4" LoopLoc="rv32_vector.cpp:67:26" LoopName="VITIS_LOOP_67_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Unrolling loop 'VITIS_LOOP_77_3' (rv32_vector.cpp:77:26) in function 'rv32_vector_step' completely with a factor of 4">
+        <args Factor="4" LoopLoc="rv32_vector.cpp:77:26" LoopName="VITIS_LOOP_77_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Unrolling loop 'VITIS_LOOP_90_4' (rv32_vector.cpp:90:30) in function 'rv32_vector_step' completely with a factor of 4">
+        <args Factor="4" LoopLoc="rv32_vector.cpp:90:30" LoopName="VITIS_LOOP_90_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'opcode(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="opcode(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 26 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'width(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="width(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 28 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'mop(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="mop(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 33 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'lumop(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="lumop(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 32 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'vd(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="vd(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 27 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'funct3(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="funct3(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 29 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'vs1(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="vs1(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 30 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'vs2(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="vs2(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 31 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="rv32_vector.cpp:43:0" msg_body="Inlining function 'funct6(ap_uint&lt;32&gt;)' into 'rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)'">
+        <args Callee="funct6(ap_uint&lt;32&gt;)" Callee-DebugLoc="File rv32_vector.cpp Line 34 Column 0" Caller="rv32_vector_step(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;32&gt;*, ap_uint&lt;1&gt;&amp;)" Caller-DebugLoc="File rv32_vector.cpp Line 43 Column 0"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

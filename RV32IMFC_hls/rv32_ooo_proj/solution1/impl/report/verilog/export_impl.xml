@@ -1,0 +1,421 @@
+<profile>
+  <RunData>
+    <RUN_TYPE>impl</RUN_TYPE>
+    <VIVADO_VERSION>v.2024.2</VIVADO_VERSION>
+    <ROOT_MODULE_CELL>bd_0_i/hls_inst</ROOT_MODULE_CELL>
+  </RunData>
+  <TimingReport>
+    <TargetClockPeriod>10.000</TargetClockPeriod>
+    <AchievedClockPeriod>7.430</AchievedClockPeriod>
+    <CLOCK_NAME>ap_clk</CLOCK_NAME>
+    <CP_FINAL>7.430</CP_FINAL>
+    <CP_ROUTE>7.430</CP_ROUTE>
+    <CP_SYNTH>6.564</CP_SYNTH>
+    <CP_TARGET>10.000</CP_TARGET>
+    <SLACK_FINAL>2.570</SLACK_FINAL>
+    <SLACK_ROUTE>2.570</SLACK_ROUTE>
+    <SLACK_SYNTH>3.436</SLACK_SYNTH>
+    <TIMING_MET>TRUE</TIMING_MET>
+    <TNS_FINAL>0.000</TNS_FINAL>
+    <TNS_ROUTE>0.000</TNS_ROUTE>
+    <TNS_SYNTH>0.000</TNS_SYNTH>
+    <WNS_FINAL>2.570</WNS_FINAL>
+    <WNS_ROUTE>2.570</WNS_ROUTE>
+    <WNS_SYNTH>3.436</WNS_SYNTH>
+  </TimingReport>
+  <AreaReport>
+    <Resources>
+      <BRAM>21</BRAM>
+      <CLB>1417</CLB>
+      <DSP>16</DSP>
+      <FF>4829</FF>
+      <LATCH>0</LATCH>
+      <LUT>7603</LUT>
+      <SRL>51</SRL>
+      <URAM>0</URAM>
+    </Resources>
+    <AvailableResources>
+      <BRAM>288</BRAM>
+      <CLB>14640</CLB>
+      <DSP>1248</DSP>
+      <FF>234240</FF>
+      <LUT>117120</LUT>
+      <URAM>64</URAM>
+    </AvailableResources>
+  </AreaReport>
+  <RtlModules>
+    <RtlModule CELL="inst" DEPTH="0" IS_TOP="1" TYPE="function" MODULENAME="rv32_ooo_tick" DISPNAME="inst" RTLNAME="rv32_ooo_tick">
+      <SubModules count="33">control_s_axi_U frat_has_tag_U frat_tag_U fregs_U grp_fpu_compute_fu_5799 grp_read_operand_fp_fu_5845 grp_read_operand_fu_5830 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883 grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860 mul_32ns_32ns_64_1_1_U116 mul_32ns_32s_64_1_1_U117 mul_32s_32s_32_1_1_U118 mul_32s_32s_64_1_1_U119 rat_has_tag_U rat_tag_U regfile_U rob_addr_U rob_dest_U rob_dest_is_fp_U rob_is_ecall_U rob_is_store_U rob_mem_f3_U rob_ready_U rob_sdata_U rob_valid_U rob_value_U sdiv_32s_32s_32_36_seq_1_U124 srem_32s_32s_32_36_seq_1_U122 udiv_32s_32s_32_36_seq_1_U123 urem_32s_32s_32_36_seq_1_U125 vregs_U</SubModules>
+      <Resources BRAM="21" DSP="16" FF="4829" LUT="7603"/>
+      <LocalResources FF="2325" LUT="718"/>
+    </RtlModule>
+    <RtlModule CELL="inst/control_s_axi_U" DEPTH="1" TYPE="resource" MODULENAME="control_s_axi" DISPNAME="control_s_axi_U" RTLNAME="rv32_ooo_tick_control_s_axi">
+      <Resources FF="25" LUT="103"/>
+      <BindNode BINDTYPE="adapter" BRAM="0" BUNDLEDNAME="control" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="control_s_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="s_axilite" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
+    </RtlModule>
+    <RtlModule CELL="inst/frat_has_tag_U" DEPTH="1" TYPE="resource" MODULENAME="frat_has_tag_RAM_AUTO_1R1W" DISPNAME="frat_has_tag_U" RTLNAME="rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="17"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="frat_has_tag_U" SOURCE="" STORAGESIZE="1 32 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="frat_has_tag" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/frat_tag_U" DEPTH="1" TYPE="resource" MODULENAME="frat_tag_RAM_AUTO_1R1W" DISPNAME="frat_tag_U" RTLNAME="rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="44"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="frat_tag_U" SOURCE="" STORAGESIZE="3 32 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="frat_tag" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/fregs_U" DEPTH="1" TYPE="resource" MODULENAME="fregs_RAM_AUTO_1R1W" DISPNAME="fregs_U" RTLNAME="rv32_ooo_tick_fregs_RAM_AUTO_1R1W">
+      <Resources BRAM="2" LUT="37"/>
+      <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="fregs_U" SOURCE="" STORAGESIZE="32 32 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="fregs" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799" DEPTH="1" TYPE="function" MODULENAME="fpu_compute" DISPNAME="grp_fpu_compute_fu_5799" RTLNAME="rv32_ooo_tick_fpu_compute">
+      <SubModules count="14">bitselect_1ns_32ns_32s_1_1_1_U67 faddfsub_32ns_32ns_32_4_full_dsp_1_U56 fcmp_32ns_32ns_1_2_no_dsp_1_U61 fcmp_32ns_32ns_1_2_no_dsp_1_U62 fcmp_32ns_32ns_1_2_no_dsp_1_U63 fcmp_32ns_32ns_1_2_no_dsp_1_U64 fdiv_32ns_32ns_32_9_no_dsp_1_U58 fmul_32ns_32ns_32_3_max_dsp_1_U57 fsqrt_32ns_32ns_32_8_no_dsp_1_U65 index_table_U mask_table_U one_half_minus_one_table_U sitofp_32ns_32_4_no_dsp_1_U60 uitofp_32ns_32_4_no_dsp_1_U59</SubModules>
+      <Resources DSP="5" FF="1616" LUT="2918"/>
+      <LocalResources FF="456" LUT="660"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/bitselect_1ns_32ns_32s_1_1_1_U67" DEPTH="2" TYPE="resource" MODULENAME="bitselect_1ns_32ns_32s_1_1_1" DISPNAME="bitselect_1ns_32ns_32s_1_1_1_U67" RTLNAME="rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1">
+      <Resources LUT="9"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op bitselect" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="bitselect" PRAGMA="" RTLNAME="bitselect_1ns_32ns_32s_1_1_1_U67" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_49" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56" DEPTH="2" TYPE="resource" MODULENAME="faddfsub_32ns_32ns_32_4_full_dsp_1" DISPNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" RTLNAME="rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1">
+      <Resources DSP="2" FF="200" LUT="240"/>
+      <LocalResources FF="65" LUT="66"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i6" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i4" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i2" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" SOURCE="rv32_ooo.cpp:366" STORAGESUBTYPE="" URAM="0" VARIABLE="sub" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U56" SOURCE="rv32_ooo.cpp:365" STORAGESUBTYPE="" URAM="0" VARIABLE="add" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U61" DEPTH="2" TYPE="resource" MODULENAME="fcmp_32ns_32ns_1_2_no_dsp_1" DISPNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" RTLNAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+      <Resources FF="68" LUT="255"/>
+      <LocalResources FF="68" LUT="42"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_31" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:612" STORAGESUBTYPE="" URAM="0" VARIABLE="cmp_i_i8" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="./fp_ops.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_29" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="./fp_ops.h:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_37" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="./fp_ops.h:47" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_36" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="./fp_ops.h:48" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_38" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="rv32_ooo.cpp:388" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_27" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="rv32_ooo.cpp:387" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_22" VISIBLE="false"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U61" SOURCE="rv32_ooo.cpp:386" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_19" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U62" DEPTH="2" TYPE="resource" MODULENAME="fcmp_32ns_32ns_1_2_no_dsp_1" DISPNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U62" RTLNAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+      <Resources LUT="6"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U62" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="cmp_i_i" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U63" DEPTH="2" TYPE="resource" MODULENAME="fcmp_32ns_32ns_1_2_no_dsp_1" DISPNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U63" RTLNAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+      <Resources FF="31" LUT="18"/>
+      <LocalResources FF="31"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U63" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_32" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fcmp_32ns_32ns_1_2_no_dsp_1_U64" DEPTH="2" TYPE="resource" MODULENAME="fcmp_32ns_32ns_1_2_no_dsp_1" DISPNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U64" RTLNAME="rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1">
+      <Resources LUT="34"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U64" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_34" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58" DEPTH="2" TYPE="resource" MODULENAME="fdiv_32ns_32ns_32_9_no_dsp_1" DISPNAME="fdiv_32ns_32ns_32_9_no_dsp_1_U58" RTLNAME="rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1">
+      <Resources FF="350" LUT="779"/>
+      <LocalResources FF="32"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fdiv" DSP="0" ID="" IMPL="fabric" LATENCY="8" LOOP="" OPTYPE="fdiv" PRAGMA="" RTLNAME="fdiv_32ns_32ns_32_9_no_dsp_1_U58" SOURCE="rv32_ooo.cpp:368" STORAGESUBTYPE="" URAM="0" VARIABLE="div" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fmul_32ns_32ns_32_3_max_dsp_1_U57" DEPTH="2" TYPE="resource" MODULENAME="fmul_32ns_32ns_32_3_max_dsp_1" DISPNAME="fmul_32ns_32ns_32_3_max_dsp_1_U57" RTLNAME="rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1">
+      <Resources DSP="3" FF="96" LUT="110"/>
+      <LocalResources FF="64" LUT="33"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U57" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i5" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U57" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i3" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U57" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i1" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U57" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U57" SOURCE="rv32_ooo.cpp:367" STORAGESUBTYPE="" URAM="0" VARIABLE="mul" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65" DEPTH="2" TYPE="resource" MODULENAME="fsqrt_32ns_32ns_32_8_no_dsp_1" DISPNAME="fsqrt_32ns_32ns_32_8_no_dsp_1_U65" RTLNAME="rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1">
+      <Resources FF="232" LUT="416"/>
+      <LocalResources FF="27"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsqrt" DSP="0" ID="" IMPL="fabric" LATENCY="7" LOOP="" OPTYPE="fsqrt" PRAGMA="" RTLNAME="fsqrt_32ns_32ns_32_8_no_dsp_1_U65" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/index_table_U" DEPTH="2" TYPE="resource" MODULENAME="fpu_compute_index_table_ROM_AUTO_1R" DISPNAME="index_table_U" RTLNAME="rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R">
+      <Resources FF="5" LUT="4"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="index_table_U" SOURCE="" STORAGESIZE="6 32 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="index_table" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/mask_table_U" DEPTH="2" TYPE="resource" MODULENAME="fpu_compute_mask_table_ROM_AUTO_1R" DISPNAME="mask_table_U" RTLNAME="rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R">
+      <Resources FF="23" LUT="57"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="mask_table_U" SOURCE="" STORAGESIZE="23 32 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="mask_table" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/one_half_minus_one_table_U" DEPTH="2" TYPE="resource" MODULENAME="fpu_compute_one_half_minus_one_table_ROM_AUTO_1R" DISPNAME="one_half_minus_one_table_U" RTLNAME="rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R">
+      <Resources FF="9" LUT="13"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="one_half_minus_one_table_U" SOURCE="" STORAGESIZE="23 32 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="one_half_minus_one_table" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60" DEPTH="2" TYPE="resource" MODULENAME="sitofp_32ns_32_4_no_dsp_1" DISPNAME="sitofp_32ns_32_4_no_dsp_1_U60" RTLNAME="rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1">
+      <Resources FF="84" LUT="157"/>
+      <LocalResources FF="5"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sitofp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="" OPTYPE="sitofp" PRAGMA="" RTLNAME="sitofp_32ns_32_4_no_dsp_1_U60" SOURCE="rv32_ooo.cpp:399" STORAGESUBTYPE="" URAM="0" VARIABLE="conv1" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59" DEPTH="2" TYPE="resource" MODULENAME="uitofp_32ns_32_4_no_dsp_1" DISPNAME="uitofp_32ns_32_4_no_dsp_1_U59" RTLNAME="rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1">
+      <Resources FF="62" LUT="164"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op uitofp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="" OPTYPE="uitofp" PRAGMA="" RTLNAME="uitofp_32ns_32_4_no_dsp_1_U59" SOURCE="rv32_ooo.cpp:398" STORAGESUBTYPE="" URAM="0" VARIABLE="conv" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_read_operand_fp_fu_5845" DEPTH="1" TYPE="function" MODULENAME="read_operand_fp" DISPNAME="grp_read_operand_fp_fu_5845" RTLNAME="rv32_ooo_tick_read_operand_fp">
+      <Resources FF="43" LUT="205"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_read_operand_fu_5830" DEPTH="1" TYPE="function" MODULENAME="read_operand" DISPNAME="grp_read_operand_fu_5830" RTLNAME="rv32_ooo_tick_read_operand">
+      <Resources FF="44" LUT="403"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869" DEPTH="1" TYPE="function" MODULENAME="rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11" DISPNAME="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869" RTLNAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11">
+      <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+      <Resources FF="19" LUT="38"/>
+      <LocalResources FF="17" LUT="2"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869/flow_control_loop_pipe_sequential_init_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe_sequential_init" DISPNAME="flow_control_loop_pipe_sequential_init_U" RTLNAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+      <Resources FF="2" LUT="36"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877" DEPTH="1" TYPE="function" MODULENAME="rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4" DISPNAME="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877" RTLNAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4">
+      <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+      <Resources FF="10" LUT="31"/>
+      <LocalResources FF="8" LUT="1"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877/flow_control_loop_pipe_sequential_init_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe_sequential_init" DISPNAME="flow_control_loop_pipe_sequential_init_U" RTLNAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+      <Resources FF="2" LUT="30"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883" DEPTH="1" TYPE="function" MODULENAME="rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5" DISPNAME="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883" RTLNAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5">
+      <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+      <Resources FF="19" LUT="38"/>
+      <LocalResources FF="17" LUT="7"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883/flow_control_loop_pipe_sequential_init_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe_sequential_init" DISPNAME="flow_control_loop_pipe_sequential_init_U" RTLNAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+      <Resources FF="2" LUT="31"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860" DEPTH="1" TYPE="function" MODULENAME="rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10" DISPNAME="grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860" RTLNAME="rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10">
+      <SubModules count="1">flow_control_loop_pipe_sequential_init_U</SubModules>
+      <Resources FF="7" LUT="40"/>
+      <LocalResources FF="5" LUT="36"/>
+    </RtlModule>
+    <RtlModule CELL="inst/grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860/flow_control_loop_pipe_sequential_init_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe_sequential_init" DISPNAME="flow_control_loop_pipe_sequential_init_U" RTLNAME="rv32_ooo_tick_flow_control_loop_pipe_sequential_init">
+      <Resources FF="2" LUT="5"/>
+    </RtlModule>
+    <RtlModule CELL="inst/mul_32ns_32ns_64_1_1_U116" DEPTH="1" TYPE="resource" MODULENAME="mul_32ns_32ns_64_1_1" DISPNAME="mul_32ns_32ns_64_1_1_U116" RTLNAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1">
+      <Resources DSP="4" LUT="193"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32ns_32ns_64_1_1_U116" SOURCE="rv32_ooo.cpp:332" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln332" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/mul_32ns_32s_64_1_1_U117" DEPTH="1" TYPE="resource" MODULENAME="mul_32ns_32s_64_1_1" DISPNAME="mul_32ns_32s_64_1_1_U117" RTLNAME="rv32_ooo_tick_mul_32ns_32s_64_1_1">
+      <Resources DSP="2" LUT="106"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32ns_32s_64_1_1_U117" SOURCE="rv32_ooo.cpp:330" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln330" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/mul_32s_32s_32_1_1_U118" DEPTH="1" TYPE="resource" MODULENAME="mul_32s_32s_32_1_1" DISPNAME="mul_32s_32s_32_1_1_U118" RTLNAME="rv32_ooo_tick_mul_32s_32s_32_1_1">
+      <Resources DSP="3" LUT="22"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U118" SOURCE="rv32_ooo.cpp:326" STORAGESUBTYPE="" URAM="0" VARIABLE="res_18" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U118" SOURCE="rv32_ooo.cpp:422" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln422" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U118" SOURCE="rv32_ooo.cpp:422" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln422_1" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U118" SOURCE="rv32_ooo.cpp:422" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln422_2" VISIBLE="true"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U118" SOURCE="rv32_ooo.cpp:422" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln422_3" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/mul_32s_32s_64_1_1_U119" DEPTH="1" TYPE="resource" MODULENAME="mul_32s_32s_64_1_1" DISPNAME="mul_32s_32s_64_1_1_U119" RTLNAME="rv32_ooo_tick_mul_32s_32s_64_1_1">
+      <Resources DSP="2" LUT="4"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_64_1_1_U119" SOURCE="rv32_ooo.cpp:328" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln328" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rat_has_tag_U" DEPTH="1" TYPE="resource" MODULENAME="frat_has_tag_RAM_AUTO_1R1W" DISPNAME="rat_has_tag_U" RTLNAME="rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="17"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rat_has_tag_U" SOURCE="" STORAGESIZE="1 32 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rat_has_tag" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rat_tag_U" DEPTH="1" TYPE="resource" MODULENAME="frat_tag_RAM_AUTO_1R1W" DISPNAME="rat_tag_U" RTLNAME="rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="30"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rat_tag_U" SOURCE="" STORAGESIZE="3 32 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rat_tag" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/regfile_U" DEPTH="1" TYPE="resource" MODULENAME="fregs_RAM_AUTO_1R1W" DISPNAME="regfile_U" RTLNAME="rv32_ooo_tick_fregs_RAM_AUTO_1R1W">
+      <Resources BRAM="2" LUT="12"/>
+      <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="regfile_U" SOURCE="" STORAGESIZE="32 32 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="regfile" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_addr_U" DEPTH="1" TYPE="resource" MODULENAME="rob_addr_RAM_AUTO_1R1W" DISPNAME="rob_addr_U" RTLNAME="rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="30"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_addr_U" SOURCE="" STORAGESIZE="8 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_addr" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_dest_U" DEPTH="1" TYPE="resource" MODULENAME="rob_dest_RAM_AUTO_1R1W" DISPNAME="rob_dest_U" RTLNAME="rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="85"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_dest_U" SOURCE="" STORAGESIZE="5 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_dest" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_dest_is_fp_U" DEPTH="1" TYPE="resource" MODULENAME="rob_valid_RAM_AUTO_1R1W" DISPNAME="rob_dest_is_fp_U" RTLNAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="9"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_dest_is_fp_U" SOURCE="" STORAGESIZE="1 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_dest_is_fp" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_is_ecall_U" DEPTH="1" TYPE="resource" MODULENAME="rob_is_ecall_RAM_AUTO_1R1W" DISPNAME="rob_is_ecall_U" RTLNAME="rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W">
+      <Resources FF="1" LUT="8"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="rob_is_ecall_U" SOURCE="" STORAGESIZE="1 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_1p" URAM="0" VARIABLE="rob_is_ecall" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_is_store_U" DEPTH="1" TYPE="resource" MODULENAME="rob_valid_RAM_AUTO_1R1W" DISPNAME="rob_is_store_U" RTLNAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="11"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_is_store_U" SOURCE="" STORAGESIZE="1 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_is_store" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_mem_f3_U" DEPTH="1" TYPE="resource" MODULENAME="rob_mem_f3_RAM_AUTO_1R1W" DISPNAME="rob_mem_f3_U" RTLNAME="rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="9"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_mem_f3_U" SOURCE="" STORAGESIZE="3 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_mem_f3" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_ready_U" DEPTH="1" TYPE="resource" MODULENAME="rob_valid_RAM_AUTO_1R1W" DISPNAME="rob_ready_U" RTLNAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="51"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_ready_U" SOURCE="" STORAGESIZE="1 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_ready" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_sdata_U" DEPTH="1" TYPE="resource" MODULENAME="rob_sdata_RAM_AUTO_1R1W" DISPNAME="rob_sdata_U" RTLNAME="rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W">
+      <Resources BRAM="2" LUT="111"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_sdata_U" SOURCE="" STORAGESIZE="32 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_sdata" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_valid_U" DEPTH="1" TYPE="resource" MODULENAME="rob_valid_RAM_AUTO_1R1W" DISPNAME="rob_valid_U" RTLNAME="rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W">
+      <Resources BRAM="1" LUT="76"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_valid_U" SOURCE="" STORAGESIZE="1 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_valid" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/rob_value_U" DEPTH="1" TYPE="resource" MODULENAME="rob_sdata_RAM_AUTO_1R1W" DISPNAME="rob_value_U" RTLNAME="rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W">
+      <Resources BRAM="2" LUT="1029"/>
+      <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="rob_value_U" SOURCE="" STORAGESIZE="32 8 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="rob_value" VISIBLE="true"/>
+    </RtlModule>
+    <RtlModule CELL="inst/sdiv_32s_32s_32_36_seq_1_U124" DEPTH="1" TYPE="resource" MODULENAME="sdiv_32s_32s_32_36_seq_1" DISPNAME="sdiv_32s_32s_32_36_seq_1_U124" RTLNAME="rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1">
+      <Resources FF="164" LUT="154"/>
+      <LocalResources FF="33" LUT="42"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sdiv" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="sdiv" PRAGMA="" RTLNAME="sdiv_32s_32s_32_36_seq_1_U124" SOURCE="rv32_ooo.cpp:336" STORAGESUBTYPE="" URAM="0" VARIABLE="res_22" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/srem_32s_32s_32_36_seq_1_U122" DEPTH="1" TYPE="resource" MODULENAME="srem_32s_32s_32_36_seq_1" DISPNAME="srem_32s_32s_32_36_seq_1_U122" RTLNAME="rv32_ooo_tick_srem_32s_32s_32_36_seq_1">
+      <Resources FF="229" LUT="332"/>
+      <LocalResources FF="97" LUT="124"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op srem" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="srem" PRAGMA="" RTLNAME="srem_32s_32s_32_36_seq_1_U122" SOURCE="rv32_ooo.cpp:342" STORAGESUBTYPE="" URAM="0" VARIABLE="res_23" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/udiv_32s_32s_32_36_seq_1_U123" DEPTH="1" TYPE="resource" MODULENAME="udiv_32s_32s_32_36_seq_1" DISPNAME="udiv_32s_32s_32_36_seq_1_U123" RTLNAME="rv32_ooo_tick_udiv_32s_32s_32_36_seq_1">
+      <Resources FF="163" LUT="219"/>
+      <LocalResources FF="33" LUT="138"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op udiv" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="udiv" PRAGMA="" RTLNAME="udiv_32s_32s_32_36_seq_1_U123" SOURCE="rv32_ooo.cpp:338" STORAGESUBTYPE="" URAM="0" VARIABLE="udiv_ln338" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/urem_32s_32s_32_36_seq_1_U125" DEPTH="1" TYPE="resource" MODULENAME="urem_32s_32s_32_36_seq_1" DISPNAME="urem_32s_32s_32_36_seq_1_U125" RTLNAME="rv32_ooo_tick_urem_32s_32s_32_36_seq_1">
+      <Resources FF="164" LUT="257"/>
+      <LocalResources FF="33" LUT="175"/>
+      <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op urem" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="urem" PRAGMA="" RTLNAME="urem_32s_32s_32_36_seq_1_U125" SOURCE="rv32_ooo.cpp:344" STORAGESUBTYPE="" URAM="0" VARIABLE="urem_ln344" VISIBLE="false"/>
+    </RtlModule>
+    <RtlModule CELL="inst/vregs_U" DEPTH="1" TYPE="resource" MODULENAME="vregs_RAM_AUTO_1R1W" DISPNAME="vregs_U" RTLNAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W">
+      <Resources BRAM="2" LUT="296"/>
+      <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="vregs_U" SOURCE="" STORAGESIZE="32 128 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_t2p" URAM="0" VARIABLE="vregs" VISIBLE="true"/>
+    </RtlModule>
+  </RtlModules>
+  <TimingPaths>
+    <TPATH DATAPATH_DELAY="7.361" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.232" ENDPOINT_PIN="r_1_2_i173_reg_11132_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.570" STARTPOINT_PIN="vregs_U/ram_reg_bram_0/CLKARDCLK">
+      <CELL NAME="vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="r_1_2_i173_reg_11132_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5795"/>
+      <MODULE_INSTANCES>vregs_U mul_32s_32s_32_1_1_U118</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="7.353" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.224" ENDPOINT_PIN="r_3_reg_11137_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.578" STARTPOINT_PIN="vregs_U/ram_reg_bram_0/CLKARDCLK">
+      <CELL NAME="vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="r_3_reg_11137_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5807"/>
+      <MODULE_INSTANCES>vregs_U mul_32s_32s_32_1_1_U118</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="7.343" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.214" ENDPOINT_PIN="r_1_i163165171_reg_11102_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.590" STARTPOINT_PIN="vregs_U/ram_reg_bram_0/CLKARDCLK">
+      <CELL NAME="vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="r_1_i163165171_reg_11102_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5801"/>
+      <MODULE_INSTANCES>vregs_U mul_32s_32s_32_1_1_U118</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="7.342" DATAPATH_LOGIC_DELAY="5.129" DATAPATH_NET_DELAY="2.213" ENDPOINT_PIN="r_1_1_i167169_reg_11117_reg[29]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.591" STARTPOINT_PIN="vregs_U/ram_reg_bram_0/CLKARDCLK">
+      <CELL NAME="vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/r_3_reg_11137[29]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="r_1_1_i167169_reg_11117_reg[29]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5789"/>
+      <MODULE_INSTANCES>vregs_U mul_32s_32s_32_1_1_U118</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="7.318" DATAPATH_LOGIC_DELAY="5.153" DATAPATH_NET_DELAY="2.165" ENDPOINT_PIN="r_1_1_i167169_reg_11117_reg[27]/D" LOGIC_LEVELS="13" MAX_FANOUT="5" SLACK="2.617" STARTPOINT_PIN="vregs_U/ram_reg_bram_0/CLKARDCLK">
+      <CELL NAME="vregs_U/ram_reg_bram_0" PRIMITIVE_TYPE="BLOCKRAM.BRAM.RAMB36E2" FILE_NAME="rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v" LINE_NUMBER="38" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/tmp_product_i_16" PRIMITIVE_TYPE="CLB.LUT.LUT6" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_A_B_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_PREADD_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_MULTIPLIER_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_M_DATA_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__0/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_ALU_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product__1/DSP_OUTPUT_INST" PRIMITIVE_TYPE="ARITHMETIC.DSP.DSP48E2" FILE_NAME="" LINE_NUMBER="" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry_i_3" PRIMITIVE_TYPE="CLB.LUT.LUT2" FILE_NAME="rv32_ooo_tick_mul_32s_32s_32_1_1.v" LINE_NUMBER="44" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="mul_32s_32s_32_1_1_U118/tmp_product_carry__0" PRIMITIVE_TYPE="CLB.CARRY.CARRY8" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="mul_32s_32s_32_1_1_U118" IS_FUNCINST="0"/>
+      <CELL NAME="vregs_U/r_3_reg_11137[27]_i_1" PRIMITIVE_TYPE="CLB.LUT.LUT5" FILE_NAME="rv32_ooo_tick_mul_32ns_32ns_64_1_1.v" LINE_NUMBER="41" MODULE_INSTNAME="vregs_U" IS_FUNCINST="0"/>
+      <CELL NAME="r_1_1_i167169_reg_11117_reg[27]" PRIMITIVE_TYPE="REGISTER.SDR.FDRE" FILE_NAME="rv32_ooo_tick.v" LINE_NUMBER="5789"/>
+      <MODULE_INSTANCES>vregs_U mul_32s_32s_32_1_1_U118</MODULE_INSTANCES>
+    </TPATH>
+  </TimingPaths>
+  <VivadoReportFiles>
+    <ReportFile TYPE="design_analysis" PATH="verilog/report/rv32_ooo_tick_design_analysis_routed.rpt"/>
+    <ReportFile TYPE="failfast" PATH="verilog/report/rv32_ooo_tick_failfast_routed.rpt"/>
+    <ReportFile TYPE="power" PATH="verilog/report/rv32_ooo_tick_power_routed.rpt"/>
+    <ReportFile TYPE="status" PATH="verilog/report/rv32_ooo_tick_status_routed.rpt"/>
+    <ReportFile TYPE="timing" PATH="verilog/report/rv32_ooo_tick_timing_routed.rpt"/>
+    <ReportFile TYPE="timing_paths" PATH="verilog/report/rv32_ooo_tick_timing_paths_routed.rpt"/>
+    <ReportFile TYPE="utilization" PATH="verilog/report/rv32_ooo_tick_utilization_routed.rpt"/>
+    <ReportFile TYPE="utilization_hierarchical" PATH="verilog/report/rv32_ooo_tick_utilization_hierarchical_routed.rpt"/>
+  </VivadoReportFiles>
+  <GeneralInfo NAME="General Information">
+    <item NAME="Date" VALUE="Wed Jul 22 07:58:35 CST 2026"/>
+    <item NAME="Version" VALUE="2024.2 (Build 5238294 on Nov  8 2024)"/>
+    <item NAME="Project" VALUE="rv32_ooo_proj"/>
+    <item NAME="Solution" VALUE="solution1 (Vivado IP Flow Target)"/>
+    <item NAME="Product family" VALUE="zynquplus"/>
+    <item NAME="Target device" VALUE="xck26-sfvc784-2LV-c"/>
+  </GeneralInfo>
+  <RunOptions NAME="Run Constraints &amp; Options">
+    <General NAME="Design Constraints &amp; Options">
+      <item NAME="Place &amp; Route target clock" VALUE="10 ns"/>
+      <item NAME="C-Synthesis target clock" VALUE="10 ns"/>
+      <item NAME="C-Synthesis uncertainty" VALUE="27%"/>
+      <item NAME="config_export -ip_xdc_file" VALUE=""/>
+      <item NAME="config_export -ip_xdc_ooc_file" VALUE=""/>
+    </General>
+    <Syn NAME="RTL Synthesis Options">
+      <item NAME="config_export -vivado_synth_strategy" VALUE="default"/>
+      <item NAME="config_export -vivado_synth_design_args" VALUE="-directive sdx_optimization_effort_high"/>
+    </Syn>
+    <Impl NAME="Place &amp; Route Options">
+      <item NAME="config_export -vivado_impl_strategy" VALUE="default"/>
+      <item NAME="config_export -vivado_phys_opt" VALUE="auto"/>
+      <item NAME="config_export -vivado_pblock" VALUE=""/>
+    </Impl>
+    <Reporting NAME="Reporting Options">
+      <item NAME="config_export -vivado_report_level" VALUE="2"/>
+      <item NAME="config_export -vivado_max_timing_paths" VALUE="10"/>
+    </Reporting>
+  </RunOptions>
+</profile>
+

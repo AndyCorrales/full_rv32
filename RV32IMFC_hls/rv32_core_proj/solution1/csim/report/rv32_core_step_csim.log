@@ -1,0 +1,30 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../rv32_core_tb.cpp in debug mode
+   Compiling ../../../../rv32_core.cpp in debug mode
+   Generating csim.exe
+OK    x1 = 0x0000000a
+OK    x2 = 0x00000014
+OK    x3 = 0x0000001e
+OK    x4 = 0xffffff9c
+OK    x5 = 0x00000007
+OK    x6 (MUL) = 0xfffffd44
+OK    x7 (DIV) = 0xfffffff2
+OK    x8 (LW round-trip) = 0x0000000a
+OK    x9 (SB/LBU round-trip) = 0x0000001e
+OK    f1 (FCVT.S.W) = 0x41200000
+OK    f2 (FCVT.S.W) = 0x40e00000
+OK    f3 (FADD.S) = 0x41880000
+OK    f4 (FMUL.S) = 0x428c0000
+OK    f5 (FSQRT.S) = 0x4105dd98
+OK    f6 (FMADD.S) = 0x42ae0000
+OK    x10 (FEQ.S) = 0x00000001
+OK    x11 (FMV.X.W) = 0x41200000
+OK    f12 (FLW round-trip) = 0x41200000
+OK    x13 (FEQ.S round-trip) = 0x00000001
+OK    x25 (C.LI + C.ADD) = 0x00000011
+OK    instr_size (ultima, comprimida) = 0x00000002
+
+Todos los checks pasaron.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

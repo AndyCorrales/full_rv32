@@ -1,0 +1,96 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 38,806       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  |  6,637       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          |  5,583       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  |  5,322       | user inline pragmas are applied                                                        |
+|               | (4) simplification          |  4,571       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         |  4,554       | user array partition pragmas are applied                                               |
+|               | (2) simplification          |  4,554       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  |  4,554       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           |  4,554       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         |  4,557       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     |  4,557       | loop and instruction simplification                                                    |
+|               | (2) parallelization         |  4,557       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         |  4,637       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          |  4,650       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                |  4,681       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           |  4,528       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++-------------------------+---------------------+------------------+-----------------+-----------------+-----------------+-----------------+
+| Function                | Location            | Compile/Link     | Unroll/Inline   | Array/Struct    | Performance     | HW Transforms   |
++-------------------------+---------------------+------------------+-----------------+-----------------+-----------------+-----------------+
+| + rv32_ooo_tick         | rv32_ooo.cpp:484    | 38,806           | 4,571           | 4,557           | 4,650           | 4,528           |
+|    dmem_store           | rv32_ooo.cpp:460    | 1,075            |                 |                 |                 |                 |
+|    alu_compute          | rv32_ooo.cpp:300    |   430            |                 |                 |                 |                 |
+|    cdb_broadcast        | rv32_ooo.cpp:177    | 1,938 (6 calls)  | 1,064 (7 calls) | 1,064 (7 calls) | 1,064 (7 calls) | 1,064 (7 calls) |
+|    md_compute           | rv32_ooo.cpp:319    |   282            |                 |                 |                 |                 |
+|  + fpu_compute          | rv32_ooo.cpp:354    | 17,893           |  402            |  402            |  402            |  402            |
+|     bits_to_float       | fp_ops.h:27         |    36 (3 calls)  |                 |                 |                 |                 |
+|     float_to_bits       | fp_ops.h:22         |   144 (12 calls) |                 |                 |                 |                 |
+|     fcvt_wu_s           | fp_ops.h:45         | 5,005            |                 |                 |                 |                 |
+|     fcvt_w_s            | fp_ops.h:37         | 5,187            |                 |                 |                 |                 |
+|   + fclass_s            | fp_ops.h:55         | 1,012            |                 |                 |                 |                 |
+|      float_to_bits      | fp_ops.h:22         |    12            |                 |                 |                 |                 |
+|     generic_fmin<float> | hls_fmin.h:19       |                  |   46            |   46            |   46            |   46            |
+|     generic_fmax<float> | hls_fmax.h:19       |                  |   46            |   46            |   46            |   46            |
+|     generic_rint<float> | hls_rint.h:26       |                  |   94 (2 calls)  |   94 (2 calls)  |   94 (2 calls)  |   94 (2 calls)  |
+|    branch_taken         | rv32_ooo.cpp:427    |    76            |                 |                 |                 |                 |
+|    dmem_load            | rv32_ooo.cpp:444    |   740            |                 |                 |                 |                 |
+|    vec_arith_compute    | rv32_ooo.cpp:414    |   502            |                 |                 |                 |                 |
+|    read_csr             | rv32_ooo.cpp:226    |    84            |                 |                 |                 |                 |
+|    write_csr            | rv32_ooo.cpp:242    |    34            |                 |                 |                 |                 |
+|  + expand               | rv32c_defs.h:65     |   863            |  576            |  570            |  570            |  570            |
+|     creg                | rv32c_defs.h:20     |     8 (4 calls)  |                 |                 |                 |                 |
+|     i_type              | rv32c_defs.h:34     |   110 (11 calls) |  110 (11 calls) |  110 (11 calls) |  110 (11 calls) |  110 (11 calls) |
+|     s_type              | rv32c_defs.h:37     |    56 (4 calls)  |                 |                 |                 |                 |
+|     sext                | rv32c_defs.h:22     |    36 (9 calls)  |                 |                 |                 |                 |
+|     j_type              | rv32c_defs.h:49     |    40 (2 calls)  |                 |                 |                 |                 |
+|     u_type              | rv32c_defs.h:46     |     6            |                 |                 |                 |                 |
+|     r_type              | rv32c_defs.h:31     |    99 (9 calls)  |                 |                 |                 |                 |
+|     b_type              | rv32c_defs.h:41     |    48 (2 calls)  |                 |                 |                 |                 |
+|    opcode               | rv32i_defs.h:180    |     2            |                 |                 |                 |                 |
+|    rd                   | rv32i_defs.h:181    |     3            |                 |                 |                 |                 |
+|    funct3               | rv32i_defs.h:182    |     3            |                 |                 |                 |                 |
+|    rs1                  | rv32i_defs.h:183    |     3            |                 |                 |                 |                 |
+|    rs2                  | rv32i_defs.h:184    |     3            |                 |                 |                 |                 |
+|    funct7               | rv32i_defs.h:185    |     3            |                 |                 |                 |                 |
+|    get_imm_U            | immediates_hls.h:41 |   238 (2 calls)  |                 |                 |                 |                 |
+|  + get_imm_J            | immediates_hls.h:47 |   413            |                 |                 |                 |                 |
+|     sign_extend         | immediates_hls.h:15 |    10            |                 |                 |                 |                 |
+|    read_operand         | rv32_ooo.cpp:260    | 2,563 (11 calls) |  374 (11 calls) |  374 (11 calls) |  442 (13 calls) |  442 (13 calls) |
+|    get_shamt            | immediates_hls.h:57 |    40            |                 |                 |                 |                 |
+|  + get_imm_I            | immediates_hls.h:20 |   183 (3 calls)  |                 |                 |                 |                 |
+|     sign_extend         | immediates_hls.h:15 |    30 (3 calls)  |                 |                 |                 |                 |
+|  + get_imm_S            | immediates_hls.h:24 |   264            |                 |                 |                 |                 |
+|     sign_extend         | immediates_hls.h:15 |    10            |                 |                 |                 |                 |
+|    read_operand_fp      | rv32_ooo.cpp:282    |   906 (6 calls)  |  150 (6 calls)  |  150 (6 calls)  |  150 (6 calls)  |  150 (6 calls)  |
+|    rs3                  | rv32i_defs.h:190    |     3            |                 |                 |                 |                 |
+|  + get_imm_B            | immediates_hls.h:31 |   413            |                 |                 |                 |                 |
+|     sign_extend         | immediates_hls.h:15 |    10            |                 |                 |                 |                 |
++-------------------------+---------------------+------------------+-----------------+-----------------+-----------------+-----------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

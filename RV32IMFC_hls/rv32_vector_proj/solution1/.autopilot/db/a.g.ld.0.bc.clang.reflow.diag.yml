@@ -1,0 +1,633 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 88, Column: 24 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'funct3(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 29, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 59, Column: 20 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'opcode(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 26, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 62, Column: 39 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'width(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 28, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 63, Column: 9 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'mop(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 33, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 63, Column: 28 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'lumop(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 32, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 65, Column: 22 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'vd(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 27, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 85, Column: 72 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'funct6(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 34, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 85, Column: 55 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'vs2(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 31, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 85, Column: 38 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'vs1(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 30, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_67_2
+  - String:          ''' ('
+  - LoopLoc:         'rv32_vector.cpp:67:26'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          rv32_vector_step
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_77_3
+  - String:          ''' ('
+  - LoopLoc:         'rv32_vector.cpp:77:26'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          rv32_vector_step
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_90_4
+  - String:          ''' ('
+  - LoopLoc:         'rv32_vector.cpp:90:30'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          rv32_vector_step
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 59, Column: 20 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'opcode(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 26, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 62, Column: 39 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'width(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 28, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 63, Column: 9 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'mop(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 33, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 63, Column: 28 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'lumop(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 32, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 65, Column: 22 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'vd(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 27, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 84, Column: 15 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'funct3(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 29, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 85, Column: 38 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'vs1(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 30, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 85, Column: 55 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'vs2(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 31, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: rv32_vector.cpp, Line: 85, Column: 72 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - Callee:          'funct6(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 34, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_rv32_vector_step_ir
+Args:            
+  - Callee:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_rv32_vector_step_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'opcode(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 26, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'width(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 28, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'mop(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 33, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'lumop(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 32, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'vd(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 27, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'funct3(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 29, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'vs1(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 30, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'vs2(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 31, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'funct6(ap_uint<32>)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 34, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - ArrayName:       mem
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+  - OrigDirection:   read
+  - OrigID:          if.then.load.19
+  - OrigAccess:      load
+    DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+  - OrigDirection:   read
+  - OrigID:          if.then.load.27
+  - OrigAccess:      load
+    DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+  - OrigDirection:   read
+  - OrigID:          if.then.load.35
+  - OrigAccess:      load
+    DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+  - OrigDirection:   read
+  - OrigID:          if.then.load.43
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: rv32_vector.cpp, Line: 81, Column: 5 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep31seq
+  - ArrayName:       mem
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: rv32_vector.cpp, Line: 79, Column: 24 }
+  - OrigDirection:   write
+  - OrigID:          if.then43.store.14
+  - OrigAccess:      store
+    DebugLoc:        { File: rv32_vector.cpp, Line: 79, Column: 24 }
+  - OrigDirection:   write
+  - OrigID:          if.then43.store.22
+  - OrigAccess:      store
+    DebugLoc:        { File: rv32_vector.cpp, Line: 79, Column: 24 }
+  - OrigDirection:   write
+  - OrigID:          if.then43.store.30
+  - OrigAccess:      store
+    DebugLoc:        { File: rv32_vector.cpp, Line: 79, Column: 24 }
+  - OrigDirection:   write
+  - OrigID:          if.then43.store.38
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i32
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       mem
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: rv32_vector.cpp, Line: 81, Column: 5 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i32
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '0'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: rv32_vector.cpp, Line: 81, Column: 5 }
+  - OrigDirection:   write
+  - OrigID:          scevgep31seq
+  - ArrayName:       mem
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_54_1
+  - String:          '> at '
+  - LoopLoc:         'rv32_vector.cpp:54:19'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: rv32_vector.cpp, Line: 69, Column: 26 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: rv32_vector.cpp, Line: 81, Column: 5 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem
+  - String:          ' '
+  - Function:        'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)'
+    DebugLoc:        { File: rv32_vector.cpp, Line: 43, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: rv32_vector.cpp, Line: 81, Column: 5 }
+Function:        _Z16rv32_vector_step7ap_uintILi32EES0_PS0_S1_S1_RS_ILi1EE
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '4'
+  - String:          ' and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

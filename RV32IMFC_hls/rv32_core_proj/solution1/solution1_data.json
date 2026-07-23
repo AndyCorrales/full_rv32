@@ -1,0 +1,1822 @@
+{
+  "Top": "rv32_core_step",
+  "RtlTop": "rv32_core_step",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "rv32_core_step_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "zynquplus",
+    "Device": "xck26",
+    "Package": "-sfvc784",
+    "Speed": "-2LV-c",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "instr": {
+      "index": "0",
+      "direction": "in",
+      "srcType": "ap_uint<32>",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "instr",
+          "name": "instr",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "pc": {
+      "index": "1",
+      "direction": "in",
+      "srcType": "ap_uint<32>",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "pc",
+          "name": "pc",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "regs_in": {
+      "index": "2",
+      "direction": "in",
+      "srcType": "ap_uint<32>*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "regs_in_PORTA",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "regs_in_PORTB",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }
+      ]
+    },
+    "regs_out": {
+      "index": "3",
+      "direction": "out",
+      "srcType": "ap_uint<32>*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "regs_out_PORTA",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "regs_out_PORTB",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }
+      ]
+    },
+    "fregs_in": {
+      "index": "4",
+      "direction": "in",
+      "srcType": "float*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "fregs_in_PORTA",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fregs_in_PORTB",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }
+      ]
+    },
+    "fregs_out": {
+      "index": "5",
+      "direction": "out",
+      "srcType": "float*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "fregs_out_PORTA",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fregs_out_PORTB",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }
+      ]
+    },
+    "mem": {
+      "index": "6",
+      "direction": "inout",
+      "srcType": "ap_uint<32>*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "inout"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control_r",
+          "name": "mem_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control_r",
+          "name": "mem_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "next_pc": {
+      "index": "7",
+      "direction": "out",
+      "srcType": "ap_uint<32>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "next_pc",
+          "name": "next_pc",
+          "usage": "data",
+          "direction": "out"
+        }]
+    },
+    "instr_size": {
+      "index": "8",
+      "direction": "out",
+      "srcType": "ap_uint<3>&",
+      "srcSize": "8",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "instr_size",
+          "name": "instr_size",
+          "usage": "data",
+          "direction": "out"
+        }]
+    },
+    "halted": {
+      "index": "9",
+      "direction": "out",
+      "srcType": "ap_uint<1>&",
+      "srcSize": "8",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "halted",
+          "name": "halted",
+          "usage": "data",
+          "direction": "out"
+        }]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "rv32_core_step"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "18 ~ 53",
+    "Latency": "17"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "rv32_core_step",
+    "Version": "1.0",
+    "DisplayName": "Rv32_core_step",
+    "Revision": "2114701248",
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_rv32_core_step_1_0.zip"
+  },
+  "Files": {
+    "CSource": ["..\/..\/rv32_core.cpp"],
+    "TestBench": ["..\/..\/rv32_core_tb.cpp"],
+    "Vhdl": [
+      "impl\/vhdl\/rv32_core_step_bitselect_1ns_32ns_32s_1_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_control_r_s_axi.vhd",
+      "impl\/vhdl\/rv32_core_step_control_s_axi.vhd",
+      "impl\/vhdl\/rv32_core_step_expand.vhd",
+      "impl\/vhdl\/rv32_core_step_faddfsub_32ns_32ns_32_4_full_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_fcmp_32ns_32ns_1_2_no_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_fdiv_32ns_32ns_32_9_no_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_fmul_32ns_32ns_32_3_max_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_fsqrt_32ns_32ns_32_8_no_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_gmem_m_axi.vhd",
+      "impl\/vhdl\/rv32_core_step_index_table_ROM_AUTO_1R.vhd",
+      "impl\/vhdl\/rv32_core_step_mask_table_ROM_AUTO_1R.vhd",
+      "impl\/vhdl\/rv32_core_step_mul_32ns_32ns_64_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_mul_32ns_32s_64_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_mul_32s_32s_32_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_mul_32s_32s_64_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_one_half_minus_one_table_ROM_AUTO_1R.vhd",
+      "impl\/vhdl\/rv32_core_step_sdiv_32s_32s_32_36_seq_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sitofp_32s_32_4_no_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_7_2_32_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_9_3_1_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_9_3_3_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_9_3_32_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_11_4_10_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_13_5_32_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_sparsemux_19_8_32_1_1.vhd",
+      "impl\/vhdl\/rv32_core_step_srem_32s_32s_32_36_seq_1.vhd",
+      "impl\/vhdl\/rv32_core_step_udiv_32s_32s_32_36_seq_1.vhd",
+      "impl\/vhdl\/rv32_core_step_uitofp_32s_32_4_no_dsp_1.vhd",
+      "impl\/vhdl\/rv32_core_step_urem_32s_32s_32_36_seq_1.vhd",
+      "impl\/vhdl\/rv32_core_step.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/rv32_core_step_bitselect_1ns_32ns_32s_1_1_1.v",
+      "impl\/verilog\/rv32_core_step_control_r_s_axi.v",
+      "impl\/verilog\/rv32_core_step_control_s_axi.v",
+      "impl\/verilog\/rv32_core_step_expand.v",
+      "impl\/verilog\/rv32_core_step_faddfsub_32ns_32ns_32_4_full_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_fcmp_32ns_32ns_1_2_no_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_fdiv_32ns_32ns_32_9_no_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_fmul_32ns_32ns_32_3_max_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_fsqrt_32ns_32ns_32_8_no_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_gmem_m_axi.v",
+      "impl\/verilog\/rv32_core_step_index_table_ROM_AUTO_1R.dat",
+      "impl\/verilog\/rv32_core_step_index_table_ROM_AUTO_1R.v",
+      "impl\/verilog\/rv32_core_step_mask_table_ROM_AUTO_1R.dat",
+      "impl\/verilog\/rv32_core_step_mask_table_ROM_AUTO_1R.v",
+      "impl\/verilog\/rv32_core_step_mul_32ns_32ns_64_1_1.v",
+      "impl\/verilog\/rv32_core_step_mul_32ns_32s_64_1_1.v",
+      "impl\/verilog\/rv32_core_step_mul_32s_32s_32_1_1.v",
+      "impl\/verilog\/rv32_core_step_mul_32s_32s_64_1_1.v",
+      "impl\/verilog\/rv32_core_step_one_half_minus_one_table_ROM_AUTO_1R.dat",
+      "impl\/verilog\/rv32_core_step_one_half_minus_one_table_ROM_AUTO_1R.v",
+      "impl\/verilog\/rv32_core_step_sdiv_32s_32s_32_36_seq_1.v",
+      "impl\/verilog\/rv32_core_step_sitofp_32s_32_4_no_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_7_2_32_1_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_9_3_1_1_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_9_3_3_1_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_9_3_32_1_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_11_4_10_1_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_13_5_32_1_1.v",
+      "impl\/verilog\/rv32_core_step_sparsemux_19_8_32_1_1.v",
+      "impl\/verilog\/rv32_core_step_srem_32s_32s_32_36_seq_1.v",
+      "impl\/verilog\/rv32_core_step_udiv_32s_32s_32_36_seq_1.v",
+      "impl\/verilog\/rv32_core_step_uitofp_32s_32_4_no_dsp_1.v",
+      "impl\/verilog\/rv32_core_step_urem_32s_32s_32_36_seq_1.v",
+      "impl\/verilog\/rv32_core_step.v"
+    ],
+    "SwDriver": [
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/data\/rv32_core_step.mdd",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/data\/rv32_core_step.tcl",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/data\/rv32_core_step.yaml",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/CMakeLists.txt",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/xrv32_core_step.c",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/xrv32_core_step.h",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/xrv32_core_step_hw.h",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/xrv32_core_step_linux.c",
+      "impl\/misc\/drivers\/rv32_core_step_v1_0\/src\/xrv32_core_step_sinit.c"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "Subcore": [
+      "impl\/misc\/rv32_core_step_faddfsub_32ns_32ns_32_4_full_dsp_1_ip.tcl",
+      "impl\/misc\/rv32_core_step_fcmp_32ns_32ns_1_2_no_dsp_1_ip.tcl",
+      "impl\/misc\/rv32_core_step_fdiv_32ns_32ns_32_9_no_dsp_1_ip.tcl",
+      "impl\/misc\/rv32_core_step_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl",
+      "impl\/misc\/rv32_core_step_fsqrt_32ns_32ns_32_8_no_dsp_1_ip.tcl",
+      "impl\/misc\/rv32_core_step_sitofp_32s_32_4_no_dsp_1_ip.tcl",
+      "impl\/misc\/rv32_core_step_uitofp_32s_32_4_no_dsp_1_ip.tcl"
+    ],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/rv32_core_step.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": [
+      {
+        "Name": "rv32_core_step_faddfsub_32ns_32ns_32_4_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rv32_core_step_faddfsub_32ns_32ns_32_4_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "rv32_core_step_fcmp_32ns_32ns_1_2_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name rv32_core_step_fcmp_32ns_32ns_1_2_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "rv32_core_step_fdiv_32ns_32ns_32_9_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 7 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rv32_core_step_fdiv_32ns_32ns_32_9_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "rv32_core_step_fmul_32ns_32ns_32_3_max_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 1 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rv32_core_step_fmul_32ns_32ns_32_3_max_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "rv32_core_step_fsqrt_32ns_32ns_32_8_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 6 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rv32_core_step_fsqrt_32ns_32ns_32_8_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Square_Root CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "rv32_core_step_sitofp_32s_32_4_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rv32_core_step_sitofp_32s_32_4_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "rv32_core_step_uitofp_32s_32_4_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Uint32 CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rv32_core_step_uitofp_32s_32_4_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      }
+    ]
+  },
+  "Interfaces": {
+    "s_axi_control": {
+      "type": "axi4lite",
+      "busTypeName": "aximm",
+      "mode": "slave",
+      "dataWidth": "32",
+      "addrWidth": "4",
+      "portPrefix": "s_axi_control_",
+      "paramPrefix": "C_S_AXI_CONTROL_",
+      "ports": [
+        "s_axi_control_ARADDR",
+        "s_axi_control_ARREADY",
+        "s_axi_control_ARVALID",
+        "s_axi_control_AWADDR",
+        "s_axi_control_AWREADY",
+        "s_axi_control_AWVALID",
+        "s_axi_control_BREADY",
+        "s_axi_control_BRESP",
+        "s_axi_control_BVALID",
+        "s_axi_control_RDATA",
+        "s_axi_control_RREADY",
+        "s_axi_control_RRESP",
+        "s_axi_control_RVALID",
+        "s_axi_control_WDATA",
+        "s_axi_control_WREADY",
+        "s_axi_control_WSTRB",
+        "s_axi_control_WVALID"
+      ],
+      "registers": [
+        {
+          "offset": "0x00",
+          "name": "CTRL",
+          "access": "RW",
+          "description": "Control signals",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "AP_START",
+              "access": "RW",
+              "description": "Control signal Register for 'ap_start'."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "AP_DONE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_done'."
+            },
+            {
+              "offset": "2",
+              "width": "1",
+              "name": "AP_IDLE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_idle'."
+            },
+            {
+              "offset": "3",
+              "width": "1",
+              "name": "AP_READY",
+              "access": "R",
+              "description": "Control signal Register for 'ap_ready'."
+            },
+            {
+              "offset": "4",
+              "width": "3",
+              "name": "RESERVED_1",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "7",
+              "width": "1",
+              "name": "AUTO_RESTART",
+              "access": "RW",
+              "description": "Control signal Register for 'auto_restart'."
+            },
+            {
+              "offset": "8",
+              "width": "1",
+              "name": "RESERVED_2",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "9",
+              "width": "1",
+              "name": "INTERRUPT",
+              "access": "R",
+              "description": "Control signal Register for 'interrupt'."
+            },
+            {
+              "offset": "10",
+              "width": "22",
+              "name": "RESERVED_3",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x04",
+          "name": "GIER",
+          "access": "RW",
+          "description": "Global Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "Enable",
+              "access": "RW",
+              "description": "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x08",
+          "name": "IP_IER",
+          "access": "RW",
+          "description": "IP Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x0c",
+          "name": "IP_ISR",
+          "access": "RW",
+          "description": "IP Interrupt Status Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        }
+      ]
+    },
+    "s_axi_control_r": {
+      "type": "axi4lite",
+      "busTypeName": "aximm",
+      "mode": "slave",
+      "dataWidth": "32",
+      "addrWidth": "5",
+      "portPrefix": "s_axi_control_r_",
+      "paramPrefix": "C_S_AXI_CONTROL_R_",
+      "ports": [
+        "s_axi_control_r_ARADDR",
+        "s_axi_control_r_ARREADY",
+        "s_axi_control_r_ARVALID",
+        "s_axi_control_r_AWADDR",
+        "s_axi_control_r_AWREADY",
+        "s_axi_control_r_AWVALID",
+        "s_axi_control_r_BREADY",
+        "s_axi_control_r_BRESP",
+        "s_axi_control_r_BVALID",
+        "s_axi_control_r_RDATA",
+        "s_axi_control_r_RREADY",
+        "s_axi_control_r_RRESP",
+        "s_axi_control_r_RVALID",
+        "s_axi_control_r_WDATA",
+        "s_axi_control_r_WREADY",
+        "s_axi_control_r_WSTRB",
+        "s_axi_control_r_WVALID"
+      ],
+      "registers": [
+        {
+          "offset": "0x10",
+          "name": "mem_1",
+          "access": "W",
+          "description": "Data signal of mem",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "mem",
+              "access": "W",
+              "description": "Bit 31 to 0 of mem"
+            }]
+        },
+        {
+          "offset": "0x14",
+          "name": "mem_2",
+          "access": "W",
+          "description": "Data signal of mem",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "mem",
+              "access": "W",
+              "description": "Bit 63 to 32 of mem"
+            }]
+        }
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "16",
+          "argName": "mem"
+        }]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "s_axi_control:s_axi_control_r:m_axi_gmem",
+        "ASSOCIATED_RESET": "ap_rst_n"
+      },
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
+    },
+    "interrupt": {
+      "type": "interrupt",
+      "busTypeName": "interrupt",
+      "mode": "master",
+      "dataWidth": "1",
+      "busParams": {"SENSITIVITY": "LEVEL_HIGH"},
+      "portMap": {"interrupt": "INTERRUPT"},
+      "ports": ["interrupt"]
+    },
+    "m_axi_gmem": {
+      "type": "axi4full",
+      "busTypeName": "aximm",
+      "mode": "master",
+      "dataWidth": "32",
+      "addrWidth": "64",
+      "portPrefix": "m_axi_gmem_",
+      "paramPrefix": "C_M_AXI_GMEM_",
+      "preferredUsageValue": "MEMORY",
+      "busParams": {
+        "NUM_READ_OUTSTANDING": "16",
+        "NUM_WRITE_OUTSTANDING": "16",
+        "MAX_READ_BURST_LENGTH": "16",
+        "MAX_WRITE_BURST_LENGTH": "16",
+        "MAX_BURST_LENGTH": "256",
+        "PROTOCOL": "AXI4",
+        "READ_WRITE_MODE": "READ_WRITE",
+        "HAS_BURST": "0",
+        "SUPPORTS_NARROW_BURST": "0"
+      },
+      "ports": [
+        "m_axi_gmem_ARADDR",
+        "m_axi_gmem_ARBURST",
+        "m_axi_gmem_ARCACHE",
+        "m_axi_gmem_ARID",
+        "m_axi_gmem_ARLEN",
+        "m_axi_gmem_ARLOCK",
+        "m_axi_gmem_ARPROT",
+        "m_axi_gmem_ARQOS",
+        "m_axi_gmem_ARREADY",
+        "m_axi_gmem_ARREGION",
+        "m_axi_gmem_ARSIZE",
+        "m_axi_gmem_ARUSER",
+        "m_axi_gmem_ARVALID",
+        "m_axi_gmem_AWADDR",
+        "m_axi_gmem_AWBURST",
+        "m_axi_gmem_AWCACHE",
+        "m_axi_gmem_AWID",
+        "m_axi_gmem_AWLEN",
+        "m_axi_gmem_AWLOCK",
+        "m_axi_gmem_AWPROT",
+        "m_axi_gmem_AWQOS",
+        "m_axi_gmem_AWREADY",
+        "m_axi_gmem_AWREGION",
+        "m_axi_gmem_AWSIZE",
+        "m_axi_gmem_AWUSER",
+        "m_axi_gmem_AWVALID",
+        "m_axi_gmem_BID",
+        "m_axi_gmem_BREADY",
+        "m_axi_gmem_BRESP",
+        "m_axi_gmem_BUSER",
+        "m_axi_gmem_BVALID",
+        "m_axi_gmem_RDATA",
+        "m_axi_gmem_RID",
+        "m_axi_gmem_RLAST",
+        "m_axi_gmem_RREADY",
+        "m_axi_gmem_RRESP",
+        "m_axi_gmem_RUSER",
+        "m_axi_gmem_RVALID",
+        "m_axi_gmem_WDATA",
+        "m_axi_gmem_WID",
+        "m_axi_gmem_WLAST",
+        "m_axi_gmem_WREADY",
+        "m_axi_gmem_WSTRB",
+        "m_axi_gmem_WUSER",
+        "m_axi_gmem_WVALID"
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "0",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "0",
+          "channel_id": "0",
+          "argName": "mem"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "32",
+          "argName": "mem"
+        }
+      ]
+    },
+    "instr": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"instr": "DATA"},
+      "ports": ["instr"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "instr"
+        }]
+    },
+    "pc": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"pc": "DATA"},
+      "ports": ["pc"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "pc"
+        }]
+    },
+    "regs_in_PORTA": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "regs_in_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "regs_in_Addr_A": "ADDR",
+        "regs_in_EN_A": "EN",
+        "regs_in_WEN_A": "WE",
+        "regs_in_Din_A": "DIN",
+        "regs_in_Dout_A": "DOUT",
+        "regs_in_Clk_A": "CLK",
+        "regs_in_Rst_A": "RST"
+      },
+      "ports": [
+        "regs_in_Addr_A",
+        "regs_in_Clk_A",
+        "regs_in_Din_A",
+        "regs_in_Dout_A",
+        "regs_in_EN_A",
+        "regs_in_Rst_A",
+        "regs_in_WEN_A"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "regs_in"
+        }]
+    },
+    "regs_in_PORTB": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "regs_in_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "regs_in_Addr_B": "ADDR",
+        "regs_in_EN_B": "EN",
+        "regs_in_WEN_B": "WE",
+        "regs_in_Din_B": "DIN",
+        "regs_in_Dout_B": "DOUT",
+        "regs_in_Clk_B": "CLK",
+        "regs_in_Rst_B": "RST"
+      },
+      "ports": [
+        "regs_in_Addr_B",
+        "regs_in_Clk_B",
+        "regs_in_Din_B",
+        "regs_in_Dout_B",
+        "regs_in_EN_B",
+        "regs_in_Rst_B",
+        "regs_in_WEN_B"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "regs_in"
+        }]
+    },
+    "regs_out_PORTA": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "regs_out_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "regs_out_Addr_A": "ADDR",
+        "regs_out_EN_A": "EN",
+        "regs_out_WEN_A": "WE",
+        "regs_out_Din_A": "DIN",
+        "regs_out_Dout_A": "DOUT",
+        "regs_out_Clk_A": "CLK",
+        "regs_out_Rst_A": "RST"
+      },
+      "ports": [
+        "regs_out_Addr_A",
+        "regs_out_Clk_A",
+        "regs_out_Din_A",
+        "regs_out_Dout_A",
+        "regs_out_EN_A",
+        "regs_out_Rst_A",
+        "regs_out_WEN_A"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "regs_out"
+        }]
+    },
+    "regs_out_PORTB": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "regs_out_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "regs_out_Addr_B": "ADDR",
+        "regs_out_EN_B": "EN",
+        "regs_out_WEN_B": "WE",
+        "regs_out_Din_B": "DIN",
+        "regs_out_Dout_B": "DOUT",
+        "regs_out_Clk_B": "CLK",
+        "regs_out_Rst_B": "RST"
+      },
+      "ports": [
+        "regs_out_Addr_B",
+        "regs_out_Clk_B",
+        "regs_out_Din_B",
+        "regs_out_Dout_B",
+        "regs_out_EN_B",
+        "regs_out_Rst_B",
+        "regs_out_WEN_B"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "regs_out"
+        }]
+    },
+    "fregs_in_PORTA": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "fregs_in_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "fregs_in_Addr_A": "ADDR",
+        "fregs_in_EN_A": "EN",
+        "fregs_in_WEN_A": "WE",
+        "fregs_in_Din_A": "DIN",
+        "fregs_in_Dout_A": "DOUT",
+        "fregs_in_Clk_A": "CLK",
+        "fregs_in_Rst_A": "RST"
+      },
+      "ports": [
+        "fregs_in_Addr_A",
+        "fregs_in_Clk_A",
+        "fregs_in_Din_A",
+        "fregs_in_Dout_A",
+        "fregs_in_EN_A",
+        "fregs_in_Rst_A",
+        "fregs_in_WEN_A"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "fregs_in"
+        }]
+    },
+    "fregs_in_PORTB": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "fregs_in_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "fregs_in_Addr_B": "ADDR",
+        "fregs_in_EN_B": "EN",
+        "fregs_in_WEN_B": "WE",
+        "fregs_in_Din_B": "DIN",
+        "fregs_in_Dout_B": "DOUT",
+        "fregs_in_Clk_B": "CLK",
+        "fregs_in_Rst_B": "RST"
+      },
+      "ports": [
+        "fregs_in_Addr_B",
+        "fregs_in_Clk_B",
+        "fregs_in_Din_B",
+        "fregs_in_Dout_B",
+        "fregs_in_EN_B",
+        "fregs_in_Rst_B",
+        "fregs_in_WEN_B"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "fregs_in"
+        }]
+    },
+    "fregs_out_PORTA": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "fregs_out_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "fregs_out_Addr_A": "ADDR",
+        "fregs_out_EN_A": "EN",
+        "fregs_out_WEN_A": "WE",
+        "fregs_out_Din_A": "DIN",
+        "fregs_out_Dout_A": "DOUT",
+        "fregs_out_Clk_A": "CLK",
+        "fregs_out_Rst_A": "RST"
+      },
+      "ports": [
+        "fregs_out_Addr_A",
+        "fregs_out_Clk_A",
+        "fregs_out_Din_A",
+        "fregs_out_Dout_A",
+        "fregs_out_EN_A",
+        "fregs_out_Rst_A",
+        "fregs_out_WEN_A"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "fregs_out"
+        }]
+    },
+    "fregs_out_PORTB": {
+      "type": "bram",
+      "busTypeName": "bram",
+      "mode": "master",
+      "direction": "inout",
+      "dataWidth": "32",
+      "addrWidth": "32",
+      "portPrefix": "fregs_out_",
+      "busParams": {
+        "MASTER_TYPE": "BRAM_CTRL",
+        "MEM_SIZE": "128",
+        "MEM_WIDTH": "32",
+        "MEM_ADDRESS_MODE": "BYTE_ADDRESS",
+        "READ_LATENCY": "1"
+      },
+      "portMap": {
+        "fregs_out_Addr_B": "ADDR",
+        "fregs_out_EN_B": "EN",
+        "fregs_out_WEN_B": "WE",
+        "fregs_out_Din_B": "DIN",
+        "fregs_out_Dout_B": "DOUT",
+        "fregs_out_Clk_B": "CLK",
+        "fregs_out_Rst_B": "RST"
+      },
+      "ports": [
+        "fregs_out_Addr_B",
+        "fregs_out_Clk_B",
+        "fregs_out_Din_B",
+        "fregs_out_Dout_B",
+        "fregs_out_EN_B",
+        "fregs_out_Rst_B",
+        "fregs_out_WEN_B"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "bram",
+          "register_option": "0",
+          "argName": "fregs_out"
+        }]
+    },
+    "next_pc": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "master",
+      "dataWidth": "32",
+      "portMap": {"next_pc": "DATA"},
+      "ports": ["next_pc"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "next_pc"
+        }]
+    },
+    "instr_size": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "master",
+      "dataWidth": "3",
+      "portMap": {"instr_size": "DATA"},
+      "ports": ["instr_size"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "instr_size"
+        }]
+    },
+    "halted": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "master",
+      "dataWidth": "1",
+      "portMap": {"halted": "DATA"},
+      "ports": ["halted"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "halted"
+        }]
+    }
+  },
+  "RtlPorts": {
+    "s_axi_control_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_AWADDR": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_control_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_ARADDR": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_control_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_control_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_control_r_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_r_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_r_AWADDR": {
+      "dir": "in",
+      "width": "5"
+    },
+    "s_axi_control_r_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_r_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_r_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_control_r_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_r_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_r_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_r_ARADDR": {
+      "dir": "in",
+      "width": "5"
+    },
+    "s_axi_control_r_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_r_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_r_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_control_r_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_control_r_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_r_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_r_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "interrupt": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_AWVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_AWREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_AWADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem_AWID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_AWLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem_AWSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_AWBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_AWLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_AWCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_AWPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_AWQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_AWREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_AWUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_WVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_WREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_WDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "m_axi_gmem_WSTRB": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_WLAST": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_WID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_WUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_ARVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_ARREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_ARADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem_ARID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_ARLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem_ARSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_ARBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_ARLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_ARCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_ARPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_ARQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_ARREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_ARUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_RVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_RREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_RDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "m_axi_gmem_RLAST": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_RID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_RUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_RRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem_BVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_BREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_BRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem_BID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_BUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "instr": {
+      "dir": "in",
+      "width": "32"
+    },
+    "pc": {
+      "dir": "in",
+      "width": "32"
+    },
+    "regs_in_Addr_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_in_EN_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_in_WEN_A": {
+      "dir": "out",
+      "width": "4"
+    },
+    "regs_in_Din_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_in_Dout_A": {
+      "dir": "in",
+      "width": "32"
+    },
+    "regs_in_Clk_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_in_Rst_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_in_Addr_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_in_EN_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_in_WEN_B": {
+      "dir": "out",
+      "width": "4"
+    },
+    "regs_in_Din_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_in_Dout_B": {
+      "dir": "in",
+      "width": "32"
+    },
+    "regs_in_Clk_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_in_Rst_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_out_Addr_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_out_EN_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_out_WEN_A": {
+      "dir": "out",
+      "width": "4"
+    },
+    "regs_out_Din_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_out_Dout_A": {
+      "dir": "in",
+      "width": "32"
+    },
+    "regs_out_Clk_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_out_Rst_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_out_Addr_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_out_EN_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_out_WEN_B": {
+      "dir": "out",
+      "width": "4"
+    },
+    "regs_out_Din_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "regs_out_Dout_B": {
+      "dir": "in",
+      "width": "32"
+    },
+    "regs_out_Clk_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "regs_out_Rst_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_in_Addr_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_in_EN_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_in_WEN_A": {
+      "dir": "out",
+      "width": "4"
+    },
+    "fregs_in_Din_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_in_Dout_A": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fregs_in_Clk_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_in_Rst_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_in_Addr_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_in_EN_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_in_WEN_B": {
+      "dir": "out",
+      "width": "4"
+    },
+    "fregs_in_Din_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_in_Dout_B": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fregs_in_Clk_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_in_Rst_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_out_Addr_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_out_EN_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_out_WEN_A": {
+      "dir": "out",
+      "width": "4"
+    },
+    "fregs_out_Din_A": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_out_Dout_A": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fregs_out_Clk_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_out_Rst_A": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_out_Addr_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_out_EN_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_out_WEN_B": {
+      "dir": "out",
+      "width": "4"
+    },
+    "fregs_out_Din_B": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fregs_out_Dout_B": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fregs_out_Clk_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fregs_out_Rst_B": {
+      "dir": "out",
+      "width": "1"
+    },
+    "next_pc": {
+      "dir": "out",
+      "width": "32"
+    },
+    "instr_size": {
+      "dir": "out",
+      "width": "3"
+    },
+    "halted": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "rv32_core_step",
+      "BindInstances": "icmp_ln127_fu_2808_p2 icmp_ln135_fu_2818_p2 next_pc_local_4_fu_2892_p2 icmp_ln180_fu_2909_p2 icmp_ln11_fu_2915_p2 icmp_ln245_fu_2920_p2 icmp_ln245_1_fu_2925_p2 icmp_ln245_2_fu_2930_p2 grp_fu_2661_p2 icmp_ln538_1_fu_3572_p2 or_ln538_fu_3578_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln538_fu_3606_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U8 fcmp_32ns_32ns_1_2_no_dsp_1_U9 and_ln538_1_fu_3611_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U10 and_ln538_2_fu_3616_p2 fpclassify_result_i_i_fu_3669_p8 xor_ln538_fu_3629_p2 and_ln538_3_fu_3635_p2 or_ln538_1_fu_3641_p2 xor_ln538_1_fu_3647_p2 and_ln538_4_fu_3653_p2 sparsemux_9_3_3_1_1_U21 value_7_fu_3764_p10 value_7_fu_3764_p8 value_7_fu_3764_p6 value_7_fu_3764_p4 value_7_fu_3764_p2 icmp_ln59_fu_3728_p2 icmp_ln59_1_fu_3734_p2 icmp_ln59_2_fu_3740_p2 icmp_ln59_3_fu_3746_p2 sparsemux_11_4_10_1_1_U22 grp_fu_2581_p2 uitofp_32s_32_4_no_dsp_1_U5 sitofp_32s_32_4_no_dsp_1_U6 select_ln408_fu_3801_p3 grp_fu_2581_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2689_p2 icmp_ln39_1_fu_3922_p2 or_ln39_fu_3928_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln39_fu_3934_p2 or_ln38_fu_3940_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln40_fu_3945_p2 grp_fu_2711_p2 grp_fu_2717_p2 and_ln34_fu_3957_p2 grp_fu_2730_p2 bitselect_1ns_32ns_32s_1_1_1_U24 one_half_1_fu_3990_p2 one_half_2_fu_3996_p3 data_5_fu_4008_p2 xor_ln77_fu_4018_p2 xs_sig_1_fu_4024_p2 or_ln34_fu_4052_p2 xor_ln34_fu_4058_p2 and_ln37_fu_4064_p2 sparsemux_7_2_32_1_1_U25 add_ln317_fu_4138_p2 sub_ln18_fu_4152_p2 select_ln18_fu_4162_p3 lshr_ln18_fu_4178_p2 shl_ln18_fu_4184_p2 val_2_fu_4210_p3 result_27_fu_4218_p2 result_28_fu_4224_p3 grp_fu_2689_p2 icmp_ln47_1_fu_4236_p2 or_ln47_fu_4242_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln47_fu_4248_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln48_fu_4254_p2 grp_fu_2711_p2 grp_fu_2717_p2 and_ln34_1_fu_4266_p2 grp_fu_2730_p2 bitselect_1ns_32ns_32s_1_1_1_U26 one_half_4_fu_4299_p2 one_half_5_fu_4305_p3 data_7_fu_4317_p2 xor_ln77_1_fu_4327_p2 xs_sig_3_fu_4333_p2 or_ln34_1_fu_4361_p2 xor_ln34_1_fu_4367_p2 and_ln37_1_fu_4373_p2 sparsemux_7_2_32_1_1_U27 add_ln317_1_fu_4438_p2 sub_ln71_fu_4452_p2 select_ln71_fu_4461_p3 lshr_ln71_fu_4477_p2 shl_ln71_fu_4483_p2 val_fu_4509_p3 icmp_ln389_fu_3850_p2 icmp_ln389_1_fu_3856_p2 or_ln389_fu_3862_p2 grp_fu_2661_p2 icmp_ln389_3_fu_3868_p2 or_ln389_1_fu_3874_p2 and_ln389_fu_3880_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2675_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2675_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2675_p2 sparsemux_9_3_1_1_1_U23 or_ln25_fu_4565_p2 icmp_ln25_fu_4571_p2 or_ln25_1_fu_4577_p2 icmp_ln25_1_fu_4583_p2 and_ln25_fu_4589_p2 icmp_ln18_fu_4595_p2 icmp_ln18_1_fu_4601_p2 and_ln18_fu_4607_p2 icmp_ln18_2_fu_4613_p2 icmp_ln18_3_fu_4619_p2 and_ln18_1_fu_4625_p2 ymaggreater_fu_4655_p2 xor_ln39_fu_4661_p2 select_ln39_fu_4667_p3 ymaggreater_1_fu_4675_p3 res_3_fu_4837_p6 res_3_fu_4837_p8 and_ln25_3_fu_4699_p2 xor_ln25_fu_4705_p2 and_ln25_4_fu_4711_p2 and_ln18_2_fu_4716_p2 and_ln18_3_fu_4722_p2 or_ln25_2_fu_4728_p2 xor_ln25_1_fu_4733_p2 and_ln18_4_fu_4739_p2 and_ln18_5_fu_4745_p2 and_ln18_6_fu_4751_p2 xor_ln18_fu_4757_p2 and_ln18_7_fu_4763_p2 and_ln18_8_fu_4769_p2 xor_ln18_1_fu_4775_p2 and_ln18_9_fu_4781_p2 or_ln18_fu_4787_p2 or_ln18_1_fu_4793_p2 xor_ln18_2_fu_4799_p2 xor_ln18_3_fu_4805_p2 or_ln18_2_fu_4811_p2 and_ln18_10_fu_4817_p2 sparsemux_13_5_32_1_1_U28 xor_ln372_fu_4886_p2 xor_ln373_fu_4900_p2 sparsemux_9_3_32_1_1_U29 or_ln375_fu_4957_p2 fsqrt_32ns_32ns_32_8_no_dsp_1_U11 fdiv_32ns_32ns_32_9_no_dsp_1_U4 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 grp_fu_2744_p2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 grp_fu_2744_p2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 addr_3_fu_2961_p2 add_ln58_fu_2989_p2 addr_2_fu_3018_p2 add_ln25_1_fu_3046_p2 value_5_fu_3079_p2 add_ln302_fu_5216_p2 next_pc_local_3_fu_5289_p2 add_ln288_fu_5336_p2 grp_fu_2768_p2 grp_fu_2768_p2 grp_fu_2772_p2 grp_fu_2772_p2 grp_fu_2776_p2 grp_fu_2776_p2 addr_1_fu_3114_p2 add_ln68_fu_3154_p2 mask_1_fu_5344_p2 xor_ln70_fu_5350_p2 and_ln70_fu_5356_p2 shl_ln70_fu_5364_p2 word_5_fu_5370_p2 add_ln61_fu_3183_p2 mask_fu_5379_p2 xor_ln63_fu_5385_p2 and_ln63_fu_5391_p2 shl_ln63_fu_5399_p2 word_3_fu_5405_p2 add_ln58_1_fu_3212_p2 addr_fu_3241_p2 add_ln25_fu_3273_p2 shifted_fu_5422_p2 grp_fu_2628_p2 grp_fu_2623_p2 sparsemux_13_5_32_1_1_U30 result_32_fu_3424_p18 result_32_fu_3424_p12 result_32_fu_3424_p10 result_3_fu_3332_p2 result_4_fu_3342_p2 result_32_fu_3424_p4 grp_fu_2618_p2 result_32_fu_3424_p2 result_32_fu_3424_p14 result_32_fu_3424_p16 icmp_ln245_3_fu_3376_p2 grp_fu_2623_p2 icmp_ln245_5_fu_3381_p2 grp_fu_2628_p2 and_ln252_fu_3386_p2 xor_ln252_fu_3392_p2 and_ln252_1_fu_3398_p2 sparsemux_19_8_32_1_1_U16 icmp_ln160_fu_3473_p2 result_22_fu_5498_p2 grp_fu_2618_p2 lshr_ln227_fu_5505_p2 ashr_ln226_fu_5510_p2 result_21_fu_5515_p2 grp_fu_2768_p2 grp_fu_2772_p2 result_18_fu_5530_p2 grp_fu_2618_p2 sub_ln209_fu_5535_p2 add_ln210_fu_5539_p2 result_17_fu_5543_p3 result_16_fu_5550_p2 grp_fu_2633_p2 grp_fu_2639_p2 grp_fu_2645_p2 srem_32s_32s_32_36_seq_1_U17 udiv_32s_32s_32_36_seq_1_U18 grp_fu_2633_p2 grp_fu_2639_p2 grp_fu_2645_p2 sdiv_32s_32s_32_36_seq_1_U19 mul_32ns_32ns_64_1_1_U12 mul_32ns_32s_64_1_1_U13 mul_32s_32s_64_1_1_U15 mul_32s_32s_32_1_1_U14 urem_32s_32s_32_36_seq_1_U20 mask_table_U one_half_minus_one_table_U index_table_U control_s_axi_U control_r_s_axi_U gmem_m_axi_U",
+      "Instances": [{
+          "ModuleName": "expand",
+          "InstanceName": "tmp_1_expand_fu_2513",
+          "BindInstances": "icmp_ln254_fu_540_p2 grp_fu_328_p2 or_ln262_fu_576_p2 icmp_ln262_fu_582_p2 grp_fu_328_p2 grp_fu_328_p2 icmp_ln144_fu_942_p2 icmp_ln151_fu_977_p2 icmp_ln78_fu_1266_p2"
+        }]
+    },
+    "Info": {
+      "expand": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "1",
+        "isOneStateSeq": "0"
+      },
+      "rv32_core_step": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "expand": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "0",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "1.771"
+        },
+        "Area": {
+          "FF": "0",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "0",
+          "LUT": "233",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      },
+      "rv32_core_step": {
+        "Latency": {
+          "LatencyBest": "17",
+          "LatencyAvg": "20",
+          "LatencyWorst": "52",
+          "PipelineIIMin": "18",
+          "PipelineIIMax": "53",
+          "PipelineII": "18 ~ 53",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.360"
+        },
+        "Area": {
+          "BRAM_18K": "4",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "1",
+          "DSP": "20",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "1",
+          "FF": "4714",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "2",
+          "LUT": "11472",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "9",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2026-07-17 22:48:31 CST",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2024.2"
+  }
+}

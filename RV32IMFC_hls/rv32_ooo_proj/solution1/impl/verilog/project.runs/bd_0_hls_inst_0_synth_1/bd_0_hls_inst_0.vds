@@ -1,0 +1,687 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Jul 22 07:48:40 2026
+# Process ID         : 68644
+# Current directory  : /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1
+# Command line       : vivado -log bd_0_hls_inst_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_0_hls_inst_0.tcl
+# Log file           : /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.vds
+# Journal file       : /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/vivado.jou
+# Running On         : andy-ThinkPad-P53
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-9850H CPU @ 2.60GHz
+# CPU Frequency      : 4215.567 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16356 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20651 MB
+# Available Virtual  : 12925 MB
+#-----------------------------------------------------------
+source bd_0_hls_inst_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1497.426 ; gain = 72.840 ; free physical = 234 ; free virtual = 11890
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/andy/Programas/Vivado/Vivado/2024.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: bd_0_hls_inst_0
+Command: synth_design -top bd_0_hls_inst_0 -part xck26-sfvc784-2LV-c -directive sdx_optimization_effort_high -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 68694
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2642.258 ; gain = 118.688 ; free physical = 167 ; free virtual = 10556
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'bd_0_hls_inst_0' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_vregs_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_vregs_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_vregs_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_vregs_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fregs_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fregs_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_fregs_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fregs_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fregs_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fregs_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_cdb_broadcast' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_cdb_broadcast.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_cdb_broadcast' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_cdb_broadcast.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fpu_compute' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R.dat' is read successfully [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip.v:53]
+INFO: [Synth 8-6157] synthesizing module 'LUT1' [/home/andy/Programas/Vivado/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84087]
+INFO: [Synth 8-6155] done synthesizing module 'LUT1' (0#1) [/home/andy/Programas/Vivado/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84087]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/ip/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_9_3_3_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_9_3_3_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_9_3_3_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_9_3_3_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1.v:8]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_7_2_32_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_7_2_32_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_7_2_32_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_7_2_32_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_13_5_32_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_13_5_32_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_13_5_32_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_13_5_32_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_9_3_32_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_9_3_32_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_9_3_32_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_9_3_32_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_fpu_compute' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_fpu_compute.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_expand' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_expand.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_expand' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_expand.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_read_operand' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_read_operand.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_read_operand' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_read_operand.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_read_operand_fp' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_read_operand_fp.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_read_operand_fp' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_read_operand_fp.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_flow_control_loop_pipe_sequential_init' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_flow_control_loop_pipe_sequential_init' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_control_s_axi' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_control_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_control_s_axi.v:197]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_control_s_axi' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_control_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_mul_32ns_32ns_64_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32ns_32ns_64_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_mul_32ns_32ns_64_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32ns_32ns_64_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_mul_32ns_32s_64_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32ns_32s_64_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_mul_32ns_32s_64_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32ns_32s_64_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_mul_32s_32s_32_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32s_32s_32_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_mul_32s_32s_32_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32s_32s_32_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_mul_32s_32s_64_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32s_32s_64_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_mul_32s_32s_64_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_mul_32s_32s_64_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_17_7_32_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_17_7_32_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_17_7_32_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_17_7_32_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_srem_32s_32s_32_36_seq_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_srem_32s_32s_32_36_seq_1.v:88]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_srem_32s_32s_32_36_seq_1_divseq' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_srem_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_srem_32s_32s_32_36_seq_1_divseq' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_srem_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_srem_32s_32s_32_36_seq_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_srem_32s_32s_32_36_seq_1.v:88]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_udiv_32s_32s_32_36_seq_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_udiv_32s_32s_32_36_seq_1.v:83]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_udiv_32s_32s_32_36_seq_1_divseq' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_udiv_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_udiv_32s_32s_32_36_seq_1_divseq' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_udiv_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_udiv_32s_32s_32_36_seq_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_udiv_32s_32s_32_36_seq_1.v:83]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1.v:88]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1_divseq' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1_divseq' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1.v:88]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_urem_32s_32s_32_36_seq_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_urem_32s_32s_32_36_seq_1.v:83]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_urem_32s_32s_32_36_seq_1_divseq' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_urem_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_urem_32s_32s_32_36_seq_1_divseq' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_urem_32s_32s_32_36_seq_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_urem_32s_32s_32_36_seq_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_urem_32s_32s_32_36_seq_1.v:83]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_13_5_32_1_1_x' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_13_5_32_1_1_x.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_13_5_32_1_1_x' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_13_5_32_1_1_x.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_21_9_32_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_21_9_32_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_21_9_32_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_21_9_32_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_9_3_4_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_9_3_4_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_9_3_4_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_9_3_4_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'rv32_ooo_tick_sparsemux_7_2_3_1_1' [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_7_2_3_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick_sparsemux_7_2_3_1_1' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sparsemux_7_2_3_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_ooo_tick' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0_hls_inst_0' (0#1) [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.v:53]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_control_s_axi.v:254]
+WARNING: [Synth 8-6014] Unused sequential element quot_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_srem_32s_32s_32_36_seq_1.v:162]
+WARNING: [Synth 8-6014] Unused sequential element remd_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_udiv_32s_32s_32_36_seq_1.v:150]
+WARNING: [Synth 8-6014] Unused sequential element remd_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1.v:172]
+WARNING: [Synth 8-6014] Unused sequential element quot_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_urem_32s_32s_32_36_seq_1.v:149]
+WARNING: [Synth 8-6014] Unused sequential element alu_rs_remaining_0_flag_1_reg_3094_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick.v:3866]
+WARNING: [Synth 8-6014] Unused sequential element alu_rs_remaining_1_flag_0_reg_3141_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick.v:3874]
+WARNING: [Synth 8-6014] Unused sequential element alu_rs_remaining_0_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick.v:5460]
+WARNING: [Synth 8-6014] Unused sequential element alu_rs_remaining_1_reg was removed.  [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick.v:5466]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+WARNING: [Synth 8-7129] Port AWADDR[1] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AWADDR[0] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[31] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[30] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[29] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[28] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[27] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[26] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[25] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[24] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[23] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[22] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[21] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[20] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[19] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[18] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[17] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[16] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[15] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[14] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[13] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[12] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[11] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[10] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[9] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[8] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[6] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[5] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[4] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[3] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[2] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[3] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[2] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[1] in module rv32_ooo_tick_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[31] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[30] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[29] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[28] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[27] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[26] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[25] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[24] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[23] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[22] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[21] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[20] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[19] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[18] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[17] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[16] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[15] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[14] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[13] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[12] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[11] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[10] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[9] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[8] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[7] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[6] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[5] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[4] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[3] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[2] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[1] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[0] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[31] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[30] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[29] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[28] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[27] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[26] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[25] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[24] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[23] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[22] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[21] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[20] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[19] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[18] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[17] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[16] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[15] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[14] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[13] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[12] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[11] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[10] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[9] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[8] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[7] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[6] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[5] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[4] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[3] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[2] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[1] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vregs_out_Dout_A[0] in module rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ap_rst in module rv32_ooo_tick_expand is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_10_viv__parameterized3 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2920.352 ; gain = 396.781 ; free physical = 239 ; free virtual = 10355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2920.352 ; gain = 396.781 ; free physical = 236 ; free virtual = 10351
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2920.352 ; gain = 396.781 ; free physical = 236 ; free virtual = 10351
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.87 . Memory (MB): peak = 2920.352 ; gain = 0.000 ; free physical = 209 ; free virtual = 10326
+INFO: [Netlist 29-17] Analyzing 2702 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/constraints/rv32_ooo_tick_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/constraints/rv32_ooo_tick_ooc.xdc] for cell 'inst'
+Parsing XDC File [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3035.258 ; gain = 0.000 ; free physical = 154 ; free virtual = 10274
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 5 instances
+  FDE => FDRE: 11 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.99 ; elapsed = 00:00:00.42 . Memory (MB): peak = 3038.227 ; gain = 2.969 ; free physical = 153 ; free virtual = 10274
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 3038.227 ; gain = 514.656 ; free physical = 181 ; free virtual = 10257
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 3046.230 ; gain = 522.660 ; free physical = 181 ; free virtual = 10257
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 3046.230 ; gain = 522.660 ; free physical = 180 ; free virtual = 10256
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'rv32_ooo_tick_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'rv32_ooo_tick_control_s_axi'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_vregs_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-6904] The RAM "rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W:/ram_reg" of size (depth=8 x width=1) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_fregs_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'rv32_ooo_tick_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'rv32_ooo_tick_control_s_axi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 3046.230 ; gain = 522.660 ; free physical = 189 ; free virtual = 10235
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/SUB_DELAY' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/SUB_ADD_IP_DELAY'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/faddfsub_32ns_32ns_32_4_full_dsp_1_U56/rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fmul_32ns_32ns_32_3_max_dsp_1_U57/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fmul_32ns_32ns_32_3_max_dsp_1_U57/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fmul_32ns_32ns_32_3_max_dsp_1_U57/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fmul_32ns_32ns_32_3_max_dsp_1_U57/rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXTRA_LSB_BIT_DEL' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXP_INC_DELAY' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXP_INC_RND1_DELAY'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXP_IN_DELAY.EXP_IN_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXP_RND2_DELAY.EXP_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXP_IN_DELAY.EXP_OFF_OP_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DIV_OP.SPD.OP/ROUND/EXP_RND2_DELAY.EXP_OFF_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fdiv_32ns_32ns_32_9_no_dsp_1_U58/rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXTRA_LSB_BIT_DEL' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_INC_DELAY' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_INC_RND1_DELAY'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_IN_DELAY.EXP_IN_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_RND2_DELAY.EXP_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_IN_DELAY.EXP_OFF_OP_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_RND2_DELAY.EXP_OFF_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_UNDERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/uitofp_32ns_32_4_no_dsp_1_U59/rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXTRA_LSB_BIT_DEL' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_INC_DELAY' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_INC_RND1_DELAY'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_IN_DELAY.EXP_IN_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_RND2_DELAY.EXP_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_IN_DELAY.EXP_OFF_OP_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/FIX_TO_FLT_OP.SPD.OP/ROUND/EXP_RND2_DELAY.EXP_OFF_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_UNDERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_INVALID_OP' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/sitofp_32ns_32_4_no_dsp_1_U60/rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_UNDERFLOW'
+INFO: [Synth 8-223] decloning instance 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1:/rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXTRA_LSB_BIT_DEL' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_INC_DELAY' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_INC_RND1_DELAY'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_IN_DELAY.EXP_IN_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_RND2_DELAY.EXP_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_IN_DELAY.EXP_OFF_OP_DEL' (delay__parameterized28) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_RND2_DELAY.EXP_OFF_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_UNDERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'inst/grp_fpu_compute_fu_5799/fsqrt_32ns_32ns_32_8_no_dsp_1_U65/rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u/inst/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'inst/grp_fpu_compute_fu_5799/bitselect_1ns_32ns_32s_1_1_1_U67' (rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1) to 'inst/grp_fpu_compute_fu_5799/bitselect_1ns_32ns_32s_1_1_1_U69'
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'rv32_ooo_tick_srem_32s_32s_32_36_seq_1_divseq_u/sign0_reg' and it is trimmed from '2' to '1' bits. [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_srem_32s_32s_32_36_seq_1.v:45]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rv32_ooo_tick_udiv_32s_32s_32_36_seq_1_divseq_u/remd_tmp_reg' and it is trimmed from '32' to '31' bits. [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_udiv_32s_32s_32_36_seq_1.v:41]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1_divseq_u/remd_tmp_reg' and it is trimmed from '32' to '31' bits. [/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.gen/sources_1/bd/bd_0/ipshared/db38/hdl/verilog/rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1.v:44]
+INFO: [Synth 8-6904] The RAM "inst/rob_is_ecall_U/ram_reg" of size (depth=8 x width=1) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+RAM ("inst/vregs_U/ram_reg") is too shallow (depth = 128) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/vregs_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_valid_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_valid_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_ready_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_ready_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_is_store_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_is_store_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_addr_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_addr_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_sdata_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_sdata_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_mem_f3_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_mem_f3_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_dest_is_fp_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_dest_is_fp_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_dest_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_dest_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rob_value_U/ram_reg") is too shallow (depth = 8) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rob_value_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/fregs_U/ram_reg") is too shallow (depth = 32) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/fregs_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/frat_has_tag_U/ram_reg") is too shallow (depth = 32) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/frat_has_tag_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/frat_tag_U/ram_reg") is too shallow (depth = 32) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/frat_tag_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/regfile_U/ram_reg") is too shallow (depth = 32) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/regfile_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rat_has_tag_U/ram_reg") is too shallow (depth = 32) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rat_has_tag_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("inst/rat_tag_U/ram_reg") is too shallow (depth = 32) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-3971] The signal "inst/rat_tag_U/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-6904] The RAM "inst/rob_is_ecall_U/ram_reg" of size (depth=8 x width=1) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-3332] Sequential element (ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.LOD/dist_norm_reg[1]) is unused and will be removed from module floating_point_v7_1_19_viv.
+INFO: [Synth 8-3332] Sequential element (ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.LOD/dist_norm_reg[0]) is unused and will be removed from module floating_point_v7_1_19_viv.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 3077.246 ; gain = 553.676 ; free physical = 182 ; free virtual = 10185
+---------------------------------------------------------------------------------
+ Sort Area is rv32_ooo_tick__GB0 mul_32s_32s_64_1_1_U119/tmp_product_c : 0 0 : 2667 5182 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32s_32s_64_1_1_U119/tmp_product_c : 0 1 : 2515 5182 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32s_32s_32_1_1_U118/tmp_product_f : 0 0 : 2701 4864 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32s_32s_32_1_1_U118/tmp_product_f : 0 1 : 2163 4864 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32s_32s_32_1_1_U118/tmp_product_12 : 0 0 : 2158 4014 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32s_32s_32_1_1_U118/tmp_product_12 : 0 1 : 1856 4014 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32ns_32ns_64_1_1_U116/tmp_product_0 : 0 0 : 3137 3137 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32ns_32ns_64_1_1_U116/tmp_product_2 : 0 0 : 2793 2793 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32ns_32ns_64_1_1_U116/tmp_product_4 : 0 0 : 2793 2793 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32ns_32ns_64_1_1_U116/tmp_product_6 : 0 0 : 2672 2672 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32ns_32s_64_1_1_U117/tmp_product_8 : 0 0 : 2667 2667 : Used 1 time 0
+ Sort Area is rv32_ooo_tick__GB0 mul_32ns_32s_64_1_1_U117/tmp_product_a : 0 0 : 2555 2555 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:32 ; elapsed = 00:01:36 . Memory (MB): peak = 3569.008 ; gain = 1045.438 ; free physical = 185 ; free virtual = 9873
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:01:43 . Memory (MB): peak = 3765.516 ; gain = 1241.945 ; free physical = 233 ; free virtual = 9664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/vregs_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/vregs_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_valid_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_ready_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_is_store_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_addr_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_sdata_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_mem_f3_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_dest_is_fp_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_dest_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rob_value_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/frat_has_tag_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/frat_tag_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rat_has_tag_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/rat_tag_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:43 ; elapsed = 00:01:47 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 212 ; free virtual = 9643
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:46 ; elapsed = 00:01:51 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 199 ; free virtual = 9631
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:46 ; elapsed = 00:01:51 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 198 ; free virtual = 9629
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:01:52 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 197 ; free virtual = 9628
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:01:52 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 196 ; free virtual = 9627
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:48 ; elapsed = 00:01:52 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 197 ; free virtual = 9628
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:48 ; elapsed = 00:01:52 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 197 ; free virtual = 9628
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                     | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|dsp48e1_wrapper                 | Dynamic        | -      | -      | -      | -      | 40     | -    | -    | -    | -    | 0     | 0    | 0    | 
+|dsp48e1_wrapper__parameterized0 | C+A*B          | 24     | 16     | 35     | -      | 35     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|dsp48e1_wrapper__parameterized1 | A*B            | 24     | 17     | -      | -      | 41     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dsp48e1_wrapper__parameterized2 | PCIN>>17+A*B   | 0      | 7      | -      | -      | 31     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dsp48e1_wrapper__parameterized3 | PCIN+A:B+C     | 22     | 0      | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | A'*B'          | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | A'*B'          | 17     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | C+A'*B'        | 15     | 15     | 48     | -      | 48     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | C+A'*B'        | 17     | 15     | 48     | -      | 48     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | C+A'*B'        | 17     | 18     | 48     | -      | 48     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | C+A'*B'        | 15     | 18     | 48     | -      | 48     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | A*B            | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | A*B            | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | PCIN>>17+A*B   | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | A'*B'          | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|rv32_ooo_tick                   | PCIN>>17+A'*B' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
++--------------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------------+------+
+|      |Cell            |Count |
++------+----------------+------+
+|1     |CARRY8          |   132|
+|2     |DSP48E1         |     5|
+|3     |DSP_ALU         |    11|
+|4     |DSP_A_B_DATA    |    11|
+|6     |DSP_C_DATA      |    11|
+|8     |DSP_MULTIPLIER  |    11|
+|9     |DSP_M_DATA      |    11|
+|10    |DSP_OUTPUT      |    11|
+|11    |DSP_PREADD      |    11|
+|12    |DSP_PREADD_DATA |    11|
+|13    |LUT1            |   196|
+|14    |LUT2            |  1107|
+|15    |LUT3            |  2278|
+|16    |LUT4            |  1381|
+|17    |LUT5            |  1389|
+|18    |LUT6            |  2595|
+|19    |MUXCY           |  1400|
+|20    |MUXF7           |    45|
+|21    |RAM16X1S        |     1|
+|22    |RAMB18E2        |    11|
+|23    |RAMB36E2        |     5|
+|26    |SRL16E          |    44|
+|27    |SRLC32E         |     8|
+|28    |XORCY           |  1190|
+|29    |FDE             |    11|
+|30    |FDRE            |  4809|
+|31    |FDSE            |    59|
++------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:48 ; elapsed = 00:01:52 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 197 ; free virtual = 9628
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 52 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 3773.523 ; gain = 1132.078 ; free physical = 196 ; free virtual = 9627
+Synthesis Optimization Complete : Time (s): cpu = 00:01:48 ; elapsed = 00:01:53 . Memory (MB): peak = 3773.523 ; gain = 1249.953 ; free physical = 196 ; free virtual = 9627
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3773.523 ; gain = 0.000 ; free physical = 343 ; free virtual = 9774
+INFO: [Netlist 29-17] Analyzing 2795 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3773.523 ; gain = 0.000 ; free physical = 296 ; free virtual = 9738
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 256 instances were transformed.
+  (CARRY4) => CARRY8: 228 instances
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 5 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 11 instances
+  FDE => FDRE: 11 instances
+  RAM16X1S => RAM32X1S (RAMS32): 1 instance 
+
+Synth Design complete | Checksum: cd6f2bf5
+INFO: [Common 17-83] Releasing license: Synthesis
+269 Infos, 113 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 3773.523 ; gain = 2225.707 ; free physical = 295 ; free virtual = 9738
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 3148.258; main = 2920.923; forked = 264.835
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4682.902; main = 3773.527; forked = 909.375
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.07 . Memory (MB): peak = 3779.730 ; gain = 0.000 ; free physical = 294 ; free virtual = 9739
+INFO: [Common 17-1381] The checkpoint '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bd_0_hls_inst_0, cache-ID = e2d9377b56b57808
+INFO: [Coretcl 2-1174] Renamed 480 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3779.730 ; gain = 0.000 ; free physical = 227 ; free virtual = 9692
+INFO: [Common 17-1381] The checkpoint '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/impl/verilog/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file bd_0_hls_inst_0_utilization_synth.rpt -pb bd_0_hls_inst_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 22 07:51:17 2026...

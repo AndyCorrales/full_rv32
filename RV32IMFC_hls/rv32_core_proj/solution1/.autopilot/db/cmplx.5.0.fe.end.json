@@ -1,0 +1,27 @@
+{
+    "0": {
+        "name": "rv32_core_step",
+        "file": "rv32_core.cpp",
+        "fileloc": "86",
+        "instructions": "1082",
+        "total_instructions": "1282",
+        "calls": "1",
+        "basicblocks": "108",
+        "loads": {
+            "G": "6",
+            "T": "96"
+        },
+        "stores": {
+            "T": "89"
+        }
+    },
+    "1": {
+        "name": "expand",
+        "file": "rv32c_defs.h",
+        "fileloc": "65",
+        "instructions": "200",
+        "total_instructions": "200",
+        "calls": "",
+        "basicblocks": "47"
+    }
+}

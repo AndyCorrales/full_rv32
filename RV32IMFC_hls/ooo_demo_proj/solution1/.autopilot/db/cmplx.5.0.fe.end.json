@@ -1,0 +1,36 @@
+{
+    "0": {
+        "name": "ooo_demo_tick",
+        "file": "ooo_demo.cpp",
+        "fileloc": "82",
+        "instructions": "459",
+        "total_instructions": "503",
+        "calls": "1",
+        "basicblocks": "88",
+        "loads": {
+            "G": "62"
+        },
+        "stores": {
+            "G": "74"
+        }
+    },
+    "1": {
+        "name": "ooo_demo_tick_Pipeline_VITIS_LOOP_119_1",
+        "file": "ooo_demo.cpp",
+        "fileloc": "119",
+        "instructions": "44",
+        "total_instructions": "44",
+        "calls": "",
+        "basicblocks": "9",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "G": "25",
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}

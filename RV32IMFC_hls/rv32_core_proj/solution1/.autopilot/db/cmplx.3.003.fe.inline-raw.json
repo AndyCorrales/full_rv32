@@ -1,0 +1,83 @@
+{
+  "0": {
+    "basicblocks": 149,
+    "calls": "2 3 5 1 1",
+    "file": "rv32_core.cpp",
+    "fileloc": 86,
+    "instructions": 1053,
+    "loads": {
+      "L": 14,
+      "T": 108
+    },
+    "name": "rv32_core_step",
+    "stores": {
+      "L": 23,
+      "T": 101
+    },
+    "total_instructions": 2307
+  },
+  "1": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "hls_rint.h",
+    "fileloc": 26,
+    "instructions": 154,
+    "loads": {
+      "G": 3,
+      "L": 22
+    },
+    "name": "generic_rint<float>",
+    "stores": {
+      "L": 20
+    },
+    "total_instructions": 154
+  },
+  "2": {
+    "basicblocks": 47,
+    "calls": "4 4 4 4 4 4 4 4 4 4 4",
+    "file": "rv32c_defs.h",
+    "fileloc": 65,
+    "instructions": 496,
+    "name": "expand",
+    "total_instructions": 606
+  },
+  "3": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "hls_fmin.h",
+    "fileloc": 19,
+    "instructions": 170,
+    "loads": {
+      "L": 24
+    },
+    "name": "generic_fmin<float>",
+    "stores": {
+      "L": 19
+    },
+    "total_instructions": 170
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 34,
+    "instructions": 10,
+    "name": "i_type",
+    "total_instructions": 10
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "hls_fmax.h",
+    "fileloc": 19,
+    "instructions": 170,
+    "loads": {
+      "L": 24
+    },
+    "name": "generic_fmax<float>",
+    "stores": {
+      "L": 19
+    },
+    "total_instructions": 170
+  }
+}

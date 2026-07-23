@@ -1,0 +1,756 @@
+{
+  "0": {
+    "basicblocks": 389,
+    "calls": "33 55 15 52 15 60 15 28 15 38 15 6 25 48 15 61 26 23 8 56 11 12 62 62 3 65 65 65 65 59 64 65 65 64 67 22 65 22 22 27 22 65 22 22 65 64 66 65 65 55 15",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 484,
+    "instructions": 2170,
+    "loads": {
+      "G": 225,
+      "L": 60,
+      "T": 6
+    },
+    "name": "rv32_ooo_tick",
+    "stores": {
+      "G": 573,
+      "T": 58
+    },
+    "total_instructions": 6637
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "16",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 116,
+    "instructions": 2,
+    "name": "generic_cast_IEEE754<int, float>",
+    "total_instructions": 149
+  },
+  "10": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "hls_fabs.h",
+    "fileloc": 12,
+    "instructions": 2,
+    "name": "generic_fabs<float>",
+    "total_instructions": 51
+  },
+  "11": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 184,
+    "instructions": 3,
+    "name": "rs2",
+    "total_instructions": 3
+  },
+  "12": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 185,
+    "instructions": 2,
+    "name": "funct7",
+    "total_instructions": 2
+  },
+  "13": {
+    "basicblocks": 1,
+    "calls": "53",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 116,
+    "instructions": 2,
+    "name": "generic_cast_IEEE754<unsigned int, float>",
+    "total_instructions": 132
+  },
+  "14": {
+    "basicblocks": 3,
+    "calls": "",
+    "file": "fp_ops.h",
+    "fileloc": 27,
+    "instructions": 7,
+    "loads": {
+      "L": 1
+    },
+    "name": "bits_to_float",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 7
+  },
+  "15": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 177,
+    "instructions": 154,
+    "loads": {
+      "G": 45
+    },
+    "name": "cdb_broadcast",
+    "stores": {
+      "G": 30
+    },
+    "total_instructions": 154
+  },
+  "16": {
+    "basicblocks": 58,
+    "calls": "2 63 39 39 18",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 12,
+    "instructions": 117,
+    "loads": {
+      "L": 3
+    },
+    "name": "generic_cast_IEEE754<int, AP_TRN_ZERO, float>",
+    "total_instructions": 147
+  },
+  "17": {
+    "basicblocks": 1,
+    "calls": "54",
+    "file": "x_hls_utils.h",
+    "fileloc": 319,
+    "instructions": 4,
+    "loads": {
+      "L": 1
+    },
+    "name": "to_int",
+    "total_instructions": 18
+  },
+  "18": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 349,
+    "instructions": 3,
+    "loads": {
+      "L": 1
+    },
+    "name": "__signbit",
+    "total_instructions": 3
+  },
+  "19": {
+    "basicblocks": 8,
+    "calls": "7",
+    "file": "fp_ops.h",
+    "fileloc": 45,
+    "instructions": 14,
+    "name": "fcvt_wu_s",
+    "total_instructions": 346
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 283,
+    "instructions": 8,
+    "name": "fp_struct",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 8
+  },
+  "20": {
+    "basicblocks": 1,
+    "calls": "10",
+    "file": "fabsfloat.cpp",
+    "fileloc": 7,
+    "instructions": 2,
+    "name": "fabsf",
+    "total_instructions": 53
+  },
+  "21": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 22,
+    "instructions": 4,
+    "name": "sext",
+    "total_instructions": 4
+  },
+  "22": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 282,
+    "instructions": 31,
+    "loads": {
+      "G": 5
+    },
+    "name": "read_operand_fp",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 31
+  },
+  "23": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 181,
+    "instructions": 3,
+    "name": "rd",
+    "total_instructions": 3
+  },
+  "24": {
+    "basicblocks": 1,
+    "calls": "31",
+    "file": "fmaxfloat.cpp",
+    "fileloc": 6,
+    "instructions": 2,
+    "name": "fmaxf",
+    "total_instructions": 198
+  },
+  "25": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 226,
+    "instructions": 33,
+    "loads": {
+      "G": 8
+    },
+    "name": "read_csr",
+    "stores": {
+      "L": 11
+    },
+    "total_instructions": 33
+  },
+  "26": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 180,
+    "instructions": 2,
+    "name": "opcode",
+    "total_instructions": 2
+  },
+  "27": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 190,
+    "instructions": 2,
+    "name": "rs3",
+    "total_instructions": 2
+  },
+  "28": {
+    "basicblocks": 9,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 427,
+    "instructions": 17,
+    "name": "branch_taken",
+    "total_instructions": 17
+  },
+  "29": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 20,
+    "instructions": 2,
+    "name": "creg",
+    "total_instructions": 2
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "43",
+    "file": "immediates_hls.h",
+    "fileloc": 47,
+    "instructions": 8,
+    "name": "get_imm_J",
+    "total_instructions": 12
+  },
+  "30": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 37,
+    "instructions": 13,
+    "name": "s_type",
+    "total_instructions": 13
+  },
+  "31": {
+    "basicblocks": 22,
+    "calls": "2 2 47 47 49 47 17 17",
+    "file": "hls_fmax.h",
+    "fileloc": 19,
+    "instructions": 60,
+    "loads": {
+      "L": 7
+    },
+    "name": "generic_fmax<float>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 196
+  },
+  "32": {
+    "basicblocks": 1,
+    "calls": "5",
+    "file": "fminfloat.cpp",
+    "fileloc": 6,
+    "instructions": 2,
+    "name": "fminf",
+    "total_instructions": 198
+  },
+  "33": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 460,
+    "instructions": 42,
+    "loads": {
+      "L": 2
+    },
+    "name": "dmem_store",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 42
+  },
+  "34": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_fma.h",
+    "fileloc": 10,
+    "instructions": 3,
+    "name": "generic_fma<float>",
+    "total_instructions": 3
+  },
+  "35": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 46,
+    "instructions": 5,
+    "name": "u_type",
+    "total_instructions": 5
+  },
+  "36": {
+    "basicblocks": 8,
+    "calls": "9",
+    "file": "fp_ops.h",
+    "fileloc": 37,
+    "instructions": 14,
+    "name": "fcvt_w_s",
+    "total_instructions": 363
+  },
+  "37": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 298,
+    "instructions": 7,
+    "name": "fp_struct",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 7
+  },
+  "38": {
+    "basicblocks": 8,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 444,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "name": "dmem_load",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 34
+  },
+  "39": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 316,
+    "instructions": 4,
+    "loads": {
+      "L": 1
+    },
+    "name": "expv",
+    "total_instructions": 4
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "2 2 49",
+    "file": "hls_copysign.h",
+    "fileloc": 10,
+    "instructions": 12,
+    "loads": {
+      "L": 1
+    },
+    "name": "generic_copysign<float>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 49
+  },
+  "40": {
+    "basicblocks": 1,
+    "calls": "51",
+    "file": "nearbyintfloat.cpp",
+    "fileloc": 6,
+    "instructions": 2,
+    "name": "nearbyintf",
+    "total_instructions": 194
+  },
+  "41": {
+    "basicblocks": 1,
+    "calls": "54",
+    "file": "x_hls_utils.h",
+    "fileloc": 322,
+    "instructions": 5,
+    "loads": {
+      "L": 1
+    },
+    "name": "to_float",
+    "total_instructions": 19
+  },
+  "42": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 41,
+    "instructions": 21,
+    "name": "b_type",
+    "total_instructions": 21
+  },
+  "43": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "immediates_hls.h",
+    "fileloc": 15,
+    "instructions": 4,
+    "name": "sign_extend",
+    "total_instructions": 4
+  },
+  "44": {
+    "basicblocks": 8,
+    "calls": "57",
+    "file": "fp_ops.h",
+    "fileloc": 55,
+    "instructions": 21,
+    "name": "fclass_s",
+    "total_instructions": 93
+  },
+  "45": {
+    "basicblocks": 1,
+    "calls": "34",
+    "file": "fmafloat.cpp",
+    "fileloc": 6,
+    "instructions": 2,
+    "name": "fmaf",
+    "total_instructions": 5
+  },
+  "46": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 34,
+    "instructions": 10,
+    "name": "i_type",
+    "total_instructions": 10
+  },
+  "47": {
+    "basicblocks": 3,
+    "calls": "2",
+    "file": "hls_isnan.h",
+    "fileloc": 16,
+    "instructions": 13,
+    "loads": {
+      "L": 2
+    },
+    "name": "generic_isnan<float>",
+    "total_instructions": 21
+  },
+  "48": {
+    "basicblocks": 11,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 242,
+    "instructions": 20,
+    "name": "write_csr",
+    "stores": {
+      "G": 8
+    },
+    "total_instructions": 20
+  },
+  "49": {
+    "basicblocks": 1,
+    "calls": "41",
+    "file": "x_hls_utils.h",
+    "fileloc": 346,
+    "instructions": 2,
+    "name": "to_ieee",
+    "total_instructions": 21
+  },
+  "5": {
+    "basicblocks": 22,
+    "calls": "2 2 47 47 49 47 17 17",
+    "file": "hls_fmin.h",
+    "fileloc": 19,
+    "instructions": 60,
+    "loads": {
+      "L": 7
+    },
+    "name": "generic_fmin<float>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 196
+  },
+  "50": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 49,
+    "instructions": 19,
+    "name": "j_type",
+    "total_instructions": 19
+  },
+  "51": {
+    "basicblocks": 13,
+    "calls": "2 4 54 54 37 49",
+    "file": "hls_rint.h",
+    "fileloc": 26,
+    "instructions": 79,
+    "loads": {
+      "G": 3,
+      "L": 11
+    },
+    "name": "generic_rint<float>",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 192
+  },
+  "52": {
+    "basicblocks": 27,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 319,
+    "instructions": 69,
+    "name": "md_compute",
+    "stores": {
+      "L": 13
+    },
+    "total_instructions": 69
+  },
+  "53": {
+    "basicblocks": 49,
+    "calls": "2 63 39 39 18",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 65,
+    "instructions": 100,
+    "loads": {
+      "L": 3
+    },
+    "name": "generic_cast_IEEE754<unsigned int, AP_TRN_ZERO, float>",
+    "total_instructions": 130
+  },
+  "54": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 309,
+    "instructions": 14,
+    "loads": {
+      "L": 4
+    },
+    "name": "data",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 14
+  },
+  "55": {
+    "basicblocks": 17,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 300,
+    "instructions": 45,
+    "name": "alu_compute",
+    "stores": {
+      "L": 9
+    },
+    "total_instructions": 45
+  },
+  "56": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 183,
+    "instructions": 3,
+    "name": "rs1",
+    "total_instructions": 3
+  },
+  "57": {
+    "basicblocks": 3,
+    "calls": "",
+    "file": "fp_ops.h",
+    "fileloc": 22,
+    "instructions": 7,
+    "loads": {
+      "L": 1
+    },
+    "name": "float_to_bits",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 7
+  },
+  "58": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 31,
+    "instructions": 11,
+    "name": "r_type",
+    "total_instructions": 11
+  },
+  "59": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "immediates_hls.h",
+    "fileloc": 57,
+    "instructions": 3,
+    "name": "get_shamt",
+    "total_instructions": 3
+  },
+  "6": {
+    "basicblocks": 28,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 414,
+    "instructions": 122,
+    "loads": {
+      "G": 13
+    },
+    "name": "vec_arith_compute",
+    "stores": {
+      "G": 4
+    },
+    "total_instructions": 122
+  },
+  "60": {
+    "basicblocks": 40,
+    "calls": "14 14 14 57 57 57 57 57 57 57 57 57 57 19 36 57 57 44",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 354,
+    "instructions": 138,
+    "loads": {
+      "G": 17
+    },
+    "name": "fpu_compute",
+    "stores": {
+      "L": 20
+    },
+    "total_instructions": 1475
+  },
+  "61": {
+    "basicblocks": 75,
+    "calls": "29 29 46 46 46 30 30 29 29 21 46 21 50 21 46 21 46 21 35 58 58 21 46 58 58 58 58 21 50 21 42 21 42 58 46 46 46 58 46 58 30 30",
+    "file": "rv32c_defs.h",
+    "fileloc": 65,
+    "instructions": 419,
+    "name": "expand",
+    "total_instructions": 809
+  },
+  "62": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "immediates_hls.h",
+    "fileloc": 41,
+    "instructions": 3,
+    "name": "get_imm_U",
+    "total_instructions": 3
+  },
+  "63": {
+    "basicblocks": 4,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 340,
+    "instructions": 11,
+    "loads": {
+      "L": 1
+    },
+    "name": "mantissa",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 11
+  },
+  "64": {
+    "basicblocks": 1,
+    "calls": "43",
+    "file": "immediates_hls.h",
+    "fileloc": 20,
+    "instructions": 4,
+    "name": "get_imm_I",
+    "total_instructions": 8
+  },
+  "65": {
+    "basicblocks": 9,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 260,
+    "instructions": 37,
+    "loads": {
+      "G": 5
+    },
+    "name": "read_operand",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 37
+  },
+  "66": {
+    "basicblocks": 1,
+    "calls": "43",
+    "file": "immediates_hls.h",
+    "fileloc": 31,
+    "instructions": 8,
+    "name": "get_imm_B",
+    "total_instructions": 12
+  },
+  "67": {
+    "basicblocks": 1,
+    "calls": "43",
+    "file": "immediates_hls.h",
+    "fileloc": 24,
+    "instructions": 6,
+    "name": "get_imm_S",
+    "total_instructions": 10
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "13",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 65,
+    "instructions": 2,
+    "name": "__hls_fptoui_float_i32",
+    "total_instructions": 134
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32i_defs.h",
+    "fileloc": 182,
+    "instructions": 3,
+    "name": "funct3",
+    "total_instructions": 3
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "1",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 51,
+    "instructions": 2,
+    "name": "__hls_fptosi_float_i32",
+    "total_instructions": 151
+  }
+}

@@ -1,0 +1,114 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Jul 22 07:52:58 2026
+| Host         : andy-ThinkPad-P53 running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_utilization -hierarchical -hierarchical_depth 6 -file ./report/rv32_ooo_tick_utilization_hierarchical_synth.rpt
+| Design       : bd_0_wrapper
+| Device       : xck26-sfvc784-2LV-c
+| Speed File   : -2LV
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------------------------------+--------------------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+|                              Instance                             |                                     Module                                     | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++-------------------------------------------------------------------+--------------------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+| bd_0_wrapper                                                      |                                                                          (top) |       7775 |       7722 |       1 |   52 | 4879 |      5 |     11 |    0 |         16 |
+|   bd_0_i                                                          |                                                                           bd_0 |       7775 |       7722 |       1 |   52 | 4879 |      5 |     11 |    0 |         16 |
+|     hls_inst                                                      |                                                                bd_0_hls_inst_0 |       7775 |       7722 |       1 |   52 | 4879 |      5 |     11 |    0 |         16 |
+|       (hls_inst)                                                  |                                                                bd_0_hls_inst_0 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|       inst                                                        |                                                  bd_0_hls_inst_0_rv32_ooo_tick |       7775 |       7722 |       1 |   52 | 4879 |      5 |     11 |    0 |         16 |
+|         (inst)                                                    |                                                  bd_0_hls_inst_0_rv32_ooo_tick |        740 |        735 |       0 |    5 | 2325 |      0 |      0 |    0 |          0 |
+|         control_s_axi_U                                           |                                    bd_0_hls_inst_0_rv32_ooo_tick_control_s_axi |        103 |        103 |       0 |    0 |   25 |      0 |      0 |    0 |          0 |
+|         frat_has_tag_U                                            |                       bd_0_hls_inst_0_rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W |         16 |         16 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         frat_tag_U                                                |                           bd_0_hls_inst_0_rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W |         44 |         44 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         fregs_U                                                   |                              bd_0_hls_inst_0_rv32_ooo_tick_fregs_RAM_AUTO_1R1W |         37 |         37 |       0 |    0 |    0 |      1 |      0 |    0 |          0 |
+|         grp_fpu_compute_fu_5799                                   |                                      bd_0_hls_inst_0_rv32_ooo_tick_fpu_compute |       3009 |       2966 |       0 |   43 | 1666 |      0 |      0 |    0 |          5 |
+|           (grp_fpu_compute_fu_5799)                               |                                      bd_0_hls_inst_0_rv32_ooo_tick_fpu_compute |        670 |        670 |       0 |    0 |  456 |      0 |      0 |    0 |          0 |
+|           bitselect_1ns_32ns_32s_1_1_1_U67                        |                     bd_0_hls_inst_0_rv32_ooo_tick_bitselect_1ns_32ns_32s_1_1_1 |          9 |          9 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|           faddfsub_32ns_32ns_32_4_full_dsp_1_U56                  |               bd_0_hls_inst_0_rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1 |        287 |        287 |       0 |    0 |  202 |      0 |      0 |    0 |          2 |
+|             (faddfsub_32ns_32ns_32_4_full_dsp_1_U56)              |               bd_0_hls_inst_0_rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1 |         66 |         66 |       0 |    0 |   65 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip_u |            bd_0_hls_inst_0_rv32_ooo_tick_faddfsub_32ns_32ns_32_4_full_dsp_1_ip |        221 |        221 |       0 |    0 |  137 |      0 |      0 |    0 |          2 |
+|           fcmp_32ns_32ns_1_2_no_dsp_1_U61                         |                      bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1 |        258 |        258 |       0 |    0 |   68 |      0 |      0 |    0 |          0 |
+|             (fcmp_32ns_32ns_1_2_no_dsp_1_U61)                     |                      bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1 |         43 |         43 |       0 |    0 |   68 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u        |               bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_157 |        215 |        215 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|           fcmp_32ns_32ns_1_2_no_dsp_1_U62                         |                   bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_10 |          7 |          7 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u        |               bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_147 |          7 |          7 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|           fcmp_32ns_32ns_1_2_no_dsp_1_U63                         |                   bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_11 |         19 |         19 |       0 |    0 |   31 |      0 |      0 |    0 |          0 |
+|             (fcmp_32ns_32ns_1_2_no_dsp_1_U63)                     |                   bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_11 |          0 |          0 |       0 |    0 |   31 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u        |               bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_133 |         19 |         19 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|           fcmp_32ns_32ns_1_2_no_dsp_1_U64                         |                   bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_12 |         36 |         36 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip_u        |                   bd_0_hls_inst_0_rv32_ooo_tick_fcmp_32ns_32ns_1_2_no_dsp_1_ip |         36 |         36 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|           fdiv_32ns_32ns_32_9_no_dsp_1_U58                        |                     bd_0_hls_inst_0_rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1 |        792 |        760 |       0 |   32 |  359 |      0 |      0 |    0 |          0 |
+|             (fdiv_32ns_32ns_32_9_no_dsp_1_U58)                    |                     bd_0_hls_inst_0_rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip_u       |                  bd_0_hls_inst_0_rv32_ooo_tick_fdiv_32ns_32ns_32_9_no_dsp_1_ip |        792 |        760 |       0 |   32 |  327 |      0 |      0 |    0 |          0 |
+|           fmul_32ns_32ns_32_3_max_dsp_1_U57                       |                    bd_0_hls_inst_0_rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1 |        113 |        113 |       0 |    0 |   97 |      0 |      0 |    0 |          3 |
+|             (fmul_32ns_32ns_32_3_max_dsp_1_U57)                   |                    bd_0_hls_inst_0_rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1 |         33 |         33 |       0 |    0 |   64 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip_u      |                 bd_0_hls_inst_0_rv32_ooo_tick_fmul_32ns_32ns_32_3_max_dsp_1_ip |         80 |         80 |       0 |    0 |   33 |      0 |      0 |    0 |          3 |
+|           fsqrt_32ns_32ns_32_8_no_dsp_1_U65                       |                    bd_0_hls_inst_0_rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1 |        417 |        406 |       0 |   11 |  266 |      0 |      0 |    0 |          0 |
+|             (fsqrt_32ns_32ns_32_8_no_dsp_1_U65)                   |                    bd_0_hls_inst_0_rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1 |          0 |          0 |       0 |    0 |   27 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip_u      |                 bd_0_hls_inst_0_rv32_ooo_tick_fsqrt_32ns_32ns_32_8_no_dsp_1_ip |        417 |        406 |       0 |   11 |  239 |      0 |      0 |    0 |          0 |
+|           index_table_U                                           |              bd_0_hls_inst_0_rv32_ooo_tick_fpu_compute_index_table_ROM_AUTO_1R |          4 |          4 |       0 |    0 |    5 |      0 |      0 |    0 |          0 |
+|           mask_table_U                                            |               bd_0_hls_inst_0_rv32_ooo_tick_fpu_compute_mask_table_ROM_AUTO_1R |         58 |         58 |       0 |    0 |   23 |      0 |      0 |    0 |          0 |
+|           one_half_minus_one_table_U                              | bd_0_hls_inst_0_rv32_ooo_tick_fpu_compute_one_half_minus_one_table_ROM_AUTO_1R |         13 |         13 |       0 |    0 |    9 |      0 |      0 |    0 |          0 |
+|           sitofp_32ns_32_4_no_dsp_1_U60                           |                        bd_0_hls_inst_0_rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1 |        161 |        161 |       0 |    0 |   86 |      0 |      0 |    0 |          0 |
+|             (sitofp_32ns_32_4_no_dsp_1_U60)                       |                        bd_0_hls_inst_0_rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1 |          0 |          0 |       0 |    0 |    5 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip_u          |                     bd_0_hls_inst_0_rv32_ooo_tick_sitofp_32ns_32_4_no_dsp_1_ip |        161 |        161 |       0 |    0 |   81 |      0 |      0 |    0 |          0 |
+|           uitofp_32ns_32_4_no_dsp_1_U59                           |                        bd_0_hls_inst_0_rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1 |        165 |        165 |       0 |    0 |   64 |      0 |      0 |    0 |          0 |
+|             rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip_u          |                     bd_0_hls_inst_0_rv32_ooo_tick_uitofp_32ns_32_4_no_dsp_1_ip |        165 |        165 |       0 |    0 |   64 |      0 |      0 |    0 |          0 |
+|         grp_read_operand_fp_fu_5845                               |                                  bd_0_hls_inst_0_rv32_ooo_tick_read_operand_fp |        207 |        207 |       0 |    0 |   43 |      0 |      0 |    0 |          0 |
+|         grp_read_operand_fu_5830                                  |                                     bd_0_hls_inst_0_rv32_ooo_tick_read_operand |        405 |        405 |       0 |    0 |   44 |      0 |      0 |    0 |          0 |
+|         grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869     |        bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 |         38 |         38 |       0 |    0 |   19 |      0 |      0 |    0 |          0 |
+|           (grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11_fu_5869) |        bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11 |          2 |          2 |       0 |    0 |   17 |      0 |      0 |    0 |          0 |
+|           flow_control_loop_pipe_sequential_init_U                |         bd_0_hls_inst_0_rv32_ooo_tick_flow_control_loop_pipe_sequential_init_9 |         36 |         36 |       0 |    0 |    2 |      0 |      0 |    0 |          0 |
+|         grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877       |          bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4 |         31 |         31 |       0 |    0 |   10 |      0 |      0 |    0 |          0 |
+|           (grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4_fu_5877)   |          bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4 |          1 |          1 |       0 |    0 |    8 |      0 |      0 |    0 |          0 |
+|           flow_control_loop_pipe_sequential_init_U                |         bd_0_hls_inst_0_rv32_ooo_tick_flow_control_loop_pipe_sequential_init_8 |         30 |         30 |       0 |    0 |    2 |      0 |      0 |    0 |          0 |
+|         grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883       |          bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 |         38 |         38 |       0 |    0 |   19 |      0 |      0 |    0 |          0 |
+|           (grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5_fu_5883)   |          bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5 |          7 |          7 |       0 |    0 |   17 |      0 |      0 |    0 |          0 |
+|           flow_control_loop_pipe_sequential_init_U                |         bd_0_hls_inst_0_rv32_ooo_tick_flow_control_loop_pipe_sequential_init_7 |         31 |         31 |       0 |    0 |    2 |      0 |      0 |    0 |          0 |
+|         grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860      |         bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10 |         42 |         42 |       0 |    0 |    7 |      0 |      0 |    0 |          0 |
+|           (grp_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10_fu_5860)  |         bd_0_hls_inst_0_rv32_ooo_tick_rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10 |         37 |         37 |       0 |    0 |    5 |      0 |      0 |    0 |          0 |
+|           flow_control_loop_pipe_sequential_init_U                |           bd_0_hls_inst_0_rv32_ooo_tick_flow_control_loop_pipe_sequential_init |          5 |          5 |       0 |    0 |    2 |      0 |      0 |    0 |          0 |
+|         mul_32ns_32ns_64_1_1_U116                                 |                             bd_0_hls_inst_0_rv32_ooo_tick_mul_32ns_32ns_64_1_1 |        193 |        193 |       0 |    0 |    0 |      0 |      0 |    0 |          4 |
+|         mul_32ns_32s_64_1_1_U117                                  |                              bd_0_hls_inst_0_rv32_ooo_tick_mul_32ns_32s_64_1_1 |        106 |        106 |       0 |    0 |    0 |      0 |      0 |    0 |          2 |
+|         mul_32s_32s_32_1_1_U118                                   |                               bd_0_hls_inst_0_rv32_ooo_tick_mul_32s_32s_32_1_1 |         22 |         22 |       0 |    0 |    0 |      0 |      0 |    0 |          3 |
+|         mul_32s_32s_64_1_1_U119                                   |                               bd_0_hls_inst_0_rv32_ooo_tick_mul_32s_32s_64_1_1 |          4 |          4 |       0 |    0 |    0 |      0 |      0 |    0 |          2 |
+|         rat_has_tag_U                                             |                     bd_0_hls_inst_0_rv32_ooo_tick_frat_has_tag_RAM_AUTO_1R1W_0 |         16 |         16 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rat_tag_U                                                 |                         bd_0_hls_inst_0_rv32_ooo_tick_frat_tag_RAM_AUTO_1R1W_1 |         29 |         29 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         regfile_U                                                 |                            bd_0_hls_inst_0_rv32_ooo_tick_fregs_RAM_AUTO_1R1W_2 |         12 |         12 |       0 |    0 |    0 |      1 |      0 |    0 |          0 |
+|         rob_addr_U                                                |                           bd_0_hls_inst_0_rv32_ooo_tick_rob_addr_RAM_AUTO_1R1W |         30 |         30 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_dest_U                                                |                           bd_0_hls_inst_0_rv32_ooo_tick_rob_dest_RAM_AUTO_1R1W |         85 |         85 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_dest_is_fp_U                                          |                          bd_0_hls_inst_0_rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W |          9 |          9 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_is_ecall_U                                            |                       bd_0_hls_inst_0_rv32_ooo_tick_rob_is_ecall_RAM_AUTO_1R1W |          8 |          7 |       1 |    0 |    1 |      0 |      0 |    0 |          0 |
+|         rob_is_store_U                                            |                        bd_0_hls_inst_0_rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W_3 |         11 |         11 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_mem_f3_U                                              |                         bd_0_hls_inst_0_rv32_ooo_tick_rob_mem_f3_RAM_AUTO_1R1W |          9 |          9 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_ready_U                                               |                        bd_0_hls_inst_0_rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W_4 |         51 |         51 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_sdata_U                                               |                          bd_0_hls_inst_0_rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W |        111 |        111 |       0 |    0 |    0 |      1 |      0 |    0 |          0 |
+|         rob_valid_U                                               |                        bd_0_hls_inst_0_rv32_ooo_tick_rob_valid_RAM_AUTO_1R1W_5 |         76 |         76 |       0 |    0 |    0 |      0 |      1 |    0 |          0 |
+|         rob_value_U                                               |                        bd_0_hls_inst_0_rv32_ooo_tick_rob_sdata_RAM_AUTO_1R1W_6 |       1033 |       1033 |       0 |    0 |    0 |      1 |      0 |    0 |          0 |
+|         sdiv_32s_32s_32_36_seq_1_U124                             |                         bd_0_hls_inst_0_rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1 |        155 |        154 |       0 |    1 |  164 |      0 |      0 |    0 |          0 |
+|           (sdiv_32s_32s_32_36_seq_1_U124)                         |                         bd_0_hls_inst_0_rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1 |         42 |         42 |       0 |    0 |   33 |      0 |      0 |    0 |          0 |
+|           rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1_divseq_u         |                  bd_0_hls_inst_0_rv32_ooo_tick_sdiv_32s_32s_32_36_seq_1_divseq |        113 |        112 |       0 |    1 |  131 |      0 |      0 |    0 |          0 |
+|         srem_32s_32s_32_36_seq_1_U122                             |                         bd_0_hls_inst_0_rv32_ooo_tick_srem_32s_32s_32_36_seq_1 |        333 |        332 |       0 |    1 |  229 |      0 |      0 |    0 |          0 |
+|           (srem_32s_32s_32_36_seq_1_U122)                         |                         bd_0_hls_inst_0_rv32_ooo_tick_srem_32s_32s_32_36_seq_1 |        124 |        124 |       0 |    0 |   97 |      0 |      0 |    0 |          0 |
+|           rv32_ooo_tick_srem_32s_32s_32_36_seq_1_divseq_u         |                  bd_0_hls_inst_0_rv32_ooo_tick_srem_32s_32s_32_36_seq_1_divseq |        209 |        208 |       0 |    1 |  132 |      0 |      0 |    0 |          0 |
+|         udiv_32s_32s_32_36_seq_1_U123                             |                         bd_0_hls_inst_0_rv32_ooo_tick_udiv_32s_32s_32_36_seq_1 |        219 |        218 |       0 |    1 |  163 |      0 |      0 |    0 |          0 |
+|           (udiv_32s_32s_32_36_seq_1_U123)                         |                         bd_0_hls_inst_0_rv32_ooo_tick_udiv_32s_32s_32_36_seq_1 |        138 |        138 |       0 |    0 |   33 |      0 |      0 |    0 |          0 |
+|           rv32_ooo_tick_udiv_32s_32s_32_36_seq_1_divseq_u         |                  bd_0_hls_inst_0_rv32_ooo_tick_udiv_32s_32s_32_36_seq_1_divseq |         81 |         80 |       0 |    1 |  130 |      0 |      0 |    0 |          0 |
+|         urem_32s_32s_32_36_seq_1_U125                             |                         bd_0_hls_inst_0_rv32_ooo_tick_urem_32s_32s_32_36_seq_1 |        257 |        256 |       0 |    1 |  164 |      0 |      0 |    0 |          0 |
+|           (urem_32s_32s_32_36_seq_1_U125)                         |                         bd_0_hls_inst_0_rv32_ooo_tick_urem_32s_32s_32_36_seq_1 |        175 |        175 |       0 |    0 |   33 |      0 |      0 |    0 |          0 |
+|           rv32_ooo_tick_urem_32s_32s_32_36_seq_1_divseq_u         |                  bd_0_hls_inst_0_rv32_ooo_tick_urem_32s_32s_32_36_seq_1_divseq |         82 |         81 |       0 |    1 |  131 |      0 |      0 |    0 |          0 |
+|         vregs_U                                                   |                              bd_0_hls_inst_0_rv32_ooo_tick_vregs_RAM_AUTO_1R1W |        296 |        296 |       0 |    0 |    0 |      1 |      0 |    0 |          0 |
++-------------------------------------------------------------------+--------------------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+
+

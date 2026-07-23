@@ -1,0 +1,20 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../ooo_demo_tb.cpp in debug mode
+   Compiling ../../../../ooo_demo.cpp in debug mode
+   Generating csim.exe
+ciclo | evento
+------+--------------------------------------------
+    3 | ALU completa ejecucion (tag 0)
+    4 | COMMIT R1 = 0x0000000f
+    5 | ALU completa ejecucion (tag 2)
+    6 | MUL completa ejecucion (tag 1)
+    7 | COMMIT R2 = 0x000000e1
+    8 | COMMIT R3 = 0x00000004
+------+--------------------------------------------
+Halted en el ciclo 8. R0=5 R1=15 R2=225 R3=4
+OK: I2 completo en el ciclo 5, ANTES que I1 (ciclo 6) -- ejecucion fuera de orden confirmada.
+OK: commit en orden de programa (R1, R2, R3) pese al completion fuera de orden.
+Todos los checks pasaron.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

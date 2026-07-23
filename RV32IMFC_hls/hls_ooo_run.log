@@ -1,0 +1,274 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.2 (64-bit)
+  **** SW Build 5238294 on Nov  8 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Fri Jul 17 22:55:31 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/andy/Programas/Vivado/Vitis/2024.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'andy' on host 'andy-ThinkPad-P53' (Linux_x86_64 version 6.17.0-40-generic) on Fri Jul 17 22:55:32 CST 2026
+INFO: [HLS 200-10] On os Ubuntu 24.04.4 LTS
+INFO: [HLS 200-10] In directory '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'run_hls_ooo.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset ooo_demo_proj 
+INFO: [HLS 200-10] Creating and opening project '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj'.
+INFO: [HLS 200-1510] Running: set_top ooo_demo_tick 
+INFO: [HLS 200-1510] Running: add_files ooo_demo.cpp 
+INFO: [HLS 200-10] Adding design file 'ooo_demo.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb ooo_demo_tb.cpp 
+INFO: [HLS 200-10] Adding test bench file 'ooo_demo_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xck26-sfvc784-2LV-c 
+INFO: [HLS 200-1611] Setting target device to 'xck26-sfvc784-2LV-c'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../ooo_demo_tb.cpp in debug mode
+   Compiling ../../../../ooo_demo.cpp in debug mode
+   Generating csim.exe
+ciclo | evento
+------+--------------------------------------------
+    3 | ALU completa ejecucion (tag 0)
+    4 | COMMIT R1 = 0x0000000f
+    5 | ALU completa ejecucion (tag 2)
+    6 | MUL completa ejecucion (tag 1)
+    7 | COMMIT R2 = 0x000000e1
+    8 | COMMIT R3 = 0x00000004
+------+--------------------------------------------
+Halted en el ciclo 8. R0=5 R1=15 R2=225 R3=4
+OK: I2 completo en el ciclo 5, ANTES que I1 (ciclo 6) -- ejecucion fuera de orden confirmada.
+OK: commit en orden de programa (R1, R2, R3) pese al completion fuera de orden.
+Todos los checks pasaron.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:04; Allocated memory: 0.109 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.24 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.29 seconds; current allocated memory: 634.664 MB.
+INFO: [HLS 200-10] Analyzing design file 'ooo_demo.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.68 seconds. CPU system time: 0.5 seconds. Elapsed time: 4.3 seconds; current allocated memory: 636.809 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 3,345 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 480 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 411 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 406 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 357 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 625 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 487 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 490 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 491 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-178] Inlining function 'read_operand(ap_uint<2>, RatEntry*, RobEntry*, ap_uint<32>*, bool&, ap_uint<32>&, ap_uint<2>&)' into 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)' (ooo_demo.cpp:95:0)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_119_1> at ooo_demo.cpp:119:27 
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.unit' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.dest' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.src1' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.src2_is_imm' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.src2_reg' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.imm' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7PROGRAM.op' completely based on array size. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile' completely based on array size. (ooo_demo.cpp:110:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag' completely based on array size. (ooo_demo.cpp:111:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag' completely based on array size. (ooo_demo.cpp:111:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid' completely based on array size. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest' completely based on array size. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value' completely based on array size. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready' completely based on array size. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.dest)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.imm)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.op)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.src1)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.src2_is_imm)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.src2_reg)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'PROGRAM (.unit)' due to pipeline pragma (ooo_demo.cpp:23:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rat (.has_tag)' due to pipeline pragma (ooo_demo.cpp:111:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rat (.tag)' due to pipeline pragma (ooo_demo.cpp:111:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.dest)' due to pipeline pragma (ooo_demo.cpp:112:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.ready)' due to pipeline pragma (ooo_demo.cpp:112:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.valid)' due to pipeline pragma (ooo_demo.cpp:112:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.value)' due to pipeline pragma (ooo_demo.cpp:112:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::regfile' due to pipeline pragma (ooo_demo.cpp:110:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile': Complete partitioning on dimension 1. (ooo_demo.cpp:110:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value': Complete partitioning on dimension 1. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid': Complete partitioning on dimension 1. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready': Complete partitioning on dimension 1. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest': Complete partitioning on dimension 1. (ooo_demo.cpp:112:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag': Complete partitioning on dimension 1. (ooo_demo.cpp:111:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag': Complete partitioning on dimension 1. (ooo_demo.cpp:111:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.unit': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.src2_reg': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.src2_is_imm': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.src1': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.op': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.imm': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7PROGRAM.dest': Complete partitioning on dimension 1. (ooo_demo.cpp:23:0)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:215:21)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:219:26)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:222:27)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:64:19)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:147:40)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:149:9)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:71:16)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:169:31)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (ooo_demo.cpp:187:31)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.44 seconds. CPU system time: 0.65 seconds. Elapsed time: 8.47 seconds; current allocated memory: 647.023 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 647.023 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 648.035 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 648.488 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (ooo_demo.cpp:204:18) to (ooo_demo.cpp:214:32) in function 'ooo_demo_tick'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (ooo_demo.cpp:171:26) to (ooo_demo.cpp:181:9) in function 'ooo_demo_tick'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (ooo_demo.cpp:189:26) to (ooo_demo.cpp:199:9) in function 'ooo_demo_tick'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (ooo_demo.cpp:64:19) to (ooo_demo.cpp:236:22) in function 'ooo_demo_tick'... converting 10 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.39 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.49 seconds; current allocated memory: 672.883 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.52 seconds. CPU system time: 0 seconds. Elapsed time: 0.64 seconds; current allocated memory: 673.434 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'ooo_demo_tick' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ooo_demo_tick_Pipeline_VITIS_LOOP_119_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_119_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_119_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.15 seconds; current allocated memory: 674.309 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 674.309 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ooo_demo_tick' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.32 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.33 seconds; current allocated memory: 679.020 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 679.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ooo_demo_tick_Pipeline_VITIS_LOOP_119_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ooo_demo_tick_Pipeline_VITIS_LOOP_119_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 679.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ooo_demo_tick' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/reset' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/r0_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'r0_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/r1_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'r1_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/r2_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'r2_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/r3_out' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'r3_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/commit_reg' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'commit_reg' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/commit_valid' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'commit_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/alu_complete_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'alu_complete_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/alu_complete_valid' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'alu_complete_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/mul_complete_tag' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'mul_complete_tag' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/mul_complete_valid' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'mul_complete_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ooo_demo_tick/halted' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'halted' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on function 'ooo_demo_tick' to 's_axilite & ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_19' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rob_count' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_executing' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_remaining' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_busy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_executing' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_remaining' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_15' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_18' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_25' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_22' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_17' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_24' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_21' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_16' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_23' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_20' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ooo_demo_tick_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rob_head' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rob_tail' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fetch_pc' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_src1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_src2_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_src1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_src1_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_src2_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_src2_val' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_op' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_dest_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_src1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_src2_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_src1_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_src2_ready' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'mul_dest_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_src1_tag' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'alu_src2_tag' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_1_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_2_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_4_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_1_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_2_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ooo_demo_tick'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.38 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.41 seconds; current allocated memory: 680.043 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.32 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.35 seconds; current allocated memory: 690.211 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.33 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.34 seconds; current allocated memory: 695.324 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for ooo_demo_tick.
+INFO: [VLOG 209-307] Generating Verilog RTL for ooo_demo_tick.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 175.38 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:16; Allocated memory: 61.418 MB.
+C-simulation y C-synthesis del demo OOO terminados.
+Reporte: ooo_demo_proj/solution1/syn/report/ooo_demo_tick_csynth.rpt
+INFO: [HLS 200-112] Total CPU user time: 17.96 seconds. Total CPU system time: 2.41 seconds. Total elapsed time: 25.05 seconds; peak allocated memory: 695.664 MB.

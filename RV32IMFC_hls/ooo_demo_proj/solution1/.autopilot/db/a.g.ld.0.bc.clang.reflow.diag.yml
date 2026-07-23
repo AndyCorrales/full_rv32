@@ -1,0 +1,1264 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/.autopilot/db/ooo_demo.pp.0.cpp, 
+                   Line: 0, Column: 0 }
+Function:        _GLOBAL__sub_I_ooo_demo.pp.0.cpp
+Args:            
+  - Callee:          __cxx_global_var_init
+    DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          _GLOBAL__sub_I_ooo_demo.pp.0.cpp
+    DebugLoc:        { File: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/ooo_demo_proj/solution1/.autopilot/db/ooo_demo.pp.0.cpp, 
+                       Line: 0, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: ooo_demo.cpp, Line: 232, Column: 17 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - Callee:          'read_operand(ap_uint<2>, RatEntry*, RobEntry*, ap_uint<32>*, bool&, ap_uint<32>&, ap_uint<2>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 63, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 95, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: ooo_demo.cpp, Line: 226, Column: 13 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - Callee:          'read_operand(ap_uint<2>, RatEntry*, RobEntry*, ap_uint<32>*, bool&, ap_uint<32>&, ap_uint<2>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 63, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 95, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_ooo_demo_tick_ir
+Args:            
+  - Callee:          'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 95, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_ooo_demo_tick_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ooo_demo.cpp, Line: 95, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'read_operand(ap_uint<2>, RatEntry*, RobEntry*, ap_uint<32>*, bool&, ap_uint<32>&, ap_uint<2>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 63, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)'
+    DebugLoc:        { File: ooo_demo.cpp, Line: 95, Column: 0 }
+  - String:          ''''
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_119_1
+  - String:          '> at '
+  - LoopLoc:         'ooo_demo.cpp:119:27'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.unit
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.dest
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.src1
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.src2_is_imm
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.src2_reg
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.imm
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZL7PROGRAM.op
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 110, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.dest'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.dest)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.dest)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.imm'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.imm)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.imm)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.op'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.op)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.op)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.src1'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.src1)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.src1)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.src2_is_imm'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.src2_is_imm)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.src2_is_imm)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.src2_reg'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.src2_reg)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.src2_reg)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZL7PROGRAM.unit'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:23:0'
+  - String:          ' '
+  - VarName:         'PROGRAM (.unit)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'PROGRAM (.unit)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:111:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rat (.has_tag)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rat (.has_tag)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:111:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rat (.tag)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rat (.tag)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:112:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.dest)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.dest)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:112:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.ready)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.ready)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:112:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.valid)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.valid)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:112:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.value)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::rob (.value)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: ooo_demo.cpp, Line: 110, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  ooo_demo_tick
+  - String:          ' '
+  - varLoc:          'ooo_demo.cpp:110:0'
+  - String:          ' '
+  - VarName:         'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::regfile'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 110, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'ooo_demo_tick(ap_uint<1>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<2>&, ap_uint<1>&, ap_uint<1>&)::regfile'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 110, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E7regfile
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.value
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.valid
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.ready
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 112, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rob.dest
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.tag
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 111, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_E3rat.has_tag
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.unit
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.src2_reg
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.src2_is_imm
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.src1
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.op
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.imm
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: ooo_demo.cpp, Line: 23, Column: 0 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZL7PROGRAM.dest
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 215, Column: 21 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 219, Column: 26 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 219, Column: 26 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 219, Column: 26 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 222, Column: 27 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 222, Column: 27 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 64, Column: 19 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 64, Column: 19 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 64, Column: 19 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 64, Column: 19 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 147, Column: 40 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 147, Column: 40 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 147, Column: 40 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 147, Column: 40 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 149, Column: 9 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 64, Column: 19 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 71, Column: 16 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 71, Column: 16 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 64, Column: 19 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 71, Column: 16 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 71, Column: 16 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 169, Column: 31 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 187, Column: 31 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 187, Column: 31 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 169, Column: 31 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 149, Column: 9 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: ooo_demo.cpp, Line: 149, Column: 9 }
+Function:        _Z13ooo_demo_tick7ap_uintILi1EERS_ILi32EES2_S2_S2_RS_ILi2EERS0_S4_S5_S4_S5_S5_
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...

@@ -1,0 +1,2772 @@
+<profile>
+    <ReportVersion>
+        <Version>2024.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynquplus</ProductFamily>
+        <Part>xck26-sfvc784-2LV-c</Part>
+        <TopModelName>rv32_core_step</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>7.360</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>17</Best-caseLatency>
+            <Average-caseLatency>20</Average-caseLatency>
+            <Worst-caseLatency>52</Worst-caseLatency>
+            <Best-caseRealTimeLatency>0.170 us</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>0.200 us</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>0.520 us</Worst-caseRealTimeLatency>
+            <Interval-min>18</Interval-min>
+            <Interval-max>53</Interval-max>
+        </SummaryOfOverallLatency>
+        <SummaryOfViolations>
+            <IssueType>-</IssueType>
+            <ViolationType>-</ViolationType>
+            <SourceLocation>rv32_core.cpp:86</SourceLocation>
+        </SummaryOfViolations>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>4</BRAM_18K>
+            <DSP>20</DSP>
+            <FF>4714</FF>
+            <LUT>11472</LUT>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>288</BRAM_18K>
+            <DSP>1248</DSP>
+            <FF>234240</FF>
+            <LUT>117120</LUT>
+            <URAM>64</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_control_AWVALID</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWREADY</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWADDR</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WVALID</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WREADY</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WDATA</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WSTRB</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARVALID</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARREADY</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARADDR</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RVALID</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RREADY</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RDATA</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RRESP</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BVALID</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BREADY</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BRESP</name>
+            <Object>control</Object>
+            <Type>return void</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>unknown</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_AWVALID</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_AWREADY</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_AWADDR</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>5</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_WVALID</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_WREADY</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_WDATA</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_WSTRB</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_ARVALID</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_ARREADY</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_ARADDR</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>5</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_RVALID</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_RREADY</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_RDATA</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_RRESP</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_BVALID</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_BREADY</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_r_BRESP</name>
+            <Object>control_r</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>0</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>rv32_core_step</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>rv32_core_step</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>rv32_core_step</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWVALID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWREADY</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWADDR</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWLEN</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWSIZE</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWBURST</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWLOCK</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWCACHE</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWPROT</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWQOS</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWREGION</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_AWUSER</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WVALID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WREADY</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WDATA</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WSTRB</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WLAST</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_WUSER</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARVALID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARREADY</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARADDR</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARLEN</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARSIZE</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARBURST</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARLOCK</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARCACHE</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARPROT</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARQOS</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARREGION</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_ARUSER</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RVALID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RREADY</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RDATA</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RLAST</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RUSER</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_RRESP</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_BVALID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_BREADY</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_BRESP</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_BID</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>m_axi_gmem_BUSER</name>
+            <Object>gmem</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>m_axi</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>instr</name>
+            <Object>instr</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>pc</name>
+            <Object>pc</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Addr_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_EN_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_WEN_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Din_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Dout_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Clk_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Rst_A</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Addr_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_EN_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_WEN_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Din_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Dout_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Clk_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_in_Rst_B</name>
+            <Object>regs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Addr_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_EN_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_WEN_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Din_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Dout_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Clk_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Rst_A</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Addr_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_EN_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_WEN_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Din_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Dout_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Clk_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regs_out_Rst_B</name>
+            <Object>regs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Addr_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_EN_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_WEN_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Din_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Dout_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Clk_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Rst_A</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Addr_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_EN_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_WEN_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Din_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Dout_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Clk_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_in_Rst_B</name>
+            <Object>fregs_in</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Addr_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_EN_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_WEN_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Din_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Dout_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Clk_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Rst_A</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Addr_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_EN_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_WEN_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Din_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Dout_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Clk_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fregs_out_Rst_B</name>
+            <Object>fregs_out</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>bram</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>next_pc</name>
+            <Object>next_pc</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>instr_size</name>
+            <Object>instr_size</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>3</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>halted</name>
+            <Object>halted</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>rv32_core_step</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>tmp_1_expand_fu_2513</InstName>
+                    <ModuleName>expand</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>2513</ID>
+                    <BindInstances>icmp_ln254_fu_540_p2 grp_fu_328_p2 or_ln262_fu_576_p2 icmp_ln262_fu_582_p2 grp_fu_328_p2 grp_fu_328_p2 icmp_ln144_fu_942_p2 icmp_ln151_fu_977_p2 icmp_ln78_fu_1266_p2</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>icmp_ln127_fu_2808_p2 icmp_ln135_fu_2818_p2 next_pc_local_4_fu_2892_p2 icmp_ln180_fu_2909_p2 icmp_ln11_fu_2915_p2 icmp_ln245_fu_2920_p2 icmp_ln245_1_fu_2925_p2 icmp_ln245_2_fu_2930_p2 grp_fu_2661_p2 icmp_ln538_1_fu_3572_p2 or_ln538_fu_3578_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln538_fu_3606_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U8 fcmp_32ns_32ns_1_2_no_dsp_1_U9 and_ln538_1_fu_3611_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U10 and_ln538_2_fu_3616_p2 fpclassify_result_i_i_fu_3669_p8 xor_ln538_fu_3629_p2 and_ln538_3_fu_3635_p2 or_ln538_1_fu_3641_p2 xor_ln538_1_fu_3647_p2 and_ln538_4_fu_3653_p2 sparsemux_9_3_3_1_1_U21 value_7_fu_3764_p10 value_7_fu_3764_p8 value_7_fu_3764_p6 value_7_fu_3764_p4 value_7_fu_3764_p2 icmp_ln59_fu_3728_p2 icmp_ln59_1_fu_3734_p2 icmp_ln59_2_fu_3740_p2 icmp_ln59_3_fu_3746_p2 sparsemux_11_4_10_1_1_U22 grp_fu_2581_p2 uitofp_32s_32_4_no_dsp_1_U5 sitofp_32s_32_4_no_dsp_1_U6 select_ln408_fu_3801_p3 grp_fu_2581_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2689_p2 icmp_ln39_1_fu_3922_p2 or_ln39_fu_3928_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln39_fu_3934_p2 or_ln38_fu_3940_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln40_fu_3945_p2 grp_fu_2711_p2 grp_fu_2717_p2 and_ln34_fu_3957_p2 grp_fu_2730_p2 bitselect_1ns_32ns_32s_1_1_1_U24 one_half_1_fu_3990_p2 one_half_2_fu_3996_p3 data_5_fu_4008_p2 xor_ln77_fu_4018_p2 xs_sig_1_fu_4024_p2 or_ln34_fu_4052_p2 xor_ln34_fu_4058_p2 and_ln37_fu_4064_p2 sparsemux_7_2_32_1_1_U25 add_ln317_fu_4138_p2 sub_ln18_fu_4152_p2 select_ln18_fu_4162_p3 lshr_ln18_fu_4178_p2 shl_ln18_fu_4184_p2 val_2_fu_4210_p3 result_27_fu_4218_p2 result_28_fu_4224_p3 grp_fu_2689_p2 icmp_ln47_1_fu_4236_p2 or_ln47_fu_4242_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln47_fu_4248_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 and_ln48_fu_4254_p2 grp_fu_2711_p2 grp_fu_2717_p2 and_ln34_1_fu_4266_p2 grp_fu_2730_p2 bitselect_1ns_32ns_32s_1_1_1_U26 one_half_4_fu_4299_p2 one_half_5_fu_4305_p3 data_7_fu_4317_p2 xor_ln77_1_fu_4327_p2 xs_sig_3_fu_4333_p2 or_ln34_1_fu_4361_p2 xor_ln34_1_fu_4367_p2 and_ln37_1_fu_4373_p2 sparsemux_7_2_32_1_1_U27 add_ln317_1_fu_4438_p2 sub_ln71_fu_4452_p2 select_ln71_fu_4461_p3 lshr_ln71_fu_4477_p2 shl_ln71_fu_4483_p2 val_fu_4509_p3 icmp_ln389_fu_3850_p2 icmp_ln389_1_fu_3856_p2 or_ln389_fu_3862_p2 grp_fu_2661_p2 icmp_ln389_3_fu_3868_p2 or_ln389_1_fu_3874_p2 and_ln389_fu_3880_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2675_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2675_p2 fcmp_32ns_32ns_1_2_no_dsp_1_U7 grp_fu_2675_p2 sparsemux_9_3_1_1_1_U23 or_ln25_fu_4565_p2 icmp_ln25_fu_4571_p2 or_ln25_1_fu_4577_p2 icmp_ln25_1_fu_4583_p2 and_ln25_fu_4589_p2 icmp_ln18_fu_4595_p2 icmp_ln18_1_fu_4601_p2 and_ln18_fu_4607_p2 icmp_ln18_2_fu_4613_p2 icmp_ln18_3_fu_4619_p2 and_ln18_1_fu_4625_p2 ymaggreater_fu_4655_p2 xor_ln39_fu_4661_p2 select_ln39_fu_4667_p3 ymaggreater_1_fu_4675_p3 res_3_fu_4837_p6 res_3_fu_4837_p8 and_ln25_3_fu_4699_p2 xor_ln25_fu_4705_p2 and_ln25_4_fu_4711_p2 and_ln18_2_fu_4716_p2 and_ln18_3_fu_4722_p2 or_ln25_2_fu_4728_p2 xor_ln25_1_fu_4733_p2 and_ln18_4_fu_4739_p2 and_ln18_5_fu_4745_p2 and_ln18_6_fu_4751_p2 xor_ln18_fu_4757_p2 and_ln18_7_fu_4763_p2 and_ln18_8_fu_4769_p2 xor_ln18_1_fu_4775_p2 and_ln18_9_fu_4781_p2 or_ln18_fu_4787_p2 or_ln18_1_fu_4793_p2 xor_ln18_2_fu_4799_p2 xor_ln18_3_fu_4805_p2 or_ln18_2_fu_4811_p2 and_ln18_10_fu_4817_p2 sparsemux_13_5_32_1_1_U28 xor_ln372_fu_4886_p2 xor_ln373_fu_4900_p2 sparsemux_9_3_32_1_1_U29 or_ln375_fu_4957_p2 fsqrt_32ns_32ns_32_8_no_dsp_1_U11 fdiv_32ns_32ns_32_9_no_dsp_1_U4 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 grp_fu_2744_p2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 grp_fu_2744_p2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 fmul_32ns_32ns_32_3_max_dsp_1_U3 faddfsub_32ns_32ns_32_4_full_dsp_1_U2 addr_3_fu_2961_p2 add_ln58_fu_2989_p2 addr_2_fu_3018_p2 add_ln25_1_fu_3046_p2 value_5_fu_3079_p2 add_ln302_fu_5216_p2 next_pc_local_3_fu_5289_p2 add_ln288_fu_5336_p2 grp_fu_2768_p2 grp_fu_2768_p2 grp_fu_2772_p2 grp_fu_2772_p2 grp_fu_2776_p2 grp_fu_2776_p2 addr_1_fu_3114_p2 add_ln68_fu_3154_p2 mask_1_fu_5344_p2 xor_ln70_fu_5350_p2 and_ln70_fu_5356_p2 shl_ln70_fu_5364_p2 word_5_fu_5370_p2 add_ln61_fu_3183_p2 mask_fu_5379_p2 xor_ln63_fu_5385_p2 and_ln63_fu_5391_p2 shl_ln63_fu_5399_p2 word_3_fu_5405_p2 add_ln58_1_fu_3212_p2 addr_fu_3241_p2 add_ln25_fu_3273_p2 shifted_fu_5422_p2 grp_fu_2628_p2 grp_fu_2623_p2 sparsemux_13_5_32_1_1_U30 result_32_fu_3424_p18 result_32_fu_3424_p12 result_32_fu_3424_p10 result_3_fu_3332_p2 result_4_fu_3342_p2 result_32_fu_3424_p4 grp_fu_2618_p2 result_32_fu_3424_p2 result_32_fu_3424_p14 result_32_fu_3424_p16 icmp_ln245_3_fu_3376_p2 grp_fu_2623_p2 icmp_ln245_5_fu_3381_p2 grp_fu_2628_p2 and_ln252_fu_3386_p2 xor_ln252_fu_3392_p2 and_ln252_1_fu_3398_p2 sparsemux_19_8_32_1_1_U16 icmp_ln160_fu_3473_p2 result_22_fu_5498_p2 grp_fu_2618_p2 lshr_ln227_fu_5505_p2 ashr_ln226_fu_5510_p2 result_21_fu_5515_p2 grp_fu_2768_p2 grp_fu_2772_p2 result_18_fu_5530_p2 grp_fu_2618_p2 sub_ln209_fu_5535_p2 add_ln210_fu_5539_p2 result_17_fu_5543_p3 result_16_fu_5550_p2 grp_fu_2633_p2 grp_fu_2639_p2 grp_fu_2645_p2 srem_32s_32s_32_36_seq_1_U17 udiv_32s_32s_32_36_seq_1_U18 grp_fu_2633_p2 grp_fu_2639_p2 grp_fu_2645_p2 sdiv_32s_32s_32_36_seq_1_U19 mul_32ns_32ns_64_1_1_U12 mul_32ns_32s_64_1_1_U13 mul_32s_32s_64_1_1_U15 mul_32s_32s_32_1_1_U14 urem_32s_32s_32_36_seq_1_U20 mask_table_U one_half_minus_one_table_U index_table_U control_s_axi_U control_r_s_axi_U gmem_m_axi_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>expand</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>1.771</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>./rv32c_defs.h:65</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>0</FF>
+                    <AVAIL_FF>234240</AVAIL_FF>
+                    <UTIL_FF>0</UTIL_FF>
+                    <LUT>233</LUT>
+                    <AVAIL_LUT>117120</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>288</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1248</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>64</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln254_fu_540_p2" SOURCE="./rv32c_defs.h:254" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln254" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_328_p2" SOURCE="./rv32c_defs.h:255" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln255" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln262_fu_576_p2" SOURCE="./rv32c_defs.h:262" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln262" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln262_fu_582_p2" SOURCE="./rv32c_defs.h:262" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln262" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_328_p2" SOURCE="./rv32c_defs.h:241" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln241" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_328_p2" SOURCE="./rv32c_defs.h:233" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln233" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln144_fu_942_p2" SOURCE="./rv32c_defs.h:144" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln144" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln151_fu_977_p2" SOURCE="./rv32c_defs.h:151" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln151" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln78_fu_1266_p2" SOURCE="./rv32c_defs.h:78" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln78" VISIBLE="false"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>rv32_core_step</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.360</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>17</Best-caseLatency>
+                    <Average-caseLatency>20</Average-caseLatency>
+                    <Worst-caseLatency>52</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.170 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.200 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.520 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>18 ~ 53</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>rv32_core.cpp:86</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>4</BRAM_18K>
+                    <AVAIL_BRAM>288</AVAIL_BRAM>
+                    <UTIL_BRAM>1</UTIL_BRAM>
+                    <DSP>20</DSP>
+                    <AVAIL_DSP>1248</AVAIL_DSP>
+                    <UTIL_DSP>1</UTIL_DSP>
+                    <FF>4714</FF>
+                    <AVAIL_FF>234240</AVAIL_FF>
+                    <UTIL_FF>2</UTIL_FF>
+                    <LUT>11472</LUT>
+                    <AVAIL_LUT>117120</AVAIL_LUT>
+                    <UTIL_LUT>9</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>64</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln127_fu_2808_p2" SOURCE="rv32_core.cpp:127" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln127" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln135_fu_2818_p2" SOURCE="rv32_core.cpp:135" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln135" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="next_pc_local_4_fu_2892_p2" SOURCE="rv32_core.cpp:151" STORAGESUBTYPE="" URAM="0" VARIABLE="next_pc_local_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln180_fu_2909_p2" SOURCE="rv32_core.cpp:180" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln180" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln11_fu_2915_p2" SOURCE="rv32_core.cpp:11" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln11" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln245_fu_2920_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln245_1_fu_2925_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln245_2_fu_2930_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="grp_fu_2661_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln538" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln538_1_fu_3572_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln538_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln538_fu_3578_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln538" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_31" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln538_fu_3606_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln538" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U8" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="cmp_i_i1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U9" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_32" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln538_1_fu_3611_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln538_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U10" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_33" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln538_2_fu_3616_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln538_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="fpclassify_result_i_i_fu_3669_p8" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln538" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln538_fu_3629_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln538" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln538_3_fu_3635_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln538_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln538_1_fu_3641_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln538_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln538_1_fu_3647_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln538_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln538_4_fu_3653_p2" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln538_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_9_3_3_1_1_U21" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:538" STORAGESUBTYPE="" URAM="0" VARIABLE="fpclassify_result_i_i" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="value_7_fu_3764_p10" SOURCE="./fp_ops.h:62" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln62" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="value_7_fu_3764_p8" SOURCE="./fp_ops.h:62" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln62_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="value_7_fu_3764_p6" SOURCE="./fp_ops.h:63" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln63" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="value_7_fu_3764_p4" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln59" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="value_7_fu_3764_p2" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln59_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln59_fu_3728_p2" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln59" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln59_1_fu_3734_p2" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln59_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln59_2_fu_3740_p2" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln59_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln59_3_fu_3746_p2" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln59_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_11_4_10_1_1_U22" SOURCE="./fp_ops.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="value_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2581_p2" SOURCE="rv32_core.cpp:408" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln408" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op uitofp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="" OPTYPE="uitofp" PRAGMA="" RTLNAME="uitofp_32s_32_4_no_dsp_1_U5" SOURCE="rv32_core.cpp:409" STORAGESUBTYPE="" URAM="0" VARIABLE="conv" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sitofp" DSP="0" ID="" IMPL="auto" LATENCY="3" LOOP="" OPTYPE="sitofp" PRAGMA="" RTLNAME="sitofp_32s_32_4_no_dsp_1_U6" SOURCE="rv32_core.cpp:410" STORAGESUBTYPE="" URAM="0" VARIABLE="conv1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln408_fu_3801_p3" SOURCE="rv32_core.cpp:408" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln408" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2581_p2" SOURCE="rv32_core.cpp:399" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln399" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:612" STORAGESUBTYPE="" URAM="0" VARIABLE="cmp_i_i" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="grp_fu_2689_p2" SOURCE="./fp_ops.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln39" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln39_1_fu_3922_p2" SOURCE="./fp_ops.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln39_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln39_fu_3928_p2" SOURCE="./fp_ops.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln39" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="./fp_ops.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_29" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln39_fu_3934_p2" SOURCE="./fp_ops.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln39" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln38_fu_3940_p2" SOURCE="./fp_ops.h:38" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln38" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="./fp_ops.h:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_37" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln40_fu_3945_p2" SOURCE="./fp_ops.h:40" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln40" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2711_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln34" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2717_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln34_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln34_fu_3957_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln34" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_2730_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:37" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln37" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op bitselect" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="bitselect" PRAGMA="" RTLNAME="bitselect_1ns_32ns_32s_1_1_1_U24" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_40" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="one_half_1_fu_3990_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="one_half_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="one_half_2_fu_3996_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="one_half_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="data_5_fu_4008_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:75" STORAGESUBTYPE="" URAM="0" VARIABLE="data_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln77_fu_4018_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:77" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln77" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="xs_sig_1_fu_4024_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:77" STORAGESUBTYPE="" URAM="0" VARIABLE="xs_sig_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln34_fu_4052_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln34" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln34_fu_4058_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln34" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln37_fu_4064_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:37" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln37" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_32_1_1_U25" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:327" STORAGESUBTYPE="" URAM="0" VARIABLE="dc_10" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln317_fu_4138_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:317" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln317" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln18_fu_4152_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln18" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln18_fu_4162_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln18_fu_4178_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln18_fu_4184_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="val_2_fu_4210_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="val_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="result_27_fu_4218_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="result_27" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="result_28_fu_4224_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59" STORAGESUBTYPE="" URAM="0" VARIABLE="result_28" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="grp_fu_2689_p2" SOURCE="./fp_ops.h:47" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln47" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln47_1_fu_4236_p2" SOURCE="./fp_ops.h:47" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln47_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln47_fu_4242_p2" SOURCE="./fp_ops.h:47" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln47" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="./fp_ops.h:47" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_36" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln47_fu_4248_p2" SOURCE="./fp_ops.h:47" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln47" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="./fp_ops.h:48" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_38" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln48_fu_4254_p2" SOURCE="./fp_ops.h:48" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln48" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2711_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln34_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2717_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln34_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln34_1_fu_4266_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln34_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="grp_fu_2730_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:37" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln37_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op bitselect" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="bitselect" PRAGMA="" RTLNAME="bitselect_1ns_32ns_32s_1_1_1_U26" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_45" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="one_half_4_fu_4299_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="one_half_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="one_half_5_fu_4305_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:65" STORAGESUBTYPE="" URAM="0" VARIABLE="one_half_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="data_7_fu_4317_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:75" STORAGESUBTYPE="" URAM="0" VARIABLE="data_7" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln77_1_fu_4327_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:77" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln77_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="xs_sig_3_fu_4333_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:77" STORAGESUBTYPE="" URAM="0" VARIABLE="xs_sig_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln34_1_fu_4361_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln34_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln34_1_fu_4367_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:34" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln34_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln37_1_fu_4373_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_rint.h:37" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln37_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_32_1_1_U27" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:327" STORAGESUBTYPE="" URAM="0" VARIABLE="dc_13" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln317_1_fu_4438_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:317" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln317_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln71_fu_4452_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln71" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln71_fu_4461_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln71" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln71_fu_4477_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln71" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln71_fu_4483_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln71" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="val_fu_4509_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:71" STORAGESUBTYPE="" URAM="0" VARIABLE="val" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="icmp_ln389_fu_3850_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln389" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln389_1_fu_3856_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln389_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln389_fu_3862_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln389" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="grp_fu_2661_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln389_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln389_3_fu_3868_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln389_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln389_1_fu_3874_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln389_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln389_fu_3880_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln389" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_25" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="grp_fu_2675_p2" SOURCE="rv32_core.cpp:389" STORAGESUBTYPE="" URAM="0" VARIABLE="result_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="rv32_core.cpp:390" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_26" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="grp_fu_2675_p2" SOURCE="rv32_core.cpp:390" STORAGESUBTYPE="" URAM="0" VARIABLE="result_9" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fcmp" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="fcmp" PRAGMA="" RTLNAME="fcmp_32ns_32ns_1_2_no_dsp_1_U7" SOURCE="rv32_core.cpp:391" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_27" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="grp_fu_2675_p2" SOURCE="rv32_core.cpp:391" STORAGESUBTYPE="" URAM="0" VARIABLE="result_10" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_9_3_1_1_1_U23" SOURCE="rv32_core.cpp:391" STORAGESUBTYPE="" URAM="0" VARIABLE="result_33" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln25_fu_4565_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln25" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln25_fu_4571_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln25" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln25_1_fu_4577_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln25_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln25_1_fu_4583_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln25_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln25_fu_4589_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln25" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln18_fu_4595_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="icmp_ln18_1_fu_4601_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln18_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_fu_4607_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln18_2_fu_4613_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln18_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="icmp_ln18_3_fu_4619_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln18_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_1_fu_4625_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="ymaggreater_fu_4655_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:38" STORAGESUBTYPE="" URAM="0" VARIABLE="ymaggreater" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln39_fu_4661_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln39" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln39_fu_4667_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln39" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="ymaggreater_1_fu_4675_p3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:39" STORAGESUBTYPE="" URAM="0" VARIABLE="ymaggreater_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="res_3_fu_4837_p6" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:40" STORAGESUBTYPE="" URAM="0" VARIABLE="res_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="res_3_fu_4837_p8" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:40" STORAGESUBTYPE="" URAM="0" VARIABLE="res_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln25_3_fu_4699_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln25_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln25_fu_4705_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln25" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln25_4_fu_4711_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmin.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln25_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_2_fu_4716_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_3_fu_4722_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln25_2_fu_4728_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln25_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln25_1_fu_4733_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:25" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln25_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_4_fu_4739_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_5_fu_4745_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_6_fu_4751_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln18_fu_4757_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_7_fu_4763_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_7" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_8_fu_4769_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_8" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln18_1_fu_4775_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln18_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_9_fu_4781_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_9" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln18_fu_4787_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln18_1_fu_4793_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln18_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln18_2_fu_4799_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln18_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln18_3_fu_4805_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln18_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln18_2_fu_4811_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln18_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln18_10_fu_4817_p2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:18" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln18_10" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_13_5_32_1_1_U28" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:327" STORAGESUBTYPE="" URAM="0" VARIABLE="res_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln372_fu_4886_p2" SOURCE="rv32_core.cpp:372" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln372" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln373_fu_4900_p2" SOURCE="rv32_core.cpp:373" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln373" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_9_3_32_1_1_U29" SOURCE="rv32_core.cpp:373" STORAGESUBTYPE="" URAM="0" VARIABLE="sign_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln375_fu_4957_p2" SOURCE="rv32_core.cpp:375" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln375" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsqrt" DSP="0" ID="" IMPL="fabric" LATENCY="7" LOOP="" OPTYPE="fsqrt" PRAGMA="" RTLNAME="fsqrt_32ns_32ns_32_8_no_dsp_1_U11" SOURCE="/home/andy/Programas/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp_19" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fdiv" DSP="0" ID="" IMPL="fabric" LATENCY="8" LOOP="" OPTYPE="fdiv" PRAGMA="" RTLNAME="fdiv_32ns_32ns_32_9_no_dsp_1_U4" SOURCE="rv32_core.cpp:363" STORAGESUBTYPE="" URAM="0" VARIABLE="div1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U3" SOURCE="rv32_core.cpp:362" STORAGESUBTYPE="" URAM="0" VARIABLE="mul1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U2" SOURCE="rv32_core.cpp:361" STORAGESUBTYPE="" URAM="0" VARIABLE="sub3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U2" SOURCE="rv32_core.cpp:360" STORAGESUBTYPE="" URAM="0" VARIABLE="add1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="grp_fu_2744_p2" SOURCE="rv32_core.cpp:354" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln354" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="grp_fu_2744_p2" SOURCE="rv32_core.cpp:349" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln349" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="2" LOOP="" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_3_max_dsp_1_U3" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_i_i_i" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fsub" DSP="2" ID="" IMPL="fulldsp" LATENCY="3" LOOP="" OPTYPE="fsub" PRAGMA="" RTLNAME="faddfsub_32ns_32ns_32_4_full_dsp_1_U2" SOURCE="/wrk/ci/prod/2024.2/hls_product/continuous/495/2024.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fma.h:11" STORAGESUBTYPE="" URAM="0" VARIABLE="add_i_i_i" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="addr_3_fu_2961_p2" SOURCE="rv32_core.cpp:331" STORAGESUBTYPE="" URAM="0" VARIABLE="addr_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_fu_2989_p2" SOURCE="rv32_core.cpp:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="addr_2_fu_3018_p2" SOURCE="rv32_core.cpp:323" STORAGESUBTYPE="" URAM="0" VARIABLE="addr_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln25_1_fu_3046_p2" SOURCE="rv32_core.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln25_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="value_5_fu_3079_p2" SOURCE="rv32_core.cpp:312" STORAGESUBTYPE="" URAM="0" VARIABLE="value_5" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln302_fu_5216_p2" SOURCE="rv32_core.cpp:302" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln302" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="next_pc_local_3_fu_5289_p2" SOURCE="rv32_core.cpp:295" STORAGESUBTYPE="" URAM="0" VARIABLE="next_pc_local_3" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln288_fu_5336_p2" SOURCE="rv32_core.cpp:288" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln288" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2768_p2" SOURCE="rv32_core.cpp:286" STORAGESUBTYPE="" URAM="0" VARIABLE="taken_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2768_p2" SOURCE="rv32_core.cpp:285" STORAGESUBTYPE="" URAM="0" VARIABLE="taken_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2772_p2" SOURCE="rv32_core.cpp:284" STORAGESUBTYPE="" URAM="0" VARIABLE="taken_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2772_p2" SOURCE="rv32_core.cpp:283" STORAGESUBTYPE="" URAM="0" VARIABLE="taken_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2776_p2" SOURCE="rv32_core.cpp:282" STORAGESUBTYPE="" URAM="0" VARIABLE="taken_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2776_p2" SOURCE="rv32_core.cpp:281" STORAGESUBTYPE="" URAM="0" VARIABLE="taken" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="addr_1_fu_3114_p2" SOURCE="rv32_core.cpp:272" STORAGESUBTYPE="" URAM="0" VARIABLE="addr_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln68_fu_3154_p2" SOURCE="rv32_core.cpp:68" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln68" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="mask_1_fu_5344_p2" SOURCE="rv32_core.cpp:69" STORAGESUBTYPE="" URAM="0" VARIABLE="mask_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln70_fu_5350_p2" SOURCE="rv32_core.cpp:70" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln70" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln70_fu_5356_p2" SOURCE="rv32_core.cpp:70" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln70" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln70_fu_5364_p2" SOURCE="rv32_core.cpp:70" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln70" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="word_5_fu_5370_p2" SOURCE="rv32_core.cpp:70" STORAGESUBTYPE="" URAM="0" VARIABLE="word_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln61_fu_3183_p2" SOURCE="rv32_core.cpp:61" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln61" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="mask_fu_5379_p2" SOURCE="rv32_core.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="mask" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln63_fu_5385_p2" SOURCE="rv32_core.cpp:63" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln63" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln63_fu_5391_p2" SOURCE="rv32_core.cpp:63" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln63" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln63_fu_5399_p2" SOURCE="rv32_core.cpp:63" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln63" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="word_3_fu_5405_p2" SOURCE="rv32_core.cpp:63" STORAGESUBTYPE="" URAM="0" VARIABLE="word_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_1_fu_3212_p2" SOURCE="rv32_core.cpp:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="addr_fu_3241_p2" SOURCE="rv32_core.cpp:265" STORAGESUBTYPE="" URAM="0" VARIABLE="addr" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln25_fu_3273_p2" SOURCE="rv32_core.cpp:25" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln25" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="lshr" PRAGMA="" RTLNAME="shifted_fu_5422_p2" SOURCE="rv32_core.cpp:26" STORAGESUBTYPE="" URAM="0" VARIABLE="shifted" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2628_p2" SOURCE="rv32_core.cpp:28" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln28" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2623_p2" SOURCE="rv32_core.cpp:28" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln28_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_13_5_32_1_1_U30" SOURCE="rv32_core.cpp:42" STORAGESUBTYPE="" URAM="0" VARIABLE="value_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="result_32_fu_3424_p18" SOURCE="rv32_core.cpp:257" STORAGESUBTYPE="" URAM="0" VARIABLE="result" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="result_32_fu_3424_p12" SOURCE="rv32_core.cpp:246" STORAGESUBTYPE="" URAM="0" VARIABLE="result_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="result_32_fu_3424_p10" SOURCE="rv32_core.cpp:247" STORAGESUBTYPE="" URAM="0" VARIABLE="result_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="result_3_fu_3332_p2" SOURCE="rv32_core.cpp:248" STORAGESUBTYPE="" URAM="0" VARIABLE="result_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="result_4_fu_3342_p2" SOURCE="rv32_core.cpp:249" STORAGESUBTYPE="" URAM="0" VARIABLE="result_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="result_32_fu_3424_p4" SOURCE="rv32_core.cpp:250" STORAGESUBTYPE="" URAM="0" VARIABLE="result_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2618_p2" SOURCE="rv32_core.cpp:252" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln252" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="result_32_fu_3424_p2" SOURCE="rv32_core.cpp:256" STORAGESUBTYPE="" URAM="0" VARIABLE="result_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op ashr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="ashr" PRAGMA="" RTLNAME="result_32_fu_3424_p14" SOURCE="rv32_core.cpp:253" STORAGESUBTYPE="" URAM="0" VARIABLE="ashr_ln253" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="lshr" PRAGMA="" RTLNAME="result_32_fu_3424_p16" SOURCE="rv32_core.cpp:254" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln254" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln245_3_fu_3376_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2623_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245_4" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln245_5_fu_3381_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2628_p2" SOURCE="rv32_core.cpp:245" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln245_6" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln252_fu_3386_p2" SOURCE="rv32_core.cpp:252" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln252" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln252_fu_3392_p2" SOURCE="rv32_core.cpp:252" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln252" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln252_1_fu_3398_p2" SOURCE="rv32_core.cpp:252" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln252_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_19_8_32_1_1_U16" SOURCE="rv32_core.cpp:256" STORAGESUBTYPE="" URAM="0" VARIABLE="result_32" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln160_fu_3473_p2" SOURCE="rv32_core.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln160" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="result_22_fu_5498_p2" SOURCE="rv32_core.cpp:230" STORAGESUBTYPE="" URAM="0" VARIABLE="result_22" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2618_p2" SOURCE="rv32_core.cpp:225" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln225" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln227_fu_5505_p2" SOURCE="rv32_core.cpp:227" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln227" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op ashr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="ashr" PRAGMA="" RTLNAME="ashr_ln226_fu_5510_p2" SOURCE="rv32_core.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="ashr_ln226" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="result_21_fu_5515_p2" SOURCE="rv32_core.cpp:222" STORAGESUBTYPE="" URAM="0" VARIABLE="result_21" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2768_p2" SOURCE="rv32_core.cpp:219" STORAGESUBTYPE="" URAM="0" VARIABLE="result_20" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setlt" PRAGMA="" RTLNAME="grp_fu_2772_p2" SOURCE="rv32_core.cpp:216" STORAGESUBTYPE="" URAM="0" VARIABLE="result_19" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="result_18_fu_5530_p2" SOURCE="rv32_core.cpp:213" STORAGESUBTYPE="" URAM="0" VARIABLE="result_18" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2618_p2" SOURCE="rv32_core.cpp:209" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln209" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln209_fu_5535_p2" SOURCE="rv32_core.cpp:209" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln209" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln210_fu_5539_p2" SOURCE="rv32_core.cpp:210" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln210" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="result_17_fu_5543_p3" SOURCE="rv32_core.cpp:209" STORAGESUBTYPE="" URAM="0" VARIABLE="result_17" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="result_16_fu_5550_p2" SOURCE="rv32_core.cpp:233" STORAGESUBTYPE="" URAM="0" VARIABLE="result_16" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2633_p2" SOURCE="rv32_core.cpp:195" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln195" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2639_p2" SOURCE="rv32_core.cpp:195" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln195_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="grp_fu_2645_p2" SOURCE="rv32_core.cpp:195" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln195" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op srem" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="srem" PRAGMA="" RTLNAME="srem_32s_32s_32_36_seq_1_U17" SOURCE="rv32_core.cpp:198" STORAGESUBTYPE="" URAM="0" VARIABLE="result_24" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op udiv" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="udiv" PRAGMA="" RTLNAME="udiv_32s_32s_32_36_seq_1_U18" SOURCE="rv32_core.cpp:190" STORAGESUBTYPE="" URAM="0" VARIABLE="udiv_ln190" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2633_p2" SOURCE="rv32_core.cpp:182" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln182" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="grp_fu_2639_p2" SOURCE="rv32_core.cpp:182" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln182_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="grp_fu_2645_p2" SOURCE="rv32_core.cpp:182" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln182" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sdiv" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="sdiv" PRAGMA="" RTLNAME="sdiv_32s_32s_32_36_seq_1_U19" SOURCE="rv32_core.cpp:185" STORAGESUBTYPE="" URAM="0" VARIABLE="result_23" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32ns_32ns_64_1_1_U12" SOURCE="rv32_core.cpp:177" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln177" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32ns_32s_64_1_1_U13" SOURCE="rv32_core.cpp:174" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln174" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_64_1_1_U15" SOURCE="rv32_core.cpp:171" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln171" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U14" SOURCE="rv32_core.cpp:168" STORAGESUBTYPE="" URAM="0" VARIABLE="result_12" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op urem" DSP="0" ID="" IMPL="auto_seq" LATENCY="35" LOOP="" OPTYPE="urem" PRAGMA="" RTLNAME="urem_32s_32s_32_36_seq_1_U20" SOURCE="rv32_core.cpp:203" STORAGESUBTYPE="" URAM="0" VARIABLE="urem_ln203" VISIBLE="false"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="mask_table_U" SOURCE="" STORAGESIZE="23 32 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="mask_table" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="one_half_minus_one_table_U" SOURCE="" STORAGESIZE="23 32 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="one_half_minus_one_table" VISIBLE="true"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="index_table_U" SOURCE="" STORAGESIZE="6 32 1" STORAGESUBTYPE="" STORAGEUSAGE="rom_1p" URAM="0" VARIABLE="index_table" VISIBLE="true"/>
+                <BindNode BINDTYPE="adapter" BRAM="0" BUNDLEDNAME="control" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="control_s_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="s_axilite" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
+                <BindNode BINDTYPE="adapter" BRAM="0" BUNDLEDNAME="control_r" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="control_r_s_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="s_axilite" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
+                <BindNode BINDTYPE="adapter" BRAM="4" BUNDLEDNAME="gmem" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="gmem_m_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="m_axi" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="instr" index="0" direction="in" srcType="ap_uint&lt;32&gt;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="instr" name="instr" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="pc" index="1" direction="in" srcType="ap_uint&lt;32&gt;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="pc" name="pc" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="regs_in" index="2" direction="in" srcType="ap_uint&lt;32&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="regs_in_PORTA" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="regs_in_PORTB" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="regs_out" index="3" direction="out" srcType="ap_uint&lt;32&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="regs_out_PORTA" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="regs_out_PORTB" name="" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="fregs_in" index="4" direction="in" srcType="float*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="fregs_in_PORTA" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fregs_in_PORTB" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="fregs_out" index="5" direction="out" srcType="float*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="fregs_out_PORTA" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fregs_out_PORTB" name="" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="mem" index="6" direction="inout" srcType="ap_uint&lt;32&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="m_axi_gmem" name="" usage="data" direction="inout"/>
+                <hwRef type="register" interface="s_axi_control_r" name="mem_1" usage="address" direction="in"/>
+                <hwRef type="register" interface="s_axi_control_r" name="mem_2" usage="address" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="next_pc" index="7" direction="out" srcType="ap_uint&lt;32&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="next_pc" name="next_pc" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="instr_size" index="8" direction="out" srcType="ap_uint&lt;3&gt;&amp;" srcSize="8">
+            <hwRefs>
+                <hwRef type="port" interface="instr_size" name="instr_size" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="halted" index="9" direction="out" srcType="ap_uint&lt;1&gt;&amp;" srcSize="8">
+            <hwRefs>
+                <hwRef type="port" interface="halted" name="halted" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="4" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
+            <ports>
+                <port>s_axi_control_ARADDR</port>
+                <port>s_axi_control_ARREADY</port>
+                <port>s_axi_control_ARVALID</port>
+                <port>s_axi_control_AWADDR</port>
+                <port>s_axi_control_AWREADY</port>
+                <port>s_axi_control_AWVALID</port>
+                <port>s_axi_control_BREADY</port>
+                <port>s_axi_control_BRESP</port>
+                <port>s_axi_control_BVALID</port>
+                <port>s_axi_control_RDATA</port>
+                <port>s_axi_control_RREADY</port>
+                <port>s_axi_control_RRESP</port>
+                <port>s_axi_control_RVALID</port>
+                <port>s_axi_control_WDATA</port>
+                <port>s_axi_control_WREADY</port>
+                <port>s_axi_control_WSTRB</port>
+                <port>s_axi_control_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="INTERRUPT" access="R" description="Control signal Register for 'interrupt'."/>
+                        <field offset="10" width="22" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+            </registers>
+        </Interface>
+        <Interface InterfaceName="s_axi_control_r" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="5" portPrefix="s_axi_control_r_" paramPrefix="C_S_AXI_CONTROL_R_">
+            <ports>
+                <port>s_axi_control_r_ARADDR</port>
+                <port>s_axi_control_r_ARREADY</port>
+                <port>s_axi_control_r_ARVALID</port>
+                <port>s_axi_control_r_AWADDR</port>
+                <port>s_axi_control_r_AWREADY</port>
+                <port>s_axi_control_r_AWVALID</port>
+                <port>s_axi_control_r_BREADY</port>
+                <port>s_axi_control_r_BRESP</port>
+                <port>s_axi_control_r_BVALID</port>
+                <port>s_axi_control_r_RDATA</port>
+                <port>s_axi_control_r_RREADY</port>
+                <port>s_axi_control_r_RRESP</port>
+                <port>s_axi_control_r_RVALID</port>
+                <port>s_axi_control_r_WDATA</port>
+                <port>s_axi_control_r_WREADY</port>
+                <port>s_axi_control_r_WSTRB</port>
+                <port>s_axi_control_r_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x10" name="mem_1" access="W" description="Data signal of mem" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="mem" access="W" description="Bit 31 to 0 of mem"/>
+                    </fields>
+                </register>
+                <register offset="0x14" name="mem_2" access="W" description="Data signal of mem" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="mem" access="W" description="Bit 63 to 32 of mem"/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="mem"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control:s_axi_control_r:m_axi_gmem</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="m_axi_gmem" type="axi4full" busTypeName="aximm" mode="master" dataWidth="32" addrWidth="64" portPrefix="m_axi_gmem_" paramPrefix="C_M_AXI_GMEM_" preferredUsageValue="MEMORY">
+            <busParams>
+                <busParam busParamName="NUM_READ_OUTSTANDING">16</busParam>
+                <busParam busParamName="NUM_WRITE_OUTSTANDING">16</busParam>
+                <busParam busParamName="MAX_READ_BURST_LENGTH">16</busParam>
+                <busParam busParamName="MAX_WRITE_BURST_LENGTH">16</busParam>
+                <busParam busParamName="MAX_BURST_LENGTH">256</busParam>
+                <busParam busParamName="PROTOCOL">AXI4</busParam>
+                <busParam busParamName="READ_WRITE_MODE">READ_WRITE</busParam>
+                <busParam busParamName="HAS_BURST">0</busParam>
+                <busParam busParamName="SUPPORTS_NARROW_BURST">0</busParam>
+            </busParams>
+            <ports>
+                <port>m_axi_gmem_ARADDR</port>
+                <port>m_axi_gmem_ARBURST</port>
+                <port>m_axi_gmem_ARCACHE</port>
+                <port>m_axi_gmem_ARID</port>
+                <port>m_axi_gmem_ARLEN</port>
+                <port>m_axi_gmem_ARLOCK</port>
+                <port>m_axi_gmem_ARPROT</port>
+                <port>m_axi_gmem_ARQOS</port>
+                <port>m_axi_gmem_ARREADY</port>
+                <port>m_axi_gmem_ARREGION</port>
+                <port>m_axi_gmem_ARSIZE</port>
+                <port>m_axi_gmem_ARUSER</port>
+                <port>m_axi_gmem_ARVALID</port>
+                <port>m_axi_gmem_AWADDR</port>
+                <port>m_axi_gmem_AWBURST</port>
+                <port>m_axi_gmem_AWCACHE</port>
+                <port>m_axi_gmem_AWID</port>
+                <port>m_axi_gmem_AWLEN</port>
+                <port>m_axi_gmem_AWLOCK</port>
+                <port>m_axi_gmem_AWPROT</port>
+                <port>m_axi_gmem_AWQOS</port>
+                <port>m_axi_gmem_AWREADY</port>
+                <port>m_axi_gmem_AWREGION</port>
+                <port>m_axi_gmem_AWSIZE</port>
+                <port>m_axi_gmem_AWUSER</port>
+                <port>m_axi_gmem_AWVALID</port>
+                <port>m_axi_gmem_BID</port>
+                <port>m_axi_gmem_BREADY</port>
+                <port>m_axi_gmem_BRESP</port>
+                <port>m_axi_gmem_BUSER</port>
+                <port>m_axi_gmem_BVALID</port>
+                <port>m_axi_gmem_RDATA</port>
+                <port>m_axi_gmem_RID</port>
+                <port>m_axi_gmem_RLAST</port>
+                <port>m_axi_gmem_RREADY</port>
+                <port>m_axi_gmem_RRESP</port>
+                <port>m_axi_gmem_RUSER</port>
+                <port>m_axi_gmem_RVALID</port>
+                <port>m_axi_gmem_WDATA</port>
+                <port>m_axi_gmem_WID</port>
+                <port>m_axi_gmem_WLAST</port>
+                <port>m_axi_gmem_WREADY</port>
+                <port>m_axi_gmem_WSTRB</port>
+                <port>m_axi_gmem_WUSER</port>
+                <port>m_axi_gmem_WVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0" channel_id="0" argName="mem"/>
+                <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32" argName="mem"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="instr" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="instr">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>instr</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="instr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="pc" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="pc">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>pc</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="pc"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="regs_in_PORTA" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="regs_in_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="regs_in_Addr_A">ADDR</portMap>
+                <portMap portMapName="regs_in_EN_A">EN</portMap>
+                <portMap portMapName="regs_in_WEN_A">WE</portMap>
+                <portMap portMapName="regs_in_Din_A">DIN</portMap>
+                <portMap portMapName="regs_in_Dout_A">DOUT</portMap>
+                <portMap portMapName="regs_in_Clk_A">CLK</portMap>
+                <portMap portMapName="regs_in_Rst_A">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>regs_in_Addr_A</port>
+                <port>regs_in_Clk_A</port>
+                <port>regs_in_Din_A</port>
+                <port>regs_in_Dout_A</port>
+                <port>regs_in_EN_A</port>
+                <port>regs_in_Rst_A</port>
+                <port>regs_in_WEN_A</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="regs_in"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="regs_in_PORTB" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="regs_in_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="regs_in_Addr_B">ADDR</portMap>
+                <portMap portMapName="regs_in_EN_B">EN</portMap>
+                <portMap portMapName="regs_in_WEN_B">WE</portMap>
+                <portMap portMapName="regs_in_Din_B">DIN</portMap>
+                <portMap portMapName="regs_in_Dout_B">DOUT</portMap>
+                <portMap portMapName="regs_in_Clk_B">CLK</portMap>
+                <portMap portMapName="regs_in_Rst_B">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>regs_in_Addr_B</port>
+                <port>regs_in_Clk_B</port>
+                <port>regs_in_Din_B</port>
+                <port>regs_in_Dout_B</port>
+                <port>regs_in_EN_B</port>
+                <port>regs_in_Rst_B</port>
+                <port>regs_in_WEN_B</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="regs_in"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="regs_out_PORTA" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="regs_out_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="regs_out_Addr_A">ADDR</portMap>
+                <portMap portMapName="regs_out_EN_A">EN</portMap>
+                <portMap portMapName="regs_out_WEN_A">WE</portMap>
+                <portMap portMapName="regs_out_Din_A">DIN</portMap>
+                <portMap portMapName="regs_out_Dout_A">DOUT</portMap>
+                <portMap portMapName="regs_out_Clk_A">CLK</portMap>
+                <portMap portMapName="regs_out_Rst_A">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>regs_out_Addr_A</port>
+                <port>regs_out_Clk_A</port>
+                <port>regs_out_Din_A</port>
+                <port>regs_out_Dout_A</port>
+                <port>regs_out_EN_A</port>
+                <port>regs_out_Rst_A</port>
+                <port>regs_out_WEN_A</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="regs_out"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="regs_out_PORTB" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="regs_out_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="regs_out_Addr_B">ADDR</portMap>
+                <portMap portMapName="regs_out_EN_B">EN</portMap>
+                <portMap portMapName="regs_out_WEN_B">WE</portMap>
+                <portMap portMapName="regs_out_Din_B">DIN</portMap>
+                <portMap portMapName="regs_out_Dout_B">DOUT</portMap>
+                <portMap portMapName="regs_out_Clk_B">CLK</portMap>
+                <portMap portMapName="regs_out_Rst_B">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>regs_out_Addr_B</port>
+                <port>regs_out_Clk_B</port>
+                <port>regs_out_Din_B</port>
+                <port>regs_out_Dout_B</port>
+                <port>regs_out_EN_B</port>
+                <port>regs_out_Rst_B</port>
+                <port>regs_out_WEN_B</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="regs_out"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fregs_in_PORTA" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="fregs_in_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="fregs_in_Addr_A">ADDR</portMap>
+                <portMap portMapName="fregs_in_EN_A">EN</portMap>
+                <portMap portMapName="fregs_in_WEN_A">WE</portMap>
+                <portMap portMapName="fregs_in_Din_A">DIN</portMap>
+                <portMap portMapName="fregs_in_Dout_A">DOUT</portMap>
+                <portMap portMapName="fregs_in_Clk_A">CLK</portMap>
+                <portMap portMapName="fregs_in_Rst_A">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>fregs_in_Addr_A</port>
+                <port>fregs_in_Clk_A</port>
+                <port>fregs_in_Din_A</port>
+                <port>fregs_in_Dout_A</port>
+                <port>fregs_in_EN_A</port>
+                <port>fregs_in_Rst_A</port>
+                <port>fregs_in_WEN_A</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="fregs_in"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fregs_in_PORTB" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="fregs_in_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="fregs_in_Addr_B">ADDR</portMap>
+                <portMap portMapName="fregs_in_EN_B">EN</portMap>
+                <portMap portMapName="fregs_in_WEN_B">WE</portMap>
+                <portMap portMapName="fregs_in_Din_B">DIN</portMap>
+                <portMap portMapName="fregs_in_Dout_B">DOUT</portMap>
+                <portMap portMapName="fregs_in_Clk_B">CLK</portMap>
+                <portMap portMapName="fregs_in_Rst_B">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>fregs_in_Addr_B</port>
+                <port>fregs_in_Clk_B</port>
+                <port>fregs_in_Din_B</port>
+                <port>fregs_in_Dout_B</port>
+                <port>fregs_in_EN_B</port>
+                <port>fregs_in_Rst_B</port>
+                <port>fregs_in_WEN_B</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="fregs_in"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fregs_out_PORTA" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="fregs_out_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="fregs_out_Addr_A">ADDR</portMap>
+                <portMap portMapName="fregs_out_EN_A">EN</portMap>
+                <portMap portMapName="fregs_out_WEN_A">WE</portMap>
+                <portMap portMapName="fregs_out_Din_A">DIN</portMap>
+                <portMap portMapName="fregs_out_Dout_A">DOUT</portMap>
+                <portMap portMapName="fregs_out_Clk_A">CLK</portMap>
+                <portMap portMapName="fregs_out_Rst_A">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>fregs_out_Addr_A</port>
+                <port>fregs_out_Clk_A</port>
+                <port>fregs_out_Din_A</port>
+                <port>fregs_out_Dout_A</port>
+                <port>fregs_out_EN_A</port>
+                <port>fregs_out_Rst_A</port>
+                <port>fregs_out_WEN_A</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="fregs_out"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fregs_out_PORTB" type="bram" busTypeName="bram" mode="master" direction="inout" dataWidth="32" addrWidth="32" portPrefix="fregs_out_">
+            <busParams>
+                <busParam busParamName="MASTER_TYPE">BRAM_CTRL</busParam>
+                <busParam busParamName="MEM_SIZE">128</busParam>
+                <busParam busParamName="MEM_WIDTH">32</busParam>
+                <busParam busParamName="MEM_ADDRESS_MODE">BYTE_ADDRESS</busParam>
+                <busParam busParamName="READ_LATENCY">1</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="fregs_out_Addr_B">ADDR</portMap>
+                <portMap portMapName="fregs_out_EN_B">EN</portMap>
+                <portMap portMapName="fregs_out_WEN_B">WE</portMap>
+                <portMap portMapName="fregs_out_Din_B">DIN</portMap>
+                <portMap portMapName="fregs_out_Dout_B">DOUT</portMap>
+                <portMap portMapName="fregs_out_Clk_B">CLK</portMap>
+                <portMap portMapName="fregs_out_Rst_B">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>fregs_out_Addr_B</port>
+                <port>fregs_out_Clk_B</port>
+                <port>fregs_out_Din_B</port>
+                <port>fregs_out_Dout_B</port>
+                <port>fregs_out_EN_B</port>
+                <port>fregs_out_Rst_B</port>
+                <port>fregs_out_WEN_B</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="bram" register_option="0" argName="fregs_out"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="next_pc" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="next_pc">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>next_pc</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="next_pc"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="instr_size" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="3">
+            <portMaps>
+                <portMap portMapName="instr_size">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>instr_size</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="instr_size"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="halted" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="halted">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>halted</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="halted"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="M_AXI">
+                <table>
+                    <keys size="13">Interface, Read/Write, Data Width (SW-&gt;HW), Address Width, Latency, Offset, Register, Max Widen Bitwidth, Max Read Burst Length, Max Write Burst Length, Num Read Outstanding, Num Write Outstanding, Resource Estimate</keys>
+                    <column name="m_axi_gmem">READ_WRITE, 32 -&gt; 32, 64, 0, slave, 0, 0, 16, 16, 16, 16, BRAM=4</column>
+                </table>
+            </item>
+            <item name="S_AXILITE Interfaces">
+                <table>
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_control">32, 4, , </column>
+                    <column name="s_axi_control_r">32, 5, 16, 0</column>
+                </table>
+            </item>
+            <item name="S_AXILITE Registers">
+                <table>
+                    <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
+                    <column name="s_axi_control">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT</column>
+                    <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
+                    <column name="s_axi_control">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
+                    <column name="s_axi_control">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
+                    <column name="s_axi_control_r">mem_1, 0x10, 32, W, Data signal of mem, </column>
+                    <column name="s_axi_control_r">mem_2, 0x14, 32, W, Data signal of mem, </column>
+                </table>
+            </item>
+            <item name="BRAM">
+                <table>
+                    <keys size="3">Interface, Data Width, Address Width</keys>
+                    <column name="fregs_in_PORTA">32, 32</column>
+                    <column name="fregs_in_PORTB">32, 32</column>
+                    <column name="fregs_out_PORTA">32, 32</column>
+                    <column name="fregs_out_PORTB">32, 32</column>
+                    <column name="regs_in_PORTA">32, 32</column>
+                    <column name="regs_in_PORTB">32, 32</column>
+                    <column name="regs_out_PORTA">32, 32</column>
+                    <column name="regs_out_PORTB">32, 32</column>
+                </table>
+            </item>
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="halted">ap_none, out, 1</column>
+                    <column name="instr">ap_none, in, 32</column>
+                    <column name="instr_size">ap_none, out, 3</column>
+                    <column name="next_pc">ap_none, out, 32</column>
+                    <column name="pc">ap_none, in, 32</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst_n">reset, ap_rst_n</column>
+                    <column name="interrupt">interrupt, interrupt</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table>
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="instr">in, ap_uint&lt;32&gt;</column>
+                    <column name="pc">in, ap_uint&lt;32&gt;</column>
+                    <column name="regs_in">in, ap_uint&lt;32&gt;*</column>
+                    <column name="regs_out">out, ap_uint&lt;32&gt;*</column>
+                    <column name="fregs_in">in, float*</column>
+                    <column name="fregs_out">out, float*</column>
+                    <column name="mem">inout, ap_uint&lt;32&gt;*</column>
+                    <column name="next_pc">out, ap_uint&lt;32&gt;&amp;</column>
+                    <column name="instr_size">out, ap_uint&lt;3&gt;&amp;</column>
+                    <column name="halted">out, ap_uint&lt;1&gt;&amp;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table>
+                    <keys size="5">Argument, HW Interface, HW Type, HW Usage, HW Info</keys>
+                    <column name="instr">instr, port, , </column>
+                    <column name="pc">pc, port, , </column>
+                    <column name="regs_in">regs_in_PORTA, interface, , </column>
+                    <column name="regs_in">regs_in_PORTB, interface, , </column>
+                    <column name="regs_out">regs_out_PORTA, interface, , </column>
+                    <column name="regs_out">regs_out_PORTB, interface, , </column>
+                    <column name="fregs_in">fregs_in_PORTA, interface, , </column>
+                    <column name="fregs_in">fregs_in_PORTB, interface, , </column>
+                    <column name="fregs_out">fregs_out_PORTA, interface, , </column>
+                    <column name="fregs_out">fregs_out_PORTB, interface, , </column>
+                    <column name="mem">m_axi_gmem, interface, , channel=0</column>
+                    <column name="mem">s_axi_control_r, register, offset, name=mem_1 offset=0x10 range=32</column>
+                    <column name="mem">s_axi_control_r, register, offset, name=mem_2 offset=0x14 range=32</column>
+                    <column name="next_pc">next_pc, port, , </column>
+                    <column name="instr_size">instr_size, port, , </column>
+                    <column name="halted">halted, port, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
+    <PragmaReport>
+        <Pragma type="interface" location="rv32_core.cpp:98" status="valid" parentFunction="rv32_core_step" variable="instr" isDirective="0" options="ap_none port=instr"/>
+        <Pragma type="interface" location="rv32_core.cpp:99" status="valid" parentFunction="rv32_core_step" variable="pc" isDirective="0" options="ap_none port=pc"/>
+        <Pragma type="interface" location="rv32_core.cpp:100" status="valid" parentFunction="rv32_core_step" variable="regs_in" isDirective="0" options="bram port=regs_in"/>
+        <Pragma type="interface" location="rv32_core.cpp:101" status="valid" parentFunction="rv32_core_step" variable="regs_out" isDirective="0" options="bram port=regs_out"/>
+        <Pragma type="interface" location="rv32_core.cpp:102" status="valid" parentFunction="rv32_core_step" variable="fregs_in" isDirective="0" options="bram port=fregs_in"/>
+        <Pragma type="interface" location="rv32_core.cpp:103" status="valid" parentFunction="rv32_core_step" variable="fregs_out" isDirective="0" options="bram port=fregs_out"/>
+        <Pragma type="interface" location="rv32_core.cpp:104" status="valid" parentFunction="rv32_core_step" variable="mem" isDirective="0" options="m_axi port=mem offset=slave bundle=gmem depth=16384"/>
+        <Pragma type="interface" location="rv32_core.cpp:105" status="valid" parentFunction="rv32_core_step" variable="next_pc" isDirective="0" options="ap_none port=next_pc"/>
+        <Pragma type="interface" location="rv32_core.cpp:106" status="valid" parentFunction="rv32_core_step" variable="instr_size" isDirective="0" options="ap_none port=instr_size"/>
+        <Pragma type="interface" location="rv32_core.cpp:107" status="valid" parentFunction="rv32_core_step" variable="halted" isDirective="0" options="ap_none port=halted"/>
+        <Pragma type="interface" location="rv32_core.cpp:108" status="valid" parentFunction="rv32_core_step" variable="return" isDirective="0" options="s_axilite port=return bundle=control"/>
+        <Pragma type="unroll" location="rv32_core.cpp:112" status="valid" parentFunction="rv32_core_step" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="rv32_core.cpp:117" status="valid" parentFunction="rv32_core_step" variable="" isDirective="0" options=""/>
+    </PragmaReport>
+</profile>
+

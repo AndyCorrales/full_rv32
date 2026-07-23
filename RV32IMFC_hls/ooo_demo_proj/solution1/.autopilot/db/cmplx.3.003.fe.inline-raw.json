@@ -1,0 +1,20 @@
+{
+  "0": {
+    "basicblocks": 69,
+    "calls": "",
+    "file": "ooo_demo.cpp",
+    "fileloc": 82,
+    "instructions": 406,
+    "loads": {
+      "G": 64,
+      "L": 6
+    },
+    "name": "ooo_demo_tick",
+    "stores": {
+      "G": 63,
+      "L": 17,
+      "T": 28
+    },
+    "total_instructions": 406
+  }
+}

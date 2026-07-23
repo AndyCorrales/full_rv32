@@ -1,0 +1,37 @@
+{
+    "0": {
+        "name": "rv32_vector_step",
+        "file": "rv32_vector.cpp",
+        "fileloc": "36",
+        "instructions": "195",
+        "total_instructions": "215",
+        "calls": "1",
+        "basicblocks": "17",
+        "loads": {
+            "T": "12"
+        },
+        "stores": {
+            "T": "8"
+        }
+    },
+    "1": {
+        "name": "rv32_vector_step_Pipeline_VITIS_LOOP_54_1",
+        "file": "rv32_vector.cpp",
+        "fileloc": "54",
+        "instructions": "20",
+        "total_instructions": "20",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1",
+            "T": "1"
+        },
+        "stores": {
+            "L": "2",
+            "T": "1"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}

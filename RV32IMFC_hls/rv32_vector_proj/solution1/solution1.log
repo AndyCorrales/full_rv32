@@ -1,0 +1,130 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.2 (64-bit)
+Tool Version Limit: 2024.11
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xck26-sfvc784-2LV-c 
+INFO: [HLS 200-1611] Setting target device to 'xck26-sfvc784-2LV-c'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:04; Allocated memory: 0.141 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.25 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.3 seconds; current allocated memory: 634.691 MB.
+INFO: [HLS 200-10] Analyzing design file 'rv32_vector.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.56 seconds. CPU system time: 0.59 seconds. Elapsed time: 4.15 seconds; current allocated memory: 636.812 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,649 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 344 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 274 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 246 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 239 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 233 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 233 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 233 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 233 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 219 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 219 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 219 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 219 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 219 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 235 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 215 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_vector_proj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_67_2' (rv32_vector.cpp:67:26) in function 'rv32_vector_step' completely with a factor of 4 (rv32_vector.cpp:43:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_77_3' (rv32_vector.cpp:77:26) in function 'rv32_vector_step' completely with a factor of 4 (rv32_vector.cpp:43:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_90_4' (rv32_vector.cpp:90:30) in function 'rv32_vector_step' completely with a factor of 4 (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'opcode(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'width(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'mop(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'lumop(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'vd(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'funct3(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'vs1(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'vs2(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-178] Inlining function 'funct6(ap_uint<32>)' into 'rv32_vector_step(ap_uint<32>, ap_uint<32>, ap_uint<32>*, ap_uint<32>*, ap_uint<32>*, ap_uint<1>&)' (rv32_vector.cpp:43:0)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_54_1> at rv32_vector.cpp:54:19 
+INFO: [HLS 214-115] Multiple burst reads of length 4 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (rv32_vector.cpp:69:26)
+INFO: [HLS 214-115] Multiple burst writes of length 4 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (rv32_vector.cpp:81:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.78 seconds. CPU system time: 0.42 seconds. Elapsed time: 7.63 seconds; current allocated memory: 646.969 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0 seconds; current allocated memory: 646.969 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 647.145 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 647.180 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (rv32_vector.cpp:100:9) in function 'rv32_vector_step'... converting 4 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 669.504 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 669.840 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'rv32_vector_step' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_vector_step_Pipeline_VITIS_LOOP_54_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_54_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_54_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.04 seconds; current allocated memory: 670.848 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 670.848 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rv32_vector_step' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 671.410 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 671.410 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_vector_step_Pipeline_VITIS_LOOP_54_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rv32_vector_step_Pipeline_VITIS_LOOP_54_1' pipeline 'VITIS_LOOP_54_1' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_vector_step_Pipeline_VITIS_LOOP_54_1/vregs_in_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_vector_step_Pipeline_VITIS_LOOP_54_1/vregs_in_Din_A' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_vector_step_Pipeline_VITIS_LOOP_54_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 671.410 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rv32_vector_step' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/instr' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/rs1_val' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/vregs_in' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/vregs_out' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/mem' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rv32_vector_step/halted' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'halted' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on function 'rv32_vector_step' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Bundling port 'mem' to AXI-Lite port control_r.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_vector_step/vregs_in_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_vector_step/vregs_in_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_vector_step/vregs_in_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'rv32_vector_step/vregs_in_Din_B' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rv32_vector_step'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 672.402 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 677.508 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.51 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.53 seconds; current allocated memory: 683.422 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for rv32_vector_step.
+INFO: [VLOG 209-307] Generating Verilog RTL for rv32_vector_step.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:13; Allocated memory: 49.148 MB.

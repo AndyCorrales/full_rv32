@@ -1,0 +1,56 @@
+{
+  "0": {
+    "basicblocks": 79,
+    "calls": "2 2",
+    "file": "ooo_demo.cpp",
+    "fileloc": 82,
+    "instructions": 797,
+    "loads": {
+      "G": 36,
+      "L": 62
+    },
+    "name": "ooo_demo_tick",
+    "stores": {
+      "G": 63,
+      "L": 9,
+      "T": 28
+    },
+    "total_instructions": 3345
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "ooo_demo.cpp",
+    "fileloc": 23,
+    "instructions": 22,
+    "name": "__cxx_global_var_init",
+    "stores": {
+      "G": 3
+    },
+    "total_instructions": 322
+  },
+  "2": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "ooo_demo.cpp",
+    "fileloc": 60,
+    "instructions": 68,
+    "loads": {
+      "L": 9
+    },
+    "name": "read_operand",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 142
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "1",
+    "file": "ooo_demo.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 2,
+    "name": "",
+    "total_instructions": 324
+  }
+}

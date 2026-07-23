@@ -1,0 +1,229 @@
+
+
+================================================================
+== Synthesis Summary Report of 'rv32_vector_step'
+================================================================
++ General Information: 
+    * Date:           Tue Jul 21 12:32:26 2026
+    * Version:        2024.2 (Build 5238294 on Nov  8 2024)
+    * Project:        rv32_vector_proj
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+--------+---------+------------+-----------+-----+
+    |                    Modules                   | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |        |         |            |           |     |
+    |                    & Loops                   | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM  |   DSP   |     FF     |    LUT    | URAM|
+    +----------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+--------+---------+------------+-----------+-----+
+    |+ rv32_vector_step                            |     -|  0.00|      144|  1.440e+03|         -|      145|     -|        no|  4 (1%)|  3 (~0%)|  1232 (~0%)|  1998 (1%)|    -|
+    | + rv32_vector_step_Pipeline_VITIS_LOOP_54_1  |     -|  4.83|      130|  1.300e+03|         -|      130|     -|        no|       -|        -|    19 (~0%)|   78 (~0%)|    -|
+    |  o VITIS_LOOP_54_1                           |     -|  7.30|      128|  1.280e+03|         2|        1|   128|       yes|       -|        -|           -|          -|    -|
+    +----------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+--------+---------+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_WRITE | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=4            |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++-----------------+------------+---------------+--------+----------+
+| Interface       | Data Width | Address Width | Offset | Register |
++-----------------+------------+---------------+--------+----------+
+| s_axi_control   | 32         | 4             |        |          |
+| s_axi_control_r | 32         | 5             | 16     | 0        |
++-----------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++-----------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface       | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++-----------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control   | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control   | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control   | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control   | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control_r | mem_1    | 0x10   | 32    | W      | Data signal of mem               |                                                                      |
+| s_axi_control_r | mem_2    | 0x14   | 32    | W      | Data signal of mem               |                                                                      |
++-----------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* BRAM
++-----------------+------------+---------------+
+| Interface       | Data Width | Address Width |
++-----------------+------------+---------------+
+| vregs_in_PORTA  | 32         | 32            |
+| vregs_in_PORTB  | 32         | 32            |
+| vregs_out_PORTA | 32         | 32            |
++-----------------+------------+---------------+
+
+* Other Ports
++---------+---------+-----------+----------+
+| Port    | Mode    | Direction | Bitwidth |
++---------+---------+-----------+----------+
+| halted  | ap_none | out       | 1        |
+| instr   | ap_none | in        | 32       |
+| rs1_val | ap_none | in        | 32       |
++---------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+--------------+
+| Argument  | Direction | Datatype     |
++-----------+-----------+--------------+
+| instr     | in        | ap_uint<32>  |
+| rs1_val   | in        | ap_uint<32>  |
+| vregs_in  | in        | ap_uint<32>* |
+| vregs_out | out       | ap_uint<32>* |
+| mem       | inout     | ap_uint<32>* |
+| halted    | out       | ap_uint<1>&  |
++-----------+-----------+--------------+
+
+* SW-to-HW Mapping
++-----------+-----------------+-----------+----------+---------------------------------+
+| Argument  | HW Interface    | HW Type   | HW Usage | HW Info                         |
++-----------+-----------------+-----------+----------+---------------------------------+
+| instr     | instr           | port      |          |                                 |
+| rs1_val   | rs1_val         | port      |          |                                 |
+| vregs_in  | vregs_in_PORTA  | interface |          |                                 |
+| vregs_in  | vregs_in_PORTB  | interface |          |                                 |
+| vregs_out | vregs_out_PORTA | interface |          |                                 |
+| mem       | m_axi_gmem      | interface |          | channel=0                       |
+| mem       | s_axi_control_r | register  | offset   | name=mem_1 offset=0x10 range=32 |
+| mem       | s_axi_control_r | register  | offset   | name=mem_2 offset=0x14 range=32 |
+| halted    | halted          | port      |          |                                 |
++-----------+-----------------+-----------+----------+---------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+
+| HW Interface | Direction | Length | Width |
++--------------+-----------+--------+-------+
+| m_axi_gmem   | read      | 4      | 32    |
+| m_axi_gmem   | write     | 4      | 32    |
++--------------+-----------+--------+-------+
+
+* All M_AXI Variable Accesses
++--------------+----------+-----------------------+-----------+--------------+--------+------------+-------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location       | Direction | Burst Status | Length | Resolution | Problem                                                                                               |
++--------------+----------+-----------------------+-----------+--------------+--------+------------+-------------------------------------------------------------------------------------------------------+
+| m_axi_gmem   | mem      | rv32_vector.cpp:69:26 | read      | Widen Fail   |        | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | mem      | rv32_vector.cpp:69:26 | read      | Inferred     | 4      |            |                                                                                                       |
+| m_axi_gmem   | mem      | rv32_vector.cpp:79:24 | write     | Widen Fail   |        | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | mem      | rv32_vector.cpp:79:24 | write     | Inferred     | 4      |            |                                                                                                       |
++--------------+----------+-----------------------+-----------+--------------+--------+------------+-------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++----------------------------------------------+-----+--------+-------------+--------+----------+---------+
+| Name                                         | DSP | Pragma | Variable    | Op     | Impl     | Latency |
++----------------------------------------------+-----+--------+-------------+--------+----------+---------+
+| + rv32_vector_step                           | 3   |        |             |        |          |         |
+|   icmp_ln84_fu_531_p2                        |     |        | icmp_ln84   | seteq  | auto     | 0       |
+|   icmp_ln36_fu_537_p2                        |     |        | icmp_ln36   | seteq  | auto     | 0       |
+|   or_ln36_fu_543_p2                          |     |        | or_ln36     | or     | auto     | 0       |
+|   icmp_ln86_fu_557_p2                        |     |        | icmp_ln86   | seteq  | auto     | 0       |
+|   is_add_fu_563_p2                           |     |        | is_add      | and    | auto     | 0       |
+|   icmp_ln87_fu_569_p2                        |     |        | icmp_ln87   | seteq  | auto     | 0       |
+|   is_sub_fu_575_p2                           |     |        | is_sub      | and    | auto     | 0       |
+|   icmp_ln88_fu_581_p2                        |     |        | icmp_ln88   | seteq  | auto     | 0       |
+|   is_mul_fu_587_p2                           |     |        | is_mul      | and    | auto     | 0       |
+|   or_ln89_fu_593_p2                          |     |        | or_ln89     | or     | auto     | 0       |
+|   or_ln89_1_fu_599_p2                        |     |        | or_ln89_1   | or     | auto     | 0       |
+|   grp_fu_497_p2                              |     |        | add_ln95    | add    | fabric   | 0       |
+|   grp_fu_497_p2                              |     |        | add_ln95_1  | add    | fabric   | 0       |
+|   grp_fu_497_p2                              |     |        | add_ln95_2  | add    | fabric   | 0       |
+|   grp_fu_497_p2                              |     |        | add_ln95_3  | add    | fabric   | 0       |
+|   grp_fu_503_p2                              |     |        | sub_ln96    | sub    | fabric   | 0       |
+|   mul_32s_32s_32_1_1_U1                      | 3   |        | mul_ln97    | mul    | auto     | 0       |
+|   r_5_fu_762_p3                              |     |        | r_5         | select | auto_sel | 0       |
+|   grp_fu_503_p2                              |     |        | sub_ln96_1  | sub    | fabric   | 0       |
+|   mul_32s_32s_32_1_1_U1                      | 3   |        | mul_ln97_1  | mul    | auto     | 0       |
+|   r_6_fu_814_p3                              |     |        | r_6         | select | auto_sel | 0       |
+|   grp_fu_503_p2                              |     |        | sub_ln96_2  | sub    | fabric   | 0       |
+|   mul_32s_32s_32_1_1_U1                      | 3   |        | mul_ln97_2  | mul    | auto     | 0       |
+|   r_7_fu_866_p3                              |     |        | r_7         | select | auto_sel | 0       |
+|   grp_fu_503_p2                              |     |        | sub_ln96_3  | sub    | fabric   | 0       |
+|   mul_32s_32s_32_1_1_U1                      | 3   |        | mul_ln97_3  | mul    | auto     | 0       |
+|   r_fu_881_p3                                |     |        | r           | select | auto_sel | 0       |
+|   r_1_222_fu_873_p3                          |     |        | r_1_222     | select | auto_sel | 0       |
+|   r_1121420_fu_769_p3                        |     |        | r_1121420   | select | auto_sel | 0       |
+|   r_1_11618_fu_821_p3                        |     |        | r_1_11618   | select | auto_sel | 0       |
+|   r_3_fu_888_p3                              |     |        | r_3         | select | auto_sel | 0       |
+|   grp_fu_453_p2                              |     |        | icmp_ln71   | seteq  | auto     | 0       |
+|   grp_fu_467_p2                              |     |        | icmp_ln72   | seteq  | auto     | 0       |
+|   grp_fu_481_p2                              |     |        | icmp_ln72_1 | seteq  | auto     | 0       |
+|   add_ln79_fu_637_p2                         |     |        | add_ln79    | add    | fabric   | 0       |
+|   grp_fu_453_p2                              |     |        | icmp_ln62   | seteq  | auto     | 0       |
+|   grp_fu_467_p2                              |     |        | icmp_ln63   | seteq  | auto     | 0       |
+|   grp_fu_481_p2                              |     |        | icmp_ln63_1 | seteq  | auto     | 0       |
+|   add_ln69_fu_675_p2                         |     |        | add_ln69    | add    | fabric   | 0       |
+|  + rv32_vector_step_Pipeline_VITIS_LOOP_54_1 | 0   |        |             |        |          |         |
+|    icmp_ln54_fu_73_p2                        |     |        | icmp_ln54   | seteq  | auto     | 0       |
+|    add_ln54_fu_79_p2                         |     |        | add_ln54    | add    | fabric   | 0       |
++----------------------------------------------+-----+--------+-------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name                | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                     |           |           |      |      |        |          |      |         | Banks            |
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + rv32_vector_step  |           |           | 4    | 0    |        |          |      |         |                  |
+|   control_s_axi_U   | interface | s_axilite |      |      |        |          |      |         |                  |
+|   control_r_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U      | interface | m_axi     | 4    |      |        |          |      |         |                  |
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+--------------------------------------------------+---------------------------------------------------+
+| Type      | Options                                          | Location                                          |
++-----------+--------------------------------------------------+---------------------------------------------------+
+| interface | ap_none port=instr                               | rv32_vector.cpp:44 in rv32_vector_step, instr     |
+| interface | ap_none port=rs1_val                             | rv32_vector.cpp:45 in rv32_vector_step, rs1_val   |
+| interface | bram port=vregs_in                               | rv32_vector.cpp:46 in rv32_vector_step, vregs_in  |
+| interface | bram port=vregs_out                              | rv32_vector.cpp:47 in rv32_vector_step, vregs_out |
+| interface | m_axi port=mem offset=slave bundle=gmem depth=64 | rv32_vector.cpp:48 in rv32_vector_step, mem       |
+| interface | ap_none port=halted                              | rv32_vector.cpp:49 in rv32_vector_step, halted    |
+| interface | s_axilite port=return bundle=control             | rv32_vector.cpp:50 in rv32_vector_step, return    |
+| unroll    |                                                  | rv32_vector.cpp:68 in rv32_vector_step            |
+| unroll    |                                                  | rv32_vector.cpp:78 in rv32_vector_step            |
+| unroll    |                                                  | rv32_vector.cpp:91 in rv32_vector_step            |
++-----------+--------------------------------------------------+---------------------------------------------------+
+
+

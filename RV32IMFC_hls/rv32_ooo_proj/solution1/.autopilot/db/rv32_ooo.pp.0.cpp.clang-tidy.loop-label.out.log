@@ -1,0 +1,85 @@
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:2260:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:2260:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:2274:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:2274:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:2288:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:2288:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:3922:7: warning: Added loop label VITIS_LOOP_1248_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1248_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:3922:7: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:13649:5: warning: Added loop label VITIS_LOOP_178_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < N_ALU; i++) {
+    ^~~
+    VITIS_LOOP_178_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:13649:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:13886:5: warning: Added loop label VITIS_LOOP_415_1:   [xilinx-label-all-loops]
+    for (int lane = 0; lane < 4; lane++) {
+    ^~~
+    VITIS_LOOP_415_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:13886:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14020:9: warning: Added loop label VITIS_LOOP_545_1:   [xilinx-label-all-loops]
+        for (int i = 0; i < 32; i++) {
+        ^~~
+        VITIS_LOOP_545_1: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14020:9: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14029:9: warning: Added loop label VITIS_LOOP_554_2:   [xilinx-label-all-loops]
+        for (int i = 0; i < ROB_SZ; i++) {
+        ^~~
+        VITIS_LOOP_554_2: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14029:9: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14037:9: warning: Added loop label VITIS_LOOP_562_3:   [xilinx-label-all-loops]
+        for (int i = 0; i < N_ALU; i++) {
+        ^~~
+        VITIS_LOOP_562_3: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14037:9: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14050:9: warning: Added loop label VITIS_LOOP_575_4:   [xilinx-label-all-loops]
+        for (int i = 0; i < (32 * 4); i++) {
+        ^~~
+        VITIS_LOOP_575_4: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14050:9: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14054:9: warning: Added loop label VITIS_LOOP_579_5:   [xilinx-label-all-loops]
+        for (int i = 0; i < (32 * 4); i++) {
+        ^~~
+        VITIS_LOOP_579_5: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14054:9: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14095:5: warning: Added loop label VITIS_LOOP_620_6:   [xilinx-label-all-loops]
+    for (int i = 0; i < N_ALU; i++) {
+    ^~~
+    VITIS_LOOP_620_6: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14095:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14197:13: warning: Added loop label VITIS_LOOP_722_7:   [xilinx-label-all-loops]
+            for (int lane = 0; lane < 4; lane++) {
+            ^~~
+            VITIS_LOOP_722_7: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14197:13: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14203:13: warning: Added loop label VITIS_LOOP_728_8:   [xilinx-label-all-loops]
+            for (int lane = 0; lane < 4; lane++) {
+            ^~~
+            VITIS_LOOP_728_8: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14203:13: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14240:5: warning: Added loop label VITIS_LOOP_765_9:   [xilinx-label-all-loops]
+    for (int i = 0; i < N_ALU; i++) {
+    ^~~
+    VITIS_LOOP_765_9: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14240:5: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14347:17: warning: Added loop label VITIS_LOOP_872_10:   [xilinx-label-all-loops]
+                for (int i = N_ALU - 1; i >= 0; i--) {
+                ^~~
+                VITIS_LOOP_872_10: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14347:17: note: FIX-IT applied suggested code changes
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14604:5: warning: Added loop label VITIS_LOOP_1129_11:   [xilinx-label-all-loops]
+    for (int i = 0; i < (32 * 4); i++) {
+    ^~~
+    VITIS_LOOP_1129_11: 
+/media/andy/9cf23886-b985-4f84-a422-2da06e76f300/home/byovsh/Documents/Vscode/Proyecto/RV32IMFC_hls/rv32_ooo_proj/solution1/.autopilot/db/rv32_ooo.pp.0.cpp:14604:5: note: FIX-IT applied suggested code changes

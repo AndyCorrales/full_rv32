@@ -1,0 +1,255 @@
+
+
+================================================================
+== Vitis HLS Report for 'cdb_broadcast'
+================================================================
+* Date:           Tue Jul 21 18:18:45 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        rv32_ooo_proj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xck26-sfvc784-2LV-c
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  0.960 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|     180|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|     135|    -|
+|Register         |        -|     -|       -|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|       0|     315|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      288|  1248|  234240|  117120|   64|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|       0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |icmp_ln180_1_fu_212_p2  |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln180_fu_144_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln183_1_fu_244_p2  |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln183_fu_176_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln187_fu_280_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln190_fu_312_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln193_fu_348_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln196_fu_380_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln199_fu_416_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln202_fu_448_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln205_fu_484_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln208_fu_516_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln211_fu_548_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln214_fu_584_p2    |      icmp|   0|  0|  10|           3|           3|
+    |icmp_ln217_fu_620_p2    |      icmp|   0|  0|  10|           3|           3|
+    |or_ln180_1_fu_218_p2    |        or|   0|  0|   2|           1|           1|
+    |or_ln180_fu_150_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln183_1_fu_250_p2    |        or|   0|  0|   2|           1|           1|
+    |or_ln183_fu_182_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln187_fu_286_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln190_fu_318_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln193_fu_354_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln196_fu_386_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln199_fu_422_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln202_fu_454_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln205_fu_490_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln208_fu_522_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln211_fu_554_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln214_fu_590_p2      |        or|   0|  0|   2|           1|           1|
+    |or_ln217_fu_626_p2      |        or|   0|  0|   2|           1|           1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |Total                   |          |   0|  0| 180|          60|          60|
+    +------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------+----+-----------+-----+-----------+
+    |         Name        | LUT| Input Size| Bits| Total Bits|
+    +---------------------+----+-----------+-----+-----------+
+    |alu_rs_s1_ready_0_o  |   9|          2|    1|          2|
+    |alu_rs_s1_ready_1_o  |   9|          2|    1|          2|
+    |alu_rs_s2_ready_0_o  |   9|          2|    1|          2|
+    |alu_rs_s2_ready_1_o  |   9|          2|    1|          2|
+    |br_rs_s1_ready_o     |   9|          2|    1|          2|
+    |br_rs_s2_ready_o     |   9|          2|    1|          2|
+    |fpu_rs_s1_ready_o    |   9|          2|    1|          2|
+    |fpu_rs_s2_ready_o    |   9|          2|    1|          2|
+    |fpu_rs_s3_ready_o    |   9|          2|    1|          2|
+    |lsu_rs_s1_ready_o    |   9|          2|    1|          2|
+    |lsu_rs_s2_ready_o    |   9|          2|    1|          2|
+    |md_rs_s1_ready_o     |   9|          2|    1|          2|
+    |md_rs_s2_ready_o     |   9|          2|    1|          2|
+    |sys_rs_s1_ready_o    |   9|          2|    1|          2|
+    |vec_rs_s1_ready_o    |   9|          2|    1|          2|
+    +---------------------+----+-----------+-----+-----------+
+    |Total                | 135|         30|   15|         30|
+    +---------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+-------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++----------------------------+-----+-----+------------+-------------------+--------------+
+|ap_ready                    |  out|    1|  ap_ctrl_hs|      cdb_broadcast|  return value|
+|ap_rst                      |   in|    1|  ap_ctrl_hs|      cdb_broadcast|  return value|
+|tag                         |   in|    3|     ap_none|                tag|        scalar|
+|value_r                     |   in|   32|     ap_none|            value_r|        scalar|
+|alu_rs_busy_0               |   in|    1|     ap_none|      alu_rs_busy_0|       pointer|
+|alu_rs_s1_ready_0_i         |   in|    1|     ap_ovld|  alu_rs_s1_ready_0|       pointer|
+|alu_rs_s1_ready_0_o         |  out|    1|     ap_ovld|  alu_rs_s1_ready_0|       pointer|
+|alu_rs_s1_ready_0_o_ap_vld  |  out|    1|     ap_ovld|  alu_rs_s1_ready_0|       pointer|
+|alu_rs_s1_tag_0             |   in|    3|     ap_none|    alu_rs_s1_tag_0|       pointer|
+|alu_rs_s1_val_0             |  out|   32|      ap_vld|    alu_rs_s1_val_0|       pointer|
+|alu_rs_s1_val_0_ap_vld      |  out|    1|      ap_vld|    alu_rs_s1_val_0|       pointer|
+|alu_rs_s2_ready_0_i         |   in|    1|     ap_ovld|  alu_rs_s2_ready_0|       pointer|
+|alu_rs_s2_ready_0_o         |  out|    1|     ap_ovld|  alu_rs_s2_ready_0|       pointer|
+|alu_rs_s2_ready_0_o_ap_vld  |  out|    1|     ap_ovld|  alu_rs_s2_ready_0|       pointer|
+|alu_rs_s2_tag_0             |   in|    3|     ap_none|    alu_rs_s2_tag_0|       pointer|
+|alu_rs_s2_val_0             |  out|   32|      ap_vld|    alu_rs_s2_val_0|       pointer|
+|alu_rs_s2_val_0_ap_vld      |  out|    1|      ap_vld|    alu_rs_s2_val_0|       pointer|
+|alu_rs_busy_1               |   in|    1|     ap_none|      alu_rs_busy_1|       pointer|
+|md_rs_busy                  |   in|    1|     ap_none|         md_rs_busy|       pointer|
+|md_rs_s1_ready_i            |   in|    1|     ap_ovld|     md_rs_s1_ready|       pointer|
+|md_rs_s1_ready_o            |  out|    1|     ap_ovld|     md_rs_s1_ready|       pointer|
+|md_rs_s1_ready_o_ap_vld     |  out|    1|     ap_ovld|     md_rs_s1_ready|       pointer|
+|md_rs_s1_tag                |   in|    3|     ap_none|       md_rs_s1_tag|       pointer|
+|md_rs_s1_val                |  out|   32|      ap_vld|       md_rs_s1_val|       pointer|
+|md_rs_s1_val_ap_vld         |  out|    1|      ap_vld|       md_rs_s1_val|       pointer|
+|md_rs_s2_ready_i            |   in|    1|     ap_ovld|     md_rs_s2_ready|       pointer|
+|md_rs_s2_ready_o            |  out|    1|     ap_ovld|     md_rs_s2_ready|       pointer|
+|md_rs_s2_ready_o_ap_vld     |  out|    1|     ap_ovld|     md_rs_s2_ready|       pointer|
+|md_rs_s2_tag                |   in|    3|     ap_none|       md_rs_s2_tag|       pointer|
+|md_rs_s2_val                |  out|   32|      ap_vld|       md_rs_s2_val|       pointer|
+|md_rs_s2_val_ap_vld         |  out|    1|      ap_vld|       md_rs_s2_val|       pointer|
+|lsu_rs_busy                 |   in|    1|     ap_none|        lsu_rs_busy|       pointer|
+|lsu_rs_s1_ready_i           |   in|    1|     ap_ovld|    lsu_rs_s1_ready|       pointer|
+|lsu_rs_s1_ready_o           |  out|    1|     ap_ovld|    lsu_rs_s1_ready|       pointer|
+|lsu_rs_s1_ready_o_ap_vld    |  out|    1|     ap_ovld|    lsu_rs_s1_ready|       pointer|
+|lsu_rs_s1_tag               |   in|    3|     ap_none|      lsu_rs_s1_tag|       pointer|
+|lsu_rs_s1_val               |  out|    8|      ap_vld|      lsu_rs_s1_val|       pointer|
+|lsu_rs_s1_val_ap_vld        |  out|    1|      ap_vld|      lsu_rs_s1_val|       pointer|
+|lsu_rs_s2_ready_i           |   in|    1|     ap_ovld|    lsu_rs_s2_ready|       pointer|
+|lsu_rs_s2_ready_o           |  out|    1|     ap_ovld|    lsu_rs_s2_ready|       pointer|
+|lsu_rs_s2_ready_o_ap_vld    |  out|    1|     ap_ovld|    lsu_rs_s2_ready|       pointer|
+|lsu_rs_s2_tag               |   in|    3|     ap_none|      lsu_rs_s2_tag|       pointer|
+|lsu_rs_s2_val               |  out|   32|      ap_vld|      lsu_rs_s2_val|       pointer|
+|lsu_rs_s2_val_ap_vld        |  out|    1|      ap_vld|      lsu_rs_s2_val|       pointer|
+|br_rs_busy                  |   in|    1|     ap_none|         br_rs_busy|       pointer|
+|br_rs_s1_ready_i            |   in|    1|     ap_ovld|     br_rs_s1_ready|       pointer|
+|br_rs_s1_ready_o            |  out|    1|     ap_ovld|     br_rs_s1_ready|       pointer|
+|br_rs_s1_ready_o_ap_vld     |  out|    1|     ap_ovld|     br_rs_s1_ready|       pointer|
+|br_rs_s1_tag                |   in|    3|     ap_none|       br_rs_s1_tag|       pointer|
+|br_rs_s1_val                |  out|   32|      ap_vld|       br_rs_s1_val|       pointer|
+|br_rs_s1_val_ap_vld         |  out|    1|      ap_vld|       br_rs_s1_val|       pointer|
+|br_rs_s2_ready_i            |   in|    1|     ap_ovld|     br_rs_s2_ready|       pointer|
+|br_rs_s2_ready_o            |  out|    1|     ap_ovld|     br_rs_s2_ready|       pointer|
+|br_rs_s2_ready_o_ap_vld     |  out|    1|     ap_ovld|     br_rs_s2_ready|       pointer|
+|br_rs_s2_tag                |   in|    3|     ap_none|       br_rs_s2_tag|       pointer|
+|br_rs_s2_val                |  out|   32|      ap_vld|       br_rs_s2_val|       pointer|
+|br_rs_s2_val_ap_vld         |  out|    1|      ap_vld|       br_rs_s2_val|       pointer|
+|fpu_rs_busy                 |   in|    1|     ap_none|        fpu_rs_busy|       pointer|
+|fpu_rs_s1_ready_i           |   in|    1|     ap_ovld|    fpu_rs_s1_ready|       pointer|
+|fpu_rs_s1_ready_o           |  out|    1|     ap_ovld|    fpu_rs_s1_ready|       pointer|
+|fpu_rs_s1_ready_o_ap_vld    |  out|    1|     ap_ovld|    fpu_rs_s1_ready|       pointer|
+|fpu_rs_s1_tag               |   in|    3|     ap_none|      fpu_rs_s1_tag|       pointer|
+|fpu_rs_s1_val               |  out|   32|      ap_vld|      fpu_rs_s1_val|       pointer|
+|fpu_rs_s1_val_ap_vld        |  out|    1|      ap_vld|      fpu_rs_s1_val|       pointer|
+|fpu_rs_s2_ready_i           |   in|    1|     ap_ovld|    fpu_rs_s2_ready|       pointer|
+|fpu_rs_s2_ready_o           |  out|    1|     ap_ovld|    fpu_rs_s2_ready|       pointer|
+|fpu_rs_s2_ready_o_ap_vld    |  out|    1|     ap_ovld|    fpu_rs_s2_ready|       pointer|
+|fpu_rs_s2_tag               |   in|    3|     ap_none|      fpu_rs_s2_tag|       pointer|
+|fpu_rs_s2_val               |  out|   32|      ap_vld|      fpu_rs_s2_val|       pointer|
+|fpu_rs_s2_val_ap_vld        |  out|    1|      ap_vld|      fpu_rs_s2_val|       pointer|
+|fpu_rs_s3_ready_i           |   in|    1|     ap_ovld|    fpu_rs_s3_ready|       pointer|
+|fpu_rs_s3_ready_o           |  out|    1|     ap_ovld|    fpu_rs_s3_ready|       pointer|
+|fpu_rs_s3_ready_o_ap_vld    |  out|    1|     ap_ovld|    fpu_rs_s3_ready|       pointer|
+|fpu_rs_s3_tag               |   in|    3|     ap_none|      fpu_rs_s3_tag|       pointer|
+|fpu_rs_s3_val               |  out|   32|      ap_vld|      fpu_rs_s3_val|       pointer|
+|fpu_rs_s3_val_ap_vld        |  out|    1|      ap_vld|      fpu_rs_s3_val|       pointer|
+|vec_rs_busy                 |   in|    1|     ap_none|        vec_rs_busy|       pointer|
+|vec_rs_s1_ready_i           |   in|    1|     ap_ovld|    vec_rs_s1_ready|       pointer|
+|vec_rs_s1_ready_o           |  out|    1|     ap_ovld|    vec_rs_s1_ready|       pointer|
+|vec_rs_s1_ready_o_ap_vld    |  out|    1|     ap_ovld|    vec_rs_s1_ready|       pointer|
+|vec_rs_s1_tag               |   in|    3|     ap_none|      vec_rs_s1_tag|       pointer|
+|vec_rs_s1_val               |  out|    8|      ap_vld|      vec_rs_s1_val|       pointer|
+|vec_rs_s1_val_ap_vld        |  out|    1|      ap_vld|      vec_rs_s1_val|       pointer|
+|sys_rs_busy                 |   in|    1|     ap_none|        sys_rs_busy|       pointer|
+|sys_rs_s1_ready_i           |   in|    1|     ap_ovld|    sys_rs_s1_ready|       pointer|
+|sys_rs_s1_ready_o           |  out|    1|     ap_ovld|    sys_rs_s1_ready|       pointer|
+|sys_rs_s1_ready_o_ap_vld    |  out|    1|     ap_ovld|    sys_rs_s1_ready|       pointer|
+|sys_rs_s1_tag               |   in|    3|     ap_none|      sys_rs_s1_tag|       pointer|
+|sys_rs_s1_val               |  out|   32|      ap_vld|      sys_rs_s1_val|       pointer|
+|sys_rs_s1_val_ap_vld        |  out|    1|      ap_vld|      sys_rs_s1_val|       pointer|
+|alu_rs_s1_ready_1_i         |   in|    1|     ap_ovld|  alu_rs_s1_ready_1|       pointer|
+|alu_rs_s1_ready_1_o         |  out|    1|     ap_ovld|  alu_rs_s1_ready_1|       pointer|
+|alu_rs_s1_ready_1_o_ap_vld  |  out|    1|     ap_ovld|  alu_rs_s1_ready_1|       pointer|
+|alu_rs_s1_tag_1             |   in|    3|     ap_none|    alu_rs_s1_tag_1|       pointer|
+|alu_rs_s1_val_1             |  out|   32|      ap_vld|    alu_rs_s1_val_1|       pointer|
+|alu_rs_s1_val_1_ap_vld      |  out|    1|      ap_vld|    alu_rs_s1_val_1|       pointer|
+|alu_rs_s2_ready_1_i         |   in|    1|     ap_ovld|  alu_rs_s2_ready_1|       pointer|
+|alu_rs_s2_ready_1_o         |  out|    1|     ap_ovld|  alu_rs_s2_ready_1|       pointer|
+|alu_rs_s2_ready_1_o_ap_vld  |  out|    1|     ap_ovld|  alu_rs_s2_ready_1|       pointer|
+|alu_rs_s2_tag_1             |   in|    3|     ap_none|    alu_rs_s2_tag_1|       pointer|
+|alu_rs_s2_val_1             |  out|   32|      ap_vld|    alu_rs_s2_val_1|       pointer|
+|alu_rs_s2_val_1_ap_vld      |  out|    1|      ap_vld|    alu_rs_s2_val_1|       pointer|
++----------------------------+-----+-----+------------+-------------------+--------------+
+

@@ -1,0 +1,18 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../rv32_ooo_baremetal_tb.cpp in debug mode
+   Compiling ../../../../rv32_ooo.cpp in debug mode
+   Generating csim.exe
+Cargando binario bare-metal ELF32 real (508 bytes)...
+      PT_LOAD vaddr=0x0 filesz=46 flags=RX -> imem
+      entry point = 0x0
+
+El binario se detuvo por su propio ECALL en el ciclo 18 (14 commits).
+
+OK    mem[0x80] = 0xf (out[0] = 1+2+3+4+5 (loop))
+OK    mem[0x84] = 0x78 (out[1] = 1*2*3*4*5 (loop))
+OK    mem[0x88] = 0xabcd (out[2] = csrr mscratch tras csrw 0xABCD (banco de CSRs))
+
+Todos los checks pasaron. El core ejecuto un binario ELF real compilado con gcc, incluyendo acceso a CSRs y ECALL.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

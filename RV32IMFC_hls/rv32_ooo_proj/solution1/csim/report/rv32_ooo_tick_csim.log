@@ -1,0 +1,176 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../rv32_ooo_tb.cpp in debug mode
+   Compiling ../../../../rv32_ooo.cpp in debug mode
+   Generating csim.exe
+ciclo | evento
+------+------------------------------------------------
+    1 | DISPATCH d0  (pc=  0, tag 0)
+    2 | DISPATCH d1  (pc=  4, tag 1)
+    3 | DISPATCH d2  (pc=  8, tag 2)
+    3 | ALU0   completa d0  (tag 0)
+    4 | DISPATCH d3  (pc= 12, tag 3)
+    4 | ALU1   completa d1  (tag 1)
+    4 | COMMIT  x1  = 0x00000005
+    5 | DISPATCH d4  (pc= 16, tag 4)
+    5 | COMMIT  x2  = 0x0000000a
+    6 | DISPATCH d5  (pc= 20, tag 5)
+    6 | ALU0   completa d3  (tag 3)
+    7 | MULDIV completa d2  (tag 2)
+    8 | DISPATCH d6  (pc= 24, tag 6)
+    8 | ALU1   completa d4  (tag 4)
+    8 | LSU    completa d5  (tag 5)
+    8 | COMMIT  x3  = 0x00000032
+    9 | DISPATCH d7  (pc= 28, tag 7)
+    9 | COMMIT  x4  = 0x00000007
+   10 | COMMIT  x5  = 0x00000039
+   11 | DISPATCH d8  (pc= 36, tag 0)
+   11 | LSU    completa d6  (tag 6)
+   11 | BR     completa d7  (tag 7)
+   11 | COMMIT  x0  = 0x00000000
+   12 | DISPATCH d9  (pc= 40, tag 1)
+   12 | COMMIT  x6  = 0x00000039
+   13 | DISPATCH d10 (pc= 48, tag 2)
+   13 | ALU0   completa d8  (tag 0)
+   13 | COMMIT  x0  = 0x00000000
+   14 | DISPATCH d11 (pc= 52, tag 3)
+   14 | COMMIT  x7  = 0x00000001
+   15 | DISPATCH d12 (pc= 56, tag 4)
+   15 | COMMIT  x8  = 0x0000002c
+   16 | DISPATCH d13 (pc= 60, tag 5)
+   16 | COMMIT  x10 = 0x12345000
+   17 | DISPATCH d14 (pc= 64, tag 6)
+   17 | ALU0   completa d12 (tag 4)
+   18 | DISPATCH d15 (pc= 68, tag 7)
+   18 | ALU1   completa d13 (tag 5)
+   20 | DISPATCH d16 (pc= 72, tag 0)
+   20 | ALU0   completa d15 (tag 7)
+   20 | FPU    completa d14 (tag 6)
+   23 | DISPATCH d17 (pc= 76, tag 1)
+   23 | MULDIV completa d11 (tag 3)
+   23 | FPU    completa d16 (tag 0)
+   24 | COMMIT  x11 = 0x0000000a
+   25 | COMMIT  x12 = 0x00000005
+   26 | COMMIT  x20 = 0x00000003
+   27 | DISPATCH d18 (pc= 80, tag 2)
+   27 | FPU    completa d17 (tag 1)
+   27 | COMMIT  f1  = 0x40400000
+   28 | DISPATCH d19 (pc= 84, tag 3)
+   28 | COMMIT  x21 = 0x00000004
+   29 | COMMIT  f2  = 0x40800000
+   30 | COMMIT  f3  = 0x41400000
+   32 | DISPATCH d20 (pc= 88, tag 4)
+   32 | FPU    completa d18 (tag 2)
+   32 | LSU    completa d19 (tag 3)
+   33 | DISPATCH d21 (pc= 92, tag 5)
+   33 | COMMIT  f5  = 0x41c00000
+   34 | LSU    completa d20 (tag 4)
+   34 | COMMIT  x0  = 0x0000000a
+   35 | COMMIT  f6  = 0x41c00000
+   36 | DISPATCH d22 (pc= 96, tag 6)
+   36 | FPU    completa d21 (tag 5)
+   37 | COMMIT  x22 = 0x00000001
+   39 | DISPATCH d23 (pc=100, tag 7)
+   39 | FPU    completa d22 (tag 6)
+   40 | DISPATCH d24 (pc=104, tag 0)
+   40 | COMMIT  x23 = 0x41400000
+   41 | DISPATCH d25 (pc=108, tag 1)
+   42 | DISPATCH d26 (pc=110, tag 2)
+   42 | ALU0   completa d24 (tag 0)
+   43 | DISPATCH d27 (pc=114, tag 3)
+   43 | ALU1   completa d25 (tag 1)
+   44 | DISPATCH d28 (pc=116, tag 4)
+   44 | ALU0   completa d26 (tag 2)
+   45 | DISPATCH d29 (pc=120, tag 5)
+   45 | ALU1   completa d27 (tag 3)
+   47 | ALU0   completa d29 (tag 5)
+   48 | FPU    completa d23 (tag 7)
+   49 | COMMIT  f7  = 0x40800000
+   50 | COMMIT  x24 = 0x00000002
+   51 | COMMIT  x15 = 0x00000009
+   52 | COMMIT  x16 = 0x00000015
+   53 | DISPATCH d30 (pc=124, tag 6)
+   53 | VEC    completa d28 (tag 4)
+   53 | COMMIT  x15 = 0x0000000c
+   54 | COMMIT  x0  = 0x41c00000
+   55 | DISPATCH d31 (pc=128, tag 7)
+   55 | VEC    completa d30 (tag 6)
+   55 | COMMIT  x13 = 0x00000010
+   56 | DISPATCH d32 (pc=132, tag 0)
+   56 | COMMIT  x0  = 0x41400000
+   58 | ALU0   completa d32 (tag 0)
+   59 | DISPATCH d33 (pc=136, tag 1)
+   59 | VEC    completa d31 (tag 7)
+   60 | DISPATCH d34 (pc=140, tag 2)
+   60 | COMMIT  x0  = 0x40800000
+   61 | DISPATCH d35 (pc=144, tag 3)
+   61 | COMMIT  x14 = 0x00000063
+   62 | ALU0   completa d34 (tag 2)
+   63 | DISPATCH d36 (pc=148, tag 4)
+   63 | ALU1   completa d35 (tag 3)
+   63 | VEC    completa d33 (tag 1)
+   64 | COMMIT  x0  = 0x00000009
+   65 | COMMIT  x17 = 0x0000004d
+   66 | VEC    completa d36 (tag 4)
+   66 | COMMIT  x18 = 0x00000020
+   67 | COMMIT  x0  = 0x41c00000
+------+------------------------------------------------
+Halted en el ciclo 67 (37 dispatches, 37 commits)
+
+OK    x1  = 0x00000005 (addi)
+OK    x2  = 0x0000000a (addi)
+OK    x3  = 0x00000032 (mul)
+OK    x4  = 0x00000007 (addi independiente del mul)
+OK    x5  = 0x00000039 (add dependiente del mul (RAW via CDB))
+OK    x6  = 0x00000039 (lw round-trip del sw)
+OK    x7  = 0x00000001 (beq tomado (99 nunca ejecuto))
+OK    x8  = 0x0000002c (link del jal)
+OK    x9  = 0x00000000 (instruccion saltada por jal)
+OK    x10 = 0x12345000 (lui)
+OK    x11 = 0x0000000a (div)
+OK    x12 = 0x00000005 (sub independiente del div)
+OK    x15 = 0x0000000c (C.LI + C.ADDI comprimidas)
+OK    x16 = 0x00000015 (addi de 32 bits en pc%4==2 (straddle))
+OK    x20 = 0x00000003 (addi (fuente de fcvt))
+OK    x21 = 0x00000004 (addi (fuente de fcvt))
+OK    x22 = 0x00000001 (feq.s f5==f6 (FP escribe banco entero))
+OK    x23 = 0x41400000 (fmv.x.w bits de 12.0f)
+OK    x24 = 0x00000002 (addi independiente del fdiv)
+OK    x13 = 0x00000010 (addi (base del segundo vle32.v))
+OK    x14 = 0x00000063 (addi independiente de vadd.vv)
+OK    x17 = 0x0000004d (addi independiente de vmul.vv)
+OK    x18 = 0x00000020 (addi (direccion del vse32.v))
+OK    f1  = 0x40400000 (fcvt.s.w 3 -> 3.0)
+OK    f2  = 0x40800000 (fcvt.s.w 4 -> 4.0)
+OK    f3  = 0x41400000 (fmul.s 3*4 = 12.0)
+OK    f5  = 0x41c00000 (fmadd.s 3*4+12 = 24.0 (rs3))
+OK    f6  = 0x41c00000 (flw round-trip del fsw)
+OK    f7  = 0x40800000 (fdiv.s 12/3 = 4.0)
+OK    OOO: d3 (addi) antes que d2 (mul) (ciclos 6 < 7)
+OK    OOO: d12 (sub) antes que d11 (div) (ciclos 17 < 23)
+OK    OOO: d24 (addi) antes que d23 (fdiv) -- OOO cruzando bancos (ciclos 42 < 48)
+OK    OOO: d32 (addi) antes que d31 (vadd.vv) -- coprocesamiento: escalar avanza mientras VEC ejecuta (ciclos 58 < 59)
+OK    OOO: d34 (addi) antes que d33 (vmul.vv) -- coprocesamiento (ciclos 62 < 63)
+OK    dmem[16] = 57 (sw escribio al commit)
+OK    dmem[17] = 0x41C00000 (fsw escribio 24.0f al commit)
+OK    v1[0] = 0x0000000a
+OK    v1[1] = 0x00000014
+OK    v1[2] = 0x0000001e
+OK    v1[3] = 0x00000028
+OK    v2[0] = 0x00000001
+OK    v2[1] = 0x00000002
+OK    v2[2] = 0x00000003
+OK    v2[3] = 0x00000004
+OK    v3[0] = 0x0000000b
+OK    v3[1] = 0x00000016
+OK    v3[2] = 0x00000021
+OK    v3[3] = 0x0000002c
+OK    v4[0] = 0x00000064
+OK    v4[1] = 0x00000190
+OK    v4[2] = 0x00000384
+OK    v4[3] = 0x00000640
+OK    dmem[32..47] = {11,22,33,44} (vse32.v round-trip, resuelto en cabeza del ROB)
+
+Todos los checks pasaron.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

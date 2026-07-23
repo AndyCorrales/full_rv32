@@ -1,0 +1,128 @@
+{
+  "0": {
+    "basicblocks": 344,
+    "calls": "4 4 5 4 4 4 4 7 9 9 9 9 9 6 9 6 6 6 9 6 6 9 9 9 9 4",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 484,
+    "instructions": 2077,
+    "loads": {
+      "G": 168,
+      "L": 46,
+      "T": 9
+    },
+    "name": "rv32_ooo_tick",
+    "stores": {
+      "G": 600,
+      "T": 57
+    },
+    "total_instructions": 4637
+  },
+  "1": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "hls_fmin.h",
+    "fileloc": 19,
+    "instructions": 46,
+    "name": "generic_fmin<float>",
+    "total_instructions": 46
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rv32c_defs.h",
+    "fileloc": 34,
+    "instructions": 10,
+    "name": "i_type",
+    "total_instructions": 10
+  },
+  "3": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "hls_rint.h",
+    "fileloc": 26,
+    "instructions": 47,
+    "loads": {
+      "G": 3
+    },
+    "name": "generic_rint<float>",
+    "total_instructions": 47
+  },
+  "4": {
+    "basicblocks": 39,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 177,
+    "instructions": 152,
+    "loads": {
+      "G": 38
+    },
+    "name": "cdb_broadcast",
+    "stores": {
+      "G": 30
+    },
+    "total_instructions": 152
+  },
+  "5": {
+    "basicblocks": 50,
+    "calls": "1 8 3 3",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 354,
+    "instructions": 216,
+    "loads": {
+      "G": 11
+    },
+    "name": "fpu_compute",
+    "stores": {
+      "L": 20
+    },
+    "total_instructions": 402
+  },
+  "6": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 282,
+    "instructions": 25,
+    "loads": {
+      "G": 5
+    },
+    "name": "read_operand_fp",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 25
+  },
+  "7": {
+    "basicblocks": 47,
+    "calls": "2 2 2 2 2 2 2 2 2 2 2",
+    "file": "rv32c_defs.h",
+    "fileloc": 65,
+    "instructions": 460,
+    "name": "expand",
+    "total_instructions": 570
+  },
+  "8": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "hls_fmax.h",
+    "fileloc": 19,
+    "instructions": 46,
+    "name": "generic_fmax<float>",
+    "total_instructions": 46
+  },
+  "9": {
+    "basicblocks": 9,
+    "calls": "",
+    "file": "rv32_ooo.cpp",
+    "fileloc": 260,
+    "instructions": 34,
+    "loads": {
+      "G": 5
+    },
+    "name": "read_operand",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 34
+  }
+}

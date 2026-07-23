@@ -1,0 +1,92 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">, 26066, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll,  3324, user unroll pragmas are applied</column>
+            <column name="">(2) simplification,  2617, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline,  2307, user inline pragmas are applied</column>
+            <column name="">(4) simplification,  1668, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition,  1659, user array partition pragmas are applied</column>
+            <column name="">(2) simplification,  1659, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate ,  1659, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape,  1659, apply array reshape pragmas</column>
+            <column name="">(5) access patterns,  1659, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification,  1659, loop and instruction simplification</column>
+            <column name="">(2) parallelization,  1660, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition,  1660, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification,  1660, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering,  1720, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations,  1719, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="rv32_core_step" col1="rv32_core.cpp:86" col2="26066" col3="1668" col4="1659" col5="1660" col6="1719">
+                    <row id="50" col0="expand" col1="rv32c_defs.h:65" col2="863" col3="576" col4="570" col5="570" col6="570">
+                        <row id="22" col0="creg" col1="rv32c_defs.h:20" col2="8" col2_disp="    8 (4 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="24" col0="i_type" col1="rv32c_defs.h:34" col2="110" col2_disp="  110 (11 calls)" col3="110" col3_disp=" 110 (11 calls)" col4="110" col4_disp=" 110 (11 calls)" col5="110" col5_disp=" 110 (11 calls)" col6="110" col6_disp=" 110 (11 calls)"/>
+                        <row id="11" col0="s_type" col1="rv32c_defs.h:37" col2="56" col2_disp="   56 (4 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="40" col0="sext" col1="rv32c_defs.h:22" col2="36" col2_disp="   36 (9 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="45" col0="j_type" col1="rv32c_defs.h:49" col2="40" col2_disp="   40 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="5" col0="u_type" col1="rv32c_defs.h:46" col2="6" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="r_type" col1="rv32c_defs.h:31" col2="99" col2_disp="   99 (9 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="58" col0="b_type" col1="rv32c_defs.h:41" col2="48" col2_disp="   48 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="18" col0="opcode" col1="rv32i_defs.h:148" col2="2" col3="" col4="" col5="" col6=""/>
+                    <row id="36" col0="rd" col1="rv32i_defs.h:149" col2="3" col3="" col4="" col5="" col6=""/>
+                    <row id="20" col0="funct3" col1="rv32i_defs.h:150" col2="3" col3="" col4="" col5="" col6=""/>
+                    <row id="23" col0="rs1" col1="rv32i_defs.h:151" col2="3" col3="" col4="" col5="" col6=""/>
+                    <row id="26" col0="rs2" col1="rv32i_defs.h:152" col2="9" col2_disp="    9 (3 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="52" col0="funct7" col1="rv32i_defs.h:153" col2="6" col2_disp="    6 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="37" col0="write_reg" col1="rv32_core.cpp:10" col2="88" col2_disp="   88 (11 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="4" col0="get_imm_I" col1="immediates_hls.h:20" col2="244" col2_disp="  244 (4 calls)" col3="" col4="" col5="" col6="">
+                        <row id="12" col0="sign_extend" col1="immediates_hls.h:15" col2="40" col2_disp="   40 (4 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="19" col0="get_shamt" col1="immediates_hls.h:57" col2="40" col3="" col4="" col5="" col6=""/>
+                    <row id="34" col0="mem_load" col1="rv32_core.cpp:22" col2="1268" col2_disp="1,268 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="31" col0="get_imm_S" col1="immediates_hls.h:24" col2="528" col2_disp="  528 (2 calls)" col3="" col4="" col5="" col6="">
+                        <row id="12" col0="sign_extend" col1="immediates_hls.h:15" col2="20" col2_disp="   20 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="29" col0="mem_store" col1="rv32_core.cpp:52" col2="1864" col2_disp="1,864 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="48" col0="get_imm_B" col1="immediates_hls.h:31" col2="413" col3="" col4="" col5="" col6="">
+                        <row id="12" col0="sign_extend" col1="immediates_hls.h:15" col2="10" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="9" col0="get_imm_J" col1="immediates_hls.h:47" col2="413" col3="" col4="" col5="" col6="">
+                        <row id="12" col0="sign_extend" col1="immediates_hls.h:15" col2="10" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="53" col0="get_imm_U" col1="immediates_hls.h:41" col2="238" col2_disp="  238 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="55" col0="bits_to_float" col1="fp_ops.h:27" col2="36" col2_disp="   36 (3 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="21" col0="float_to_bits" col1="fp_ops.h:22" col2="48" col2_disp="   48 (4 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="32" col0="rs3" col1="rv32i_defs.h:158" col2="12" col2_disp="   12 (4 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="39" col0="fcvt_wu_s" col1="fp_ops.h:45" col2="5005" col3="" col4="" col5="" col6=""/>
+                    <row id="57" col0="fcvt_w_s" col1="fp_ops.h:37" col2="5187" col3="" col4="" col5="" col6=""/>
+                    <row id="43" col0="fclass_s" col1="fp_ops.h:55" col2="1012" col3="" col4="" col5="" col6="">
+                        <row id="21" col0="float_to_bits" col1="fp_ops.h:22" col2="12" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="30" col0="generic_fmin&lt;float&gt;" col1="hls_fmin.h:19" col2="" col3="46" col4="46" col5="46" col6="46"/>
+                    <row id="16" col0="generic_fmax&lt;float&gt;" col1="hls_fmax.h:19" col2="" col3="46" col4="46" col5="46" col6="46"/>
+                    <row id="13" col0="generic_rint&lt;float&gt;" col1="hls_rint.h:26" col2="" col3="94" col3_disp="  94 (2 calls)" col4="94" col4_disp="  94 (2 calls)" col5="94" col5_disp="  94 (2 calls)" col6="94" col6_disp="  94 (2 calls)"/>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

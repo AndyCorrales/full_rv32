@@ -1,0 +1,157 @@
+{
+    "1": {
+        "name": "read_operand",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "260",
+        "instructions": "29",
+        "total_instructions": "29",
+        "calls": "",
+        "basicblocks": "1",
+        "loads": {
+            "G": "5"
+        }
+    },
+    "2": {
+        "name": "rv32_ooo_tick_Pipeline_VITIS_LOOP_579_5",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "579",
+        "instructions": "19",
+        "total_instructions": "19",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "G": "1",
+            "L": "1"
+        },
+        "stores": {
+            "L": "2",
+            "T": "1"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "read_operand_fp",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "282",
+        "instructions": "23",
+        "total_instructions": "23",
+        "calls": "",
+        "basicblocks": "1",
+        "loads": {
+            "G": "5"
+        }
+    },
+    "4": {
+        "name": "rv32_ooo_tick_Pipeline_VITIS_LOOP_575_4",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "575",
+        "instructions": "16",
+        "total_instructions": "16",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "G": "1",
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "rv32_ooo_tick",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "484",
+        "instructions": "1855",
+        "total_instructions": "3971",
+        "calls": "4 2 9 9 5 9 9 9 9 6 1 1 7 1 1 1 1 1 3 1 3 3 3 1 3 3 1 1 1 1 8 9",
+        "basicblocks": "216",
+        "loads": {
+            "G": "128",
+            "L": "1",
+            "T": "9"
+        },
+        "stores": {
+            "G": "555",
+            "T": "7"
+        }
+    },
+    "5": {
+        "name": "fpu_compute",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "355",
+        "instructions": "341",
+        "total_instructions": "341",
+        "calls": "",
+        "basicblocks": "35",
+        "loads": {
+            "G": "13"
+        }
+    },
+    "6": {
+        "name": "expand",
+        "file": "rv32c_defs.h",
+        "fileloc": "65",
+        "instructions": "200",
+        "total_instructions": "200",
+        "calls": "",
+        "basicblocks": "47"
+    },
+    "7": {
+        "name": "rv32_ooo_tick_Pipeline_VITIS_LOOP_872_10",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "871",
+        "instructions": "26",
+        "total_instructions": "26",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "3"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "8": {
+        "name": "rv32_ooo_tick_Pipeline_VITIS_LOOP_1129_11",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "1129",
+        "instructions": "19",
+        "total_instructions": "19",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "G": "1",
+            "L": "1"
+        },
+        "stores": {
+            "L": "2",
+            "T": "1"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "9": {
+        "name": "cdb_broadcast",
+        "file": "rv32_ooo.cpp",
+        "fileloc": "177",
+        "instructions": "140",
+        "total_instructions": "140",
+        "calls": "",
+        "basicblocks": "39",
+        "loads": {
+            "G": "38"
+        },
+        "stores": {
+            "G": "30"
+        }
+    }
+}

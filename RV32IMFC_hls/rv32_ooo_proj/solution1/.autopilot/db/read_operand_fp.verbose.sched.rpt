@@ -1,0 +1,154 @@
+
+
+================================================================
+== Vitis HLS Report for 'read_operand_fp'
+================================================================
+* Date:           Tue Jul 21 18:18:42 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        rv32_ooo_proj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xck26-sfvc784-2LV-c
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  1.391 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        2|        2|  20.000 ns|  20.000 ns|    2|    2|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.23>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%reg_read = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %reg_r" [rv32_ooo.cpp:282]   --->   Operation 4 'read' 'reg_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%zext_ln284 = zext i5 %reg_read" [rv32_ooo.cpp:284]   --->   Operation 5 'zext' 'zext_ln284' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%frat_has_tag_addr = getelementptr i1 %frat_has_tag, i64 0, i64 %zext_ln284" [rv32_ooo.cpp:284]   --->   Operation 6 'getelementptr' 'frat_has_tag_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [2/2] (0.67ns)   --->   "%frat_has_tag_load = load i5 %frat_has_tag_addr" [rv32_ooo.cpp:284]   --->   Operation 7 'load' 'frat_has_tag_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 32> <RAM>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%frat_tag_addr = getelementptr i3 %frat_tag, i64 0, i64 %zext_ln284" [rv32_ooo.cpp:288]   --->   Operation 8 'getelementptr' 'frat_tag_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [2/2] (0.67ns)   --->   "%t = load i5 %frat_tag_addr" [rv32_ooo.cpp:288]   --->   Operation 9 'load' 't' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 3> <Depth = 32> <RAM>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%fregs_addr = getelementptr i32 %fregs, i64 0, i64 %zext_ln284" [rv32_ooo.cpp:285]   --->   Operation 10 'getelementptr' 'fregs_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [2/2] (1.23ns)   --->   "%fregs_load = load i5 %fregs_addr" [rv32_ooo.cpp:285]   --->   Operation 11 'load' 'fregs_load' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 32> <RAM>
+
+State 2 <SV = 1> <Delay = 1.35>
+ST_2 : Operation 12 [1/2] ( I:0.67ns O:0.67ns )   --->   "%frat_has_tag_load = load i5 %frat_has_tag_addr" [rv32_ooo.cpp:284]   --->   Operation 12 'load' 'frat_has_tag_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 32> <RAM>
+ST_2 : Operation 13 [1/2] ( I:0.67ns O:0.67ns )   --->   "%t = load i5 %frat_tag_addr" [rv32_ooo.cpp:288]   --->   Operation 13 'load' 't' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 3> <Depth = 32> <RAM>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln289 = zext i3 %t" [rv32_ooo.cpp:289]   --->   Operation 14 'zext' 'zext_ln289' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%rob_ready_addr = getelementptr i1 %rob_ready, i64 0, i64 %zext_ln289" [rv32_ooo.cpp:289]   --->   Operation 15 'getelementptr' 'rob_ready_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [2/2] (0.67ns)   --->   "%rob_ready_load = load i3 %rob_ready_addr" [rv32_ooo.cpp:289]   --->   Operation 16 'load' 'rob_ready_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 8> <RAM>
+ST_2 : Operation 17 [1/2] ( I:1.23ns O:1.23ns )   --->   "%fregs_load = load i5 %fregs_addr" [rv32_ooo.cpp:285]   --->   Operation 17 'load' 'fregs_load' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 32> <RAM>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%rob_value_addr = getelementptr i32 %rob_value, i64 0, i64 %zext_ln289" [rv32_ooo.cpp:290]   --->   Operation 18 'getelementptr' 'rob_value_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [2/2] (0.67ns)   --->   "%rob_value_load = load i3 %rob_value_addr" [rv32_ooo.cpp:290]   --->   Operation 19 'load' 'rob_value_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 3 <SV = 2> <Delay = 1.39>
+ST_3 : Operation 20 [1/2] ( I:0.67ns O:0.67ns )   --->   "%rob_ready_load = load i3 %rob_ready_addr" [rv32_ooo.cpp:289]   --->   Operation 20 'load' 'rob_ready_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 8> <RAM>
+ST_3 : Operation 21 [1/2] ( I:0.67ns O:0.67ns )   --->   "%rob_value_load = load i3 %rob_value_addr" [rv32_ooo.cpp:290]   --->   Operation 21 'load' 'rob_value_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 22 [1/1] (0.28ns)   --->   "%xor_ln284 = xor i1 %frat_has_tag_load, i1 1" [rv32_ooo.cpp:284]   --->   Operation 22 'xor' 'xor_ln284' <Predicate = true> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 23 [1/1] (0.28ns)   --->   "%or_ln289 = or i1 %rob_ready_load, i1 %xor_ln284" [rv32_ooo.cpp:289]   --->   Operation 23 'or' 'or_ln289' <Predicate = true> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.28ns)   --->   "%and_ln289 = and i1 %frat_has_tag_load, i1 %rob_ready_load" [rv32_ooo.cpp:289]   --->   Operation 24 'and' 'and_ln289' <Predicate = true> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%sel_tmp5 = bitconcatenate i2 @_ssdm_op_BitConcatenate.i2.i1.i1, i1 %and_ln289, i1 %xor_ln284" [rv32_ooo.cpp:289]   --->   Operation 25 'bitconcatenate' 'sel_tmp5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.42ns)   --->   "%op_val = sparsemux i32 @_ssdm_op_SparseMux.ap_auto.3i32.i32.i2, i2 2, i32 %rob_value_load, i2 1, i32 %fregs_load, i2 0, i32 0, i32 0, i2 %sel_tmp5" [rv32_ooo.cpp:290]   --->   Operation 26 'sparsemux' 'op_val' <Predicate = true> <Delay = 0.42> <CoreInst = "OneHotSparseMux_HasDef">   --->   Core 152 'OneHotSparseMux_HasDef' <Latency = 0> <II = 1> <Delay = 0.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.20ns)   --->   "%op_tag = select i1 %or_ln289, i3 0, i3 %t" [rv32_ooo.cpp:289]   --->   Operation 27 'select' 'op_tag' <Predicate = true> <Delay = 0.20> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.20> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%mrv = insertvalue i36 <undef>, i1 %or_ln289" [rv32_ooo.cpp:295]   --->   Operation 28 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue i36 %mrv, i32 %op_val" [rv32_ooo.cpp:295]   --->   Operation 29 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue i36 %mrv_1, i3 %op_tag" [rv32_ooo.cpp:295]   --->   Operation 30 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%ret_ln295 = ret i36 %mrv_2" [rv32_ooo.cpp:295]   --->   Operation 31 'ret' 'ret_ln295' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 1.237ns
+The critical path consists of the following:
+	wire read operation ('reg_read', rv32_ooo.cpp:282) on port 'reg_r' (rv32_ooo.cpp:282) [7]  (0.000 ns)
+	'getelementptr' operation 5 bit ('fregs_addr', rv32_ooo.cpp:285) [16]  (0.000 ns)
+	'load' operation 32 bit ('fregs_load', rv32_ooo.cpp:285) on array 'fregs' [17]  (1.237 ns)
+
+ <State 2>: 1.354ns
+The critical path consists of the following:
+	'load' operation 3 bit ('t', rv32_ooo.cpp:288) on array 'frat_tag' [12]  (0.677 ns)
+	'getelementptr' operation 3 bit ('rob_ready_addr', rv32_ooo.cpp:289) [14]  (0.000 ns)
+	'load' operation 1 bit ('rob_ready_load', rv32_ooo.cpp:289) on array 'rob_ready' [15]  (0.677 ns)
+
+ <State 3>: 1.391ns
+The critical path consists of the following:
+	'load' operation 1 bit ('rob_ready_load', rv32_ooo.cpp:289) on array 'rob_ready' [15]  (0.677 ns)
+	'and' operation 1 bit ('and_ln289', rv32_ooo.cpp:289) [22]  (0.287 ns)
+	'sparsemux' operation 32 bit ('op.val', rv32_ooo.cpp:290) [24]  (0.427 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,139 @@
+<root versionMajor = "1" versionMinor = "5">
+  <kernel src_name="rv32_ooo_tick" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
+    <args>
+      <arg id="0" access_type="r" src_name="reset" src_type="ap_uint&lt;1&gt;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="reset" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="1" access_type="r" src_name="imem" src_type="ap_uint&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="64">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="imem" hw_bitwidth="32" hw_size_or_depth="64" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="2" access_type="rw" src_name="dmem" src_type="ap_uint&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="64">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="dmem" hw_bitwidth="32" hw_size_or_depth="64" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="3" access_type="w" src_name="disp_valid" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="disp_valid" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="4" access_type="w" src_name="disp_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="disp_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="5" access_type="w" src_name="disp_pc" src_type="ap_uint&lt;32&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="disp_pc" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="6" access_type="w" src_name="alu0_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="alu0_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="7" access_type="w" src_name="alu0_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="alu0_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="8" access_type="w" src_name="alu1_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="alu1_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="9" access_type="w" src_name="alu1_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="alu1_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="10" access_type="w" src_name="md_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="md_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="11" access_type="w" src_name="md_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="md_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="12" access_type="w" src_name="fpu_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="fpu_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="13" access_type="w" src_name="fpu_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="fpu_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="14" access_type="w" src_name="lsu_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="lsu_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="15" access_type="w" src_name="lsu_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="lsu_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="16" access_type="w" src_name="br_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="br_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="17" access_type="w" src_name="br_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="br_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="18" access_type="w" src_name="vec_done" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="vec_done" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="19" access_type="w" src_name="vec_tag" src_type="ap_uint&lt;3&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="vec_tag" hw_bitwidth="3" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="20" access_type="w" src_name="commit_valid" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="commit_valid" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="21" access_type="w" src_name="commit_is_fp" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="commit_is_fp" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="22" access_type="w" src_name="commit_rd" src_type="ap_uint&lt;5&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="commit_rd" hw_bitwidth="5" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="23" access_type="w" src_name="commit_value" src_type="ap_uint&lt;32&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="commit_value" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="24" access_type="w" src_name="vregs_out" src_type="ap_uint&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="128">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="vregs_out" hw_bitwidth="32" hw_size_or_depth="128" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="25" access_type="w" src_name="halted" src_type="ap_uint&lt;1&gt;&amp;" src_isptr="1" src_bitwidth="8" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="halted" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+    </args>
+    <return src_type="void" src_bitwidth="0" offset="0x0">
+      <hw hw_usage="data" hw_interface="" hw_name="" hw_bitwidth="0" hw_kernel_support="true"/>
+    </return>
+  </kernel>
+</root>
