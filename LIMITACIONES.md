@@ -144,10 +144,13 @@ Documentadas también como comentario de cabecera en `rv32_ooo.h`.
   en la placa. El flujo completo (IP export → Block Design → bitstream →
   prueba en hardware) está documentado como próximo paso pero no
   ejecutado.
-- `RV32IMFC_hls/vivado/run_vivado.tcl` (síntesis + implementación
-  post-P&R, out-of-context) todavía no se corrió — los números de Fmax/
-  utilización citados en los README son *estimados de HLS*
-  (`csynth_design`), no post-implementación de Vivado.
+- **Post-P&R real**: el core OOO+RVV+bare-metal **sí** se llevó hasta
+  place & route en Vivado (`run_hls_ooo_impl.tcl`, `export_design -flow
+  impl`) — hay números post-implementación (7603 LUT, 4829 FF, 21 BRAM,
+  ≈134.6 MHz, cierra timing a 100 MHz), documentados en
+  `RV32IMFC_hls/README.md`. Los otros cores (escalar, `ooo_demo`,
+  `rv32_vector`) siguen reportando solo estimados de HLS
+  (`csynth_design`); correr su P&R es directo pero no se hizo.
 - Sin CSRs, `ECALL`/`EBREAK`, `FENCE`, loader de ELF, ni periférico
   UART — no se pueden correr binarios reales compilados con un
   toolchain (`riscv32-unknown-elf-gcc`), solo los programas de prueba

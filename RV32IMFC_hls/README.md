@@ -326,11 +326,34 @@ cd RV32IMFC_hls
 vitis_hls -f run_hls_ooo_baremetal.tcl   # csim (corre el ELF real) + csynth
 ```
 
-**Síntesis con bare-metal** (Vitis HLS 2024.2, `xck26-sfvc784-2LV-c`):
-Fmax **135.86 MHz** (sin cambio — el camino crítico sigue siendo la
-FPU), 17489 LUT (14.9 %), 5473 FF (2.3 %), 20 DSP, 6 BRAM. Agregar el
-banco de CSRs + la unidad de sistema costó ~700 LUT sobre la versión sin
-bare-metal, sin tocar el Fmax.
+**Síntesis con bare-metal** (Vitis HLS 2024.2, `xck26-sfvc784-2LV-c`).
+Se corrió el flujo completo hasta **place & route real en Vivado**
+(`run_hls_ooo_impl.tcl`, `export_design -flow impl`), no solo el
+estimado de HLS — así hay números *post-implementación* para citar en
+"Resultados y Análisis":
+
+| Métrica | Estimado HLS (`csynth`) | **Post-P&R (Vivado)** |
+|---|---|---|
+| LUT | 17489 (14.9 %) | **7603 (6.5 %)** |
+| FF | 5473 (2.3 %) | **4829 (2.1 %)** |
+| DSP | 20 | **16** |
+| BRAM | 6 | **21** |
+| Periodo crítico | 7.36 ns (est.) | **7.43 ns (post-route)** |
+| Fmax | 135.86 MHz | **≈134.6 MHz** |
+| Timing @ 100 MHz | — | **cumple (slack positivo)** |
+
+Observaciones para el análisis: (1) el estimado de LUT de HLS es
+**~2.3× pesimista** frente a lo que realmente logra la síntesis+P&R de
+Vivado (7603 vs 17489) — HLS sobreestima sobre todo los multiplexores;
+(2) el BRAM sube post-implementación (21 vs 6) porque las memorias y la
+IP de punto flotante se mapean a bloques reales; (3) el Fmax
+post-route (≈134.6 MHz) confirma el estimado de HLS, con el camino
+crítico dominado por la FPU. El diseño **cierra timing** a los 100 MHz
+objetivo con holgura positiva. Reporte completo en
+`rv32_ooo_proj/solution1/impl/report/verilog/export_impl.rpt`.
+
+Agregar el banco de CSRs + la unidad de sistema (bare-metal) costó
+~700 LUT de estimado sobre la versión sin bare-metal, sin tocar el Fmax.
 
 **Por qué falta el item 6 (traps precisas)** — y por qué es
 específicamente difícil en un core OOO: un `ECALL`/interrupción a mitad
